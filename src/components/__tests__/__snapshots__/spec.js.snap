@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage Should render (smoke test) 1`] = `
+<DocumentFragment>
+  <div>
+    <h3
+      class="MuiTypography-root makeStyles-title-1 MuiTypography-h3 MuiTypography-alignCenter"
+    >
+      URL is invalid!
+    </h3>
+    <h4
+      class="MuiTypography-root makeStyles-subTitle-2 MuiTypography-h4 MuiTypography-alignCenter"
+    >
+      <a
+        href="#/"
+      >
+        Go back to homepage
+      </a>
+    </h4>
+  </div>
+</DocumentFragment>
+`;
