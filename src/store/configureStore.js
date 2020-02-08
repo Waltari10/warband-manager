@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import createRootReducer from './rootReducer.js';
-// import { sagas } from '../ducks';
+import { sagas } from '../ducks';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,7 +15,7 @@ function configureStoreProd(initialState) {
     compose(applyMiddleware(...middlewares)),
   );
 
-  // sagaMiddleware.run(sagas);
+  sagaMiddleware.run(sagas);
 
   return store;
 }
@@ -32,7 +32,7 @@ function configureStoreDev(initialState) {
     initialState,
     composeEnhancers(applyMiddleware(...middlewares)),
   );
-  // sagaMiddleware.run(sagas);
+  sagaMiddleware.run(sagas);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

@@ -11,9 +11,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 
-
 const useStyles = makeStyles((theme) => ({
-  
   header: {
     marginTop: theme.spacing(6),
     marginBottom: theme.spacing(6),
@@ -51,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Login = ({
-  isLoading, isError, isSuccess, loginWithEmail,
+  isLoading, isError, isSuccess, signupWithEmail,
   googleSignIn,
 }) => {
 
@@ -72,7 +70,7 @@ const Login = ({
           <Typography variant="h2">Issue Log</Typography>
         </Grid>
         <Grid className={classes.subheader} item>
-          <Typography variant="h4">Signin</Typography>
+          <Typography variant="h4">Signup</Typography>
         </Grid>
         <Grid item>
           <TextField
@@ -110,7 +108,7 @@ const Login = ({
           <Button
             className={classes.continueButton}
             disabled={submitDisabled}
-            onClick={() => loginWithEmail(email, password)}
+            onClick={() => signupWithEmail(email, password)}
             variant="contained"
             color="primary"
           >Continue</Button>
@@ -136,16 +134,19 @@ const Login = ({
             </Typography>
           </Link>
         </Grid>
+
+
+        {/* TODO: Redirect to login page */}
         <Grid
           className={classes.loginLink}
           item
         >
           <Link
-            to={'/signup'}
             component={RouterLink}
+            to={'/'}
           >
             <Typography variant="body2">
-              New to Reflection Log? Create an account.
+              Already have an account? Login instead.
             </Typography>
           </Link>
         </Grid>

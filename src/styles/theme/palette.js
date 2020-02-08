@@ -1,8 +1,10 @@
 import { colors } from '@material-ui/core';
 
 const white = '#FFFFFF';
+const black = '#000';
 
 export default {
+  // type: 'light',
   primary: {
     contrastText: white,
     dark: colors.indigo[900],
@@ -22,15 +24,11 @@ export default {
     light: colors.red[400],
   },
   text: {
-    primary: colors.blueGrey[900],
-    secondary: colors.blueGrey[600],
+    primary: black,
+    secondary: black,
     link: colors.blue[600],
   },
-  link: colors.blue[800],
+  link: colors.blueGrey[100],
   icon: colors.blueGrey[600],
-  background: {
-    default: '#F4F6F8',
-    paper: white,
-  },
   divider: colors.grey[200],
 };

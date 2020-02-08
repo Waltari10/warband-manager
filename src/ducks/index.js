@@ -1,9 +1,11 @@
 import { all } from 'redux-saga/effects';
-import phoneNumberPicker from './PhoneNumberPickerExample';
+import login from './login';
+import signup from './signup';
 
 
 const reducerMap = {
-  phoneNumberPicker: phoneNumberPicker.reducer,
+  login: login.reducer,
+  signup: login.reducer,
   // Add reducers for each duck here
 };
 
@@ -14,7 +16,8 @@ export default reducerMap;
 // single entry point to start all Sagas at once
 export function* sagas() {
   yield all([
-    phoneNumberPicker.saga(),
+    login.saga(),
+    signup.saga(),
     // Add sagas for each duck here
   ]);
 }
