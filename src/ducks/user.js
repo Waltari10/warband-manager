@@ -4,6 +4,12 @@ import { createReducer, createAction } from '@reduxjs/toolkit';
 import firebase from '../utils/firebase';
 
 
+export const signupWithEmail = createAction(
+  'SIGNUP_WITH_EMAIL', (email, password) => ({ payload: { email, password } })
+);
+export const signupWithEmailSuccess = createAction('SIGNUP_WITH_EMAIL_SUCCESS');
+export const signupWithEmailError = createAction('SIGNUP_WITH_EMAIL_ERROR');
+
 export const addUserToState = createAction('ADD_USER_TO_STATE', (user) => ({ payload: user }));
 // Actions
 export const googleSignIn = createAction('GOOGLE_SIGN_IN_START');
@@ -63,6 +69,25 @@ const reducer = createReducer(initialState, {
     state.user = action.payload;
   },
   [loginWithEmailError]: (state, action) => {
+    state.isLoading = false;
+    state.isSuccess = false;
+    state.isError = true;
+    state.error = action.payload;
+  },
+  [signupWithEmail]: (state) => {
+    state.isLoading = true;
+    state.isSuccess = false;
+    state.isError = false;
+    state.error = null;
+  },
+  [signupWithEmailSuccess]: (state, action) => {
+    state.isLoading = false;
+    state.isSuccess = true;
+    state.isError = false;
+    state.error = null;
+    state.user = action.payload;
+  },
+  [signupWithEmailError]: (state, action) => {
     state.isLoading = false;
     state.isSuccess = false;
     state.isError = true;
@@ -131,6 +156,28 @@ function* watchLogout() {
   yield takeEvery(logout, handleLogout);
 }
 
+
+// Api
+const callSignupWithEmail = ({ email, password }) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password);
+};
+
+
+// Sagas for side-effects
+function* handlSignupWithEmail(action) {
+  try {
+    const result = yield call(callSignupWithEmail, action.payload);
+    yield put(signupWithEmailSuccess(result));
+  } catch (e) {
+    yield put(signupWithEmailError(e));
+  }
+}
+
+function* watchSignupWithEmail() {
+  yield takeEvery(signupWithEmail, handlSignupWithEmail);
+}
+
+
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
 function* saga() {
@@ -138,6 +185,7 @@ function* saga() {
     watchLoginWithEmail(),
     watchGoogleSignIn(),
     watchLogout(),
+    watchSignupWithEmail(),
   ]);
 }
 

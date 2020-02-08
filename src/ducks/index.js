@@ -1,11 +1,9 @@
 import { all } from 'redux-saga/effects';
-import login from './login';
-import signup from './signup';
+import user from './user';
 
 
 const reducerMap = {
-  login: login.reducer,
-  signup: login.reducer,
+  user: user.reducer,
   // Add reducers for each duck here
 };
 
@@ -16,8 +14,7 @@ export default reducerMap;
 // single entry point to start all Sagas at once
 export function* sagas() {
   yield all([
-    login.saga(),
-    signup.saga(),
+    user.saga(),
     // Add sagas for each duck here
   ]);
 }

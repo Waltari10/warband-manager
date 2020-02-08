@@ -2,15 +2,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Component from './Component';
-import * as actions from '../../ducks/login';
+import * as actions from '../../ducks/user';
 
 function mapStateToProps(state) {
 
   return {
-    isLoading: state.login.isLoading,
-    isError: state.login.isError,
-    isSuccess: state.login.isSuccess,
-    isAuthorized: !!state.login.user,
+    isLoading: state.user.isLoading,
+    isError: state.user.isError,
+    isSuccess: state.user.isSuccess,
+    isAuthorized: !!state.user.user,
   };
 }
 

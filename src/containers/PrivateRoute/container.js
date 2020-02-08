@@ -4,7 +4,7 @@ import Component from './component';
 
 function mapStateToProps(state) {
 
-  const isAuthorized = !!state.login.user;
+  const isAuthorized = !!state.user.user;
 
   return {
     isAuthorized,
