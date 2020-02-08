@@ -4,7 +4,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import { HashRouter as Router } from 'react-router-dom';
 
 import configureStore from './store/configureStore';
-import Routes from './Routes';
+import Routes from './containers/Routes';
 import theme from './styles/theme';
 
 const store = configureStore();

@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     isLoading: state.signup.isLoading,
     isError: state.signup.isError,
     isSuccess: state.signup.isSuccess,
+    isAuthorized: !!state.login.user,
   };
 }
 

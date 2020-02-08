@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = ({
   isLoading, isError, isSuccess, signupWithEmail,
-  googleSignIn,
+  googleSignIn, isAuthorized,
 }) => {
 
   const [password, setPassword] = useState('');
@@ -65,6 +65,13 @@ const Login = ({
 
   return (
     <div className={classes.container}>
+
+      {
+        (isAuthorized) &&
+          <Redirect
+            to='/homepage'
+          />
+      }
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
           <Typography variant="h2">Issue Log</Typography>

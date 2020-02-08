@@ -4,6 +4,7 @@ import { createReducer, createAction } from '@reduxjs/toolkit';
 import firebase from '../utils/firebase';
 
 
+export const addUserToState = createAction('ADD_USER_TO_STATE', (user) => ({ payload: user }));
 // Actions
 export const googleSignIn = createAction('GOOGLE_SIGN_IN_START');
 export const googleSignInSuccess = createAction('GOOGLE_SIGN_IN_SUCCESS');
@@ -26,6 +27,9 @@ const initialState = {
 };
 
 const reducer = createReducer(initialState, {
+  [addUserToState]: (state, action) => {
+    state.user = action.payload;
+  },
   [googleSignIn]: (state) => {
     state.isLoading = true;
     state.isSuccess = false;
@@ -80,15 +84,14 @@ const callLoginWithEmail = ({ email, password }) => {
 
 };
 
-const callGoogleSign = () => {
-
+const callGoogleSign = async () => {
   if (!firebase.auth().currentUser) {
+
     const provider = new firebase.auth.GoogleAuthProvider();
 
+    await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-
-    return firebase.auth().signInWithPopup(provider);
+    return await firebase.auth().signInWithPopup(provider);
   }
 };
 
