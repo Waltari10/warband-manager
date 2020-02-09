@@ -10,7 +10,7 @@ const PrivateRoute = memo(({ component: Component, isAuthorized, ...rest }) => {
     return (
       <Redirect
         to={{
-          pathname: '/',
+          pathname: '/login',
           state: { from: rest.location },
         }}
       />

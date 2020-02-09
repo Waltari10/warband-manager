@@ -65,13 +65,15 @@ const Login = ({
 
   const classes = useStyles();
 
+  console.log('login', isAuthorized);
+
   return (
     <div className={classes.container}>
 
       {
         (isAuthorized) &&
           <Redirect
-            to='/homepage'
+            to='/'
           />
       }
 

@@ -2,15 +2,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../../ducks/user';
-import Component from './component';
-
+import Component from './Component';
 
 function mapStateToProps(state) {
-// Needs to be here inorder to rerender routes if login state changes
-  const isAuthorized = !!state.user.user;
 
   return {
-    isAuthorized,
+    user: state.user.user,
   };
 }
 
@@ -18,6 +15,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
+
 
 export default connect(
   mapStateToProps,

@@ -69,7 +69,7 @@ const Login = ({
       {
         (isAuthorized) &&
           <Redirect
-            to='/homepage'
+            to='/'
           />
       }
       <Grid className={classes.content} alignItems="center" direction="column" container>

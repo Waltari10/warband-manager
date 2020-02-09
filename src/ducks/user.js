@@ -159,7 +159,7 @@ function* watchLogout() {
 
 // Api
 const callSignupWithEmail = ({ email, password }) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password);
+  return firebase.auth().createUserWithEmailAndPassword(email, password);
 };
 
 
