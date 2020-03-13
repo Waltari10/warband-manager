@@ -12,6 +12,12 @@ export const saveReflection = createAction(
 export const saveReflectionSuccess = createAction('SAVE_REFLECTION_SUCCESS');
 export const saveReflectionError = createAction('SAVE_REFLECTION_ERROR');
 
+export const getReflections = createAction(
+  'GET_REFLECTIONS_START'
+);
+export const getReflectionsSuccess = createAction('GET_REFLECTIONS_SUCCESS');
+export const getReflectionsError = createAction('GET_REFLECTIONS_ERROR');
+
 const initialState = {
   isLoading: false,
   isError: false,
@@ -38,6 +44,27 @@ const reducer = createReducer(initialState, {
     state.isError = true;
     state.error = null;
   },
+  [getReflections]: (state) => {
+    state.isLoadingGetReflections = true;
+    state.isSuccessGetReflections = false;
+    state.isErrorGetReflections = false;
+    state.errorGetReflections = null;
+  },
+  [getReflectionsSuccess]: (state, action) => {
+    state.reflections = action.payload;
+    state.isLoadingGetReflections = false;
+    state.isSuccessGetReflections = true;
+    state.isErrorGetReflections = false;
+    state.errorGetReflections = null;
+  },
+  [getReflectionsError]: (state, action) => {
+    state.isLoadingGetReflections = false;
+    state.isSuccessGetReflections = false;
+    state.isErrorGetReflections = true;
+    state.errorGetReflections = null;
+  },
+
+
 });
 
 
@@ -45,6 +72,31 @@ const reducer = createReducer(initialState, {
 const callSaveReflection = (reflection) => {
   return db.collection('reflections').add(reflection);
 };
+
+
+// Api
+const callGetReflections = () => {
+
+  return db.collection('reflections').get().then(querySnapshot => {
+
+    const reflections = {};
+    querySnapshot.forEach(function(doc) {
+      reflections[doc.id] = doc.data();
+    });
+    return reflections;
+
+  });
+
+};
+
+function* handleGetReflections () {
+  try {
+    const result = yield call(callGetReflections);
+    yield put(getReflectionsSuccess(result));
+  } catch (e) {
+    yield put(getReflectionsError(e));
+  }
+}
 
 
 // Sagas for side-effects
@@ -62,11 +114,17 @@ function* watchSaveReflection() {
 }
 
 
+function* watchGetReflections() {
+  yield takeEvery(getReflections, handleGetReflections);
+}
+
+
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
 function* saga() {
   yield all([
     watchSaveReflection(),
+    watchGetReflections(),
   ]);
 }
 

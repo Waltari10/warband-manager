@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../../ducks/Reflections';
+import * as userActions from '../../ducks/user';
 
 import Component from './Component';
 
@@ -18,7 +19,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
+  return bindActionCreators({ ...actions, ...userActions }, dispatch);
 }
 
 export default connect(
