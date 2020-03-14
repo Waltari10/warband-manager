@@ -8,6 +8,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink, Redirect } from 'react-router-dom';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import Paper from '@material-ui/core/Paper';
+import { path } from 'ramda';
+import { format } from 'date-fns';
+
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -36,6 +39,18 @@ const ReflectionListItem = ({ reflection, match, id }) => {
 
   const classes = useStyles();
 
+  console.log(reflection);
+  console.log(reflection.createdAt);
+
+  let createdAt = path(['createdAt', 'seconds'], reflection);
+  let date;
+  if (createdAt) {
+    createdAt = createdAt * 1000;
+    date = format(createdAt, 'd/M/yy');
+  } else {
+    date = 'No date';
+  }
+
   return (
     <RouterLink
       key={reflection.id}
@@ -46,7 +61,7 @@ const ReflectionListItem = ({ reflection, match, id }) => {
       >
         <Grid container>
           <Grid item>
-            <Typography className={classes.date} variant="h5">{reflection.timestamp || 'no date'}</Typography>
+            <Typography className={classes.date} variant="h5">{date}</Typography>
           </Grid>
           <Grid item>
             <Typography className={classes.topic} variant="h5">{reflection.topic}</Typography>

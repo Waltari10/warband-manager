@@ -10,6 +10,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink, Redirect } from 'react-router-dom';
+import AppWindow from '../../components/AppWindow';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -33,12 +34,6 @@ const useStyles = makeStyles((theme) => ({
   loginLink: {
     marginBottom: theme.spacing(3),
   },
-  container: {
-    padding: theme.spacing(6),
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   content: {
     width: '100%',
   },
@@ -61,23 +56,24 @@ const Login = ({
 
   const submitDisabled = isDisabled || !password || password.length < 7 || !email;
 
+  console.log('signup');
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
+    <AppWindow size="xs">
 
       {
-        (isAuthorized) &&
+        isAuthorized &&
           <Redirect
             to='/'
           />
       }
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
-          <Typography variant="h2">Issue Log</Typography>
+          <Typography variant="h2">Reflection Log</Typography>
         </Grid>
         <Grid className={classes.subheader} item>
-          <Typography variant="h4">Signup</Typography>
+          <Typography variant="h4">Sign up</Typography>
         </Grid>
         <Grid item>
           <TextField
@@ -158,7 +154,7 @@ const Login = ({
           </Link>
         </Grid>
       </Grid>
-    </div>
+    </AppWindow>
   );
 };
  

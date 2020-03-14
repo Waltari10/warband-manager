@@ -1,7 +1,7 @@
 import { put, takeEvery, all, call } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 
-import firebase from '../utils/firebase';
+import firebase, { config as firebaseConfig } from '../utils/firebase';
 
 
 export const signupWithEmail = createAction(
@@ -21,11 +21,12 @@ export const loginWithEmail = createAction(
 );
 export const loginWithEmailSuccess = createAction('LOGIN_WITH_EMAIL_SUCCESS');
 export const loginWithEmailError = createAction('LOGIN_WITH_EMAIL_ERROR');
+export const readSession = createAction('READ_SESSION');
 
 export const logout = createAction('LOGOUT');
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
   isError: false,
   isSuccess: false,
   error: null,
@@ -35,6 +36,15 @@ const initialState = {
 const reducer = createReducer(initialState, {
   [addUserToState]: (state, action) => {
     state.user = action.payload;
+    state.isLoading = false;
+    state.isSuccess = true;
+    state.isError = false;
+  },
+  [logout]: (state) => {
+    state.isLoading = false;
+    state.isSuccess = true;
+    state.isError = false;
+    state.error = null;
   },
   [googleSignIn]: (state) => {
     state.isLoading = true;
@@ -43,6 +53,8 @@ const reducer = createReducer(initialState, {
     state.error = null;
   },
   [googleSignInSuccess]: (state, action) => {
+
+    console.log('google sign in success', { action, state });
     state.isLoading = false;
     state.isSuccess = true;
     state.isError = false;
@@ -135,13 +147,26 @@ function* handleGoogleSignIn(action) {
   try {
     const result = yield call(callGoogleSign, action.payload);
     // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
+    const token = result.credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
-    yield put(googleSignInSuccess({ user, token }));
+    const user = result.user;
+    yield put(googleSignInSuccess({ user: JSON.parse(JSON.stringify(user)), token }));
   } catch (e) {
     yield put(googleSignInError(e));
   }
+}
+
+function* handleReadSession () {
+  const user = window.sessionStorage.getItem(
+    `firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`
+  );
+
+  if (user) {
+    yield put(addUserToState(JSON.parse(user)));
+  } else {
+    yield put(logout());
+  }
+
 }
 
 function* watchLoginWithEmail() {
@@ -177,6 +202,10 @@ function* watchSignupWithEmail() {
   yield takeEvery(signupWithEmail, handlSignupWithEmail);
 }
 
+function* watchReadSession() {
+  yield takeEvery(readSession, handleReadSession);
+}
+
 
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
@@ -186,6 +215,7 @@ function* saga() {
     watchGoogleSignIn(),
     watchLogout(),
     watchSignupWithEmail(),
+    watchReadSession(),
   ]);
 }
 

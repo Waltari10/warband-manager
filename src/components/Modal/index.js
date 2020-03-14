@@ -65,7 +65,7 @@ const transitionStyles = {
   exited: { left: '100%' },
 };
 
-const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose }) => {
+const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, className }) => {
 
   const classes = useStyles();
 
@@ -88,17 +88,9 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose }) 
   }, []);
 
 
-  let backDest;
-
-  if (window.location.hash.indexOf('departures') !== -1) {
-    backDest = '/departures';
-  } else {
-    backDest = '/arrivals';
-  }
-
   return (
     <>
-      {shouldGoBack && <Redirect to={backDest}/>}
+      {shouldGoBack && <Redirect to={'/'}/>}
       <Transition
         in={inProp}
         timeout={duration}
@@ -109,7 +101,7 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose }) 
               ...defaultStyle,
               ...transitionStyles[state],
             }}
-            className={classes.mainContainer}
+            className={`${classes.mainContainer} ${className}`}
           >
             <div
               className={classes.topNavigationContainer}
@@ -144,10 +136,11 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose }) 
 Modal.propTypes = {
   subtitle: PropTypes.string,
   title: PropTypes.string,
-  children: PropTypes.any,
-  Icon: PropTypes.any,
+  children: PropTypes.Node,
+  Icon: PropTypes.Node,
   renderContent: PropTypes.func,
   shouldClose: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Modal;

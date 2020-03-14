@@ -1,46 +1,31 @@
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import Modal from '../../components/Modal';
+import Progress from '@material-ui/core/CircularProgress';
+import Reflect from '../Reflect';
+import { makeStyles } from '@material-ui/core/styles';
 
 
-const PrivateRoute = memo(({ component: Component, isAuthorized, ...rest }) => {
+const useStyles = makeStyles((theme) => ({
+  
+  container: {
+    backgroundColor: 'white',
+  },
+
+}));
 
 
-  if (!isAuthorized) {
-    return (
-      <Redirect
-        to={{
-          pathname: '/login',
-          state: { from: rest.location },
-        }}
-      />
-    );
-  }
+const IssueModal = () => {
+  
+  const classes = useStyles();
 
-  if (Component) {
-    return (
-      <Route
-        {...rest}
-        render={props =>(<Component {...props} />)}
-      />
-    );
-  }
-
-  if (rest.render) {
-    return (
-      <Route
-        {...rest}
-        render={rest.render}
-      />
-    );
-  }
-
-
-});
-
-PrivateRoute.propTypes = {
-  component: PropTypes.Node,
-  isAuthorized: PropTypes.bool,
+  return (
+    <Modal
+      className={classes.container}
+      shouldClose={false}
+    >
+      <Reflect />
+    </Modal>
+  );
 };
-
-export default PrivateRoute;
+ 
+export default IssueModal;

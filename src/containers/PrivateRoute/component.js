@@ -1,12 +1,16 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-const PrivateRoute = memo(({ component: Component, isAuthorized, ...rest }) => {
+const PrivateRoute = memo(({ component: Component, isSuccess, isLoading, isAuthorized, ...rest }) => {
 
+  if (isLoading) {
+    return <CircularProgress />;
+  }
 
-  if (!isAuthorized) {
+  if (!isAuthorized && !isLoading) {
     return (
       <Redirect
         to={{

@@ -2,7 +2,8 @@ import { put, takeEvery, all, call } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 
 
-import { db } from '../utils/firebase';
+import firebase, { db } from '../utils/firebase';
+
 
 // TODO: reduxjs/toolkit had an example on how to reduce redux boilerplate even further
 
@@ -61,16 +62,15 @@ const reducer = createReducer(initialState, {
     state.isLoadingGetReflections = false;
     state.isSuccessGetReflections = false;
     state.isErrorGetReflections = true;
-    state.errorGetReflections = null;
+    state.errorGetReflections = null; // TODO: add error here
   },
 
 
 });
 
 
-// Api
 const callSaveReflection = (reflection) => {
-  return db.collection('reflections').add(reflection);
+  return db.collection('reflections').add({ createdAt: firebase.firestore.Timestamp.now(), ...reflection });
 };
 
 

@@ -29,19 +29,19 @@ const useStyles = makeStyles((theme) => {
       overflowY: 'scroll',
       height: '100%',
       width: '100%',
-      paddingLeft: '24px',
-      paddingRight: '24px',
+      // paddingLeft: '24px', // Only on desktop
+      // paddingRight: '24px',
     },
     hero: {
       position: 'absolute',
-      right: '48px',
-      bottom: '68px',
+      right: theme.spacing(3),
+      bottom: theme.spacing(3),
     },
     menuIcon: {
 
       position: 'absolute',
-      top: '24px',
-      right: '24px',
+      top: theme.spacing(1),
+      right: theme.spacing(3),
     },
   };
 });
@@ -96,7 +96,8 @@ const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, log
 
 
       <div className={classes.stepContainer}>
-        <Typography align="center" className={classes.header} variant="h1">What do you want to reflect on?</Typography>
+        {/* h1 desktop */}
+        <Typography align="center" className={classes.header} variant="h4">What do you want to reflect on?</Typography>
         <TextField
           disabled={isDisabled}
           className={classes.textField}
@@ -127,7 +128,7 @@ const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, log
             />
 
             <a name={stepId} />
-            <Typography align="center" className={classes.header} variant="h1">Why? {index + 1}/{steps.length}</Typography>
+            <Typography align="center" className={classes.header} variant="h4">Why? {index + 1}/{steps.length}</Typography>
 
             <TextField
               disabled={isDisabled}
@@ -153,7 +154,10 @@ const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, log
         component={Link}
         disabled={isDisabled}
         color="primary"
-        onClick={heroAction === 'finish' ? () => saveReflection({ topic, ...answers }) : () => {}}
+        onClick={heroAction === 'finish' ? () => {
+          console.log('save reflection');
+          saveReflection({ topic, ...answers });
+        } : () => {}}
         className={classes.hero}
         containerId="reflection-scroll-container"
         hashSpy
