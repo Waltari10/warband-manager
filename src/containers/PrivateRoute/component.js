@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-const PrivateRoute = memo(({ component: Component, isSuccess, isLoading, isAuthorized, ...rest }) => {
+const PrivateRoute = memo(({ component: Component, isLoading, isAuthorized, ...rest }) => {
 
   if (isLoading) {
     return <CircularProgress />;

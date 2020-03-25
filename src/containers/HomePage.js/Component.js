@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Progress from '@material-ui/core/CircularProgress';
 import Fab from '@material-ui/core/Fab';
@@ -8,16 +8,13 @@ import { Link as RouterLink } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import { Typography, Paper } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import PrivateRoute from '../PrivateRoute';
 import ReflectionModal from '../ReflectionModal';
 
 import ReflectionListItem from './ReflectionListItem';
 import AppWindow from '../../components/AppWindow';
-
-// TODO: List of issues
-// Add a add issue as hero
 
 
 const useStyles = makeStyles((theme) => ({
@@ -77,12 +74,15 @@ const useStyles = makeStyles((theme) => ({
 
 
 const HomePage = ({
-  isLoading, isError, isSuccess, reflections = {}, getReflections, match, logout, ...rest
+  isLoading, reflections = {}, getReflections, match, logout, uid,
+  
 }) => {
 
   useEffect(() => {
-    getReflections();
-  }, []);
+    if (uid) {
+      getReflections();
+    }
+  }, [uid]);
 
 
   const classes = useStyles();

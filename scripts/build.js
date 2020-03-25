@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 // Do this as the first thing so that any code reading it knows the right env.
@@ -70,14 +71,14 @@ checkBrowsers(paths.appPath, isInteractive)
         console.log(chalk.yellow('Compiled with warnings.\n'));
         console.log(warnings.join('\n\n'));
         console.log(
-          '\nSearch for the ' +
-            chalk.underline(chalk.yellow('keywords')) +
-            ' to learn more about each warning.'
+          `\nSearch for the ${
+            chalk.underline(chalk.yellow('keywords'))
+          } to learn more about each warning.`
         );
         console.log(
-          'To ignore, add ' +
-            chalk.cyan('// eslint-disable-next-line') +
-            ' to the line before.\n'
+          `To ignore, add ${
+            chalk.cyan('// eslint-disable-next-line')
+          } to the line before.\n`
         );
       } else {
         console.log(chalk.green('Compiled successfully.\n'));
@@ -136,7 +137,10 @@ function build(previousFileSizes) {
   if (process.env.NODE_PATH) {
     console.log(
       chalk.yellow(
-        'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.'
+        `Setting NODE_PATH to resolve modules absolutely
+        has been deprecated in favor of setting baseUrl in 
+        jsconfig.json (or tsconfig.json if you are using TypeScript) 
+        and will be removed in a future major release of create-react-app.`
       )
     );
     console.log();
@@ -158,8 +162,8 @@ function build(previousFileSizes) {
         // Add additional information for postcss errors
         if (Object.prototype.hasOwnProperty.call(err, 'postcssNode')) {
           errMessage +=
-            '\nCompileError: Begins at CSS selector ' +
-            err['postcssNode'].selector;
+            `\nCompileError: Begins at CSS selector ${
+              err['postcssNode'].selector}`;
         }
 
         messages = formatWebpackMessages({

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 // Do this as the first thing so that any code reading it knows the right env.
@@ -53,7 +54,7 @@ if (process.env.HOST) {
     )
   );
   console.log(
-    `If this was unintentional, check that you haven't mistakenly set it in your shell.`
+    'If this was unintentional, check that you haven\'t mistakenly set it in your shell.'
   );
   console.log(
     `Learn more here: ${chalk.yellow('https://bit.ly/CRA-advanced-config')}`
@@ -122,7 +123,10 @@ checkBrowsers(paths.appPath, isInteractive)
       if (process.env.NODE_PATH) {
         console.log(
           chalk.yellow(
-            'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.'
+            `Setting NODE_PATH to resolve modules absolutely has been deprecated 
+            in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you
+               are using TypeScript) and will be removed in a future major release 
+               of create-react-app.`
           )
         );
         console.log();

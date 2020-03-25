@@ -1,8 +1,9 @@
-import { put, takeEvery, all, call } from 'redux-saga/effects';
+import { put, takeEvery, all, call, select } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 
 
 import firebase, { db } from '../utils/firebase';
+import logger from '../utils/logger';
 
 
 // TODO: reduxjs/toolkit had an example on how to reduce redux boilerplate even further
@@ -13,7 +14,7 @@ export const saveReflection = createAction(
   'SAVE_REFLECTION_START', addPayload);
 
 
-export const saveReflectionSuccess = createAction('SAVE_REFLECTION_SUCCESS');
+export const saveReflectionSuccess = createAction('SAVE_REFLECTION_SUCCESS', addPayload);
 export const saveReflectionError = createAction('SAVE_REFLECTION_ERROR', addPayload);
 export const saveReflectionReset = createAction('SAVE_REFLECTION_RESET');
 
@@ -28,6 +29,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   error: null,
+  reflections: {},
 };
 
 const reducer = createReducer(initialState, {
@@ -43,14 +45,18 @@ const reducer = createReducer(initialState, {
     state.isError = false;
     state.error = null;
   },
-  [saveReflectionSuccess]: (state) => {
+  [saveReflectionSuccess]: (state, action) => {
     state.isLoading = false;
     state.isSuccess = true;
     state.isError = false;
     state.error = null;
+
+    state.reflections = {
+      ...state.reflections,
+      [action.payload.result.id]: action.payload.reflection,
+    };
   },
   [saveReflectionError]: (state, action) => {
-    console.log(action);
     state.isLoading = false;
     state.isSuccess = false;
     state.isError = true;
@@ -69,7 +75,7 @@ const reducer = createReducer(initialState, {
     state.isErrorGetReflections = false;
     state.errorGetReflections = null;
   },
-  [getReflectionsError]: (state, action) => {
+  [getReflectionsError]: (state) => {
     state.isLoadingGetReflections = false;
     state.isSuccessGetReflections = false;
     state.isErrorGetReflections = true;
@@ -80,15 +86,19 @@ const reducer = createReducer(initialState, {
 });
 
 
-const callSaveReflection = (reflection) => {
+const callSaveReflection = (reflection, uuid) => {
 
   if (reflection && reflection.reflectionId && reflection.reflectionId !== 'new') {
     return db
+      .collection('users')
+      .doc(uuid)
       .collection('reflections')
       .doc(reflection.reflectionId)
       .set({ createdAt: firebase.firestore.Timestamp.now(), ...reflection });
   } else {
     return db
+      .collection('users')
+      .doc(uuid)
       .collection('reflections')
       .add({ createdAt: firebase.firestore.Timestamp.now(), ...reflection });
   }
@@ -97,25 +107,32 @@ const callSaveReflection = (reflection) => {
 
 
 // Api
-const callGetReflections = () => {
+const callGetReflections = (uuid) => {
 
-  return db.collection('reflections').get().then(querySnapshot => {
+  return db
+    .collection('users')
+    .doc(uuid)
+    .collection('reflections')
+    .get()
+    .then(querySnapshot => {
 
-    const reflections = {};
-    querySnapshot.forEach(function(doc) {
-      reflections[doc.id] = doc.data();
+      const reflections = {};
+      querySnapshot.forEach(function(doc) {
+        reflections[doc.id] = doc.data();
+      });
+      return reflections;
+
     });
-    return reflections;
-
-  });
 
 };
 
 function* handleGetReflections () {
   try {
-    const result = yield call(callGetReflections);
+    const uuid = yield select((state) => state.user.user.uid);
+    const result = yield call(callGetReflections, uuid);
     yield put(getReflectionsSuccess(result));
   } catch (e) {
+    logger.error(e);
     yield put(getReflectionsError(e));
   }
 }
@@ -124,9 +141,11 @@ function* handleGetReflections () {
 // Sagas for side-effects
 function* handleSaveReflection(action) {
   try {
-    const result = yield call(callSaveReflection, action.payload);
-    yield put(saveReflectionSuccess(result));
+    const uuid = yield select((state) => state.user.user.uid);
+    const result = yield call(callSaveReflection, action.payload, uuid);
+    yield put(saveReflectionSuccess({ result, reflection: action.payload }));
   } catch (e) {
+    logger.error(e);
     yield put(saveReflectionError(e));
   }
 }

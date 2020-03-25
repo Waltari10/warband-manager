@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => {
 });
 
 const ReflectPage = ({
-  saveReflection, isLoading, isSuccess, isError, error, logout, reflection = {},
+  saveReflection, isLoading, isSuccess, logout, reflection = {},
   saveReflectionReset, reflectionId,
 }) => {
 
@@ -155,7 +155,9 @@ const ReflectPage = ({
             />
 
             <a name={stepId} />
-            <Typography align="center" className={classes.header} variant="h4">Why? {index + 1}/{steps.length}</Typography>
+            <Typography align="center" className={classes.header} variant="h4">
+              Why? {index + 1}/{steps.length}
+            </Typography>
 
             <TextField
               disabled={isDisabled}

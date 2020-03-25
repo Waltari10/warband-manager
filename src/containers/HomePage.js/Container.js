@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { path } from 'ramda';
 
 import Component from './Component';
 import * as actions from '../../ducks/Reflections';
@@ -12,6 +13,7 @@ function mapStateToProps(state) {
     isError: state.reflections.isErrorGetReflections,
     isSuccess: state.reflections.isSuccessGetReflections,
     reflections: state.reflections.reflections,
+    uid: path(['user', 'user', 'uid'], state),
   };
 }
 
