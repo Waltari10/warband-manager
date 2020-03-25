@@ -7,17 +7,21 @@ import firebase, { db } from '../utils/firebase';
 
 // TODO: reduxjs/toolkit had an example on how to reduce redux boilerplate even further
 
+const addPayload = (payload) => ({ payload });
+
 export const saveReflection = createAction(
-  'SAVE_REFLECTION_START', (reflection) => ({ payload: reflection })
-);
+  'SAVE_REFLECTION_START', addPayload);
+
+
 export const saveReflectionSuccess = createAction('SAVE_REFLECTION_SUCCESS');
-export const saveReflectionError = createAction('SAVE_REFLECTION_ERROR');
+export const saveReflectionError = createAction('SAVE_REFLECTION_ERROR', addPayload);
+export const saveReflectionReset = createAction('SAVE_REFLECTION_RESET');
 
 export const getReflections = createAction(
   'GET_REFLECTIONS_START'
 );
 export const getReflectionsSuccess = createAction('GET_REFLECTIONS_SUCCESS');
-export const getReflectionsError = createAction('GET_REFLECTIONS_ERROR');
+export const getReflectionsError = createAction('GET_REFLECTIONS_ERROR', addPayload);
 
 const initialState = {
   isLoading: false,
@@ -27,6 +31,12 @@ const initialState = {
 };
 
 const reducer = createReducer(initialState, {
+  [saveReflectionReset]: (state) => {
+    state.isLoading = false;
+    state.isSuccess = false;
+    state.isError = false;
+    state.error = null;
+  },
   [saveReflection]: (state) => {
     state.isLoading = true;
     state.isSuccess = false;
@@ -39,11 +49,12 @@ const reducer = createReducer(initialState, {
     state.isError = false;
     state.error = null;
   },
-  [saveReflectionError]: (state) => {
+  [saveReflectionError]: (state, action) => {
+    console.log(action);
     state.isLoading = false;
     state.isSuccess = false;
     state.isError = true;
-    state.error = null;
+    state.error = action.payload;
   },
   [getReflections]: (state) => {
     state.isLoadingGetReflections = true;
@@ -70,7 +81,18 @@ const reducer = createReducer(initialState, {
 
 
 const callSaveReflection = (reflection) => {
-  return db.collection('reflections').add({ createdAt: firebase.firestore.Timestamp.now(), ...reflection });
+
+  if (reflection && reflection.reflectionId && reflection.reflectionId !== 'new') {
+    return db
+      .collection('reflections')
+      .doc(reflection.reflectionId)
+      .set({ createdAt: firebase.firestore.Timestamp.now(), ...reflection });
+  } else {
+    return db
+      .collection('reflections')
+      .add({ createdAt: firebase.firestore.Timestamp.now(), ...reflection });
+  }
+
 };
 
 

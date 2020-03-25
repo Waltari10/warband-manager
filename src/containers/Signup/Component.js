@@ -56,7 +56,6 @@ const Login = ({
 
   const submitDisabled = isDisabled || !password || password.length < 7 || !email;
 
-  console.log('signup');
   const classes = useStyles();
 
   return (

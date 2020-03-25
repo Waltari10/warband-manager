@@ -42,7 +42,7 @@ const reducer = createReducer(initialState, {
   },
   [logout]: (state) => {
     state.isLoading = false;
-    state.isSuccess = true;
+    state.isSuccess = false;
     state.isError = false;
     state.error = null;
   },
@@ -54,7 +54,6 @@ const reducer = createReducer(initialState, {
   },
   [googleSignInSuccess]: (state, action) => {
 
-    console.log('google sign in success', { action, state });
     state.isLoading = false;
     state.isSuccess = true;
     state.isError = false;
@@ -137,7 +136,10 @@ const callGoogleSign = async () => {
 function* handleLoginWithEmail(action) {
   try {
     const result = yield call(callLoginWithEmail, action.payload);
-    yield put(loginWithEmailSuccess(result));
+
+    const parsedResult = JSON.parse(JSON.stringify(result));
+
+    yield put(loginWithEmailSuccess(parsedResult));
   } catch (e) {
     yield put(loginWithEmailError(e));
   }
@@ -192,7 +194,8 @@ const callSignupWithEmail = ({ email, password }) => {
 function* handlSignupWithEmail(action) {
   try {
     const result = yield call(callSignupWithEmail, action.payload);
-    yield put(signupWithEmailSuccess(result));
+    const parsedResult = JSON.parse(JSON.stringify(result));
+    yield put(signupWithEmailSuccess(parsedResult));
   } catch (e) {
     yield put(signupWithEmailError(e));
   }

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 
 import Component from './Component';
 import * as actions from '../../ducks/Reflections';
+import { logout } from '../../ducks/user';
 
 function mapStateToProps(state) {
 
@@ -16,7 +17,7 @@ function mapStateToProps(state) {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
+  return bindActionCreators({ ...actions, logout }, dispatch);
 }
 
 export default connect(

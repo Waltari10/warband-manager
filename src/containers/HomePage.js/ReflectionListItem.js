@@ -39,9 +39,6 @@ const ReflectionListItem = ({ reflection, match, id }) => {
 
   const classes = useStyles();
 
-  console.log(reflection);
-  console.log(reflection.createdAt);
-
   let createdAt = path(['createdAt', 'seconds'], reflection);
   let date;
   if (createdAt) {

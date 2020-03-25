@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,6 +14,14 @@ import { Link } from 'react-scroll';
 const useStyles = makeStyles((theme) => {
 
   return {
+    title: {
+      lineHeight: '53px',
+      position: 'absolute',
+      top: 0,
+      width: '100%',
+      display: 'block',
+      wordBreak: 'none',
+    },
     header: {
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
@@ -23,7 +31,7 @@ const useStyles = makeStyles((theme) => {
       paddingBottom: theme.spacing(3),
     },
     stepContainer: {
-      minHeight: '100vh',
+      minHeight: '100%',
     },
     viewContainer: {
       overflowY: 'scroll',
@@ -38,20 +46,35 @@ const useStyles = makeStyles((theme) => {
       bottom: theme.spacing(3),
     },
     menuIcon: {
-
       position: 'absolute',
-      top: theme.spacing(1),
+      top: '5px',
       right: theme.spacing(3),
     },
   };
 });
 
-const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, logout }) => {
+const ReflectPage = ({
+  saveReflection, isLoading, isSuccess, isError, error, logout, reflection = {},
+  saveReflectionReset, reflectionId,
+}) => {
+
+
+  useEffect(() => {
+    saveReflectionReset();
+  }, []);
 
   const classes = useStyles();
 
-  const [topic, setTopic] = useState('');
-  const [answers, setAnswers] = useState({});
+  const [topic, setTopic] = useState(reflection.topic || '');
+  const [answers, setAnswers] = useState(
+    {
+      'step-1': reflection['step-1'] || '',
+      'step-2': reflection['step-2'] || '',
+      'step-3': reflection['step-3'] || '',
+      'step-4': reflection['step-4'] || '',
+      'step-5': reflection['step-5'] || '',
+    }
+  );
 
   const steps = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
   const [heroAction, setHeroAction] = useState(steps[0]);
@@ -74,6 +97,9 @@ const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, log
       id="reflection-scroll-container"
       className={classes.viewContainer}
     >
+      <Typography className={classes.title} align="center" variant="h6">
+        {reflectionId === 'new' ? 'New reflection...' : topic }
+      </Typography>
       <IconButton
         className={classes.menuIcon}
         onClick={handleClick}
@@ -102,6 +128,7 @@ const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, log
           disabled={isDisabled}
           className={classes.textField}
           multiline
+          rows={4}
           variant="outlined"
           fullWidth
           placeholder="Enter text..."
@@ -136,7 +163,7 @@ const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, log
               multiline
               variant="outlined"
               fullWidth
-              // rows={6}
+              rows={6}
               value={answers[stepId]}
               placeholder="Enter text..."
               onChange={(e) => {
@@ -155,8 +182,7 @@ const ReflectPage = ({ saveReflection, isLoading, isSuccess, isError, error, log
         disabled={isDisabled}
         color="primary"
         onClick={heroAction === 'finish' ? () => {
-          console.log('save reflection');
-          saveReflection({ topic, ...answers });
+          saveReflection({ topic, reflectionId, ...answers });
         } : () => {}}
         className={classes.hero}
         containerId="reflection-scroll-container"

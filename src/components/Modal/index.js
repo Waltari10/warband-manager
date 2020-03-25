@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import BackIcon from '@material-ui/icons/ChevronLeft';
 import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -17,10 +18,10 @@ const useStyles = makeStyles((theme) => {
       flexDirection: 'column',
     },
     backIcon: {
+      zIndex: 2,
       position: 'absolute',
       left: theme.spacing(1),
-      top: theme.spacing(1),
-      color: theme.palette.secondary.main,
+      top: 0,
     },
     topNavigationContainer: {
       boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)',
@@ -106,16 +107,19 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, cl
             <div
               className={classes.topNavigationContainer}
             >
-              <BackIcon
+              <IconButton
+                className={classes.backIcon}
                 onClick={() => {
                   setInProp(false);
                   setTimeout(() => {
                     setShouldGoBack(true);
                   }, duration);
                 }}
-                fontSize="large"
-                className={classes.backIcon}
-              />
+              >
+                <BackIcon
+                  fontSize="large"
+                />
+              </IconButton>
               {typeof renderContent === 'function' ? renderContent() : null}
               {Icon && <Icon className={classes.icon}/>}
               <Typography className={classes.title} align="center" variant="h6">
