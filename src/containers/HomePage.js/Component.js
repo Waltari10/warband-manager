@@ -18,9 +18,6 @@ import AppWindow from '../../components/AppWindow';
 
 
 const useStyles = makeStyles((theme) => ({
-  listItem: {
-    
-  },
   window: {
     padding: 0,
     position: 'relative',
@@ -28,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
   },
   container: {
-    marginTop: '53px',
+    marginTop: '48px',
     width: '100%',
     height: '100%',
     placeSelf: 'flex-start',
@@ -48,23 +45,25 @@ const useStyles = makeStyles((theme) => ({
   },
   topNavigationContainer: {
     boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)',
-    height: '53px',
+    height: '48px',
     position: 'absolute',
     width: '100%',
     zIndex: 1,
     left: 0,
     right: 0,
-    backgroundColor: '#9e9e9e',
+    backgroundColor: theme.palette.primary.main,
     top: 0,
   },
   title: {
-    lineHeight: '53px',
+    lineHeight: '48px',
   },
   menuIcon: {
-
     position: 'absolute',
-    top: '5px',
-    right: theme.spacing(3),
+    top: '0px',
+    right: theme.spacing(2),
+  },
+  addIcon: {
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -99,7 +98,7 @@ const HomePage = ({
       <div
         className={classes.topNavigationContainer}
       >
-        <Typography className={classes.title} align="center" variant="h6">
+        <Typography className={classes.title} align="center" variant="h5">
             Reflection log
         </Typography>
 
@@ -158,7 +157,7 @@ const HomePage = ({
         component={RouterLink}
         to={`${match.path}reflection/new`}
       >
-        <AddIcon/>
+        <AddIcon className={classes.addIcon} />
       </Fab>
     </AppWindow>
   );

@@ -1,32 +1,51 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Visibility from '@material-ui/icons/VisibilityOutlined';
+import VisibilityOff from '@material-ui/icons/VisibilityOffOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink, Redirect } from 'react-router-dom';
+import EmailIcon from '@material-ui/icons/EmailOutlined';
+import PasswordIcon from '@material-ui/icons/VpnKeyOutlined';
+import InputBase from '@material-ui/core/InputBase';
+
+
 import AppWindow from '../../components/AppWindow';
 
 const useStyles = makeStyles((theme) => ({
-  
   header: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(6),
-  },
-  subheader: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(0),
+    marginBottom: theme.spacing(12),
   },
   email: {
-    marginBottom: theme.spacing(3),
+    background: 'white',
+    borderTopRightRadius: '4px',
+    borderTopLeftRadius: '4px',
+    height: '48px',
+    overflow: 'hidden',
+    borderWidth: '0.5px',
+    borderBottomWidth: '0.5px',
+    borderBottomStyle: 'dashed',
+    borderStyle: 'solid',
+    borderColor: '#C0C0C0',
+
+    
   },
   password: {
     marginBottom: theme.spacing(3),
+    background: 'white',
+    borderBottomRightRadius: '4px',
+    borderBottomLeftRadius: '4px',
+    borderWidth: '0.5px',
+    borderTopWidth: '0px',
+    borderStyle: 'solid',
+    height: '48px',
+    overflow: 'hidden',
+    borderColor: '#C0C0C0',
   },
   continueButton: {
     marginTop: theme.spacing(3),
@@ -40,6 +59,21 @@ const useStyles = makeStyles((theme) => ({
   },
   errorMsg: {
     marginBottom: theme.spacing(3),
+  },
+  inputRoot: {
+    backgroundColor: 'white',
+    height: '48px',
+  },
+  input: {
+    height: '48px',
+    padding: '27px 12px 24px',
+  },
+  inputAdornment: {
+    color: theme.palette.primary.main,
+  },
+  inputStartAdornment: {
+    color: theme.palette.primary.main,
+    marginLeft: theme.spacing(2),
   },
 }));
 
@@ -71,41 +105,49 @@ const Login = ({
 
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
-          <Typography variant="h2">Reflection Log</Typography>
-        </Grid>
-        <Grid className={classes.subheader} item>
-          <Typography variant="h4">Sign in</Typography>
+          <Typography variant="h4">Reflection Log</Typography>
         </Grid>
         <Grid item>
-          <TextField
+          <InputBase
             style={{ display: 'flex' }}
             className={classes.email}
             onChange={(e) => setEmail(e.target.value)}
-            label="Type your email"
+            // label="Type your email"
             disabled={isDisabled}
             placeholder="email"
             value={email}
+            variant="filled"
+            startAdornment={
+              <InputAdornment position="start">
+                <EmailIcon className={classes.inputStartAdornment} />
+              </InputAdornment>
+            }
           />
-          <TextField
+          <InputBase
+            variant="filled"
             className={classes.password}
             onChange={(e) => setPassword(e.target.value)}
             disabled={isDisabled}
             type={showPassword ? 'text' : 'password'}
             value={password}
-            label="Type your password"
+            // label="Type your password"
             placeholder="password"
-            InputProps={{
-              endAdornment:
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={() => setShowPassword(!showPassword)}
-                      onMouseDown={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>,
-            }}
+            startAdornment={
+              <InputAdornment position="start">
+                <PasswordIcon className={classes.inputStartAdornment}/>
+              </InputAdornment>
+            }
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={() => setShowPassword(!showPassword)}
+                  onMouseDown={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <Visibility className={classes.inputAdornment} /> : <VisibilityOff className={classes.inputAdornment} />}
+                </IconButton>
+              </InputAdornment>
+            }
           />
         </Grid>
         <Grid item>
@@ -115,7 +157,7 @@ const Login = ({
             onClick={() => loginWithEmail(email, password)}
             variant="contained"
             color="primary"
-          >Continue</Button>
+          >Sign in</Button>
         </Grid>
 
         {

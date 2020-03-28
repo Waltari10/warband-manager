@@ -1,93 +1,57 @@
-// import palette from './palette';
+import palette from './palette';
 
 export default {
-  // fontFamily: '\'Gothic A1\', \'Roboto\', \'Helvetica\', \'Arial\', sans-serif',
-  // h1: {
-  //   color: palette.text.primary,
-  //   fontWeight: 500,
-  //   fontSize: '28px',
-  //   lineHeight: '31px',
-  //   fontFamily: '\'Nanum Myeongjo\', serif',
-  // },
-  // h2: {
-  //   color: palette.text.primary,
-  //   fontWeight: 500,
-  //   fontSize: '23px',
-  //   lineHeight: '26px',
-  //   fontFamily: '\'Nanum Myeongjo\', serif',
-  // },
-  // h3: {
-  //   color: palette.text.primary,
-  //   fontWeight: 500,
-  //   fontSize: '20px',
-  //   lineHeight: '22px',
-  //   fontFamily: '\'Nanum Myeongjo\', serif',
-  // },
-  // h4: {
-  //   color: palette.text.primary,
-  //   fontWeight: 500,
-  //   fontSize: '16px',
-  //   lineHeight: '18px',
-  //   fontFamily: '\'Nanum Myeongjo\', serif',
-  // },
-  // h5: {
-  //   color: 'red',
-  //   fontWeight: 500,
-  //   fontSize: '99px',
-  //   lineHeight: '99px',
-  //   fontFamily: '\'Nanum Myeongjo\', serif',
-  // },
-  // h6: {
-  //   color: 'red',
-  //   fontWeight: 500,
-  //   fontSize: '99px',
-  //   lineHeight: '99px',
-  //   fontFamily: '\'Nanum Myeongjo\', serif',
-  // },
-  // subtitle1: {
-  //   color: palette.text.primary,
-  //   fontSize: '16px',
-  //   fontWeight: 400,
-  //   lineHeight: '24px',
-  //   fontFamily: '\'Gothic A1\', sans-serif',
-  // },
-  // subtitle2: {
-  //   color: palette.text.secondary,
-  //   fontWeight: 400,
-  //   fontSize: '13px',
-  //   lineHeight: '20px',
-  //   fontFamily: '\'Gothic A1\', sans-serif',
-  // },
-  // body1: {
-  //   color: palette.text.primary,
-  //   fontSize: '16px',
-  //   lineHeight: '24px',
-  //   fontFamily: '\'Gothic A1\', sans-serif',
-  // },
-  // body2: {
-  //   color: palette.text.secondary,
-  //   fontSize: '13px',
-  //   lineHeight: '20px',
-  //   fontFamily: '\'Gothic A1\', sans-serif',
-  // },
-  // button: {
-  //   color: palette.text.primary,
-  //   fontSize: '16px',
-  //   lineHeight: '24px',
-  //   fontFamily: '\'Gothic A1\', sans-serif',
-  // },
-  // caption: {
-  //   color: palette.text.secondary,
-  //   fontSize: '11px',
-  //   lineHeight: '13px',
-  //   fontFamily: '\'Gothic A1\', sans-serif',
-  // },
-  // overline: {
-  //   color: palette.text.secondary,
-  //   fontSize: '11px',
-  //   fontWeight: 500,
-  //   lineHeight: '13px',
-  //   textTransform: 'uppercase',
-  //   fontFamily: '\'Gothic A1\', sans-serif',
-  // },
+  fontFamily: '\'Montserrat\', \'Roboto\', \'Helvetica\', \'Arial\', sans-serif',
+  h1: {
+    color: palette.text.primary,
+    fontFamily: '\'Montserrat\', serif',
+  },
+  h2: {
+    color: palette.text.primary,
+    fontFamily: '\'Montserrat\', serif',
+  },
+  h3: {
+    color: palette.text.primary,
+    fontFamily: '\'Montserrat\', serif',
+  },
+  h4: {
+    color: palette.text.primary,
+    fontFamily: '\'Montserrat\', serif',
+  },
+  h5: {
+    color: palette.text.primary,
+    fontFamily: '\'Montserrat\', serif',
+  },
+  h6: {
+    color: palette.text.primary,
+    fontFamily: '\'Montserrat\', serif',
+  },
+  subtitle1: {
+    color: palette.text.primary,
+    fontFamily: '\'Lato\', sans-serif',
+  },
+  subtitle2: {
+    color: palette.text.secondary,
+    fontFamily: '\'Lato\', sans-serif',
+  },
+  body1: {
+    color: palette.text.primary,
+    fontFamily: '\'Lato\', sans-serif',
+  },
+  body2: {
+    color: palette.text.secondary,
+    fontFamily: '\'Lato\', sans-serif',
+  },
+  button: {
+    color: palette.text.primary,
+    fontFamily: '\'Lato\', sans-serif',
+  },
+  caption: {
+    color: palette.text.secondary,
+    fontFamily: '\'Lato\', sans-serif',
+  },
+  overline: {
+    color: palette.text.secondary,
+    fontFamily: '\'Lato\', sans-serif',
+  },
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import { Redirect } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import BackIcon from '@material-ui/icons/ChevronLeft';
+import BackIcon from '@material-ui/icons/ArrowLeft';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 
@@ -21,13 +21,13 @@ const useStyles = makeStyles((theme) => {
       zIndex: 2,
       position: 'absolute',
       left: theme.spacing(1),
-      top: 0,
+      top: '-4px',
     },
     topNavigationContainer: {
       boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)',
-      backgroundColor: theme.palette.grey[500],
-      height: '53px',
-      minHeight: '53px',
+      backgroundColor: theme.palette.primary.main,
+      height: '48px',
+      minHeight: '48px',
     },
     subtitle: {
       width: '100%',

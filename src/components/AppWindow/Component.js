@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   container: {
 
-
+    background: '#F5F5F5',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       maxWidth: '100% !important',

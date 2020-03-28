@@ -8,14 +8,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import { Link } from 'react-scroll';
-
 
 const useStyles = makeStyles((theme) => {
 
   return {
     title: {
-      lineHeight: '53px',
+      lineHeight: '48px',
       position: 'absolute',
       top: 0,
       width: '100%',
@@ -24,19 +22,19 @@ const useStyles = makeStyles((theme) => {
     },
     header: {
       paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
+      marginLeft: theme.spacing(3),
     },
     textField: {
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
+      width: 'calc(100% - 48px)',
+      right: `${theme.spacing(3)}px`,
+      left: `${theme.spacing(3)}px`,
     },
     stepContainer: {
-      minHeight: '100%',
     },
     viewContainer: {
       overflowY: 'scroll',
-      height: '100%',
-      width: '100%',
       // paddingLeft: '24px', // Only on desktop
       // paddingRight: '24px',
     },
@@ -44,11 +42,12 @@ const useStyles = makeStyles((theme) => {
       position: 'absolute',
       right: theme.spacing(3),
       bottom: theme.spacing(3),
+      color: theme.palette.text.primary,
     },
     menuIcon: {
       position: 'absolute',
-      top: '5px',
-      right: theme.spacing(3),
+      top: 0,
+      right: theme.spacing(2),
     },
   };
 });
@@ -77,7 +76,6 @@ const ReflectPage = ({
   );
 
   const steps = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
-  const [heroAction, setHeroAction] = useState(steps[0]);
 
 
   const isDisabled = isLoading || isSuccess;
@@ -97,7 +95,7 @@ const ReflectPage = ({
       id="reflection-scroll-container"
       className={classes.viewContainer}
     >
-      <Typography className={classes.title} align="center" variant="h6">
+      <Typography className={classes.title} align="center" variant="h5">
         {reflectionId === 'new' ? 'New reflection...' : topic }
       </Typography>
       <IconButton
@@ -123,12 +121,12 @@ const ReflectPage = ({
 
       <div className={classes.stepContainer}>
         {/* h1 desktop */}
-        <Typography align="center" className={classes.header} variant="h4">What do you want to reflect on?</Typography>
+        <Typography className={classes.header} variant="h6">Topic of reflection *</Typography>
         <TextField
           disabled={isDisabled}
           className={classes.textField}
           multiline
-          rows={4}
+          // rows={4} // TODO: add minRows to Material-UI API
           variant="outlined"
           fullWidth
           placeholder="Enter text..."
@@ -140,22 +138,8 @@ const ReflectPage = ({
         
         return (
           <div className={classes.stepContainer} id={stepId} key={stepId}>
-
-            <Link
-              containerId="reflection-scroll-container"
-              hashSpy
-              spy
-              onSetActive={() => setHeroAction(
-                steps.length > index + 1 ? steps[index + 1] : 'finish',
-              )}
-              onClick={() => {}}
-              smooth
-              duration={500}
-              to={stepId}
-            />
-
             <a name={stepId} />
-            <Typography align="center" className={classes.header} variant="h4">
+            <Typography className={classes.header} variant="h5">
               Why? {index + 1}/{steps.length}
             </Typography>
 
@@ -165,7 +149,7 @@ const ReflectPage = ({
               multiline
               variant="outlined"
               fullWidth
-              rows={6}
+              // rows={4}
               value={answers[stepId]}
               placeholder="Enter text..."
               onChange={(e) => {
@@ -180,21 +164,14 @@ const ReflectPage = ({
         );
       })}
       <Fab
-        component={Link}
-        disabled={isDisabled}
+        disabled={isDisabled || !topic}
         color="primary"
-        onClick={heroAction === 'finish' ? () => {
+        onClick={() => {
           saveReflection({ topic, reflectionId, ...answers });
-        } : () => {}}
+        }}
         className={classes.hero}
-        containerId="reflection-scroll-container"
-        hashSpy
-        spy
-        smooth
-        duration={500}
-        to={heroAction}
       >
-        {heroAction === 'finish' ? 'Save' : 'Next'}
+        Save
       </Fab>
     </div>
   );
