@@ -69,6 +69,13 @@ const reducer = createReducer(initialState, {
     state.errorGetReflections = null;
   },
   [getReflectionsSuccess]: (state, action) => {
+    state.reflectionsIndex = Object.keys(action.payload).sort((keyA, keyB) => {
+      const valA = action.payload[keyA];
+      const valB = action.payload[keyB];
+
+      return valB.createdAt.seconds - valA.createdAt.seconds;
+      
+    });
     state.reflections = action.payload;
     state.isLoadingGetReflections = false;
     state.isSuccessGetReflections = true;

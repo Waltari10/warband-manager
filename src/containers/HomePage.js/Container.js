@@ -13,6 +13,7 @@ function mapStateToProps(state) {
     isError: state.reflections.isErrorGetReflections,
     isSuccess: state.reflections.isSuccessGetReflections,
     reflections: state.reflections.reflections,
+    reflectionsIndex: state.reflections.reflectionsIndex,
     uid: path(['user', 'user', 'uid'], state),
   };
 }

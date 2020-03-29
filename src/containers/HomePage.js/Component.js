@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
 
 const HomePage = ({
   isLoading, reflections = {}, getReflections, match, logout, uid,
+  reflectionsIndex = [],
   
 }) => {
 
@@ -130,7 +131,7 @@ const HomePage = ({
       <div className={classes.container}>
         <PrivateRoute component={ReflectionModal} path="/reflection/:id" />
         {isLoading && <Progress className={classes.progress} />}
-        {!isLoading && Object.keys(reflections).map((key) => {
+        {!isLoading && reflectionsIndex.map(key => {
           const reflection = reflections[key];
 
           return (
