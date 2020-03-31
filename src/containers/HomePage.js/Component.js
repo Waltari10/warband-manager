@@ -100,7 +100,7 @@ const HomePage = ({
         className={classes.topNavigationContainer}
       >
         <Typography className={classes.title} align="center" variant="h5">
-            Reflection log
+            Simple Reflect
         </Typography>
 
 

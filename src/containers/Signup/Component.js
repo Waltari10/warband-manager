@@ -102,7 +102,7 @@ const Login = ({
       }
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
-          <Typography variant="h4">Reflection Log</Typography>
+          <Typography variant="h4">Simple Reflect</Typography>
         </Grid>
         <Grid item>
           <InputBase

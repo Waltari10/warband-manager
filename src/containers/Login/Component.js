@@ -105,7 +105,7 @@ const Login = ({
 
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
-          <Typography variant="h4">Reflection Log</Typography>
+          <Typography variant="h4">Simple Reflect</Typography>
         </Grid>
         <Grid item>
           <InputBase
@@ -192,7 +192,7 @@ const Login = ({
             component={RouterLink}
           >
             <Typography variant="body2">
-              New to Reflection Log? Create an account.
+              New to Simple Reflect? Create an account.
             </Typography>
           </Link>
         </Grid>
