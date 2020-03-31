@@ -140,7 +140,11 @@ const Login = ({
                   onClick={() => setShowPassword(!showPassword)}
                   onMouseDown={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? <Visibility className={classes.inputAdornment} /> : <VisibilityOff className={classes.inputAdornment} />}
+                  {
+                    showPassword ?
+                      (<Visibility className={classes.inputAdornment} />) :
+                      (<VisibilityOff className={classes.inputAdornment} />)
+                  }
                 </IconButton>
               </InputAdornment>
             }

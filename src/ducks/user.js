@@ -1,6 +1,8 @@
 import { put, takeEvery, all, call } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 
+import * as constants from '../constants';
+
 
 import firebase, { config as firebaseConfig } from '../utils/firebase';
 
@@ -8,6 +10,10 @@ import firebase, { config as firebaseConfig } from '../utils/firebase';
 export const signupWithEmail = createAction(
   'SIGNUP_WITH_EMAIL', (email, password) => ({ payload: { email, password } })
 );
+
+export const sendResetPasswordEmail = createAction('SEND_RESET_PASSWORD_EMAIL_START');
+export const sendResetPasswordEmailSuccess = createAction('SEND_RESET_PASSWORD_EMAIL_SUCCESS');
+export const sendResetPasswordEmailError = createAction('SEND_RESET_PASSWORD_EMAIL_ERROR');
 export const signupWithEmailSuccess = createAction('SIGNUP_WITH_EMAIL_SUCCESS');
 export const signupWithEmailError = createAction('SIGNUP_WITH_EMAIL_ERROR');
 
@@ -32,9 +38,19 @@ const initialState = {
   isSuccess: false,
   error: null,
   user: null,
+  sendResetPasswordEmailRequestState: '',
 };
 
 const reducer = createReducer(initialState, {
+  [sendResetPasswordEmailSuccess]: (state) => {
+    state.sendResetPasswordEmailRequestState = constants.SUCCESS;
+  },
+  [sendResetPasswordEmailError]: (state) => {
+    state.sendResetPasswordEmailRequestState = constants.ERROR;
+  },
+  [sendResetPasswordEmail]: (state) => {
+    state.sendResetPasswordEmailRequestState = constants.LOADING;
+  },
   [addUserToState]: (state, action) => {
     state.user = action.payload;
     state.isLoading = false;
@@ -109,7 +125,6 @@ const reducer = createReducer(initialState, {
 
 
 // Api
-
 const handleLogout = () => {
 
   firebase.auth().signOut();
@@ -191,6 +206,13 @@ const callSignupWithEmail = ({ email, password }) => {
 };
 
 
+const callSendResetPasswordEmail = (email) => {
+  const auth = firebase.auth();
+
+  return auth.sendPasswordResetEmail(email);
+};
+
+
 // Sagas for side-effects
 function* handlSignupWithEmail(action) {
   try {
@@ -202,6 +224,16 @@ function* handlSignupWithEmail(action) {
   }
 }
 
+function* handleSendResetPasswordEmail(action) {
+  try {
+    yield call(callSendResetPasswordEmail, action.payload);
+    yield put(sendResetPasswordEmailSuccess());
+  } catch (e) {
+    yield put(sendResetPasswordEmailError(e));
+  }
+}
+
+
 function* watchSignupWithEmail() {
   yield takeEvery(signupWithEmail, handlSignupWithEmail);
 }
@@ -210,6 +242,10 @@ function* watchReadSession() {
   yield takeEvery(readSession, handleReadSession);
 }
 
+function* watchResetPassword() {
+  yield takeEvery(sendResetPasswordEmail, handleSendResetPasswordEmail);
+
+}
 
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
@@ -220,6 +256,7 @@ function* saga() {
     watchLogout(),
     watchSignupWithEmail(),
     watchReadSession(),
+    watchResetPassword(),
   ]);
 }
 
