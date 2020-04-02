@@ -4,6 +4,7 @@ import { createReducer, createAction } from '@reduxjs/toolkit';
 
 import firebase, { db } from '../utils/firebase';
 import logger from '../utils/logger';
+import * as constants from '../constants';
 
 
 // TODO: reduxjs/toolkit had an example on how to reduce redux boilerplate even further
@@ -18,6 +19,11 @@ export const saveReflectionSuccess = createAction('SAVE_REFLECTION_SUCCESS', add
 export const saveReflectionError = createAction('SAVE_REFLECTION_ERROR', addPayload);
 export const saveReflectionReset = createAction('SAVE_REFLECTION_RESET');
 
+export const removeReflectionSuccess = createAction('REMOVE_REFLECTION_SUCCESS');
+export const removeReflectionError = createAction('REMOVE_REFLECTION_ERROR', addPayload);
+export const removeReflection = createAction('REMOVE_REFLECTION_START', addPayload);
+export const removeReflectionReset = createAction('REMOVE_REFLECTION_RESET');
+
 export const getReflections = createAction(
   'GET_REFLECTIONS_START'
 );
@@ -30,9 +36,19 @@ const initialState = {
   isSuccess: false,
   error: null,
   reflections: {},
+  removeReflectionRequestState: '',
 };
 
 const reducer = createReducer(initialState, {
+  [removeReflectionSuccess]: (state) => {
+    state.removeReflectionRequestState = constants.SUCCESS;
+  },
+  [removeReflectionError]: (state) => {
+    state.removeReflectionRequestState = constants.ERROR;
+  },
+  [removeReflection]: (state) => {
+    state.removeReflectionRequestState = constants.LOADING;
+  },
   [saveReflectionReset]: (state) => {
     state.isLoading = false;
     state.isSuccess = false;
@@ -114,6 +130,15 @@ const callSaveReflection = (reflection, uuid) => {
 
 
 // Api
+const callRemoveReflection = (reflectionId, uuid) => {
+  return db
+    .collection('users')
+    .doc(uuid)
+    .collection('reflections')
+    .doc(reflectionId)
+    .delete();
+};
+
 const callGetReflections = (uuid) => {
 
   return db
@@ -157,6 +182,17 @@ function* handleSaveReflection(action) {
   }
 }
 
+function* handleRemoveReflection(action) {
+  try {
+    const uuid = yield select((state) => state.user.user.uid);
+    yield call(callRemoveReflection, action.payload, uuid);
+    yield put(removeReflectionSuccess());
+  } catch (e) {
+    logger.error(e);
+    yield put(removeReflectionError(e));
+  }
+}
+
 function* watchSaveReflection() {
   yield takeEvery(saveReflection, handleSaveReflection);
 }
@@ -166,12 +202,17 @@ function* watchGetReflections() {
   yield takeEvery(getReflections, handleGetReflections);
 }
 
+function* watchRemoveReflection() {
+  yield takeEvery(removeReflection, handleRemoveReflection);
+}
+
 
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
 function* saga() {
   yield all([
     watchSaveReflection(),
+    watchRemoveReflection(),
     watchGetReflections(),
   ]);
 }

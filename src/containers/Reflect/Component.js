@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => {
 
 const ReflectPage = ({
   saveReflection, isLoading, isSuccess, logout, reflection = {},
-  saveReflectionReset, reflectionId,
+  saveReflectionReset, reflectionId, removeReflection,
 }) => {
 
 
@@ -116,6 +116,14 @@ const ReflectPage = ({
           handleClose();
           logout();
         }}>Logout</MenuItem>
+        {
+          (reflectionId !== 'new' && reflectionId) && (
+            <MenuItem onClick={() => {
+              handleClose();
+              removeReflection(reflectionId);
+            }}>Delete reflection</MenuItem>
+          )
+        }
       </Menu>
 
 

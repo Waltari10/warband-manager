@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+
+import * as constants from '../../constants';
 import Modal from '../../components/Modal';
 import Reflect from '../Reflect';
-import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles(() => ({
@@ -11,17 +13,21 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const ReflectionModal = ({ match, isSuccess, saveReflectionReset }) => {
+const ReflectionModal = ({
+  match, isSuccess, saveReflectionReset, removeReflectionRequestState,
+  removeReflectionReset,
+}) => {
   
   const classes = useStyles();
 
   useEffect(() => {
     saveReflectionReset();
+    removeReflectionReset();
   }, []);
 
   let shouldClose = false;
 
-  if (isSuccess) {
+  if (isSuccess || removeReflectionRequestState === constants.SUCCESS) {
     shouldClose = true;
   }
 

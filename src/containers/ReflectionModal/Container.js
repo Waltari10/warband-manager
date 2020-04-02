@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     isError: state.reflections.isError,
     isLoading: state.reflections.isLoading,
     isSuccess: state.reflections.isSuccess,
+    removeReflectionRequestState: state.reflections.removeReflectionRequestState,
   };
 }
 

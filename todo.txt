@@ -1,12 +1,10 @@
 TODO: 
-- Rename project to be consistent
 - Better error handling
-- feature to remove reflections
 - Figure out where to host and how to release
 - Encrypt reflections
 - Unit Tests
 - E2E tests
-
+- Update reflections list on remove/add/update
 
 
 TODO LATER:
@@ -14,4 +12,3 @@ TODO LATER:
 - Improve guidance of reflection
 - PWA features
 - Add automatic Error tracking software
-- 
