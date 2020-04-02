@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => {
 
 const ReflectPage = ({
   saveReflection, isLoading, isSuccess, logout, reflection = {},
-  saveReflectionReset, reflectionId, removeReflection,
+  saveReflectionReset, reflectionId, removeReflection, isSuccessGetReflections,
 }) => {
 
 
@@ -74,6 +74,23 @@ const ReflectPage = ({
       'step-5': reflection['step-5'] || '',
     }
   );
+
+  useEffect(() => {
+
+    setTopic(reflection.topic || '');
+
+
+    setAnswers({
+      'step-1': reflection['step-1'] || '',
+      'step-2': reflection['step-2'] || '',
+      'step-3': reflection['step-3'] || '',
+      'step-4': reflection['step-4'] || '',
+      'step-5': reflection['step-5'] || '',
+    });
+
+  }, [isSuccessGetReflections]);
+
+  // console.log({ reflection, reflectionId });
 
   const steps = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
 

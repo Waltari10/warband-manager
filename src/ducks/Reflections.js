@@ -40,6 +40,9 @@ const initialState = {
 };
 
 const reducer = createReducer(initialState, {
+  [removeReflectionReset]: (state) => {
+    state.removeReflectionRequestState = '';
+  },
   [removeReflectionSuccess]: (state) => {
     state.removeReflectionRequestState = constants.SUCCESS;
   },
@@ -69,7 +72,7 @@ const reducer = createReducer(initialState, {
 
     state.reflections = {
       ...state.reflections,
-      [action.payload.result.id]: action.payload.reflection,
+      [action.payload.reflection.reflectionId]: action.payload.reflection,
     };
   },
   [saveReflectionError]: (state, action) => {
@@ -176,6 +179,7 @@ function* handleSaveReflection(action) {
     const uuid = yield select((state) => state.user.user.uid);
     const result = yield call(callSaveReflection, action.payload, uuid);
     yield put(saveReflectionSuccess({ result, reflection: action.payload }));
+    yield put(getReflections());
   } catch (e) {
     logger.error(e);
     yield put(saveReflectionError(e));
@@ -187,6 +191,7 @@ function* handleRemoveReflection(action) {
     const uuid = yield select((state) => state.user.user.uid);
     yield call(callRemoveReflection, action.payload, uuid);
     yield put(removeReflectionSuccess());
+    yield put(getReflections());
   } catch (e) {
     logger.error(e);
     yield put(removeReflectionError(e));

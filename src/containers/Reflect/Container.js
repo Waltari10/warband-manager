@@ -11,7 +11,6 @@ function mapStateToProps(state, ownProps) {
 
   const isAuthorized = !!state.user.user;
 
-
   return {
     isAuthorized,
     isError: state.reflections.isError,
@@ -19,6 +18,7 @@ function mapStateToProps(state, ownProps) {
     isSuccess: state.reflections.isSuccess,
     reflectionId: ownProps.id,
     reflection: path(['reflections', 'reflections', ownProps.id], state),
+    isSuccessGetReflections: state.reflections.isSuccessGetReflections,
   };
 }
 
