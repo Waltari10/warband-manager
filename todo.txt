@@ -1,10 +1,8 @@
 TODO: 
 - Better error handling
 - Figure out where to host and how to release
-- Encrypt reflections
 - Unit Tests
 - E2E tests
-- Update reflections list on remove/add/update
 
 
 TODO LATER:

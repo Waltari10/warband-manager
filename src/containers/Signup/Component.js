@@ -181,8 +181,6 @@ const Login = ({
           </Link>
         </Grid>
 
-
-        {/* TODO: Redirect to login page */}
         <Grid
           className={classes.loginLink}
           item

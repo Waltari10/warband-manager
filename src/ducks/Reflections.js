@@ -1,5 +1,7 @@
 import { put, takeEvery, all, call, select } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
+import AES from 'crypto-js/aes';
+import { enc } from 'crypto-js';
 
 
 import firebase, { db } from '../utils/firebase';
@@ -114,6 +116,14 @@ const reducer = createReducer(initialState, {
 
 const callSaveReflection = (reflection, uuid) => {
 
+  reflection.topic = AES.encrypt(reflection.topic, process.env.REACT_APP_AES_KEY).toString();
+  reflection['step-1'] = AES.encrypt(reflection['step-1'], process.env.REACT_APP_AES_KEY).toString();
+  reflection['step-2'] = AES.encrypt(reflection['step-2'], process.env.REACT_APP_AES_KEY).toString();
+  reflection['step-3'] = AES.encrypt(reflection['step-3'], process.env.REACT_APP_AES_KEY).toString();
+  reflection['step-4'] = AES.encrypt(reflection['step-4'], process.env.REACT_APP_AES_KEY).toString();
+  reflection['step-5'] = AES.encrypt(reflection['step-5'], process.env.REACT_APP_AES_KEY).toString();
+  
+
   if (reflection && reflection.reflectionId && reflection.reflectionId !== 'new') {
     return db
       .collection('users')
@@ -142,6 +152,22 @@ const callRemoveReflection = (reflectionId, uuid) => {
     .delete();
 };
 
+
+const decryptReflection = (reflection) => {
+
+  return {
+    ...reflection,
+    topic: AES.decrypt(reflection.topic, process.env.REACT_APP_AES_KEY).toString(enc.Utf8),
+    ['step-1']: AES.decrypt(reflection['step-1'], process.env.REACT_APP_AES_KEY).toString(enc.Utf8),
+    ['step-2']: AES.decrypt(reflection['step-2'], process.env.REACT_APP_AES_KEY).toString(enc.Utf8),
+    ['step-3']: AES.decrypt(reflection['step-3'], process.env.REACT_APP_AES_KEY).toString(enc.Utf8),
+    ['step-4']: AES.decrypt(reflection['step-4'], process.env.REACT_APP_AES_KEY).toString(enc.Utf8),
+    ['step-5']: AES.decrypt(reflection['step-5'], process.env.REACT_APP_AES_KEY).toString(enc.Utf8),
+  };
+  
+};
+
+
 const callGetReflections = (uuid) => {
 
   return db
@@ -153,7 +179,10 @@ const callGetReflections = (uuid) => {
 
       const reflections = {};
       querySnapshot.forEach(function(doc) {
-        reflections[doc.id] = doc.data();
+        
+        const reflection = doc.data();
+
+        reflections[doc.id] = decryptReflection(reflection);
       });
       return reflections;
 
