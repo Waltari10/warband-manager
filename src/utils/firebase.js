@@ -20,13 +20,13 @@ if (process.env.REACT_APP_ENVIRONMENT === 'DEVELOPMENT') {
 } else if (process.env.REACT_APP_ENVIRONMENT === 'PRODUCTION') {
   config = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: 'simple-reflect-8559d.firebaseapp.com',
-    databaseURL: 'https://simple-reflect-8559d.firebaseio.com',
-    projectId: 'simple-reflect-8559d',
-    storageBucket: 'simple-reflect-8559d.appspot.com',
-    messagingSenderId: '135611553354',
-    appId: '1:135611553354:web:b315a463fce22672e3f8b3',
-    measurementId: 'G-1P1PD89FYW',
+    authDomain: 'simple-reflect-8c266.firebaseapp.com',
+    databaseURL: 'https://simple-reflect-8c266.firebaseio.com',
+    projectId: 'simple-reflect-8c266',
+    storageBucket: 'simple-reflect-8c266.appspot.com',
+    messagingSenderId: '1057779603232',
+    appId: '1:1057779603232:web:989477d14238d08790e945',
+    measurementId: 'G-Z5DYF2F46V',
   };
 }
 
