@@ -5,6 +5,7 @@ import 'firebase/analytics';
 
 export let config;
 
+
 if (process.env.REACT_APP_ENVIRONMENT === 'DEVELOPMENT') {
   config = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
