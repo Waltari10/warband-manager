@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import * as constants from '../../constants';
 import Modal from '../../components/Modal';
-import Reflect from '../Reflect';
+import Warband from '../Warband';
 
 
 const useStyles = makeStyles(() => ({
@@ -13,21 +13,21 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const ReflectionModal = ({
-  match, isSuccess, saveReflectionReset, removeReflectionRequestState,
-  removeReflectionReset,
+const WarbandModal = ({
+  match, isSuccess, saveWarbandReset, removeWarbandRequestState,
+  removeWarbandReset,
 }) => {
   
   const classes = useStyles();
 
   useEffect(() => {
-    saveReflectionReset();
-    removeReflectionReset();
+    saveWarbandReset();
+    removeWarbandReset();
   }, []);
 
   let shouldClose = false;
 
-  if (isSuccess || removeReflectionRequestState === constants.SUCCESS) {
+  if (isSuccess || removeWarbandRequestState === constants.SUCCESS) {
     shouldClose = true;
   }
 
@@ -36,11 +36,11 @@ const ReflectionModal = ({
       className={classes.container}
       shouldClose={shouldClose}
     >
-      <Reflect
+      <Warband
         id={match.params.id}
       />
     </Modal>
   );
 };
  
-export default ReflectionModal;
+export default WarbandModal;

@@ -6,7 +6,7 @@ export default {
   // type: 'light',
   primary: {
     contrastText: white,
-    main: '#00B8D4',
+    main: '#3F3F3F',
   },
   text: {
     primary: '#3F3F3F',

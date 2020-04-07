@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../../ducks/Reflections';
+import * as actions from '../../ducks/warbands';
 import Component from './Component';
 
 function mapStateToProps(state) {
 
 
   return {
-    isError: state.reflections.isError,
-    isLoading: state.reflections.isLoading,
-    isSuccess: state.reflections.isSuccess,
-    removeReflectionRequestState: state.reflections.removeReflectionRequestState,
+    isError: state.warbands.isError,
+    isLoading: state.warbands.isLoading,
+    isSuccess: state.warbands.isSuccess,
+    removeWarbandRequestState: state.warbands.removeWarbandRequestState,
   };
 }
 

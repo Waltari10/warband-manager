@@ -4,7 +4,7 @@ import Login from '../../containers/Login';
 import Signup from '../../containers/Signup';
 import PrivateRoute from '../../containers/PrivateRoute';
 import HomePage from '../HomePage.js';
-import ReflectionModal from '../ReflectionModal';
+import WarbandModal from '../WarbandModal';
 import ForgotPassword from '../ForgotPassword';
 
 const Routes = ({ readSession }) => {
@@ -19,7 +19,7 @@ const Routes = ({ readSession }) => {
       <Route exact component={Signup} path="/signup"/>
       <Route exact component={ForgotPassword} path="/forgot-password"/>
       <Route component={HomePage} path="/" />
-      <PrivateRoute component={ReflectionModal} path="/reflection/:id" />
+      <PrivateRoute component={WarbandModal} path="/warband/:id" />
     </Switch>
   );
 };

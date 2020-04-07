@@ -3,17 +3,17 @@ import { bindActionCreators } from 'redux';
 import { path } from 'ramda';
 
 import Component from './Component';
-import * as actions from '../../ducks/Reflections';
+import * as actions from '../../ducks/warbands';
 import { logout } from '../../ducks/user';
 
 function mapStateToProps(state) {
 
   return {
-    isLoading: state.reflections.isLoadingGetReflections,
-    isError: state.reflections.isErrorGetReflections,
-    isSuccess: state.reflections.isSuccessGetReflections,
-    reflections: state.reflections.reflections,
-    reflectionsIndex: state.reflections.reflectionsIndex,
+    isLoading: state.warbands.isLoadingGetWarbands,
+    isError: state.warbands.isErrorGetWarbands,
+    isSuccess: state.warbands.isSuccessGetWarbands,
+    warbands: state.warbands.warbands,
+    rwarbandsIndex: state.warbands.warbandsIndex,
     uid: path(['user', 'user', 'uid'], state),
   };
 }

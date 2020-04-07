@@ -52,47 +52,31 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const ReflectPage = ({
-  saveReflection, isLoading, isSuccess, logout, reflection = {},
-  saveReflectionReset, reflectionId, removeReflection, isSuccessGetReflections,
+const WarbandPage = ({
+  saveWarband, isLoading, isSuccess, logout, warband = {},
+  saveWarbandReset, warbandId, removeWarband, isSuccessGetWarbands,
 }) => {
 
 
   useEffect(() => {
-    saveReflectionReset();
+    saveWarbandReset();
   }, []);
 
   const classes = useStyles();
 
-  const [topic, setTopic] = useState(reflection.topic || '');
+  const [topic, setTopic] = useState(warband.topic || '');
   const [answers, setAnswers] = useState(
-    {
-      'step-1': reflection['step-1'] || '',
-      'step-2': reflection['step-2'] || '',
-      'step-3': reflection['step-3'] || '',
-      'step-4': reflection['step-4'] || '',
-      'step-5': reflection['step-5'] || '',
-    }
+    {}
   );
 
   useEffect(() => {
 
-    setTopic(reflection.topic || '');
+    setTopic(warband.topic || '');
 
 
-    setAnswers({
-      'step-1': reflection['step-1'] || '',
-      'step-2': reflection['step-2'] || '',
-      'step-3': reflection['step-3'] || '',
-      'step-4': reflection['step-4'] || '',
-      'step-5': reflection['step-5'] || '',
-    });
+    setAnswers({});
 
-  }, [isSuccessGetReflections]);
-
-  // console.log({ reflection, reflectionId });
-
-  const steps = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
+  }, [isSuccessGetWarbands]);
 
 
   const isDisabled = isLoading || isSuccess;
@@ -109,11 +93,11 @@ const ReflectPage = ({
 
   return (
     <div
-      id="reflection-scroll-container"
+      id=" warband-scroll-container"
       className={classes.viewContainer}
     >
       <Typography className={classes.title} align="center" variant="h5">
-        {reflectionId === 'new' ? 'New reflection...' : topic }
+        { warbandId === 'new' ? 'New  warband...' : topic }
       </Typography>
       <IconButton
         className={classes.menuIcon}
@@ -134,65 +118,24 @@ const ReflectPage = ({
           logout();
         }}>Logout</MenuItem>
         {
-          (reflectionId !== 'new' && reflectionId) && (
+          (warbandId !== 'new' && warbandId) && (
             <MenuItem onClick={() => {
               handleClose();
-              removeReflection(reflectionId);
-            }}>Delete reflection</MenuItem>
+              removeWarband(warbandId);
+            }}>Delete  warband</MenuItem>
           )
         }
       </Menu>
 
 
-      <div className={classes.stepContainer}>
-        {/* h1 desktop */}
-        <Typography className={classes.header} variant="h6">Topic of reflection *</Typography>
-        <TextField
-          disabled={isDisabled}
-          className={classes.textField}
-          multiline
-          // rows={4} // TODO: add minRows to Material-UI API
-          variant="outlined"
-          fullWidth
-          placeholder="Enter text..."
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-        />
+      <div>
+        TODO: ADD warband editor!
       </div>
-      {steps.map((stepId, index) => {
-        
-        return (
-          <div className={classes.stepContainer} id={stepId} key={stepId}>
-            <a name={stepId} />
-            <Typography className={classes.header} variant="h5">
-              Why? {index + 1}/{steps.length}
-            </Typography>
-
-            <TextField
-              disabled={isDisabled}
-              className={classes.textField}
-              multiline
-              variant="outlined"
-              fullWidth
-              // rows={4}
-              value={answers[stepId]}
-              placeholder="Enter text..."
-              onChange={(e) => {
-                setAnswers({
-                  ...answers,
-                  [stepId]: e.target.value,
-                });
-              }}
-            
-            />
-          </div>
-        );
-      })}
       <Fab
         disabled={isDisabled || !topic}
         color="primary"
         onClick={() => {
-          saveReflection({ topic, reflectionId, ...answers });
+          saveWarband({ topic, warbandId, ...answers });
         }}
         className={classes.hero}
       >
@@ -202,4 +145,4 @@ const ReflectPage = ({
   );
 };
  
-export default ReflectPage;
+export default WarbandPage;

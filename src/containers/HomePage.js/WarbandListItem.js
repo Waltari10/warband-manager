@@ -32,14 +32,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ReflectionListItem = ({ reflection, match, id }) => {
+const MordheimListItem = ({ warband, match, id }) => {
 
   const classes = useStyles();
 
   return (
     <RouterLink
-      key={reflection.id}
-      to={`${match.path}reflection/${id}`}
+      key={warband.id}
+      to={`${match.path}warband/${id}`}
       className={classes.routerLink}
     >
       <div
@@ -47,7 +47,7 @@ const ReflectionListItem = ({ reflection, match, id }) => {
       >
         <Grid container>
           <Grid item>
-            <Typography className={classes.topic} variant="h6">{reflection.topic}</Typography>
+            <Typography className={classes.topic} variant="h6">{warband.topic}</Typography>
             <IconButton
               className={classes.iconButton}
             >
@@ -61,4 +61,4 @@ const ReflectionListItem = ({ reflection, match, id }) => {
   );
 };
  
-export default ReflectionListItem;
+export default MordheimListItem;

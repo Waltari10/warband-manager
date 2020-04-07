@@ -105,7 +105,7 @@ const Login = ({
 
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
-          <Typography variant="h4">Simple Reflect</Typography>
+          <Typography variant="h4">Mordheim Warbands</Typography>
         </Grid>
         <Grid item>
           <InputBase
@@ -192,7 +192,7 @@ const Login = ({
             component={RouterLink}
           >
             <Typography variant="body2">
-              New to Simple Reflect? Create an account.
+              New to Mordheim Warbands? Create an account.
             </Typography>
           </Link>
         </Grid>

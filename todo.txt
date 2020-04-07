@@ -1,17 +1,5 @@
 TODO: 
 - Better error handling
-- Figure out where to host and how to release
 - Unit Tests
 - E2E tests
 - Use takamaki-group eslint-config
-
-
-TODO LATER:
-- Add negative/neutral/positive before each reflection
-    - Have different steps depending on which emotion chosen
-    - implement Negative first
-    - Then positive
-    - Maybe neutral(?)
-- Improve guidance of reflection
-- PWA features
-- Add automatic Error tracking software

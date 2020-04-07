@@ -11,9 +11,9 @@ import IconButton from '@material-ui/core/IconButton';
 import { Typography } from '@material-ui/core';
 
 import PrivateRoute from '../PrivateRoute';
-import ReflectionModal from '../ReflectionModal';
+import WarbandModal from '../WarbandModal';
 
-import ReflectionListItem from './ReflectionListItem';
+import WarbandListItem from './WarbandListItem';
 import AppWindow from '../../components/AppWindow';
 
 
@@ -69,14 +69,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 const HomePage = ({
-  isLoading, reflections = {}, getReflections, match, logout, uid,
-  reflectionsIndex = [],
+  isLoading, warbands = {}, getWarbands, match, logout, uid,
+  warbandsIndex = [],
   
 }) => {
 
   useEffect(() => {
     if (uid) {
-      getReflections();
+      getWarbands();
     }
   }, [uid]);
 
@@ -100,7 +100,7 @@ const HomePage = ({
         className={classes.topNavigationContainer}
       >
         <Typography className={classes.title} align="center" variant="h5">
-            Simple Reflect
+            Mordheim Warbands
         </Typography>
 
 
@@ -129,23 +129,23 @@ const HomePage = ({
 
 
       <div className={classes.container}>
-        <PrivateRoute component={ReflectionModal} path="/reflection/:id" />
+        <PrivateRoute component={WarbandModal} path="/warband/:id" />
         {isLoading && <Progress className={classes.progress} />}
-        {!isLoading && reflectionsIndex.map(key => {
-          const reflection = reflections[key];
+        {!isLoading && warbandsIndex.map(key => {
+          const warband = warbands[key];
 
           return (
-            <ReflectionListItem
+            <WarbandListItem
               match={match}
               key={key}
               id={key}
-              reflection={reflection}
+              warband={warband}
             />
           );
         })}
 
-        {!isLoading && Object.keys(reflections).length === 0 && (
-          <Typography>No reflections yet. Add first reflection.</Typography>
+        {!isLoading && Object.keys(warbands).length === 0 && (
+          <Typography>No Warbands yet. Add first warband.</Typography>
         )}
 
         
@@ -156,7 +156,7 @@ const HomePage = ({
         className={classes.hero}
         color="primary"
         component={RouterLink}
-        to={`${match.path}reflection/new`}
+        to={`${match.path}warband/new`}
       >
         <AddIcon className={classes.addIcon} />
       </Fab>

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { path } from 'ramda';
 
-import * as actions from '../../ducks/Reflections';
+import * as actions from '../../ducks/warbands';
 import * as userActions from '../../ducks/user';
 
 import Component from './Component';
@@ -13,12 +13,12 @@ function mapStateToProps(state, ownProps) {
 
   return {
     isAuthorized,
-    isError: state.reflections.isError,
-    isLoading: state.reflections.isLoading,
-    isSuccess: state.reflections.isSuccess,
-    reflectionId: ownProps.id,
-    reflection: path(['reflections', 'reflections', ownProps.id], state),
-    isSuccessGetReflections: state.reflections.isSuccessGetReflections,
+    isError: state.warbands.isError,
+    isLoading: state.warbands.isLoading,
+    isSuccess: state.warbands.isSuccess,
+    warbandId: ownProps.id,
+    warband: path(['warbands', 'warbands', ownProps.id], state),
+    isSuccessGetWarbands: state.warbands.isSuccessGetWarbands,
   };
 }
 
