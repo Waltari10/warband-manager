@@ -24,6 +24,7 @@ export default makeStyles((theme) => {
       overflowY: 'scroll',
       overflowX: 'hidden',
       height: '100%',
+      backgroundColor: theme.palette.background,
       // paddingLeft: '24px', // Only on desktop
       // paddingRight: '24px',
     },
@@ -39,6 +40,7 @@ export default makeStyles((theme) => {
       right: theme.spacing(2),
     },
     paper: {
+      backgroundColor: 'white',
       padding: theme.spacing(3),
       display: 'flex',
       flexDirection: 'column',
