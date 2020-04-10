@@ -85,11 +85,18 @@ const WarbandPage = ({
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        classes={{
+          paper: classes.menu,
+        }}
       >
-        <MenuItem onClick={() => {
-          handleClose();
-          logout();
-        }}>Logout</MenuItem>
+        <MenuItem
+          style={{
+            backgroundColor: 'white',
+          }}
+          onClick={() => {
+            handleClose();
+            logout();
+          }}>Logout</MenuItem>
         {
           (warbandId !== 'new' && warbandId) && (
             <MenuItem onClick={() => {

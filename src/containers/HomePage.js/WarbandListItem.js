@@ -10,6 +10,7 @@ import ArrowRight from '@material-ui/icons/ArrowRight';
 const useStyles = makeStyles((theme) => ({
   listItem: {
     padding: theme.spacing(1),
+    paddingLeft: theme.spacing(3),
     width: '100%',
     borderRadius: 0,
     position: 'relative',

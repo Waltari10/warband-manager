@@ -20,6 +20,9 @@ export default makeStyles((theme) => {
       marginTop: theme.spacing(3),
       display: 'flex',
     },
+    menu: {
+      backgroundColor: 'white',
+    },
     viewContainer: {
       overflowY: 'scroll',
       overflowX: 'hidden',

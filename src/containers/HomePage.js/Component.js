@@ -66,6 +66,9 @@ const useStyles = makeStyles((theme) => ({
   addIcon: {
     color: 'white',
   },
+  menu: {
+    backgroundColor: 'white',
+  },
 }));
 
 
@@ -120,11 +123,15 @@ const HomePage = ({
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}
+          classes={{
+            paper: classes.menu,
+          }}
         >
-          <MenuItem onClick={() => {
-            handleClose();
-            logout();
-          }}>Logout</MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose();
+              logout();
+            }}>Logout</MenuItem>
         </Menu>
 
 
