@@ -108,6 +108,7 @@ module.exports = {
     cy: true,
     context: true,
     Cypress: true,
-    assert: true
+    assert: true,
+    process: true
   }
 };

@@ -116,8 +116,6 @@ const reducer = createReducer(initialState, {
 
 const callSaveWarband = (warband, uuid) => {
 
-  console.log({ warband, uuid });
-
   if (warband && warband. warbandId && warband. warbandId !== 'new') {
     return db
       .collection('users')

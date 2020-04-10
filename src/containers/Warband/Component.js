@@ -20,7 +20,7 @@ const attributesArr = ['m', 'ws', 'bs', 's', 't', 'w', 'i', 'a', 'ld'];
 
 
 const WarbandPage = ({
-  saveWarband, isLoading, isSuccess, logout, warband = {},
+  saveWarband, isLoading, logout, warband = {},
   saveWarbandReset, warbandId, removeWarband, isSuccessGetWarbands,
 }) => {
 
@@ -123,7 +123,9 @@ const WarbandPage = ({
             <Paper className={classes.paper}>
               <Typography variant="h5">Rating</Typography>
               <Typography variant="body1">Total experience: {getTotalExperience(localWarband)}</Typography>
-              <Typography variant="body1">Members ({getWarbandMemberCount(localWarband)}) x 5: {getRatingFromMemberCount(localWarband)}</Typography>
+              <Typography variant="body1">
+                Members ({getWarbandMemberCount(localWarband)}) x 5: {getRatingFromMemberCount(localWarband)}
+              </Typography>
               <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
             </Paper>
           </Grid>
@@ -275,7 +277,10 @@ const WarbandPage = ({
 
           })}
 
-          {['henchman_0', 'henchman_1', 'henchman_2', 'henchman_3', 'henchman_4', 'henchman_5'].map((henchmanId, index) => {
+          {[
+            'henchman_0', 'henchman_1', 'henchman_2',
+            'henchman_3', 'henchman_4', 'henchman_5',
+          ].map((henchmanId, index) => {
 
             const onHenchmanValueChange = (e) => {
 

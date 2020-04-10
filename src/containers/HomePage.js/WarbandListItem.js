@@ -33,8 +33,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MordheimListItem = ({ warband, match, id }) => {
-
-  console.log(warband);
   const classes = useStyles();
 
   return (

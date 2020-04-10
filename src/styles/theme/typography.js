@@ -1,57 +1,59 @@
 import palette from './palette';
 
+// font-family: Deutsch;
+
 export default {
-  fontFamily: '\'Montserrat\', \'Roboto\', \'Helvetica\', \'Arial\', sans-serif',
+  fontFamily: '\'Deutsch\', \'Roboto\', \'Helvetica\', \'Arial\', sans-serif',
   h1: {
     color: palette.text.primary,
-    fontFamily: '\'Montserrat\', serif',
+    fontFamily: '\'Deutsch\', serif',
   },
   h2: {
     color: palette.text.primary,
-    fontFamily: '\'Montserrat\', serif',
+    fontFamily: '\'Deutsch\', serif',
   },
   h3: {
     color: palette.text.primary,
-    fontFamily: '\'Montserrat\', serif',
+    fontFamily: '\'Deutsch\', serif',
   },
   h4: {
     color: palette.text.primary,
-    fontFamily: '\'Montserrat\', serif',
+    fontFamily: '\'Deutsch\', serif',
   },
   h5: {
     color: palette.text.primary,
-    fontFamily: '\'Montserrat\', serif',
+    fontFamily: '\'Deutsch\', serif',
   },
   h6: {
     color: palette.text.primary,
-    fontFamily: '\'Montserrat\', serif',
+    fontFamily: '\'Deutsch\', serif',
   },
   subtitle1: {
     color: palette.text.primary,
-    fontFamily: '\'Lato\', sans-serif',
+    fontFamily: '\'Deutsch\', sans-serif',
   },
   subtitle2: {
     color: palette.text.secondary,
-    fontFamily: '\'Lato\', sans-serif',
+    fontFamily: '\'Deutsch\', sans-serif',
   },
   body1: {
     color: palette.text.primary,
-    fontFamily: '\'Lato\', sans-serif',
+    fontFamily: '\'Deutsch\', sans-serif',
   },
   body2: {
     color: palette.text.secondary,
-    fontFamily: '\'Lato\', sans-serif',
+    fontFamily: '\'Deutsch\', sans-serif',
   },
   button: {
     color: palette.text.primary,
-    fontFamily: '\'Lato\', sans-serif',
+    fontFamily: '\'Deutsch\', sans-serif',
   },
   caption: {
     color: palette.text.secondary,
-    fontFamily: '\'Lato\', sans-serif',
+    fontFamily: '\'Deutsch\', sans-serif',
   },
   overline: {
     color: palette.text.secondary,
-    fontFamily: '\'Lato\', sans-serif',
+    fontFamily: '\'Deutsch\', sans-serif',
   },
 };
