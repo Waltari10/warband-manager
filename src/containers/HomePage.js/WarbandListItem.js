@@ -56,8 +56,8 @@ const MordheimListItem = ({ warband, match, id }) => {
         </Grid>
       </div>
     </RouterLink>
-    
+
   );
 };
- 
+
 export default MordheimListItem;

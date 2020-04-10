@@ -39,7 +39,7 @@ const WarbandPage = ({
 
 
   const isDisabled = isLoading; // TODO: Or no changes
-  
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -56,7 +56,7 @@ const WarbandPage = ({
       ...localWarband,
       [e.target.getAttribute('name')]: e.target.value,
     });
-    
+
   };
 
   return (
@@ -129,7 +129,7 @@ const WarbandPage = ({
               <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
             </Paper>
           </Grid>
-          
+
           <Grid md={6} item>
             <Paper className={classes.paper}>
               <Typography variant="h5">Wealth</Typography>
@@ -247,12 +247,12 @@ const WarbandPage = ({
                             />
                           </div>
                         );
-                        
+
 
                       })
                     }
                   </div>
-                    
+
                   <div
                     className={classes.levelRow}
                   >
@@ -423,12 +423,12 @@ const WarbandPage = ({
                             </label>
                           </div>
                         );
-            
+
 
                       })
                     }
                   </div>
-        
+
                   <div
                     className={classes.levelRow}
                   >
@@ -452,7 +452,7 @@ const WarbandPage = ({
             );
 
           })}
-          
+
         </Grid>
       </div>
       <Fab
@@ -468,5 +468,5 @@ const WarbandPage = ({
     </div>
   );
 };
- 
+
 export default WarbandPage;

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     borderStyle: 'solid',
     borderColor: '#C0C0C0',
 
-    
+
   },
   password: {
     marginBottom: theme.spacing(3),
@@ -218,5 +218,5 @@ const Login = ({
     </AppWindow>
   );
 };
- 
+
 export default Login;

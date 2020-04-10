@@ -109,6 +109,8 @@ module.exports = {
     context: true,
     Cypress: true,
     assert: true,
-    process: true
+    process: true,
+    module: true,
+    __dirname: true,
   }
 };

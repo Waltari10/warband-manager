@@ -94,7 +94,7 @@ const reducer = createReducer(initialState, {
       const valB = action.payload[keyB];
 
       return valB.createdAt.seconds - valA.createdAt.seconds;
-      
+
     });
     state.warbandsIndex = warbandsIndex;
     state.warbands = action.payload;
@@ -156,7 +156,7 @@ const callGetWarbands = (uuid) => {
 
       const warbands = {};
       querySnapshot.forEach(function(doc) {
-        
+
         const warband = doc.data();
 
         warbands[doc.id] = warband;
