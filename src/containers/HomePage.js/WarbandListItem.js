@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MordheimListItem = ({ warband, match, id }) => {
 
+  console.log(warband);
   const classes = useStyles();
 
   return (
@@ -47,7 +48,7 @@ const MordheimListItem = ({ warband, match, id }) => {
       >
         <Grid container>
           <Grid item>
-            <Typography className={classes.topic} variant="h6">{warband.topic}</Typography>
+            <Typography className={classes.topic} variant="h6">{warband.name}</Typography>
             <IconButton
               className={classes.iconButton}
             >

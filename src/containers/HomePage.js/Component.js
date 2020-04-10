@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     lineHeight: '48px',
+    color: 'white',
   },
   menuIcon: {
     position: 'absolute',
@@ -63,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
   },
   addIcon: {
-    color: theme.palette.text.primary,
+    color: 'white',
   },
 }));
 
@@ -94,7 +95,7 @@ const HomePage = ({
   };
 
   return (
-    <AppWindow className={classes.window} size="xs">
+    <AppWindow className={classes.window} size="xl">
 
       <div
         className={classes.topNavigationContainer}
@@ -108,7 +109,9 @@ const HomePage = ({
           className={classes.menuIcon}
           onClick={handleClick}
         >
-          <MenuIcon />
+          <MenuIcon
+            style={{ color: 'white' }}
+          />
         </IconButton>
 
         <Menu

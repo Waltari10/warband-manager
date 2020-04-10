@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
 
 
 const WarbandModal = ({
-  match, isSuccess, saveWarbandReset, removeWarbandRequestState,
+  match, saveWarbandReset, removeWarbandRequestState,
   removeWarbandReset,
 }) => {
   
@@ -27,7 +27,7 @@ const WarbandModal = ({
 
   let shouldClose = false;
 
-  if (isSuccess || removeWarbandRequestState === constants.SUCCESS) {
+  if (removeWarbandRequestState === constants.SUCCESS) {
     shouldClose = true;
   }
 

@@ -13,7 +13,7 @@ function mapStateToProps(state) {
     isError: state.warbands.isErrorGetWarbands,
     isSuccess: state.warbands.isSuccessGetWarbands,
     warbands: state.warbands.warbands,
-    rwarbandsIndex: state.warbands.warbandsIndex,
+    warbandsIndex: state.warbands.warbandsIndex,
     uid: path(['user', 'user', 'uid'], state),
   };
 }

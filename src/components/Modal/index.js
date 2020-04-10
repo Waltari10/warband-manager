@@ -117,6 +117,7 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, cl
                 }}
               >
                 <BackIcon
+                  style={{ color: 'white' }}
                   fontSize="large"
                 />
               </IconButton>
