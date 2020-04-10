@@ -58,5 +58,5 @@ const AppWindow = ({ className, children, size }) => {
     </Paper>
   );
 };
- 
+
 export default AppWindow;

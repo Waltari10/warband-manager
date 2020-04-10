@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import reducers from '../ducks/index';
- 
+
 // https://github.com/erikras/ducks-modul ar-redux
 // https://github.com/alexnm/re-ducks
 

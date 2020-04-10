@@ -23,5 +23,5 @@ const Routes = ({ readSession }) => {
     </Switch>
   );
 };
- 
+
 export default Routes;

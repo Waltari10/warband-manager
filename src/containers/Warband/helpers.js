@@ -6,14 +6,14 @@ export const getTotalExperience = (warband) => {
   const henchmen = path(['henchmen'], warband) || {};
 
   Object.values(heroes).forEach((hero) => {
-    
+
     if (hero.name && hero.exp) {
       total += parseInt(hero.exp);
     }
   });
 
   Object.values(henchmen).forEach((henchman) => {
-    
+
     if (henchman.count && henchman.exp) {
       total += parseInt(henchman.count) * parseInt(henchman.exp);
     }
@@ -30,14 +30,14 @@ export const getWarbandMemberCount = (warband) => {
   const henchmen = path(['henchmen'], warband) || {};
 
   Object.values(heroes).forEach((hero) => {
-    
+
     if (hero.name) {
       total++;
     }
   });
 
   Object.values(henchmen).forEach((henchman) => {
-    
+
     if (henchman.count) {
       total += parseInt(henchman.count);
     }
@@ -99,7 +99,6 @@ export const getHeroLevel = (exp = 0) => {
   if (!expInt || isNaN(expInt)) {
     return level;
   }
-  
 
   heroLevelArr.forEach((threshold, index) => {
 

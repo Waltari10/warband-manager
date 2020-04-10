@@ -107,7 +107,7 @@ export default makeStyles((theme) => {
           },
         },
       },
-  
+
       /* On mouse-over, add a grey background color */
       '&:hover': {
         '& input': {
@@ -125,7 +125,7 @@ export default makeStyles((theme) => {
       width: 'calc(100% - 2px)',
       borderStyle: 'solid',
       borderWidth: '1px',
-    
+
       '&:after': {
         content: '"x"',
         position: 'absolute',
@@ -133,8 +133,8 @@ export default makeStyles((theme) => {
         width: '100%',
         textAlign: 'center',
       },
-    
+
     },
-    
+
   };
 });

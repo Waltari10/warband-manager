@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 const HomePage = ({
   isLoading, warbands = {}, getWarbands, match, logout, uid,
   warbandsIndex = [],
-  
+
 }) => {
 
   useEffect(() => {
@@ -127,7 +127,7 @@ const HomePage = ({
           }}>Logout</MenuItem>
         </Menu>
 
-        
+
       </div>
 
 
@@ -151,7 +151,7 @@ const HomePage = ({
           <Typography>No Warbands yet. Add first warband.</Typography>
         )}
 
-        
+
       </div>
 
 
@@ -166,5 +166,5 @@ const HomePage = ({
     </AppWindow>
   );
 };
- 
+
 export default HomePage;

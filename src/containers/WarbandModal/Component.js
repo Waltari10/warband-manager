@@ -17,7 +17,7 @@ const WarbandModal = ({
   match, saveWarbandReset, removeWarbandRequestState,
   removeWarbandReset,
 }) => {
-  
+
   const classes = useStyles();
 
   useEffect(() => {
@@ -42,5 +42,5 @@ const WarbandModal = ({
     </Modal>
   );
 };
- 
+
 export default WarbandModal;

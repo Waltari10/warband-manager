@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: Schoensperger;
   /* font-family: 'Gothic A1', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
@@ -14,4 +15,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Schoensperger;
+}
+
+@font-face {
+  font-family: "Schoensperger";
+  src: url("fonts/Schoensperger.woff") format('woff');
+}
+
+@font-face {
+  font-family: "OldeTypeSet";
+  src: url("fonts/OldeTypeSet.woff") format('woff');
+}
+
+
+@font-face {
+  font-family: "Deutsch";
+  src: url("fonts/Deutsch.ttf") format('ttf');
 }
