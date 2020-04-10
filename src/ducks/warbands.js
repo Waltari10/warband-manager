@@ -35,6 +35,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   error: null,
+  warbandsIndex: [],
   warbands: {},
   removeWarbandRequestState: '',
 };
@@ -88,13 +89,14 @@ const reducer = createReducer(initialState, {
     state.errorGetWarbands = null;
   },
   [getWarbandsSuccess]: (state, action) => {
-    state.warbandsIndex = Object.keys(action.payload).sort((keyA, keyB) => {
+    const warbandsIndex = Object.keys(action.payload).sort((keyA, keyB) => {
       const valA = action.payload[keyA];
       const valB = action.payload[keyB];
 
       return valB.createdAt.seconds - valA.createdAt.seconds;
       
     });
+    state.warbandsIndex = warbandsIndex;
     state.warbands = action.payload;
     state.isLoadingGetWarbands = false;
     state.isSuccessGetWarbands = true;
@@ -113,6 +115,8 @@ const reducer = createReducer(initialState, {
 
 
 const callSaveWarband = (warband, uuid) => {
+
+  console.log({ warband, uuid });
 
   if (warband && warband. warbandId && warband. warbandId !== 'new') {
     return db

@@ -108,50 +108,55 @@ const Login = ({
           <Typography variant="h4">Mordheim Warbands</Typography>
         </Grid>
         <Grid item>
-          <InputBase
-            style={{ display: 'flex' }}
-            className={classes.email}
-            onChange={(e) => setEmail(e.target.value)}
-            // label="Type your email"
-            disabled={isDisabled}
-            placeholder="email"
-            value={email}
-            variant="filled"
-            startAdornment={
-              <InputAdornment position="start">
-                <EmailIcon className={classes.inputStartAdornment} />
-              </InputAdornment>
-            }
-          />
-          <InputBase
-            variant="filled"
-            className={classes.password}
-            onChange={(e) => setPassword(e.target.value)}
-            disabled={isDisabled}
-            type={showPassword ? 'text' : 'password'}
-            value={password}
-            // label="Type your password"
-            placeholder="password"
-            startAdornment={
-              <InputAdornment position="start">
-                <PasswordIcon className={classes.inputStartAdornment}/>
-              </InputAdornment>
-            }
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={() => setShowPassword(!showPassword)}
-                  onMouseDown={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ?
-                    (<Visibility className={classes.inputAdornment} />) :
-                    (<VisibilityOff className={classes.inputAdornment} />)
-                  }
-                </IconButton>
-              </InputAdornment>
-            }
-          />
+          <form acceptCharset="UTF-8">
+            <InputBase
+              name="email"
+              style={{ display: 'flex' }}
+              className={classes.email}
+              onChange={(e) => setEmail(e.target.value)}
+              // label="Type your email"
+              disabled={isDisabled}
+              placeholder="email"
+              type="email"
+              value={email}
+              variant="filled"
+              startAdornment={
+                <InputAdornment position="start">
+                  <EmailIcon className={classes.inputStartAdornment} />
+                </InputAdornment>
+              }
+            />
+            <InputBase
+              name="password"
+              variant="filled"
+              className={classes.password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={isDisabled}
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              // label="Type your password"
+              placeholder="password"
+              startAdornment={
+                <InputAdornment position="start">
+                  <PasswordIcon className={classes.inputStartAdornment}/>
+                </InputAdornment>
+              }
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => setShowPassword(!showPassword)}
+                    onMouseDown={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ?
+                      (<Visibility className={classes.inputAdornment} />) :
+                      (<VisibilityOff className={classes.inputAdornment} />)
+                    }
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </form>
         </Grid>
         <Grid item>
           <Button

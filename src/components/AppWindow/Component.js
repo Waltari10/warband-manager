@@ -33,17 +33,24 @@ const AppWindow = ({ className, children, size }) => {
   const classes = useStyles();
 
   let width;
+  let height;
 
   if (size === 'xs') {
     width = '400px';
+  } else if (size === 'xl') {
+    width = '1000px';
+    height = '100%';
   } else {
     width = '600px';
   }
 
   return (
     <Paper
+      id="appwindow"
       style={{
         maxWidth: width,
+        width,
+        minHeight: height,
       }}
       className={`${classes.container} ${className}`}
     >

@@ -89,6 +89,7 @@ const Login = ({
         </Grid>
         <Grid item>
           <InputBase
+            name="email"
             style={{ display: 'flex' }}
             className={classes.email}
             onChange={(e) => setEmail(e.target.value)}
