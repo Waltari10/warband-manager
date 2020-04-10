@@ -22,7 +22,7 @@ const attributesArr = ['m', 'ws', 'bs', 's', 't', 'w', 'i', 'a', 'ld'];
 let timeout;
 
 const WarbandPage = ({
-  saveWarband, isLoading, logout, warband = {},
+  saveWarband, logout, warband = {},
   warbandId, removeWarband, isSuccessGetWarbands,
 }) => {
 
@@ -38,8 +38,6 @@ const WarbandPage = ({
     }
   }, [isSuccessGetWarbands]);
 
-
-  const isDisabled = isLoading; // TODO: Or no changes
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -515,16 +513,6 @@ const WarbandPage = ({
 
         </Grid>
       </div>
-      <Fab
-        disabled={isDisabled || !localWarband.name}
-        color="primary"
-        onClick={() => {
-          saveWarband({ ...localWarband, warbandId });
-        }}
-        className={classes.hero}
-      >
-        Save
-      </Fab>
     </div>
   );
 };
