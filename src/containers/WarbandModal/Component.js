@@ -14,14 +14,13 @@ const useStyles = makeStyles(() => ({
 
 
 const WarbandModal = ({
-  match, saveWarbandReset, removeWarbandRequestState,
+  match, removeWarbandRequestState,
   removeWarbandReset,
 }) => {
 
   const classes = useStyles();
 
   useEffect(() => {
-    saveWarbandReset();
     removeWarbandReset();
   }, []);
 

@@ -12,7 +12,7 @@ import {
 
 import { Paper, Grid, MenuItem, Menu, IconButton, Fab, TextField, Typography } from '@material-ui/core';
 
-import { path } from 'ramda';
+import { path, isEmpty } from 'ramda';
 
 import useStyles from './styles';
 
@@ -32,7 +32,10 @@ const WarbandPage = ({
   const [localWarband, setLocalWarband] = useState({});
 
   useEffect(() => {
-    setLocalWarband(warband);
+
+    if (isEmpty(localWarband)) {
+      setLocalWarband(warband);
+    }
   }, [isSuccessGetWarbands]);
 
 

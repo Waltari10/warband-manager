@@ -17,7 +17,6 @@ export const saveWarband = createAction(
 
 export const saveWarbandSuccess = createAction('SAVE_WARBAND_SUCCESS', addPayload);
 export const saveWarbandError = createAction('SAVE_WARBAND_ERROR', addPayload);
-export const saveWarbandReset = createAction('SAVE_WARBAND_RESET');
 
 export const removeWarbandSuccess = createAction('REMOVE_WARBAND_SUCCESS');
 export const removeWarbandError = createAction('REMOVE_WARBAND_ERROR', addPayload);
@@ -52,12 +51,6 @@ const reducer = createReducer(initialState, {
   },
   [removeWarband]: (state) => {
     state.removeWarbandRequestState = constants.LOADING;
-  },
-  [saveWarbandReset]: (state) => {
-    state.isLoading = false;
-    state.isSuccess = false;
-    state.isError = false;
-    state.error = null;
   },
   [saveWarband]: (state) => {
     state.isLoading = true;
