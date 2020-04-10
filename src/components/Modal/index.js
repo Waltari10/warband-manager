@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import { Redirect } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -136,16 +135,6 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, cl
       </Transition>
     </>
   );
-};
-
-Modal.propTypes = {
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
-  children: PropTypes.Node,
-  Icon: PropTypes.Node,
-  renderContent: PropTypes.func,
-  shouldClose: PropTypes.bool,
-  className: PropTypes.string,
 };
 
 export default Modal;

@@ -1,7 +1,8 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/analytics';
+import 'firebase/firestore';
 
 export let config;
 

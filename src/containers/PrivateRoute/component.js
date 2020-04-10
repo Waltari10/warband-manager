@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -41,10 +40,5 @@ const PrivateRoute = memo(({ component: Component, isLoading, isAuthorized, ...r
 
 
 });
-
-PrivateRoute.propTypes = {
-  component: PropTypes.Node,
-  isAuthorized: PropTypes.bool,
-};
 
 export default PrivateRoute;
