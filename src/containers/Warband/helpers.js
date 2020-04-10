@@ -57,3 +57,79 @@ export const getRating = (warband) => {
   return getRatingFromMemberCount(warband) + getTotalExperience(warband);
 
 };
+
+
+const henchmanLevelArr = [
+  2,
+  5,
+  9,
+  14,
+];
+
+const heroLevelArr = [
+  2,
+  4,
+  6,
+  8,
+  11,
+  14,
+  17,
+  20,
+  24,
+  28,
+  32,
+  36,
+  41,
+  46,
+  51,
+  56,
+  62,
+  69,
+  76,
+  83,
+  90,
+];
+
+export const getHeroLevel = (exp = 0) => {
+
+  let level = 1;
+
+  const expInt = parseInt(exp);
+
+  if (!expInt || isNaN(expInt)) {
+    return level;
+  }
+  
+
+  heroLevelArr.forEach((threshold, index) => {
+
+    if (expInt >= threshold) {
+      level = index + 2;
+    }
+
+  });
+
+  return level;
+};
+
+export const getHenchmanLevel = (exp = 0) => {
+
+  let level = 1;
+
+  const expInt = parseInt(exp);
+
+  if (!expInt || isNaN(expInt)) {
+    return 1;
+  }
+
+  henchmanLevelArr.forEach((threshold, index) => {
+
+    if (expInt >= threshold) {
+      level = index + 2;
+    }
+
+  });
+
+  return level;
+
+};
