@@ -6,6 +6,8 @@ import {
   getWarbandMemberCount,
   getRatingFromMemberCount,
   getRating,
+  getHeroLevel,
+  getHenchmanLevel,
 } from './helpers';
 
 import { Divider, Paper, Grid, MenuItem, Menu, IconButton, Fab, TextField, Typography } from '@material-ui/core';
@@ -15,6 +17,7 @@ import { path } from 'ramda';
 import useStyles from './styles';
 
 const attributesArr = ['m', 'ws', 'bs', 's', 't', 'w', 'i', 'a', 'ld'];
+
 
 const WarbandPage = ({
   saveWarband, isLoading, isSuccess, logout, warband = {},
@@ -120,7 +123,7 @@ const WarbandPage = ({
             <Paper className={classes.paper}>
               <Typography variant="h5">Rating</Typography>
               <Typography variant="body1">Total experience: {getTotalExperience(localWarband)}</Typography>
-              <Typography variant="body1">Members ( {getWarbandMemberCount(localWarband)} ) x 5: {getRatingFromMemberCount(localWarband)}</Typography>
+              <Typography variant="body1">Members ({getWarbandMemberCount(localWarband)}) x 5: {getRatingFromMemberCount(localWarband)}</Typography>
               <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
             </Paper>
           </Grid>
@@ -261,7 +264,7 @@ const WarbandPage = ({
                     <Typography
                       className={classes.level}
                     >
-                      <b>Level:</b>&nbsp;{'1'}
+                      <b>Level:</b>&nbsp;{getHeroLevel(path(['heroes', heroId, 'exp'], localWarband) || 1)}
                     </Typography>
                   </div>
                   <hr />
@@ -425,7 +428,7 @@ const WarbandPage = ({
                     className={classes.levelRow}
                   >
                     <TextField
-                      value={path(['henchmen', henchmanId, 'exp'], localWarband) || ''}
+                      value={path(['henchmen', henchmanId, 'exp'], localWarband) || 0}
                       onChange={onHenchmanValueChange}
                       multiline
                       label={'Total exp'}
@@ -434,7 +437,7 @@ const WarbandPage = ({
                     <Typography
                       className={classes.level}
                     >
-                      <b>Level:</b>&nbsp;{'1'}
+                      <b>Level:</b>&nbsp;{getHenchmanLevel(path(['henchmen', henchmanId, 'exp'], localWarband) || 0)}
                     </Typography>
                   </div>
                   <hr />
