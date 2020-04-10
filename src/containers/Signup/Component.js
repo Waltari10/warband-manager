@@ -106,6 +106,7 @@ const Login = ({
         </Grid>
         <Grid item>
           <InputBase
+            name="email"
             style={{ display: 'flex' }}
             className={classes.email}
             onChange={(e) => setEmail(e.target.value)}
@@ -121,6 +122,7 @@ const Login = ({
             }
           />
           <InputBase
+            name="password"
             className={classes.password}
             onChange={(e) => setPassword(e.target.value)}
             disabled={isDisabled}
