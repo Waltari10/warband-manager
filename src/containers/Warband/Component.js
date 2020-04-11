@@ -10,7 +10,7 @@ import {
   getHenchmanLevel,
 } from './helpers';
 
-import { Paper, Grid, MenuItem, Menu, IconButton, Fab, TextField, Typography } from '@material-ui/core';
+import { Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography } from '@material-ui/core';
 
 import { path, isEmpty } from 'ramda';
 
@@ -18,14 +18,20 @@ import useStyles from './styles';
 
 const attributesArr = ['m', 'ws', 'bs', 's', 't', 'w', 'i', 'a', 'ld'];
 
+const henchmenIdArr = [
+  'henchman_0', 'henchman_1', 'henchman_2',
+  'henchman_3', 'henchman_4', 'henchman_5',
+  'henchman_6',
+];
+
 
 let timeout;
 
 const WarbandPage = ({
   saveWarband, logout, warband = {},
   warbandId, removeWarband, isSuccessGetWarbands,
+  addWarbandReset,
 }) => {
-
 
   const classes = useStyles();
 
@@ -37,6 +43,10 @@ const WarbandPage = ({
       setLocalWarband(warband);
     }
   }, [isSuccessGetWarbands]);
+
+  useEffect(() => {
+    addWarbandReset();
+  }, []);
 
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -71,7 +81,7 @@ const WarbandPage = ({
       className={classes.viewContainer}
     >
       <Typography className={classes.title} align="center" variant="h5">
-        { warbandId === 'new' ? 'New  warband...' : warband.name }
+        { warband.name || 'No name' }
       </Typography>
       <IconButton
         className={classes.menuIcon}
@@ -99,12 +109,10 @@ const WarbandPage = ({
             logout();
           }}>Logout</MenuItem>
         {
-          (warbandId !== 'new' && warbandId) && (
-            <MenuItem onClick={() => {
-              handleClose();
-              removeWarband(warbandId);
-            }}>Delete  warband</MenuItem>
-          )
+          <MenuItem onClick={() => {
+            handleClose();
+            removeWarband(warbandId);
+          }}>Delete  warband</MenuItem>
         }
       </Menu>
 
@@ -112,7 +120,7 @@ const WarbandPage = ({
       <div>
 
         <Grid spacing={3} container className={classes.gridContainer}>
-          <Grid md={6} item>
+          <Grid md={6} lg={4} item>
             <Paper className={classes.paper}>
 
               <Typography variant="h5">General</Typography>
@@ -132,7 +140,7 @@ const WarbandPage = ({
               />
             </Paper>
           </Grid>
-          <Grid md={6} item>
+          <Grid md={6} lg={4} item>
             <Paper className={classes.paper}>
               <Typography variant="h5">Rating</Typography>
               <Typography variant="body1">Total experience: {getTotalExperience(localWarband)}</Typography>
@@ -143,7 +151,7 @@ const WarbandPage = ({
             </Paper>
           </Grid>
 
-          <Grid md={6} item>
+          <Grid md={6} lg={4} item>
             <Paper className={classes.paper}>
               <Typography variant="h5">Wealth</Typography>
               <TextField
@@ -232,7 +240,7 @@ const WarbandPage = ({
 
 
             return (
-              <Grid key={heroId} md={6} item>
+              <Grid key={heroId} md={6} lg={4} item>
                 <Paper className={classes.paper}>
                   <Typography variant="h5">Hero {index + 1}/6</Typography>
                   <TextField
@@ -331,10 +339,7 @@ const WarbandPage = ({
 
           })}
 
-          {[
-            'henchman_0', 'henchman_1', 'henchman_2',
-            'henchman_3', 'henchman_4', 'henchman_5',
-          ].map((henchmanId, index) => {
+          {henchmenIdArr.map((henchmanId, index) => {
 
             const onHenchmanValueChange = (e) => {
 
@@ -392,9 +397,9 @@ const WarbandPage = ({
 
 
             return (
-              <Grid key={henchmanId} md={6} item>
+              <Grid key={henchmanId} md={6} lg={4} item>
                 <Paper className={classes.paper}>
-                  <Typography variant="h5">Henchman {index + 1}/6</Typography>
+                  <Typography variant="h5">Henchman {index + 1}/{henchmenIdArr.length}</Typography>
                   <div
                     style={{
                       display: 'flex',

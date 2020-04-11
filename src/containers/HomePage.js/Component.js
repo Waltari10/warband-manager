@@ -4,17 +4,17 @@ import Progress from '@material-ui/core/CircularProgress';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Menu from '@material-ui/core/Menu';
-import { Link as RouterLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import { Typography } from '@material-ui/core';
+import * as constants from '../../constants';
 
 import PrivateRoute from '../PrivateRoute';
 import WarbandModal from '../WarbandModal';
 
 import WarbandListItem from './WarbandListItem';
-import AppWindow from '../../components/AppWindow';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     flexDirection: 'column',
     overflow: 'hidden',
+    height: '100%',
+    width: '100%',
+    backgroundColor: theme.palette.background,
   },
   container: {
     marginTop: '48px',
@@ -74,8 +77,8 @@ const useStyles = makeStyles((theme) => ({
 
 const HomePage = ({
   isLoading, warbands = {}, getWarbands, match, logout, uid,
-  warbandsIndex = [],
-
+  warbandsIndex = [], addWarband, lastAddedWarbandId,
+  addWarbandRequestState,
 }) => {
 
   useEffect(() => {
@@ -98,7 +101,14 @@ const HomePage = ({
   };
 
   return (
-    <AppWindow className={classes.window} size="xl">
+    <div className={classes.window}>
+
+      {
+        (addWarbandRequestState === constants.SUCCESS && lastAddedWarbandId) && (
+          <Redirect
+            to={`${match.path}warband/${lastAddedWarbandId}`}
+          />)
+      }
 
       <div
         className={classes.topNavigationContainer}
@@ -165,12 +175,15 @@ const HomePage = ({
       <Fab
         className={classes.hero}
         color="primary"
-        component={RouterLink}
-        to={`${match.path}warband/new`}
+        // component={RouterLink}
+        // to={`${match.path}warband/new`}
+        onClick={() => {
+          addWarband({});
+        }}
       >
         <AddIcon className={classes.addIcon} />
       </Fab>
-    </AppWindow>
+    </div>
   );
 };
 

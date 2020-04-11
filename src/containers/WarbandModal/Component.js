@@ -14,7 +14,8 @@ const useStyles = makeStyles(() => ({
 
 
 const WarbandModal = ({
-  match, removeWarbandRequestState,
+  match,
+  removeWarbandRequestState,
   removeWarbandReset,
 }) => {
 

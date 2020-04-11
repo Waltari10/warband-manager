@@ -11,12 +11,16 @@ import * as constants from '../constants';
 
 const addPayload = (payload) => ({ payload });
 
-export const saveWarband = createAction(
-  'SAVE_WARBAND_START', addPayload);
-
-
+export const saveWarband = createAction('SAVE_WARBAND_START', addPayload);
 export const saveWarbandSuccess = createAction('SAVE_WARBAND_SUCCESS', addPayload);
 export const saveWarbandError = createAction('SAVE_WARBAND_ERROR', addPayload);
+export const saveWarbandReset = createAction('SAVE_WARBAND_RESET');
+
+
+export const addWarband = createAction('ADD_WARBAND_START', addPayload);
+export const addWarbandSuccess = createAction('ADD_WARBAND_SUCCESS', addPayload);
+export const addWarbandError = createAction('ADD_WARBAND_ERROR', addPayload);
+export const addWarbandReset = createAction('ADD_WARBAND_RESET');
 
 export const removeWarbandSuccess = createAction('REMOVE_WARBAND_SUCCESS');
 export const removeWarbandError = createAction('REMOVE_WARBAND_ERROR', addPayload);
@@ -37,9 +41,25 @@ const initialState = {
   warbandsIndex: [],
   warbands: {},
   removeWarbandRequestState: '',
+  addWarbandRequestState: '',
+  lastAddedWarbandId: null,
 };
 
 const reducer = createReducer(initialState, {
+  [addWarband]: (state) => {
+    state.addWarbandRequestState = constants.LOADING;
+  },
+  [addWarbandSuccess]: (state, action) => {
+    state.addWarbandRequestState = constants.SUCCESS;
+    state.lastAddedWarbandId = action.payload.id;
+  },
+  [addWarbandError]: (state) => {
+    state.addWarbandRequestState = constants.ERROR;
+  },
+  [addWarbandReset]: (state) => {
+    state.addWarbandRequestState = '';
+    state.lastAddedWarbandId = null;
+  },
   [removeWarbandReset]: (state) => {
     state.removeWarbandRequestState = '';
   },
@@ -58,16 +78,17 @@ const reducer = createReducer(initialState, {
     state.isError = false;
     state.error = null;
   },
-  [saveWarbandSuccess]: (state, action) => {
+  [saveWarbandReset]: (state) => {
+    state.isLoading = false;
+    state.isSuccess = false;
+    state.isError = false;
+    state.error = null;
+  },
+  [saveWarbandSuccess]: (state) => {
     state.isLoading = false;
     state.isSuccess = true;
     state.isError = false;
     state.error = null;
-
-    state.warbands = {
-      ...state.warbands,
-      [action.payload. warband. warbandId]: action.payload. warband,
-    };
   },
   [saveWarbandError]: (state, action) => {
     state.isLoading = false;
@@ -107,23 +128,21 @@ const reducer = createReducer(initialState, {
 });
 
 
-const callSaveWarband = (warband, uuid) => {
+const callSetWarband = (warband, uuid) => {
+  return db
+    .collection('users')
+    .doc(uuid)
+    .collection('warbands')
+    .doc(warband.warbandId)
+    .set({ createdAt: firebase.firestore.Timestamp.now(), ... warband }); // This doesn't return document reference
+};
 
-  if (warband && warband. warbandId && warband. warbandId !== 'new') {
-    return db
-      .collection('users')
-      .doc(uuid)
-      .collection('warbands')
-      .doc(warband. warbandId)
-      .set({ createdAt: firebase.firestore.Timestamp.now(), ... warband });
-  } else {
-    return db
-      .collection('users')
-      .doc(uuid)
-      .collection('warbands')
-      .add({ createdAt: firebase.firestore.Timestamp.now(), ... warband });
-  }
-
+const callAddWarband = (warband, uuid) => {
+  return db
+    .collection('users')
+    .doc(uuid)
+    .collection('warbands')
+    .add({ createdAt: firebase.firestore.Timestamp.now(), ... warband });
 };
 
 
@@ -151,6 +170,7 @@ const callGetWarbands = (uuid) => {
       querySnapshot.forEach(function(doc) {
 
         const warband = doc.data();
+        warband.warbandId = doc.id;
 
         warbands[doc.id] = warband;
       });
@@ -176,7 +196,8 @@ function* handleGetWarbands () {
 function* handleSaveWarband(action) {
   try {
     const uuid = yield select((state) => state.user.user.uid);
-    const result = yield call(callSaveWarband, action.payload, uuid);
+    const result = yield call(callSetWarband, action.payload, uuid);
+
     yield put(saveWarbandSuccess({ result, warband: action.payload }));
     yield put(getWarbands());
   } catch (e) {
@@ -197,6 +218,18 @@ function* handleRemoveWarband(action) {
   }
 }
 
+function* handleAddWarband(action) {
+  try {
+    const uuid = yield select((state) => state.user.user.uid);
+    const res = yield call(callAddWarband, action.payload, uuid);
+    yield put(addWarbandSuccess(res));
+    yield put(getWarbands());
+  } catch (e) {
+    logger.error(e);
+    yield put(addWarbandError(e));
+  }
+}
+
 function* watchSaveWarband() {
   yield takeEvery(saveWarband, handleSaveWarband);
 }
@@ -210,12 +243,18 @@ function* watchRemoveWarband() {
   yield takeEvery(removeWarband, handleRemoveWarband);
 }
 
+function* watchAddWarband() {
+  yield takeEvery(addWarband, handleAddWarband);
+
+}
+
 
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
 function* saga() {
   yield all([
     watchSaveWarband(),
+    watchAddWarband(),
     watchRemoveWarband(),
     watchGetWarbands(),
   ]);

@@ -47,7 +47,7 @@ const MordheimListItem = ({ warband, match, id }) => {
       >
         <Grid container>
           <Grid item>
-            <Typography className={classes.topic} variant="h6">{warband.name}</Typography>
+            <Typography className={classes.topic} variant="h6">{warband.name || 'No name'}</Typography>
             <IconButton
               className={classes.iconButton}
             >

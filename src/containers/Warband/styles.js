@@ -81,7 +81,7 @@ export default makeStyles((theme) => {
     },
     attributeValue: {
       height: '25px',
-      maxWidth: '44.06px',
+      width: 'calc(100% - 1px)',
       textAlign: 'center',
       borderStyle: 'solid',
       borderWidth: '0.5px',
