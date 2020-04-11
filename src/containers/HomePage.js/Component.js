@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: '48px',
     width: '100%',
-    height: '100%',
+    height: 'calc(100% - 48px)',
     placeSelf: 'flex-start',
     overflowY: 'scroll',
     overflowX: 'hidden',

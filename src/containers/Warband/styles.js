@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => {
 
   return {
+    menuPaper: {
+      backgroundColor: 'white',
+    },
     title: {
       lineHeight: '48px',
       position: 'absolute',

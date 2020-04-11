@@ -10,7 +10,10 @@ import {
   getHenchmanLevel,
 } from './helpers';
 
-import { Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography } from '@material-ui/core';
+import {
+  Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography, Select,
+  FormControl, InputLabel,
+} from '@material-ui/core';
 
 import { path, isEmpty } from 'ramda';
 
@@ -22,6 +25,10 @@ const henchmenIdArr = [
   'henchman_0', 'henchman_1', 'henchman_2',
   'henchman_3', 'henchman_4', 'henchman_5',
   'henchman_6',
+];
+
+const skillCategories = [
+  'Combat', 'Shooting', 'Academic', 'Strength', 'Speed', 'Special',
 ];
 
 
@@ -195,7 +202,7 @@ const WarbandPage = ({
                   ...heroes,
                   [heroId]: {
                     ...hero,
-                    [e.target.getAttribute('name')]: e.target.value,
+                    [e.target.name || e.target.getAttribute('name')]: e.target.value,
                   },
                 },
               };
@@ -273,6 +280,38 @@ const WarbandPage = ({
                     label={'Skills, injuries, etc.'}
                     name="skills_injuries_etc"
                   />
+
+                  <FormControl
+                    className={classes.textField}
+
+
+                  >
+                    <InputLabel id="skill-categories-label">Available skills</InputLabel>
+                    <Select
+                      labelId="skill-categories-label"
+                      multiple
+                      value={path(['heroes', heroId, 'skillCategories'], localWarband) || []}
+                      MenuProps={{
+                        classes: {
+                          paper: classes.menuPaper,
+                        },
+                      }}
+                      inputProps={{
+                        name: 'skillCategories',
+                      }}
+                      name="skillCategories"
+                      onChange={onHeroValueChange}
+                    >
+                      {skillCategories.map((skill) => (
+                        <MenuItem
+                          key={skill}
+                          value={skill}
+                        >
+                          {skill}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
 
 
                   <div
