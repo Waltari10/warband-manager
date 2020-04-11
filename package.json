@@ -77,7 +77,8 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.4.0",
-    "redux-saga-test-plan": "^4.0.0-rc.3"
+    "redux-saga-test-plan": "^4.0.0-rc.3",
+    "fake-indexeddb": "^3.0.0"
   },
   "scripts": {
     "start": "node scripts/start.js",

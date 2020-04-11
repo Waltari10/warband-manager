@@ -1,9 +1,17 @@
 TODO: 
-- Better error handling
 - Unit Tests
+- Better error handling
 - E2E tests
 - Use takamaki-group eslint-config
 - Add confirmation to delete warband (potential missclicks since right next to logout)
 - Add remaining exp to next level
 - Figure out which license to use
 - ADd dramatic personae, large creatures and hired swords to rating calculation
+- Add about page
+- GDPR?
+- Add equipmnt suggestions
+- Add hero and henchman suggestions
+- Autofill hero/henchman stats
+- Add labels for racial maximums and which skill has already been raised (copy existing sheet)
+- Add versioning
+- Add version number to UI

@@ -125,15 +125,23 @@ const reducer = createReducer(initialState, {
 
 
 // Api
+const callSignupWithEmail = ({ email, password }) => {
+  return firebase.auth().createUserWithEmailAndPassword(email, password);
+};
+
+
+const callSendResetPasswordEmail = (email) => {
+  const auth = firebase.auth();
+  return auth.sendPasswordResetEmail(email);
+};
+
 const handleLogout = () => {
 
   firebase.auth().signOut();
 };
 
 const callLoginWithEmail = ({ email, password }) => {
-
   return firebase.auth().signInWithEmailAndPassword(email, password);
-
 };
 
 const callGoogleSign = async () => {
@@ -200,19 +208,6 @@ function* watchLogout() {
 }
 
 
-// Api
-const callSignupWithEmail = ({ email, password }) => {
-  return firebase.auth().createUserWithEmailAndPassword(email, password);
-};
-
-
-const callSendResetPasswordEmail = (email) => {
-  const auth = firebase.auth();
-
-  return auth.sendPasswordResetEmail(email);
-};
-
-
 // Sagas for side-effects
 function* handlSignupWithEmail(action) {
   try {
@@ -265,5 +260,10 @@ export default {
   reducer,
   saga,
   api: {
+    callSignupWithEmail,
+    callSendResetPasswordEmail,
+    callGoogleSign,
+    handleLogout,
+    callLoginWithEmail,
   },
 };

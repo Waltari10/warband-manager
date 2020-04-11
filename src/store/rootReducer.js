@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux';
 import reducers from '../ducks/index';
-
-// https://github.com/erikras/ducks-modul ar-redux
-// https://github.com/alexnm/re-ducks
+import { LOGOUT } from '../constants';
 
 export default () => {
 
   const appReducer = combineReducers(reducers);
 
   const rootReducer = (state, action) => {
-    if (action.type === 'LOGOUT') { // TODO: Replace with constant
+    if (action.type === LOGOUT) {
       state = undefined;
     }
     return appReducer(state, action);
