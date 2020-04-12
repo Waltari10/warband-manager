@@ -85,9 +85,7 @@
     "test:coverage": "node scripts/test.js --coverage",
     "test:update-snapshots": "npm run test -- -u",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "cypress:open": "cypress open",
-    "e2e": "cypress run"
+    "lint:fix": "eslint . --fix"
   },
   "browserslist": {
     "production": [
