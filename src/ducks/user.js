@@ -94,7 +94,7 @@ const reducer = createReducer(initialState, {
     state.isSuccess = true;
     state.isError = false;
     state.error = null;
-    state.user = action.payload;
+    state.user = action.payload.user;
   },
   [loginWithEmailError]: (state, action) => {
     state.isLoading = false;
@@ -113,7 +113,7 @@ const reducer = createReducer(initialState, {
     state.isSuccess = true;
     state.isError = false;
     state.error = null;
-    state.user = action.payload;
+    state.user = action.payload.user;
   },
   [signupWithEmailError]: (state, action) => {
     state.isLoading = false;
