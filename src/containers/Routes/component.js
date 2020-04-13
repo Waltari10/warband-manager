@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from '../../containers/Login';
 import Signup from '../../containers/Signup';
 import PrivateRoute from '../../containers/PrivateRoute';
-import HomePage from '../HomePage.js';
+import HomePage from '../HomePage';
 import WarbandModal from '../WarbandModal';
 import ForgotPassword from '../ForgotPassword';
 import OfflineBar from '../../components/OfflineBar';

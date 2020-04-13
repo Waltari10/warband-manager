@@ -9,12 +9,16 @@ const OfflineBar = () => {
   const theme = useTheme();
 
   useEffect(() => {
-    window.addEventListener('online', () => setIsOnline(true));
-    window.addEventListener('offline', () => setIsOnline(false));
+
+    const setOnlineTrue = () => setIsOnline(true);
+    const setOnlineFalse = () => setIsOnline(false);
+
+    window.addEventListener('online', setOnlineTrue);
+    window.addEventListener('offline', setOnlineFalse);
 
     return () => {
-      window.removeEventListener('online');
-      window.removeEventListener('offline');
+      window.removeEventListener('online', setOnlineTrue);
+      window.removeEventListener('offline', setOnlineFalse);
     };
   }, []);
 

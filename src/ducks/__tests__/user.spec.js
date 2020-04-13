@@ -2,7 +2,6 @@ import User, * as actions from '../user';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { expectSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
-import { call } from 'redux-saga/effects';
 
 
 describe('User sagas', () => {
@@ -72,13 +71,13 @@ describe('User sagas', () => {
 
       // Mock fetchCountryCodes to return args
       .provide([
-        [matchers.call.fn(User.api.callSignupWithEmail), { email: 'john.doe@example.com', password: 'bad_password' }],
+        [matchers.call.fn(User.api.callSignupWithEmail), { email: 'john.doe@example.com' }],
       ])
       // Assert a call
       .call(User.api.callSignupWithEmail, { email: 'john.doe@example.com', password: 'bad_password' })
 
       // Assert that saga yields Put
-      .put({ type: actions.signupWithEmailSuccess.toString(), payload: { email: 'john.doe@example.com', password: 'bad_password' } })
+      .put({ type: actions.signupWithEmailSuccess.toString(), payload: { email: 'john.doe@example.com' } })
 
       // Dispatch action for saga
       .dispatch(actions.signupWithEmail('john.doe@example.com', 'bad_password'))
@@ -89,7 +88,7 @@ describe('User sagas', () => {
         isError: false,
         isSuccess: true,
         error: null,
-        user: { email: 'john.doe@example.com', password: 'bad_password' },
+        user: { email: 'john.doe@example.com' },
         sendResetPasswordEmailRequestState: '',
       })
 
@@ -133,13 +132,13 @@ describe('User sagas', () => {
 
       // Mock fetchCountryCodes to return args
       .provide([
-        [matchers.call.fn(User.api.callLoginWithEmail), { email: 'john.doe@example.com', password: 'bad_password' }],
+        [matchers.call.fn(User.api.callLoginWithEmail), { email: 'john.doe@example.com' }],
       ])
       // Assert a call
       .call(User.api.callLoginWithEmail, { email: 'john.doe@example.com', password: 'bad_password' })
 
       // Assert that saga yields Put
-      .put({ type: actions.loginWithEmailSuccess.toString(), payload: { email: 'john.doe@example.com', password: 'bad_password' } })
+      .put({ type: actions.loginWithEmailSuccess.toString(), payload: { email: 'john.doe@example.com' } })
 
       // Dispatch action for saga
       .dispatch(actions.loginWithEmail('john.doe@example.com', 'bad_password'))
@@ -150,7 +149,7 @@ describe('User sagas', () => {
         isError: false,
         isSuccess: true,
         error: null,
-        user: { email: 'john.doe@example.com', password: 'bad_password' },
+        user: { email: 'john.doe@example.com' },
         sendResetPasswordEmailRequestState: '',
       })
 

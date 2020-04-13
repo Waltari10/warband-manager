@@ -2,6 +2,8 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import createRootReducer from './rootReducer.js';
+
+// This causes ducks and firebase to be imported which causes the issues I think...
 import { sagas } from '../ducks';
 
 const sagaMiddleware = createSagaMiddleware();

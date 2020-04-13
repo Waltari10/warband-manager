@@ -264,4 +264,10 @@ function* saga() {
 export default {
   reducer,
   saga,
+  api: {
+    callGetWarbands,
+    callRemoveWarband,
+    callAddWarband,
+    callSetWarband,
+  },
 };

@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes Should render (smoke test) 1`] = `
+<DocumentFragment>
+  <h6
+    class="MuiTypography-root makeStyles-bar-1 MuiTypography-h6"
+    style="top: -44px; background-color: rgb(244, 67, 54);"
+  >
+    You are offline. Your warband changes may not have been saved.
+  </h6>
+  <div
+    class="makeStyles-window-32"
+  >
+    <div
+      class="makeStyles-topNavigationContainer-36"
+    >
+      <h5
+        class="MuiTypography-root makeStyles-title-37 MuiTypography-h5 MuiTypography-alignCenter"
+      >
+        Mordheim Warbands
+      </h5>
+      <button
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-menuIcon-38"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            style="color: white;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <div
+      class="makeStyles-container-33"
+    >
+      <div
+        class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
+      >
+        <svg
+          class="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
+      <p
+        class="MuiTypography-root MuiTypography-body1"
+      >
+        No Warbands yet. Add first warband.
+      </p>
+    </div>
+    <button
+      class="MuiButtonBase-root MuiFab-root makeStyles-hero-35 MuiFab-primary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiFab-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root makeStyles-addIcon-39"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;

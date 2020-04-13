@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppWindow Should render (smoke test) 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root makeStyles-container-1 undefined MuiPaper-elevation1 MuiPaper-rounded"
+    id="appwindow"
+    style="max-width: 600px; width: 600px;"
+  />
+</DocumentFragment>
+`;
