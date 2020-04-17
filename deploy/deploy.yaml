@@ -1,0 +1,9 @@
+- name: Install warband-manager-ui
+  connection: network_cli
+  gather_facts: false
+  hosts: all
+  tasks:
+    - name: Update warband-manager-ui
+      command:
+        cmd: /home/ubuntu/update.sh warband-manager-ui remote
+      changed_when: false
