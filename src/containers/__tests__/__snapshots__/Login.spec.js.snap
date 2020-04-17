@@ -49,7 +49,7 @@ exports[`Login Should render (smoke test) 1`] = `
               class="MuiInputBase-input MuiInputBase-inputAdornedStart"
               name="email"
               placeholder="email"
-              type="email"
+              type="text"
               value=""
             />
           </div>

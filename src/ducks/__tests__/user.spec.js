@@ -71,14 +71,8 @@ describe('User sagas', () => {
 
       // Mock fetchCountryCodes to return args
       .provide([
-        [matchers.call.fn(User.api.callSignupWithEmail), { email: 'john.doe@example.com' }],
+        [matchers.call.fn(User.api.callSignupWithEmail), { user: { email: 'john.doe@example.com' } }],
       ])
-      // Assert a call
-      .call(User.api.callSignupWithEmail, { email: 'john.doe@example.com', password: 'bad_password' })
-
-      // Assert that saga yields Put
-      .put({ type: actions.signupWithEmailSuccess.toString(), payload: { email: 'john.doe@example.com' } })
-
       // Dispatch action for saga
       .dispatch(actions.signupWithEmail('john.doe@example.com', 'bad_password'))
 
@@ -132,13 +126,8 @@ describe('User sagas', () => {
 
       // Mock fetchCountryCodes to return args
       .provide([
-        [matchers.call.fn(User.api.callLoginWithEmail), { email: 'john.doe@example.com' }],
+        [matchers.call.fn(User.api.callLoginWithEmail), { user: { email: 'john.doe@example.com' } }],
       ])
-      // Assert a call
-      .call(User.api.callLoginWithEmail, { email: 'john.doe@example.com', password: 'bad_password' })
-
-      // Assert that saga yields Put
-      .put({ type: actions.loginWithEmailSuccess.toString(), payload: { email: 'john.doe@example.com' } })
 
       // Dispatch action for saga
       .dispatch(actions.loginWithEmail('john.doe@example.com', 'bad_password'))
