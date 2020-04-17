@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import Dialog from '../../components/Dialog';
+
 import {
   getTotalExperience,
   getWarbandMemberCount,
@@ -43,6 +45,8 @@ const WarbandPage = ({
   const classes = useStyles();
 
   const [localWarband, setLocalWarband] = useState({});
+
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   useEffect(() => {
 
@@ -118,16 +122,29 @@ const WarbandPage = ({
         {
           <MenuItem onClick={() => {
             handleClose();
-            removeWarband(warbandId);
+            setIsConfirmOpen(true);
           }}>Delete  warband</MenuItem>
         }
       </Menu>
+
+      <Dialog
+        title={`Are you sure you want to remove warband ${warband.name || 'no name'}`}
+        confirm="Remove"
+        open={isConfirmOpen}
+        handleConfirm={() => {
+          removeWarband(warbandId);
+          setIsConfirmOpen(false);
+        }}
+        handleClose={() => {
+          setIsConfirmOpen(false);
+        }}
+      />
 
 
       <div>
 
         <Grid spacing={3} container className={classes.gridContainer}>
-          <Grid md={6} lg={4} item>
+          <Grid md={6} lg={4} xl={3} item>
             <Paper className={classes.paper}>
 
               <Typography variant="h5">General</Typography>
@@ -147,7 +164,7 @@ const WarbandPage = ({
               />
             </Paper>
           </Grid>
-          <Grid md={6} lg={4} item>
+          <Grid md={6} lg={4} xl={3} item>
             <Paper className={classes.paper}>
               <Typography variant="h5">Rating</Typography>
               <Typography variant="body1">Total experience: {getTotalExperience(localWarband)}</Typography>
@@ -158,7 +175,7 @@ const WarbandPage = ({
             </Paper>
           </Grid>
 
-          <Grid md={6} lg={4} item>
+          <Grid md={6} lg={4} xl={3} item>
             <Paper className={classes.paper}>
               <Typography variant="h5">Wealth</Typography>
               <TextField
@@ -247,7 +264,7 @@ const WarbandPage = ({
 
 
             return (
-              <Grid key={heroId} md={6} lg={4} item>
+              <Grid key={heroId} md={6} lg={4} xl={3} item>
                 <Paper className={classes.paper}>
                   <Typography variant="h5">Hero {index + 1}/6</Typography>
                   <TextField
@@ -436,7 +453,7 @@ const WarbandPage = ({
 
 
             return (
-              <Grid key={henchmanId} md={6} lg={4} item>
+              <Grid key={henchmanId} md={6} lg={4} xl={3} item>
                 <Paper className={classes.paper}>
                   <Typography variant="h5">Henchman {index + 1}/{henchmenIdArr.length}</Typography>
                   <div
