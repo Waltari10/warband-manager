@@ -28,8 +28,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background,
   },
   container: {
+    margin: '0 auto',
+    display: 'block',
     marginTop: '48px',
     width: '100%',
+    maxWidth: '1024px',
     height: 'calc(100% - 48px)',
     placeSelf: 'flex-start',
     overflowY: 'scroll',
@@ -42,9 +45,10 @@ const useStyles = makeStyles((theme) => ({
     left: 'calc(50% - 10px)',
   },
   hero: {
-    position: 'absolute',
-    right: theme.spacing(3),
-    bottom: theme.spacing(3),
+    display: 'block',
+    margin: '0 auto',
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(6),
   },
   topNavigationContainer: {
     boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)',
@@ -68,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
   },
   addIcon: {
     color: 'white',
+    marginTop: '7px',
   },
   menu: {
     backgroundColor: 'white',
@@ -164,6 +169,19 @@ const HomePage = ({
           );
         })}
 
+
+        {!isLoading && (
+          <Fab
+            className={classes.hero}
+            color="primary"
+            onClick={() => {
+              addWarband({});
+            }}
+          >
+            <AddIcon className={classes.addIcon} />
+          </Fab>
+        )}
+
         {!isLoading && Object.keys(warbands).length === 0 && (
           <Typography>No Warbands yet. Add first warband.</Typography>
         )}
@@ -172,17 +190,6 @@ const HomePage = ({
       </div>
 
 
-      <Fab
-        className={classes.hero}
-        color="primary"
-        // component={RouterLink}
-        // to={`${match.path}warband/new`}
-        onClick={() => {
-          addWarband({});
-        }}
-      >
-        <AddIcon className={classes.addIcon} />
-      </Fab>
     </div>
   );
 };
