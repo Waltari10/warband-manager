@@ -7,7 +7,10 @@ import 'firebase/firestore';
 export let config;
 
 
-if (process.env.REACT_APP_ENVIRONMENT === 'DEVELOPMENT') {
+if (
+  process.env.REACT_APP_ENVIRONMENT === 'DEVELOPMENT' ||
+  process.env.REACT_APP_ENVIRONMENT === 'TEST'
+) {
   config = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: 'mordheim-warbands-dev.firebaseapp.com',
