@@ -119,25 +119,15 @@ const HenchmanCard = ({
           name="exp"
           type="number"
         />
-        <TextField
-          className={classes.startingExp}
-          value={path(['henchmen', henchmanId, 'startingExp'], warband) || 0}
-          onChange={onHenchmanValueChange}
-          label={'Starting exp'}
-          name="startingExp"
-          type="number"
-        />
-      </div>
-      <div
-        className={classes.advancementRow}
-      >
         <Typography
+          style={{
+            marginLeft: '24px',
+          }}
           className={classes.advancement}
         >
           <b>Advancements:</b>&nbsp;{
             getHenchmanAdvancements(
               path(['henchmen', henchmanId, 'exp'], warband) || 0,
-              path(['henchmen', henchmanId, 'startingExp'], warband)
             )
           }
         </Typography>
