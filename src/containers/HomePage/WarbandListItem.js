@@ -14,10 +14,15 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     borderRadius: 0,
     position: 'relative',
+    borderStyle: 'solid',
+    borderColor: '#C0C0C0',
+    borderTopWidth: '0',
     backgroundColor: 'white',
     borderBottomWidth: '0.5px',
     borderBottomStyle: 'solid',
     borderBottomColor: '#C0C0C0',
+    borderLeftWidth: '0.5px',
+    borderRightWidth: '0.5px',
   },
   topic: {
     decoration: 'none',
@@ -47,7 +52,9 @@ const MordheimListItem = ({ warband, match, id }) => {
       >
         <Grid container>
           <Grid item>
-            <Typography className={classes.topic} variant="h6">{warband.name || 'No name'}</Typography>
+            <Typography className={classes.topic} variant="h6">
+              {warband.name || 'No name'} {warband.type && '/'} {warband.type}
+            </Typography>
             <IconButton
               className={classes.iconButton}
             >

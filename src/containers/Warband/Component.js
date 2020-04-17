@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
+import HenchmanCard from './components/HenchmanCard';
+import HeroCard from './components/HeroCard';
+
+import { henchmenIdArr } from './constants';
 
 import Dialog from '../../components/Dialog';
 
@@ -8,30 +12,14 @@ import {
   getWarbandMemberCount,
   getRatingFromMemberCount,
   getRating,
-  getHeroLevel,
-  getHenchmanLevel,
 } from './helpers';
 
 import {
-  Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography, Select,
-  FormControl, InputLabel,
+  Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography,
 } from '@material-ui/core';
-
 import { path, isEmpty } from 'ramda';
 
 import useStyles from './styles';
-
-const attributesArr = ['m', 'ws', 'bs', 's', 't', 'w', 'i', 'a', 'ld'];
-
-const henchmenIdArr = [
-  'henchman_0', 'henchman_1', 'henchman_2',
-  'henchman_3', 'henchman_4', 'henchman_5',
-  'henchman_6',
-];
-
-const skillCategories = [
-  'Combat', 'Shooting', 'Academic', 'Strength', 'Speed', 'Special',
-];
 
 
 let timeout;
@@ -264,133 +252,15 @@ const WarbandPage = ({
 
 
             return (
-              <Grid key={heroId} md={6} lg={4} xl={3} item>
-                <Paper className={classes.paper}>
-                  <Typography variant="h5">Hero {index + 1}/6</Typography>
-                  <TextField
-                    value={path(['heroes', heroId, 'name'], localWarband) || ''}
-                    onChange={onHeroValueChange}
-                    className={classes.textField}
-                    label="Name"
-                    name="name"
-                  />
-                  <TextField
-                    value={path(['heroes', heroId, 'type'], localWarband) || ''}
-                    onChange={onHeroValueChange}
-                    className={classes.textField}
-                    label={'Type'}
-                    name="type"
-                  />
-                  <TextField
-                    value={path(['heroes', heroId, 'equipment'], localWarband) || ''}
-                    onChange={onHeroValueChange}
-                    multiline
-                    className={classes.textField}
-                    label={'Equipment'}
-                    name="equipment"
-                  />
-                  <TextField
-                    value={path(['heroes', heroId, 'skills_injuries_etc'], localWarband) || ''}
-                    onChange={onHeroValueChange}
-                    multiline
-                    className={classes.textField}
-                    label={'Skills, injuries, etc.'}
-                    name="skills_injuries_etc"
-                  />
-
-                  <FormControl
-                    className={classes.textField}
-
-
-                  >
-                    <InputLabel id="skill-categories-label">Available skills</InputLabel>
-                    <Select
-                      labelId="skill-categories-label"
-                      multiple
-                      value={path(['heroes', heroId, 'skillCategories'], localWarband) || []}
-                      MenuProps={{
-                        classes: {
-                          paper: classes.menuPaper,
-                        },
-                      }}
-                      inputProps={{
-                        name: 'skillCategories',
-                      }}
-                      name="skillCategories"
-                      onChange={onHeroValueChange}
-                    >
-                      {skillCategories.map((skill) => (
-                        <MenuItem
-                          key={skill}
-                          value={skill}
-                        >
-                          {skill}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-
-
-                  <div
-                    className={classes.attributesContainer}
-                  >
-                    {
-                      attributesArr.map((attribute) => {
-
-
-                        return (
-                          <div
-                            className={classes.attributeColumn}
-                            key={attribute}
-                          >
-                            <Typography
-                              className={classes.attributeHeader}
-                              variant="body2"
-                            >
-                              <b>
-                                {attribute.toUpperCase()}
-                              </b>
-                            </Typography>
-                            <input
-                              name={attribute}
-                              onChange={(e) => onHeroAttributeChange(e, 'value')}
-                              value={path(['heroes', heroId, attribute, 'value'], localWarband) || ''}
-                              className={classes.attributeValue}
-                              type="number"
-                            />
-                            <input
-                              name={attribute}
-                              onChange={(e) => onHeroAttributeChange(e, 'racialMax')}
-                              value={path(['heroes', heroId, attribute, 'racialMax'], localWarband) || ''}
-                              className={classes.attributeValue}
-                              type="number"
-                            />
-                          </div>
-                        );
-
-
-                      })
-                    }
-                  </div>
-
-                  <div
-                    className={classes.levelRow}
-                  >
-                    <TextField
-                      value={path(['heroes', heroId, 'exp'], localWarband) || ''}
-                      onChange={onHeroValueChange}
-                      label={'Total exp'}
-                      name="exp"
-                      type="number"
-                    />
-                    <Typography
-                      className={classes.level}
-                    >
-                      <b>Level:</b>&nbsp;{getHeroLevel(path(['heroes', heroId, 'exp'], localWarband) || 1)}
-                    </Typography>
-                  </div>
-                </Paper>
-              </Grid>
+              <HeroCard
+                warband={localWarband}
+                classes={classes}
+                index={index}
+                heroId={heroId}
+                key={heroId}
+                onHeroAttributeChange={onHeroAttributeChange}
+                onHeroValueChange={onHeroValueChange}
+              />
             );
 
           })}
@@ -453,121 +323,16 @@ const WarbandPage = ({
 
 
             return (
-              <Grid key={henchmanId} md={6} lg={4} xl={3} item>
-                <Paper className={classes.paper}>
-                  <Typography variant="h5">Henchman {index + 1}/{henchmenIdArr.length}</Typography>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDircetion: 'row',
-                    }}
-                  >
-                    <TextField
-                      value={path(['henchmen', henchmanId, 'name'], localWarband) || ''}
-                      onChange={onHenchmanValueChange}
-                      className={classes.textField}
-                      label="Name"
-                      name="name"
-                    />
-                    <TextField
-                      value={path(['henchmen', henchmanId, 'count'], localWarband) || ''}
-                      onChange={onHenchmanValueChange}
-                      className={classes.textField}
-                      style={{
-                        marginLeft: '24px',
-
-                      }}
-                      type="number"
-                      label="Count"
-                      name="count"
-                    />
-                  </div>
-                  <TextField
-                    value={path(['henchmen', henchmanId, 'type'], localWarband) || ''}
-                    onChange={onHenchmanValueChange}
-                    className={classes.textField}
-                    label={'Type'}
-                    name="type"
-                  />
-                  <TextField
-                    value={path(['henchmen', henchmanId, 'equipment'], localWarband) || ''}
-                    onChange={onHenchmanValueChange}
-                    multiline
-                    className={classes.textField}
-                    label={'Equipment'}
-                    name="equipment"
-                  />
-                  <TextField
-                    value={path(['henchmen', henchmanId, 'skills_injuries_etc'], localWarband) || ''}
-                    onChange={onHenchmanValueChange}
-                    multiline
-                    className={classes.textField}
-                    label={'Skills, injuries, etc.'}
-                    name="skills_injuries_etc"
-                  />
-
-
-                  <div
-                    className={classes.attributesContainer}
-                  >
-                    {
-                      attributesArr.map((attribute) => {
-                        return (
-                          <div
-                            className={classes.attributeColumn}
-                            key={attribute}
-                          >
-                            <Typography
-                              className={classes.attributeHeader}
-                              variant="body2"
-                            >
-                              <b>
-                                {attribute.toUpperCase()}
-                              </b>
-                            </Typography>
-                            <input
-                              name={attribute}
-                              onChange={(e) => onHenchmanAttributeChange(e, 'value')}
-                              value={path(['henchmen', henchmanId, attribute, 'value'], localWarband) || ''}
-                              className={classes.attributeValue}
-                              type="number"
-                            />
-
-                            <label className={classes.checkBoxContainer}>
-                              <input
-                                name={attribute}
-                                onChange={(e) => onHenchmanAttributeChange(e, 'isModified')}
-                                checked={path(['henchmen', henchmanId, attribute, 'isModified'], localWarband) || ''}
-                                type="checkbox"
-                              />
-                              <span className={classes.checkmark} />
-                            </label>
-                          </div>
-                        );
-
-
-                      })
-                    }
-                  </div>
-
-                  <div
-                    className={classes.levelRow}
-                  >
-                    <TextField
-                      value={path(['henchmen', henchmanId, 'exp'], localWarband) || 0}
-                      onChange={onHenchmanValueChange}
-                      label={'Total exp'}
-                      name="exp"
-                      type="number"
-                    />
-                    <Typography
-                      className={classes.level}
-                    >
-                      <b>Level:</b>&nbsp;{getHenchmanLevel(path(['henchmen', henchmanId, 'exp'], localWarband) || 0)}
-                    </Typography>
-                  </div>
-                </Paper>
-              </Grid>
+              <HenchmanCard
+                classes={classes}
+                index={index}
+                onHenchmanValueChange={onHenchmanValueChange}
+                onHenchmanAttributeChange={onHenchmanAttributeChange}
+                warband={localWarband}
+                henchmenIdArr={henchmenIdArr}
+                henchmanId={henchmanId}
+                key={henchmanId}
+              />
             );
 
           })}

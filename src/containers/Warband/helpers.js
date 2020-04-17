@@ -48,7 +48,6 @@ export const getWarbandMemberCount = (warband) => {
 };
 
 export const getRatingFromMemberCount = (warband) => {
-
   // TODO: add large calculation and hired swords calculation
   return getWarbandMemberCount(warband) * 5;
 };
@@ -59,14 +58,14 @@ export const getRating = (warband) => {
 };
 
 
-const henchmanLevelArr = [
+const henchmanAdvancementArr = [
   2,
   5,
   9,
   14,
 ];
 
-const heroLevelArr = [
+const heroAdvancementArr = [
   2,
   4,
   6,
@@ -90,45 +89,40 @@ const heroLevelArr = [
   90,
 ];
 
-export const getHeroLevel = (exp = 0) => {
+// TODO: Exp to next level
 
-  let level = 1;
+const getAdvancementFactory = (arr) => (exp, startingExp) => {
 
-  const expInt = parseInt(exp);
+  const startingIndex = arr.findIndex((threshold) => threshold >= startingExp) || -1;
 
-  if (!expInt || isNaN(expInt)) {
-    return level;
-  }
 
-  heroLevelArr.forEach((threshold, index) => {
-
-    if (expInt >= threshold) {
-      level = index + 2;
-    }
-
-  });
-
-  return level;
-};
-
-export const getHenchmanLevel = (exp = 0) => {
-
-  let level = 1;
+  let advancements = 0;
 
   const expInt = parseInt(exp);
 
   if (!expInt || isNaN(expInt)) {
-    return 1;
+    return advancements;
   }
 
-  henchmanLevelArr.forEach((threshold, index) => {
+  arr.forEach((threshold, index) => {
+
+    if (startingExp) {
+      if (expInt >= (threshold - startingExp) && index > startingIndex) {
+        advancements += 1;
+      }
+      return;
+    }
+
 
     if (expInt >= threshold) {
-      level = index + 2;
+      advancements += 1;
     }
 
   });
 
-  return level;
-
+  return advancements;
 };
+
+export const getHeroAdvancements = getAdvancementFactory(heroAdvancementArr);
+
+export const getHenchmanAdvancements = getAdvancementFactory(henchmanAdvancementArr);

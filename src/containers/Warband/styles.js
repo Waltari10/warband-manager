@@ -58,11 +58,13 @@ export default makeStyles((theme) => {
     divider: {
       marginTop: theme.spacing(4),
     },
-    level: {
-      alignSelf: 'flex-end',
+    startingExp: {
       marginLeft: '24px',
     },
-    levelRow: {
+    advancement: {
+      alignSelf: 'flex-end',
+    },
+    advancementRow: {
       marginTop: '24px',
       display: 'flex',
       flexDirection: 'row',
