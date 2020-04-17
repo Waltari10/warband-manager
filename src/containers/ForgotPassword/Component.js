@@ -59,8 +59,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Login = ({
-  isAuthorized, sendResetPasswordEmailRequestState, sendResetPasswordEmail,
+  isAuthorized, sendResetPasswordEmailRequestState, sendResetPasswordEmail, resetUser,
 }) => {
+
+
+  React.useEffect(() => resetUser, []);
 
   const [email, setEmail] = useState('');
 

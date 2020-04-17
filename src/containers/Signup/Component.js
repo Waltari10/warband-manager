@@ -57,6 +57,8 @@ const useStyles = makeStyles((theme) => ({
   },
   errorMsg: {
     marginBottom: theme.spacing(3),
+    paddingLeft: '24px',
+    paddingRight: '24px',
   },
   inputRoot: {
     backgroundColor: 'white',
@@ -78,14 +80,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = ({
   isLoading, isError, isSuccess, signupWithEmail,
-  googleSignIn, isAuthorized,
+  googleSignIn, isAuthorized, error, resetUser,
 }) => {
 
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [showPassword, setShowPassword] = useState(true);
 
+  React.useEffect(() => resetUser, []);
+
   const isDisabled = isLoading || isSuccess;
+
 
   const submitDisabled = isDisabled || !password || password.length < 7 || !email;
 
@@ -165,7 +170,9 @@ const Login = ({
         {
           isError && (
             <Grid className={classes.errorMsg} item>
-              <Typography color="error" variant="body1">Something went wrong!</Typography>
+              <Typography color="error" variant="body1">
+                {(error && error.message) || 'Something went wrong!'}
+              </Typography>
             </Grid>
           )
         }

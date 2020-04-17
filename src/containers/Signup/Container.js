@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     isError: state.user.isError,
     isSuccess: state.user.isSuccess,
     isAuthorized: !!state.user.user,
+    error: state.user.error,
   };
 }
 

@@ -10,6 +10,7 @@ import firebase, { config as firebaseConfig } from '../utils/firebase';
 export const signupWithEmail = createAction(
   'SIGNUP_WITH_EMAIL', (email, password) => ({ payload: { email, password } })
 );
+export const resetUser = createAction('RESET_USER');
 
 export const sendResetPasswordEmail = createAction('SEND_RESET_PASSWORD_EMAIL_START');
 export const sendResetPasswordEmailSuccess = createAction('SEND_RESET_PASSWORD_EMAIL_SUCCESS');
@@ -42,6 +43,13 @@ const initialState = {
 };
 
 const reducer = createReducer(initialState, {
+  [resetUser]: (state) => {
+    state.isLoading = false;
+    state.isError = false;
+    state.isSuccess = false;
+    state.error = null;
+    state.sendResetPasswordEmailRequestState = '';
+  },
   [sendResetPasswordEmailSuccess]: (state) => {
     state.sendResetPasswordEmailRequestState = constants.SUCCESS;
   },

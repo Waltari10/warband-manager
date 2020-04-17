@@ -3158,33 +3158,9 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                 </div>
               </div>
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                  data-shrink="true"
-                >
-                  Starting exp
-                </label>
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input"
-                    name="startingExp"
-                    type="number"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="makeStyles-advancementRow-14"
-            >
               <p
                 class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                style="margin-left: 24px;"
               >
                 <b>
                   Advancements:
@@ -3609,33 +3585,9 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                 </div>
               </div>
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                  data-shrink="true"
-                >
-                  Starting exp
-                </label>
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input"
-                    name="startingExp"
-                    type="number"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="makeStyles-advancementRow-14"
-            >
               <p
                 class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                style="margin-left: 24px;"
               >
                 <b>
                   Advancements:
@@ -4060,33 +4012,9 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                 </div>
               </div>
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                  data-shrink="true"
-                >
-                  Starting exp
-                </label>
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input"
-                    name="startingExp"
-                    type="number"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="makeStyles-advancementRow-14"
-            >
               <p
                 class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                style="margin-left: 24px;"
               >
                 <b>
                   Advancements:
@@ -4511,33 +4439,9 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                 </div>
               </div>
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                  data-shrink="true"
-                >
-                  Starting exp
-                </label>
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input"
-                    name="startingExp"
-                    type="number"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="makeStyles-advancementRow-14"
-            >
               <p
                 class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                style="margin-left: 24px;"
               >
                 <b>
                   Advancements:
@@ -4962,33 +4866,9 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                 </div>
               </div>
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                  data-shrink="true"
-                >
-                  Starting exp
-                </label>
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input"
-                    name="startingExp"
-                    type="number"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="makeStyles-advancementRow-14"
-            >
               <p
                 class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                style="margin-left: 24px;"
               >
                 <b>
                   Advancements:
@@ -5413,33 +5293,9 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                 </div>
               </div>
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                  data-shrink="true"
-                >
-                  Starting exp
-                </label>
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input"
-                    name="startingExp"
-                    type="number"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="makeStyles-advancementRow-14"
-            >
               <p
                 class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                style="margin-left: 24px;"
               >
                 <b>
                   Advancements:
@@ -5864,33 +5720,9 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                 </div>
               </div>
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                  data-shrink="true"
-                >
-                  Starting exp
-                </label>
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input"
-                    name="startingExp"
-                    type="number"
-                    value="0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="makeStyles-advancementRow-14"
-            >
               <p
                 class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                style="margin-left: 24px;"
               >
                 <b>
                   Advancements:
