@@ -9,6 +9,7 @@ function mapStateToProps(state) {
   return {
     sendResetPasswordEmailRequestState: state.user.sendResetPasswordEmailRequestState,
     isAuthorized: !!state.user.user,
+    error: state.user.error,
   };
 }
 

@@ -39,6 +39,8 @@ const useStyles = makeStyles((theme) => ({
   },
   errorMsg: {
     marginBottom: theme.spacing(3),
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3),
   },
   inputRoot: {
     backgroundColor: 'white',
@@ -60,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = ({
   isAuthorized, sendResetPasswordEmailRequestState, sendResetPasswordEmail, resetUser,
+  error,
 }) => {
 
 
@@ -121,7 +124,9 @@ const Login = ({
         {
           sendResetPasswordEmailRequestState === constants.ERROR && (
             <Grid className={classes.errorMsg} item>
-              <Typography color="error" variant="body1">Something went wrong!</Typography>
+              <Typography color="error" variant="body1">
+                {(error && error.message) || 'Something went wrong!'}
+              </Typography>
             </Grid>
           )
         }
