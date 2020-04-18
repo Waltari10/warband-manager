@@ -32,11 +32,11 @@ if (
     appId: '1:182151255622:web:8c0ddefdcb13137b77dc47',
     measurementId: 'G-NNGL8XMKMQ',
   };
-  firebase.analytics();
 }
 
 
 firebase.initializeApp(config);
+firebase.analytics(); // Has to be after initializeApp
 
 
 export const db = firebase.firestore();
