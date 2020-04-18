@@ -6,7 +6,6 @@ import 'firebase/firestore';
 
 export let config;
 
-
 if (
   process.env.REACT_APP_ENVIRONMENT === 'DEVELOPMENT' ||
   process.env.REACT_APP_ENVIRONMENT === 'TEST'
@@ -34,9 +33,9 @@ if (
   };
 }
 
-firebase.analytics();
-
 firebase.initializeApp(config);
+
+firebase.analytics();
 
 
 export const db = firebase.firestore();
