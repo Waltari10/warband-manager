@@ -9,8 +9,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import { Typography } from '@material-ui/core';
-import * as constants from '../../constants';
 
+
+import * as constants from '../../constants';
 import PrivateRoute from '../PrivateRoute';
 import WarbandModal from '../WarbandModal';
 
@@ -18,6 +19,9 @@ import WarbandListItem from './WarbandListItem';
 
 
 const useStyles = makeStyles((theme) => ({
+  fabProgress: {
+    marginTop: '7px',
+  },
   window: {
     padding: 0,
     position: 'relative',
@@ -173,23 +177,24 @@ const HomePage = ({
         {!isLoading && (
           <Fab
             className={classes.hero}
+            disabled={addWarbandRequestState === constants.LOADING}
             color="primary"
             onClick={() => {
               addWarband({});
             }}
           >
-            <AddIcon className={classes.addIcon} />
+            {
+              addWarbandRequestState === constants.LOADING ?
+                <Progress className={classes.fabProgress}/> :
+                <AddIcon className={classes.addIcon} />
+            }
           </Fab>
         )}
 
         {!isLoading && Object.keys(warbands).length === 0 && (
           <Typography>No Warbands yet. Add first warband.</Typography>
         )}
-
-
       </div>
-
-
     </div>
   );
 };

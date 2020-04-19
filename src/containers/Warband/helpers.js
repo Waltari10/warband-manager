@@ -7,16 +7,23 @@ export const getTotalExperience = (warband) => {
 
   Object.values(heroes).forEach((hero) => {
 
-    if (hero.name && hero.exp) {
+    if (parseInt(hero.exp)) {
       total += parseInt(hero.exp);
     }
+
+    if (parseInt(hero.startingExp)) {
+      total += parseInt(hero.startingExp);
+    }
+
+
   });
 
   Object.values(henchmen).forEach((henchman) => {
 
-    if (henchman.count && henchman.exp) {
+    if (henchman.count && parseInt(henchman.exp)) {
       total += parseInt(henchman.count) * parseInt(henchman.exp);
     }
+
   });
 
   return total;
