@@ -3,15 +3,15 @@
 exports[`Warband Should render (smoke test) 1`] = `
 <DocumentFragment>
   <div
-    class="makeStyles-viewContainer-6"
+    class="makeStyles-viewContainer-7"
   >
     <h5
-      class="MuiTypography-root makeStyles-title-2 MuiTypography-h5 MuiTypography-alignCenter"
+      class="MuiTypography-root makeStyles-title-3 MuiTypography-h5 MuiTypography-alignCenter"
     >
       No name
     </h5>
     <button
-      class="MuiButtonBase-root MuiIconButton-root makeStyles-menuIcon-8"
+      class="MuiButtonBase-root MuiIconButton-root makeStyles-menuIcon-9"
       tabindex="0"
       type="button"
     >
@@ -37,21 +37,22 @@ exports[`Warband Should render (smoke test) 1`] = `
     </button>
     <div>
       <div
-        class="MuiGrid-root makeStyles-gridContainer-10 MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root makeStyles-gridContainer-11 MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
+              variant="h5"
             >
               General
             </h5>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -72,7 +73,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -92,21 +93,122 @@ exports[`Warband Should render (smoke test) 1`] = `
                 />
               </div>
             </div>
+            <div
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+                data-shrink="true"
+              >
+                Games played
+              </label>
+              <div
+                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiInput-input"
+                  name="gamesPlayed"
+                  type="number"
+                  value="0"
+                />
+              </div>
+            </div>
+            <h5
+              class="makeStyles-h5-1 makeStyles-textField-5"
+              variant="h5"
+            >
+              Wealth
+            </h5>
+            <div
+              class="makeStyles-textField-5"
+            >
+              <div
+                class="MuiFormControl-root MuiTextField-root"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+                  data-shrink="true"
+                >
+                  Wyrdstone shards
+                </label>
+                <div
+                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiInput-input"
+                    name="shards"
+                    type="number"
+                    value="0"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiFormControl-root MuiTextField-root makeStyles-goldCrowns-13"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+                  data-shrink="true"
+                >
+                  Gold crowns
+                </label>
+                <div
+                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiInput-input"
+                    name="goldCrowns"
+                    type="number"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+                data-shrink="false"
+              >
+                Equipment
+              </label>
+              <div
+                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline"
+              >
+                <textarea
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
+                  name="equipment"
+                  rows="1"
+                  style="height: 0px; overflow: hidden;"
+                />
+                <textarea
+                  aria-hidden="true"
+                  class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
+                  readonly=""
+                  style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Rating
             </h5>
             <p
-              class="MuiTypography-root MuiTypography-body1"
+              class="MuiTypography-root makeStyles-textField-5 MuiTypography-body1"
             >
               Total experience: 0
             </p>
@@ -126,98 +228,16 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
-            >
-              Wealth
-            </h5>
-            <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
-            >
-              <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                data-shrink="true"
-              >
-                Wyrdstone shards
-              </label>
-              <div
-                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-              >
-                <input
-                  aria-invalid="false"
-                  class="MuiInputBase-input MuiInput-input"
-                  name="shards"
-                  type="number"
-                  value="0"
-                />
-              </div>
-            </div>
-            <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
-            >
-              <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                data-shrink="true"
-              >
-                Gold crowns
-              </label>
-              <div
-                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-              >
-                <input
-                  aria-invalid="false"
-                  class="MuiInputBase-input MuiInput-input"
-                  name="goldCrowns"
-                  type="number"
-                  value="0"
-                />
-              </div>
-            </div>
-            <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
-            >
-              <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
-                data-shrink="false"
-              >
-                Equipment
-              </label>
-              <div
-                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline"
-              >
-                <textarea
-                  aria-invalid="false"
-                  class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
-                  name="equipment"
-                  rows="1"
-                  style="height: 0px; overflow: hidden;"
-                />
-                <textarea
-                  aria-hidden="true"
-                  class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
-                  readonly=""
-                  style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
-                  tabindex="-1"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
-        >
-          <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
-          >
-            <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
+              variant="h5"
             >
               Hero 1/6
             </h5>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -238,7 +258,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -259,7 +279,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -287,7 +307,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -315,7 +335,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root makeStyles-textField-4"
+              class="MuiFormControl-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -358,210 +378,210 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
@@ -569,7 +589,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -593,7 +613,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
+                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-14"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
@@ -615,10 +635,10 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
               >
                 <b>
                   Advancements:
@@ -632,15 +652,16 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
+              variant="h5"
             >
               Hero 2/6
             </h5>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -661,7 +682,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -682,7 +703,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -710,7 +731,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -738,7 +759,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root makeStyles-textField-4"
+              class="MuiFormControl-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -781,210 +802,210 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
@@ -992,7 +1013,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -1016,7 +1037,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
+                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-14"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
@@ -1038,10 +1059,10 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
               >
                 <b>
                   Advancements:
@@ -1055,15 +1076,16 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
+              variant="h5"
             >
               Hero 3/6
             </h5>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1084,7 +1106,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1105,7 +1127,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1133,7 +1155,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1161,7 +1183,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root makeStyles-textField-4"
+              class="MuiFormControl-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1204,210 +1226,210 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
@@ -1415,7 +1437,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -1439,7 +1461,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
+                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-14"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
@@ -1461,10 +1483,10 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
               >
                 <b>
                   Advancements:
@@ -1478,15 +1500,16 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
+              variant="h5"
             >
               Hero 4/6
             </h5>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1507,7 +1530,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1528,7 +1551,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1556,7 +1579,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1584,7 +1607,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root makeStyles-textField-4"
+              class="MuiFormControl-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1627,210 +1650,210 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
@@ -1838,7 +1861,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -1862,7 +1885,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
+                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-14"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
@@ -1884,10 +1907,10 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
               >
                 <b>
                   Advancements:
@@ -1901,15 +1924,16 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
+              variant="h5"
             >
               Hero 5/6
             </h5>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1930,7 +1954,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1951,7 +1975,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -1979,7 +2003,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2007,7 +2031,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root makeStyles-textField-4"
+              class="MuiFormControl-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2050,210 +2074,210 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
@@ -2261,7 +2285,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -2285,7 +2309,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
+                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-14"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
@@ -2307,10 +2331,10 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
               >
                 <b>
                   Advancements:
@@ -2324,15 +2348,16 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
+              variant="h5"
             >
               Hero 6/6
             </h5>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2353,7 +2378,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2374,7 +2399,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2402,7 +2427,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2430,7 +2455,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root makeStyles-textField-4"
+              class="MuiFormControl-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2473,210 +2498,210 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
@@ -2684,7 +2709,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -2708,7 +2733,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-12"
+                class="MuiFormControl-root MuiTextField-root makeStyles-startingExp-14"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
@@ -2730,10 +2755,10 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
               >
                 <b>
                   Advancements:
@@ -2747,10 +2772,10 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Henchman 1/7
             </h5>
@@ -2758,7 +2783,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               style="display: flex;"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2779,7 +2804,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
                 style="margin-left: 24px;"
               >
                 <label
@@ -2802,7 +2827,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2823,7 +2848,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2851,7 +2876,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -2879,263 +2904,263 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="m"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ws"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="bs"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="s"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="t"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="w"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="i"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="a"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ld"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -3159,7 +3184,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
                 style="margin-left: 24px;"
               >
                 <b>
@@ -3174,10 +3199,10 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Henchman 2/7
             </h5>
@@ -3185,7 +3210,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               style="display: flex;"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3206,7 +3231,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
                 style="margin-left: 24px;"
               >
                 <label
@@ -3229,7 +3254,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3250,7 +3275,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3278,7 +3303,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3306,263 +3331,263 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="m"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ws"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="bs"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="s"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="t"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="w"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="i"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="a"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ld"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -3586,7 +3611,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
                 style="margin-left: 24px;"
               >
                 <b>
@@ -3601,10 +3626,10 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Henchman 3/7
             </h5>
@@ -3612,7 +3637,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               style="display: flex;"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3633,7 +3658,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
                 style="margin-left: 24px;"
               >
                 <label
@@ -3656,7 +3681,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3677,7 +3702,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3705,7 +3730,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -3733,263 +3758,263 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="m"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ws"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="bs"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="s"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="t"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="w"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="i"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="a"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ld"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -4013,7 +4038,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
                 style="margin-left: 24px;"
               >
                 <b>
@@ -4028,10 +4053,10 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Henchman 4/7
             </h5>
@@ -4039,7 +4064,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               style="display: flex;"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4060,7 +4085,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
                 style="margin-left: 24px;"
               >
                 <label
@@ -4083,7 +4108,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4104,7 +4129,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4132,7 +4157,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4160,263 +4185,263 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="m"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ws"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="bs"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="s"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="t"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="w"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="i"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="a"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ld"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -4440,7 +4465,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
                 style="margin-left: 24px;"
               >
                 <b>
@@ -4455,10 +4480,10 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Henchman 5/7
             </h5>
@@ -4466,7 +4491,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               style="display: flex;"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4487,7 +4512,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
                 style="margin-left: 24px;"
               >
                 <label
@@ -4510,7 +4535,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4531,7 +4556,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4559,7 +4584,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4587,263 +4612,263 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="m"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ws"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="bs"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="s"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="t"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="w"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="i"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="a"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ld"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -4867,7 +4892,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
                 style="margin-left: 24px;"
               >
                 <b>
@@ -4882,10 +4907,10 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Henchman 6/7
             </h5>
@@ -4893,7 +4918,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               style="display: flex;"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4914,7 +4939,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
                 style="margin-left: 24px;"
               >
                 <label
@@ -4937,7 +4962,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4958,7 +4983,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -4986,7 +5011,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -5014,263 +5039,263 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="m"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ws"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="bs"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="s"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="t"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="w"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="i"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="a"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ld"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -5294,7 +5319,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
                 style="margin-left: 24px;"
               >
                 <b>
@@ -5309,10 +5334,10 @@ exports[`Warband Should render (smoke test) 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-9 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-10 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5"
+              class="makeStyles-h5-1"
             >
               Henchman 7/7
             </h5>
@@ -5320,7 +5345,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               style="display: flex;"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -5341,7 +5366,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
                 style="margin-left: 24px;"
               >
                 <label
@@ -5364,7 +5389,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -5385,7 +5410,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -5413,7 +5438,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-textField-4"
+              class="MuiFormControl-root MuiTextField-root makeStyles-textField-5"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -5441,263 +5466,263 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-attributesContainer-15"
+              class="makeStyles-attributesContainer-17"
             >
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     M
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="m"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="m"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     WS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ws"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ws"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     BS
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="bs"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="bs"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     S
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="s"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="s"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     T
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="t"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="t"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     W
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="w"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="w"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     I
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="i"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="i"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     A
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="a"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="a"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
               <div
-                class="makeStyles-attributeColumn-16"
+                class="makeStyles-attributeColumn-18"
               >
                 <p
-                  class="MuiTypography-root makeStyles-attributeHeader-17 MuiTypography-body2"
+                  class="makeStyles-attributeHeader-19"
                 >
                   <b>
                     LD
                   </b>
                 </p>
                 <input
-                  class="makeStyles-attributeValue-18"
+                  class="makeStyles-attributeValue-20"
                   name="ld"
                   type="number"
                   value=""
                 />
                 <label
-                  class="makeStyles-checkBoxContainer-19"
+                  class="makeStyles-checkBoxContainer-21"
                 >
                   <input
                     name="ld"
                     type="checkbox"
                   />
                   <span
-                    class="makeStyles-checkmark-20"
+                    class="makeStyles-checkmark-22"
                   />
                 </label>
               </div>
             </div>
             <div
-              class="makeStyles-advancementRow-14"
+              class="makeStyles-advancementRow-16"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
@@ -5721,7 +5746,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                 </div>
               </div>
               <p
-                class="MuiTypography-root makeStyles-advancement-13 MuiTypography-body1"
+                class="makeStyles-advancement-15"
                 style="margin-left: 24px;"
               >
                 <b>

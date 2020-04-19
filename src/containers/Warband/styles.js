@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => {
-  console.log(theme);
   return {
     h5: {
       margin: 0,

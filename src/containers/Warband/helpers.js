@@ -98,7 +98,22 @@ const heroAdvancementArr = [
 
 // TODO: Exp to next level
 
+const advancementCache = new Map();
+
+advancementCache.set(henchmanAdvancementArr, {});
+advancementCache.set(heroAdvancementArr, {});
+
+
 const getAdvancementFactory = (arr) => (exp, startingExp) => {
+
+
+  const cacheByArr = advancementCache.get(arr);
+
+  const key = `${exp} ${startingExp}`;
+
+  if (cacheByArr[key]) {
+    return cacheByArr[key];
+  }
 
   const startingIndex = arr.findIndex((threshold) => threshold >= startingExp) || -1;
 
@@ -126,6 +141,8 @@ const getAdvancementFactory = (arr) => (exp, startingExp) => {
     }
 
   });
+
+  cacheByArr[key] = advancements;
 
   return advancements;
 };
