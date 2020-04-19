@@ -47,7 +47,7 @@ const HeroCard = ({
 
       <h5
         id={heroId}
-        className={classes.h5}
+        className={classes.h5Hire}
         variant="h5"
       >Hero {index + 1}/{MAX_HEROES}</h5>
 

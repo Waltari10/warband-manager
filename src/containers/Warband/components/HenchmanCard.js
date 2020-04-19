@@ -35,7 +35,7 @@ const HenchmanCard = ({
 
       <h5
         id={henchmanId}
-        className={classes.h5}
+        className={classes.h5Hire}
       >Henchman {index + 1}/{MAX_HENCHMEN}</h5>
       <IconButton
         onClick={() => setIsOpen(true)}

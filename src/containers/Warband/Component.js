@@ -175,6 +175,9 @@ const WarbandPage = ({
           >
 
             <h5
+              style={{
+                paddingTop: '24px',
+              }}
               id="general_header"
               className={classes.h5}
               variant="h5">General</h5>

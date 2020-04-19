@@ -6,6 +6,11 @@ export default makeStyles((theme) => {
       margin: 0,
       ...theme.typography.h5,
     },
+    h5Hire: {
+      margin: 0,
+      paddingTop: theme.spacing(3),
+      ...theme.typography.h5,
+    },
     hireFieldsColumn: {
       flex: 1,
       display: 'flex',
@@ -31,6 +36,7 @@ export default makeStyles((theme) => {
     },
     innerForm: {
       padding: theme.spacing(3),
+      paddingTop: 0,
       maxWidth: '656px',
       backgroundColor: 'white',
       margin: '0 auto',
@@ -52,7 +58,6 @@ export default makeStyles((theme) => {
 
     },
     hireContainer: {
-      marginTop: theme.spacing(3),
       position: 'relative',
     },
     addHireButton: {
