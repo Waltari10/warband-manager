@@ -37,7 +37,6 @@ exports[`Login Should render (smoke test) 1`] = `
                 aria-hidden="true"
                 class="MuiSvgIcon-root makeStyles-inputStartAdornment-11"
                 focusable="false"
-                role="presentation"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -64,7 +63,6 @@ exports[`Login Should render (smoke test) 1`] = `
                 aria-hidden="true"
                 class="MuiSvgIcon-root makeStyles-inputStartAdornment-11"
                 focusable="false"
-                role="presentation"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -95,7 +93,6 @@ exports[`Login Should render (smoke test) 1`] = `
                     aria-hidden="true"
                     class="MuiSvgIcon-root makeStyles-inputAdornment-10"
                     focusable="false"
-                    role="presentation"
                     viewBox="0 0 24 24"
                   >
                     <path

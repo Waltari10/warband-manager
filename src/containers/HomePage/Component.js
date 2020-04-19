@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     position: 'relative',
     flexDirection: 'column',
-    overflow: 'hidden',
     height: '100%',
     width: '100%',
     backgroundColor: theme.palette.background,

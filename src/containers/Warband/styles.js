@@ -6,9 +6,58 @@ export default makeStyles((theme) => {
       margin: 0,
       ...theme.typography.h5,
     },
+    hireFieldsColumn: {
+      flex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      minWidth: '200px',
+    },
+    removeButton: {
+      position: 'absolute',
+      top: '-9px',
+      right: '0',
+    },
+    navigation: {
+      padding: theme.spacing(3),
+      width: '20%',
+      [theme.breakpoints.down('xs')]: {
+        display: 'none',
+        backgroundColor: 'red',
+      },
+    },
+    navigationLink: {
+      minHeight: '24px',
+      lineHeight: '24px',
+    },
+    innerForm: {
+      padding: theme.spacing(3),
+      maxWidth: '656px',
+      backgroundColor: 'white',
+      margin: '0 auto',
+      [theme.breakpoints.down('xs')]: {
+        maxWidth: 'none',
+      },
+    },
+    form: {
+      overflowY: 'scroll',
+      overflowX: 'hidden',
+      padding: theme.spacing(3),
+      flex: 1,
+    },
+    viewContainer: {
+      height: 'calc(100% - 48px)',
+      backgroundColor: theme.palette.background,
+      display: 'flex',
+      flexDirection: 'row',
+
+    },
+    hireContainer: {
+      marginTop: theme.spacing(3),
+      position: 'relative',
+    },
     addHireButton: {
       maxHeight: '40px',
-      marginLeft: '12px',
+      marginTop: theme.spacing(3),
     },
     menuPaper: {
       backgroundColor: 'white',
@@ -17,6 +66,8 @@ export default makeStyles((theme) => {
       lineHeight: '48px',
       position: 'absolute',
       top: 0,
+      left: 0,
+      right: 0,
       width: '100%',
       display: 'block',
       wordBreak: 'none',
@@ -26,20 +77,37 @@ export default makeStyles((theme) => {
       paddingTop: theme.spacing(3),
       marginLeft: theme.spacing(3),
     },
-    textField: {
+    numberField: {
+      ['& input[type=number]::-webkit-inner-spin-button']: {
+        opacity: 1,
+      },
+      ['& input[type=number]::-webkit-outer-spin-button']: {
+        opacity: 1,
+      },
+    },
+    textFieldShort: {
+      ['& input[type=number]::-webkit-inner-spin-button']: {
+        opacity: 1,
+      },
+      ['& input[type=number]::-webkit-outer-spin-button']: {
+        opacity: 1,
+      },
+      maxWidth: theme.spacing(20),
+      marginTop: theme.spacing(3),
+      display: 'flex',
+    },
+    textFieldLong: {
+      maxWidth: theme.spacing(40),
+      marginTop: theme.spacing(3),
+      display: 'flex',
+    },
+    textFieldArea: {
+      maxWidth: theme.spacing(40),
       marginTop: theme.spacing(3),
       display: 'flex',
     },
     menu: {
       backgroundColor: 'white',
-    },
-    viewContainer: {
-      overflowY: 'scroll',
-      overflowX: 'hidden',
-      height: '100%',
-      backgroundColor: theme.palette.background,
-      // paddingLeft: '24px', // Only on desktop
-      // paddingRight: '24px',
     },
     hero: {
       position: 'absolute',
@@ -78,6 +146,7 @@ export default makeStyles((theme) => {
       alignSelf: 'flex-end',
     },
     advancementRow: {
+      // width: theme.spacing(40),
       marginTop: '24px',
       display: 'flex',
       flexDirection: 'row',
@@ -86,6 +155,7 @@ export default makeStyles((theme) => {
       display: 'flex',
       flexDirection: 'row',
       marginTop: '24px',
+      maxWidth: '320px',
     },
     attributeColumn: {
       display: 'flex',
@@ -97,7 +167,7 @@ export default makeStyles((theme) => {
       margin: 0,
       textAlign: 'center',
       color: 'white',
-      backgroundColor: 'black',
+      backgroundColor: theme.palette.primary.main,
     },
     attributeValue: {
       height: '25px',
@@ -112,6 +182,7 @@ export default makeStyles((theme) => {
       position: 'relative',
       marginBottom: '12px',
       cursor: 'pointer',
+      height: '25px',
       fontSize: '22px',
       userSelect: 'none',
 

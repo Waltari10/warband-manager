@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
-  Grid, TextField, Paper, FormControl, MenuItem,
+  TextField, FormControl, MenuItem,
   InputLabel, Select, IconButton,
+  Grid,
 } from '@material-ui/core';
 import { path } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
@@ -22,172 +23,203 @@ const HeroCard = ({
 
   return (
 
-    <Grid md={6} lg={4} xl={3} item>
-      <Paper className={classes.paper}>
+    <div
+      className={classes.hireContainer}
+    >
 
-        <Dialog
-          handleClose={() => setIsOpen(false)}
-          handleConfirm={() => {
-            setIsOpen(false);
-            deleteHero(heroId);
-          }}
-          open={isOpen}
-          title={`Are you sure you want to delete ${hero.name || ''}` || '? '}
-          confirm="Delete"
-        />
+      <Dialog
+        handleClose={() => setIsOpen(false)}
+        handleConfirm={() => {
+          setIsOpen(false);
+          deleteHero(heroId);
+        }}
+        open={isOpen}
+        title={`Are you sure you want to delete ${hero.name || ''}` || '? '}
+        confirm="Delete"
+      />
 
-        {/* Add are you sure */}
-        <IconButton
-          onClick={() => setIsOpen(true)}
-          style={{
-            position: 'absolute',
-            top: '16px',
-            right: '16px',
-          }}
+      <IconButton
+        onClick={() => setIsOpen(true)}
+        className={classes.removeButton}
+      >
+        <RemoveIcon />
+      </IconButton>
+
+      <h5
+        id={heroId}
+        className={classes.h5}
+        variant="h5"
+      >Hero {index + 1}/{MAX_HEROES}</h5>
+
+
+      <Grid
+        container
+        spacing={3}
+      >
+
+        <Grid
+          item
+          className={classes.hireFieldsColumn}
         >
-          <RemoveIcon />
-        </IconButton>
-
-        <h5
-          className={classes.h5}
-          variant="h5"
-        >Hero {index + 1}/{MAX_HEROES}</h5>
-        <TextField
-          value={hero.name || ''}
-          onChange={onHeroValueChange}
-          className={classes.textField}
-          label="Name"
-          name="name"
-        />
-        <TextField
-          value={hero.type || ''}
-          onChange={onHeroValueChange}
-          className={classes.textField}
-          label={'Type'}
-          name="type"
-        />
-        <TextField
-          value={hero.equipment || ''}
-          onChange={onHeroValueChange}
-          multiline
-          className={classes.textField}
-          label={'Equipment'}
-          name="equipment"
-        />
-        <TextField
-          value={hero.skills_injuries_etc || ''}
-          onChange={onHeroValueChange}
-          multiline
-          className={classes.textField}
-          label={'Skills, injuries, etc.'}
-          name="skills_injuries_etc"
-        />
-
-        <FormControl
-          className={classes.textField}
-        >
-          <InputLabel id="skill-categories-label">Available skills</InputLabel>
-          <Select
-            labelId="skill-categories-label"
-            multiple
-            value={hero.skillCategories || []}
-            MenuProps={{
-              classes: {
-                paper: classes.menuPaper,
-              },
-            }}
-            inputProps={{
-              name: 'skillCategories',
-            }}
-            name="skillCategories"
+          <TextField
+            variant="outlined"
+            value={hero.name || ''}
             onChange={onHeroValueChange}
+            className={classes.textFieldLong}
+            label="Name"
+            name="name"
+          />
+          <TextField
+            variant="outlined"
+            value={hero.type || ''}
+            onChange={onHeroValueChange}
+            className={classes.textFieldLong}
+            label={'Type'}
+            name="type"
+          />
+
+          <FormControl
+            className={classes.textFieldLong}
           >
-            {skillCategories.map((skill) => (
-              <MenuItem
-                key={skill}
-                value={skill}
-              >
-                {skill}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-
-
-        <div
-          className={classes.attributesContainer}
-        >
-          {
-            attributesArr.map((attribute) => {
-
-
-              return (
-                <div
-                  className={classes.attributeColumn}
-                  key={attribute}
+            <InputLabel
+              style={{
+                marginLeft: '12px',
+              }}
+              id="skill-categories-label"
+            >Available skills</InputLabel>
+            <Select
+              variant="outlined"
+              labelId="skill-categories-label"
+              multiple
+              value={hero.skillCategories || []}
+              MenuProps={{
+                variant: 'menu',
+                classes: {
+                  paper: classes.menuPaper,
+                },
+              }}
+              inputProps={{
+                name: 'skillCategories',
+              }}
+              name="skillCategories"
+              onChange={onHeroValueChange}
+            >
+              {skillCategories.map((skill) => (
+                <MenuItem
+                  key={skill}
+                  value={skill}
                 >
-                  <p
-                    className={classes.attributeHeader}
-                  >
-                    <b>
-                      {attribute.toUpperCase()}
-                    </b>
-                  </p>
-                  <input
-                    name={attribute}
-                    onChange={(e) => onHeroAttributeChange(e, 'value')}
-                    value={path([attribute, 'value'], hero) || ''}
-                    className={classes.attributeValue}
-                    type="number"
-                  />
-                  <input
-                    name={attribute}
-                    onChange={(e) => onHeroAttributeChange(e, 'racialMax')}
-                    value={path([attribute, 'racialMax'], hero) || ''}
-                    className={classes.attributeValue}
-                    type="number"
-                  />
-                </div>
-              );
-            })
-          }
-        </div>
+                  {skill}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-        <div
-          className={classes.advancementRow}
-        >
-          <TextField
-            value={hero.exp || 0}
-            onChange={onHeroValueChange}
-            label={'Total exp'}
-            name="exp"
-            type="number"
-          />
-          <TextField
-            className={classes.startingExp}
-            value={hero.startingExp || 0}
-            onChange={onHeroValueChange}
-            label={'Starting exp'}
-            name="startingExp"
-            type="number"
-          />
-        </div>
-        <div
-          className={classes.advancementRow}
-        >
-          <p
-            className={classes.advancement}
+
+          <div
+            className={classes.attributesContainer}
           >
-            <b>Advancements:</b>&nbsp;{
-              getHeroAdvancements(
-                hero.exp || 0,
-                hero.startingExp || 0,
-              )
+            {
+              attributesArr.map((attribute) => {
+
+
+                return (
+                  <div
+                    className={classes.attributeColumn}
+                    key={attribute}
+                  >
+                    <p
+                      className={classes.attributeHeader}
+                    >
+                      <b>
+                        {attribute.toUpperCase()}
+                      </b>
+                    </p>
+                    <input
+                      name={attribute}
+                      onChange={(e) => onHeroAttributeChange(e, 'value')}
+                      value={path([attribute, 'value'], hero) || ''}
+                      className={classes.attributeValue}
+                      type="number"
+                    />
+                    <input
+                      name={attribute}
+                      onChange={(e) => onHeroAttributeChange(e, 'racialMax')}
+                      value={path([attribute, 'racialMax'], hero) || ''}
+                      className={classes.attributeValue}
+                      type="number"
+                    />
+                  </div>
+                );
+              })
             }
-          </p>
-        </div>
-      </Paper>
-    </Grid>
+          </div>
+
+          <div
+            className={classes.advancementRow}
+          >
+            <TextField
+              variant="outlined"
+              value={hero.exp || 0}
+              onChange={onHeroValueChange}
+              label={'Total exp'}
+              name="exp"
+              type="number"
+              className={classes.numberField}
+            />
+            <TextField
+              variant="outlined"
+              className={`${classes.startingExp} ${classes.numberField}`}
+              value={hero.startingExp || 0}
+              onChange={onHeroValueChange}
+              label={'Starting exp'}
+              name="startingExp"
+              type="number"
+            />
+          </div>
+          <div
+            className={classes.advancementRow}
+          >
+            <p
+              className={classes.advancement}
+            >
+              <b>Advancements:</b>&nbsp;{
+                getHeroAdvancements(
+                  hero.exp || 0,
+                  hero.startingExp || 0,
+                )
+              }
+            </p>
+
+          </div>
+
+        </Grid>
+        <Grid
+          item
+          className={classes.hireFieldsColumn}
+        >
+          <TextField
+            variant="outlined"
+            value={hero.equipment || ''}
+            onChange={onHeroValueChange}
+            multiline
+            className={classes.textFieldArea}
+            label={'Equipment'}
+            name="equipment"
+          />
+          <TextField
+            variant="outlined"
+            value={hero.skills_injuries_etc || ''}
+            onChange={onHeroValueChange}
+            multiline
+            className={classes.textFieldArea}
+            label={'Skills, injuries, etc.'}
+            name="skills_injuries_etc"
+          />
+        </Grid>
+
+      </Grid>
+    </div>
   );
 };
 

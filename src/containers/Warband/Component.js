@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import {
-  Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography, Button,
+  Link, Paper, Divider, Grid,
+  MenuItem, Menu, IconButton, TextField, Typography, Button,
 } from '@material-ui/core';
 import { path, isEmpty } from 'ramda';
 import { v4 as uuid } from 'uuid';
@@ -19,8 +20,6 @@ import {
 
 import useStyles from './styles';
 
-const emptyObj = {};
-
 let timeout;
 
 const WarbandPage = ({
@@ -28,6 +27,8 @@ const WarbandPage = ({
   warbandId, removeWarband, isSuccessGetWarbands,
   addWarbandReset, isLoadingGetWarbands,
 }) => {
+
+  const formScroll = useRef(null);
 
   const classes = useStyles();
 
@@ -114,369 +115,542 @@ const WarbandPage = ({
     <div
       className={classes.viewContainer}
     >
-      <Typography className={classes.title} align="center" variant="h5">
-        { warband.name || 'No name' }
-      </Typography>
-      <IconButton
-        className={classes.menuIcon}
-        onClick={handleClick}
+      <div
+        className={classes.form}
       >
-        <MenuIcon style={{ color: 'white' }} />
-      </IconButton>
+        <Paper className={classes.innerForm}>
+          <Typography className={classes.title} align="center" variant="h5">
+            { warband.name || 'No name' }
+          </Typography>
+          <IconButton
+            className={classes.menuIcon}
+            onClick={handleClick}
+          >
+            <MenuIcon style={{ color: 'white' }} />
+          </IconButton>
 
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        classes={{
-          paper: classes.menu,
-        }}
-      >
-        <MenuItem
-          style={{
-            backgroundColor: 'white',
-          }}
-          onClick={() => {
-            handleClose();
-            logout();
-          }}>Logout</MenuItem>
-        {
-          <MenuItem onClick={() => {
-            handleClose();
-            setIsConfirmOpen(true);
-          }}>Delete  warband</MenuItem>
-        }
-      </Menu>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            classes={{
+              paper: classes.menu,
+            }}
+          >
+            <MenuItem
+              style={{
+                backgroundColor: 'white',
+              }}
+              onClick={() => {
+                handleClose();
+                logout();
+              }}>Logout</MenuItem>
+            {
+              <MenuItem onClick={() => {
+                handleClose();
+                setIsConfirmOpen(true);
+              }}>Delete  warband</MenuItem>
+            }
+          </Menu>
 
-      <Dialog
-        title={`Are you sure you want to remove warband ${warband.name || 'no name'}`}
-        confirm="Remove"
-        open={isConfirmOpen}
-        handleConfirm={() => {
-          removeWarband(warbandId);
-          setIsConfirmOpen(false);
-        }}
-        handleClose={() => {
-          setIsConfirmOpen(false);
-        }}
-      />
+          <Dialog
+            title={`Are you sure you want to remove warband ${warband.name || 'no name'}`}
+            confirm="Remove"
+            open={isConfirmOpen}
+            handleConfirm={() => {
+              removeWarband(warbandId);
+              setIsConfirmOpen(false);
+            }}
+            handleClose={() => {
+              setIsConfirmOpen(false);
+            }}
+          />
 
 
-      <div>
+          <div
 
-        <Grid spacing={3} container className={classes.gridContainer}>
-          <Grid md={6} lg={4} xl={3} item>
-            <Paper className={classes.paper}>
+            ref={formScroll}
+          >
 
-              <h5
-                className={classes.h5}
-                variant="h5">General</h5>
-              <TextField
-                name="name"
-                value={localWarband.name || ''}
-                onChange={handleChange}
-                className={classes.textField}
-                label={'Warband name'}
-              />
-              <TextField
-                name="type"
-                value={localWarband.type || ''}
-                onChange={handleChange}
-                className={classes.textField}
-                label={'Warband type'}
-              />
-              <TextField
-                type="number"
-                name="gamesPlayed"
-                value={localWarband.gamesPlayed || 0}
-                onChange={handleChange}
-                className={classes.textField}
-                label={'Games played'}
-              />
+            <h5
+              id="general_header"
+              className={classes.h5}
+              variant="h5">General</h5>
 
-              <h5
-                className={`${classes.h5} ${classes.textField}`}
-                variant="h5"
-              >Wealth</h5>
-              <div className={classes.textField}>
+
+            <Grid
+              container
+              spacing={2}
+            >
+
+              <Grid item>
                 <TextField
-                  name="shards"
-                  value={localWarband.shards || 0}
+                  variant="outlined"
+                  name="name"
+                  value={localWarband.name || ''}
                   onChange={handleChange}
-                  label={'Wyrdstone shards'}
-                  type="number"
+                  className={classes.textFieldLong}
+                  label={'Warband name'}
                 />
+              </Grid>
+              <Grid item>
                 <TextField
-                  name="goldCrowns"
-                  className={classes.goldCrowns}
-                  value={localWarband.goldCrowns || 0}
+                  variant="outlined"
+                  name="type"
+                  value={localWarband.type || ''}
                   onChange={handleChange}
-                  label={'Gold crowns'}
-                  type="number"
+                  className={classes.textFieldLong}
+                  label={'Warband type'}
                 />
-              </div>
-              <TextField
-                name="equipment"
-                value={localWarband.equipment || ''}
-                onChange={handleChange}
-                multiline
-                className={classes.textField}
-                label={'Equipment'}
-              />
-            </Paper>
-          </Grid>
-          <Grid md={6} lg={4} xl={3} item>
-            <Paper className={classes.paper}>
+              </Grid>
+              <Grid item>
+                <TextField
+                  variant="outlined"
+                  type="number"
+                  name="gamesPlayed"
+                  value={localWarband.gamesPlayed || 0}
+                  onChange={handleChange}
+                  className={`${classes.numberField} ${classes.textFieldShort}`}
+                  label={'Games played'}
+                />
+              </Grid>
+            </Grid>
 
-              <h5
-                className={classes.h5}
-              >Rating</h5>
+            <Divider style={{ marginTop: '24px' }}/>
 
-              <Typography
-                className={classes.textField}
-                variant="body1"
-              >Total experience: {getTotalExperience(localWarband)}</Typography>
-              <Typography variant="body1">
+            <h5
+              id="wealth_header"
+              style={{ paddingTop: '24px' }}
+              className={classes.h5}
+              variant="h5"
+            >Wealth</h5>
+
+            <Grid
+              container
+              spacing={3}
+            >
+
+              <Grid item>
+                <div className={classes.textFieldLong}>
+                  <TextField
+                    variant="outlined"
+                    name="shards"
+                    value={localWarband.shards || 0}
+                    onChange={handleChange}
+                    label={'Wyrdstone shards'}
+                    type="number"
+                    className={classes.numberField}
+                  />
+                  <TextField
+                    variant="outlined"
+                    name="goldCrowns"
+                    className={`${classes.goldCrowns} ${classes.numberField}`}
+                    value={localWarband.goldCrowns || 0}
+                    onChange={handleChange}
+                    label={'Gold crowns'}
+                    type="number"
+                  />
+                </div>
+              </Grid>
+              <Grid item>
+                <TextField
+                  variant="outlined"
+                  name="equipment"
+                  value={localWarband.equipment || ''}
+                  onChange={handleChange}
+                  multiline
+                  className={classes.textFieldArea}
+                  label={'Equipment'}
+                />
+              </Grid>
+
+            </Grid>
+
+            <Divider style={{ marginTop: '24px' }}/>
+
+            <h5
+              id="rating_header"
+              style={{ paddingTop: '24px' }}
+              className={classes.h5}
+            >Rating</h5>
+
+            <Typography
+              className={classes.textFieldShort}
+              variant="body1"
+            >Total experience: {getTotalExperience(localWarband)}</Typography>
+            <Typography variant="body1">
                 Members ({getWarbandMemberCount(localWarband)}) x 5: {getRatingFromMemberCount(localWarband)}
-              </Typography>
-              <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
-            </Paper>
-          </Grid>
+            </Typography>
+            <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
 
 
-          {heroIndex.map((heroId, index) => {
+            <Divider style={{ marginTop: '24px' }}/>
 
-            const hero = path(['heroes', heroId], localWarband) || {};
 
-            const onHeroValueChange = (e) => {
+            {heroIndex.map((heroId, index) => {
 
-              const heroes = localWarband.heroes || {};
+              const hero = path(['heroes', heroId], localWarband) || {};
 
-              const newWarband = {
-                ...localWarband,
-                heroes: {
-                  ...heroes,
-                  [heroId]: {
-                    ...hero,
-                    [e.target.name || e.target.getAttribute('name')]: e.target.value,
-                  },
-                },
-              };
+              const onHeroValueChange = (e) => {
 
-              setAndSaveWarband(newWarband);
-            };
+                const heroes = localWarband.heroes || {};
 
-            const onHeroAttributeChange = (e, key) => {
-
-              const attributeName = e.target.getAttribute('name');
-
-              const value = e.target.value;
-
-              const heroMap = localWarband.heroes || {};
-              const attribute = path([attributeName], hero) || {};
-
-              const newWarband = {
-                ...localWarband,
-                heroes: {
-                  ...heroMap,
-                  [heroId]: {
-                    ...hero,
-                    [attributeName]: {
-                      ...attribute,
-                      [key]: value,
+                const newWarband = {
+                  ...localWarband,
+                  heroes: {
+                    ...heroes,
+                    [heroId]: {
+                      ...hero,
+                      [e.target.name || e.target.getAttribute('name')]: e.target.value,
                     },
                   },
-                },
+                };
+
+                setAndSaveWarband(newWarband);
               };
 
-              setAndSaveWarband(newWarband);
-            };
+              const onHeroAttributeChange = (e, key) => {
 
+                const attributeName = e.target.getAttribute('name');
 
-            const deleteHero = (id) => {
+                const value = e.target.value;
 
-              const index = heroIndex.indexOf(id);
+                const heroMap = localWarband.heroes || {};
+                const attribute = path([attributeName], hero) || {};
 
-              const newIndex = [...heroIndex];
-              if (index > -1) {
-                newIndex.splice(index, 1);
-              }
-
-              const heroesMap = localWarband.heroes || {};
-              const newWarband = {
-                ...localWarband,
-                heroIndex: newIndex,
-                heroes: {
-                  ...heroesMap,
-                },
-              };
-
-              delete newWarband.heroes[id];
-
-              setAndSaveWarband(newWarband);
-            };
-
-
-            return (
-              <HeroCard
-                deleteHero={deleteHero}
-                heroId={heroId}
-                classes={classes}
-                index={index}
-                hero={hero}
-                key={heroId}
-                onHeroAttributeChange={onHeroAttributeChange}
-                onHeroValueChange={onHeroValueChange}
-              />
-            );
-
-          })}
-
-          <Button
-            size="large"
-            startIcon={<AddIcon />}
-            className={classes.addHireButton}
-            disabled={isLoadingGetWarbands}
-            variant="contained"
-            color="primary"
-            onClick={() => {
-
-              const newId = uuid();
-              const newHeroIndex = [...heroIndex];
-
-              newHeroIndex.push(newId);
-
-              const newWarband = {
-                ...localWarband,
-                heroIndex: newHeroIndex,
-                heroes: {
-                  ...localWarband.heroes,
-                  [newId]: {},
-                },
-              };
-
-              setAndSaveWarband(newWarband);
-            }}
-          >Add hero</Button>
-
-          {henchmenIndex.map((henchmanId, index) => {
-
-
-            const henchman = path(['henchmen', henchmanId], localWarband) || {};
-
-            const onHenchmanValueChange = (e) => {
-
-              const henchmenMap = localWarband.henchmen || {};
-
-              const newWarband = {
-                ...localWarband,
-                henchmen: {
-                  ...henchmenMap,
-                  [henchmanId]: {
-                    ...henchman,
-                    [e.target.getAttribute('name')]: e.target.value,
-                  },
-                },
-              };
-
-              setAndSaveWarband(newWarband);
-            };
-
-            const onHenchmanAttributeChange = (e, key) => {
-
-              const attributeName = e.target.getAttribute('name');
-
-              const value = key === 'isModified' ? e.target.checked : e.target.value;
-
-              const henchmenMap = localWarband.henchmen || {};
-              const attribute = path([attributeName], henchman) || {};
-
-              const newLocalWarband = {
-                ...localWarband,
-                henchmen: {
-                  ...henchmenMap,
-                  [henchmanId]: {
-                    ...henchman,
-                    [attributeName]: {
-                      ...attribute,
-                      [key]: value,
+                const newWarband = {
+                  ...localWarband,
+                  heroes: {
+                    ...heroMap,
+                    [heroId]: {
+                      ...hero,
+                      [attributeName]: {
+                        ...attribute,
+                        [key]: value,
+                      },
                     },
                   },
-                },
+                };
+
+                setAndSaveWarband(newWarband);
               };
 
-              setAndSaveWarband(newLocalWarband);
-            };
 
-            const deleteHenchman = (id) => {
+              const deleteHero = (id) => {
 
-              const index = henchmenIndex.indexOf(id);
+                const index = heroIndex.indexOf(id);
 
-              const newIndex = [...henchmenIndex];
-              if (index > -1) {
-                newIndex.splice(index, 1);
-              }
+                const newIndex = [...heroIndex];
+                if (index > -1) {
+                  newIndex.splice(index, 1);
+                }
 
-              const henchmenMap = localWarband.henchmen || {};
-              const newWarband = {
-                ...localWarband,
-                henchmenIndex: newIndex,
-                henchmen: {
-                  ...henchmenMap,
-                },
+                const heroesMap = localWarband.heroes || {};
+                const newWarband = {
+                  ...localWarband,
+                  heroIndex: newIndex,
+                  heroes: {
+                    ...heroesMap,
+                  },
+                };
+
+                delete newWarband.heroes[id];
+
+                setAndSaveWarband(newWarband);
               };
 
-              delete newWarband.henchmen[id];
 
-              setAndSaveWarband(newWarband);
-            };
+              return (
+                <>
+                  <HeroCard
+                    deleteHero={deleteHero}
+                    heroId={heroId}
+                    classes={classes}
+                    index={index}
+                    hero={hero}
+                    key={heroId}
+                    onHeroAttributeChange={onHeroAttributeChange}
+                    onHeroValueChange={onHeroValueChange}
+                  />
+                  <Divider style={{ marginTop: '24px' }}/>
+                </>
+              );
+
+            })}
+
+            <Button
+              size="large"
+              startIcon={<AddIcon />}
+              className={classes.addHireButton}
+              disabled={isLoadingGetWarbands}
+              variant="contained"
+              color="primary"
+              onClick={() => {
+
+                const newId = uuid();
+                const newHeroIndex = [...heroIndex];
+
+                newHeroIndex.push(newId);
+
+                const newWarband = {
+                  ...localWarband,
+                  heroIndex: newHeroIndex,
+                  heroes: {
+                    ...localWarband.heroes,
+                    [newId]: {},
+                  },
+                };
+
+                setAndSaveWarband(newWarband);
+              }}
+            >Add hero</Button>
 
 
-            return (
-              <HenchmanCard
-                deleteHenchman={deleteHenchman}
-                henchmanId={henchmanId}
-                classes={classes}
-                index={index}
-                onHenchmanValueChange={onHenchmanValueChange}
-                onHenchmanAttributeChange={onHenchmanAttributeChange}
-                henchman={henchman}
-                key={henchmanId}
-              />
-            );
+            <Divider style={{ marginTop: '24px' }}/>
 
-          })}
+            {henchmenIndex.map((henchmanId, index) => {
 
-          <Button
-            size="large"
-            startIcon={<AddIcon />}
-            className={classes.addHireButton}
-            disabled={isLoadingGetWarbands}
-            variant="contained"
-            color="primary"
+
+              const henchman = path(['henchmen', henchmanId], localWarband) || {};
+
+              const onHenchmanValueChange = (e) => {
+
+                const henchmenMap = localWarband.henchmen || {};
+
+                const newWarband = {
+                  ...localWarband,
+                  henchmen: {
+                    ...henchmenMap,
+                    [henchmanId]: {
+                      ...henchman,
+                      [e.target.getAttribute('name')]: e.target.value,
+                    },
+                  },
+                };
+
+                setAndSaveWarband(newWarband);
+              };
+
+              const onHenchmanAttributeChange = (e, key) => {
+
+                const attributeName = e.target.getAttribute('name');
+
+                const value = key === 'isModified' ? e.target.checked : e.target.value;
+
+                const henchmenMap = localWarband.henchmen || {};
+                const attribute = path([attributeName], henchman) || {};
+
+                const newLocalWarband = {
+                  ...localWarband,
+                  henchmen: {
+                    ...henchmenMap,
+                    [henchmanId]: {
+                      ...henchman,
+                      [attributeName]: {
+                        ...attribute,
+                        [key]: value,
+                      },
+                    },
+                  },
+                };
+
+                setAndSaveWarband(newLocalWarband);
+              };
+
+              const deleteHenchman = (id) => {
+
+                const index = henchmenIndex.indexOf(id);
+
+                const newIndex = [...henchmenIndex];
+                if (index > -1) {
+                  newIndex.splice(index, 1);
+                }
+
+                const henchmenMap = localWarband.henchmen || {};
+                const newWarband = {
+                  ...localWarband,
+                  henchmenIndex: newIndex,
+                  henchmen: {
+                    ...henchmenMap,
+                  },
+                };
+
+                delete newWarband.henchmen[id];
+
+                setAndSaveWarband(newWarband);
+              };
+
+
+              return (
+                <>
+                  <HenchmanCard
+                    deleteHenchman={deleteHenchman}
+                    henchmanId={henchmanId}
+                    classes={classes}
+                    index={index}
+                    onHenchmanValueChange={onHenchmanValueChange}
+                    onHenchmanAttributeChange={onHenchmanAttributeChange}
+                    henchman={henchman}
+                    key={henchmanId}
+                  />
+
+                  <Divider style={{ marginTop: '24px' }}/>
+                </>
+              );
+
+            })}
+
+            <Button
+              size="large"
+              startIcon={<AddIcon />}
+              className={classes.addHireButton}
+              disabled={isLoadingGetWarbands}
+              variant="contained"
+              color="primary"
+              onClick={() => {
+
+                const newId = uuid();
+                const newIndex = [...henchmenIndex];
+
+                newIndex.push(newId);
+
+                const newWarband = {
+                  ...localWarband,
+                  henchmenIndex: newIndex,
+                  henchmen: {
+                    ...localWarband.henchmen,
+                    [newId]: {},
+                  },
+                };
+
+                setAndSaveWarband(newWarband);
+              }}
+            >Add henchman</Button>
+          </div>
+        </Paper>
+      </div>
+      <div
+        className={classes.navigation}
+      >
+
+        <Typography
+          style={{
+            marginTop: '16px',
+            marginBottom: '8px',
+          }}
+          variant="body1"
+        ><b>Navigation:</b></Typography>
+
+        <div
+          className={classes.navigationLink}
+        >
+          <Link
             onClick={() => {
-
-              const newId = uuid();
-              const newIndex = [...henchmenIndex];
-
-              newIndex.push(newId);
-
-              const newWarband = {
-                ...localWarband,
-                henchmenIndex: newIndex,
-                henchmen: {
-                  ...localWarband.henchmen,
-                  [newId]: {},
-                },
-              };
-
-              setAndSaveWarband(newWarband);
+              const scrollTarget = document.getElementById('general_header');
+              if (formScroll && formScroll.current) {
+                scrollTarget.scrollIntoView({
+                  behavior: 'smooth',
+                });
+              }
             }}
-          >Add henchman</Button>
+          >&#8594; General</Link>
+        </div>
+        <div
 
-        </Grid>
+          className={classes.navigationLink}
+        >
+
+          <Link
+
+            onClick={() => {
+              const scrollTarget = document.getElementById('wealth_header');
+              if (formScroll && formScroll.current) {
+                scrollTarget.scrollIntoView({
+                  behavior: 'smooth',
+                });
+              }
+            }}
+
+          >&#8594; Wealth</Link>
+        </div>
+        <div
+
+          className={classes.navigationLink}
+        >
+          <Link
+            onClick={() => {
+              const scrollTarget = document.getElementById('rating_header');
+              if (formScroll && formScroll.current) {
+                scrollTarget.scrollIntoView({
+                  behavior: 'smooth',
+                });
+              }
+            }}
+          >&#8594; Rating</Link>
+        </div>
+
+
+        <Typography
+          style={{
+            marginTop: '16px',
+            marginBottom: '8px',
+          }}
+          variant="body1"><b>Heroes:</b></Typography>
+
+        {heroIndex.map((key) => {
+
+          const hero = localWarband.heroes[key];
+          return (
+            <div
+              className={classes.navigationLink}
+              key={key}
+            >
+              <Link
+                onClick={() => {
+                  const scrollTarget = document.getElementById(key);
+                  if (formScroll && formScroll.current) {
+                    scrollTarget.scrollIntoView({
+                      behavior: 'smooth',
+                    });
+                  }
+                }}
+              > &#8594; { `${hero.name || ''} ${hero.type || ''}`}</Link>
+            </div>
+          );
+        })}
+
+
+        <Typography
+          style={{
+            marginTop: '16px',
+            marginBottom: '8px',
+          }}
+          variant="body1"
+        ><b>Henchmen:</b></Typography>
+
+        {henchmenIndex.map((key) => {
+
+          const henchman = localWarband.henchmen[key];
+          return (
+            <div
+              className={classes.navigationLink}
+              key={key}
+            >
+              <Link
+                onClick={() => {
+                  const scrollTarget = document.getElementById(key);
+                  if (formScroll && formScroll.current) {
+                    scrollTarget.scrollIntoView({
+                      behavior: 'smooth',
+                    });
+                  }
+                }}
+              > &#8594; {`${henchman.name || ''} ${henchman.type || ''}`}</Link>
+            </div>)
+          ;
+        })}
       </div>
     </div>
   );
