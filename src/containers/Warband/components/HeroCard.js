@@ -5,39 +5,39 @@ import {
 } from '@material-ui/core';
 import { path } from 'ramda';
 
-import { attributesArr, skillCategories } from '../constants';
+import { attributesArr, skillCategories, MAX_HEROES } from '../constants';
 
 import { getHeroAdvancements } from '../helpers';
 
 
 const HeroCard = ({
-  onHeroAttributeChange,
-  classes, heroId, index, onHeroValueChange, warband,
+  onHeroAttributeChange, hero,
+  classes, index, onHeroValueChange,
 }) => {
   return (
 
-    <Grid key={heroId} md={6} lg={4} xl={3} item>
+    <Grid md={6} lg={4} xl={3} item>
       <Paper className={classes.paper}>
         <h5
           className={classes.h5}
           variant="h5"
-        >Hero {index + 1}/6</h5>
+        >Hero {index + 1}/{MAX_HEROES}</h5>
         <TextField
-          value={path(['heroes', heroId, 'name'], warband) || ''}
+          value={hero.name || ''}
           onChange={onHeroValueChange}
           className={classes.textField}
           label="Name"
           name="name"
         />
         <TextField
-          value={path(['heroes', heroId, 'type'], warband) || ''}
+          value={hero.type || ''}
           onChange={onHeroValueChange}
           className={classes.textField}
           label={'Type'}
           name="type"
         />
         <TextField
-          value={path(['heroes', heroId, 'equipment'], warband) || ''}
+          value={hero.equipment || ''}
           onChange={onHeroValueChange}
           multiline
           className={classes.textField}
@@ -45,7 +45,7 @@ const HeroCard = ({
           name="equipment"
         />
         <TextField
-          value={path(['heroes', heroId, 'skills_injuries_etc'], warband) || ''}
+          value={hero.skills_injuries_etc || ''}
           onChange={onHeroValueChange}
           multiline
           className={classes.textField}
@@ -60,7 +60,7 @@ const HeroCard = ({
           <Select
             labelId="skill-categories-label"
             multiple
-            value={path(['heroes', heroId, 'skillCategories'], warband) || []}
+            value={hero.skillCategories || []}
             MenuProps={{
               classes: {
                 paper: classes.menuPaper,
@@ -106,21 +106,19 @@ const HeroCard = ({
                   <input
                     name={attribute}
                     onChange={(e) => onHeroAttributeChange(e, 'value')}
-                    value={path(['heroes', heroId, attribute, 'value'], warband) || ''}
+                    value={path([attribute, 'value'], hero) || ''}
                     className={classes.attributeValue}
                     type="number"
                   />
                   <input
                     name={attribute}
                     onChange={(e) => onHeroAttributeChange(e, 'racialMax')}
-                    value={path(['heroes', heroId, attribute, 'racialMax'], warband) || ''}
+                    value={path([attribute, 'racialMax'], hero) || ''}
                     className={classes.attributeValue}
                     type="number"
                   />
                 </div>
               );
-
-
             })
           }
         </div>
@@ -129,7 +127,7 @@ const HeroCard = ({
           className={classes.advancementRow}
         >
           <TextField
-            value={path(['heroes', heroId, 'exp'], warband) || 0}
+            value={hero.exp || 0}
             onChange={onHeroValueChange}
             label={'Total exp'}
             name="exp"
@@ -137,7 +135,7 @@ const HeroCard = ({
           />
           <TextField
             className={classes.startingExp}
-            value={path(['heroes', heroId, 'startingExp'], warband) || 0}
+            value={hero.startingExp || 0}
             onChange={onHeroValueChange}
             label={'Starting exp'}
             name="startingExp"
@@ -152,8 +150,8 @@ const HeroCard = ({
           >
             <b>Advancements:</b>&nbsp;{
               getHeroAdvancements(
-                path(['heroes', heroId, 'exp'], warband) || 0,
-                path(['heroes', heroId, 'startingExp'], warband) || 0,
+                hero.exp || 0,
+                hero.startingExp || 0,
               )
             }
           </p>

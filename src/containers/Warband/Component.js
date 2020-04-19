@@ -213,9 +213,10 @@ const WarbandPage = ({
 
           {['hero_0', 'hero_1', 'hero_2', 'hero_3', 'hero_4', 'hero_5'].map((heroId, index) => {
 
+            const hero = path(['heroes', heroId], localWarband) || {};
+
             const onHeroValueChange = (e) => {
 
-              const hero = path(['heroes', heroId], localWarband) || {};
               const heroes = localWarband.heroes || {};
 
               const newWarband = {
@@ -242,7 +243,6 @@ const WarbandPage = ({
 
               const value = e.target.value;
 
-              const hero = path(['heroes', heroId], localWarband) || {};
               const heroMap = localWarband.heroes || {};
               const attribute = path([attributeName], hero) || {};
 
@@ -270,10 +270,9 @@ const WarbandPage = ({
 
             return (
               <HeroCard
-                warband={localWarband}
                 classes={classes}
                 index={index}
-                heroId={heroId}
+                hero={hero}
                 key={heroId}
                 onHeroAttributeChange={onHeroAttributeChange}
                 onHeroValueChange={onHeroValueChange}
@@ -284,9 +283,11 @@ const WarbandPage = ({
 
           {henchmenIdArr.map((henchmanId, index) => {
 
+
+            const henchman = path(['henchmen', henchmanId], localWarband) || {};
+
             const onHenchmanValueChange = (e) => {
 
-              const henchman = path(['henchmen', henchmanId], localWarband) || {};
               const henchmenMap = localWarband.henchmen || {};
 
               const newWarband = {
@@ -313,7 +314,6 @@ const WarbandPage = ({
 
               const value = key === 'isModified' ? e.target.checked : e.target.value;
 
-              const henchman = path(['henchmen', henchmanId], localWarband) || {};
               const henchmenMap = localWarband.henchmen || {};
               const attribute = path([attributeName], henchman) || {};
 
@@ -345,7 +345,7 @@ const WarbandPage = ({
                 index={index}
                 onHenchmanValueChange={onHenchmanValueChange}
                 onHenchmanAttributeChange={onHenchmanAttributeChange}
-                henchman={path(['henchmen', henchmanId], localWarband)}
+                henchman={henchman}
                 key={henchmanId}
               />
             );
