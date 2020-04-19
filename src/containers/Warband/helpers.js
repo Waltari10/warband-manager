@@ -1,9 +1,9 @@
-import { path } from 'ramda';
+import { selectHeroes, selectHenchmen } from './selectors';
 
 export const getTotalExperience = (warband) => {
   let total = 0;
-  const heroes = path(['heroes'], warband) || {};
-  const henchmen = path(['henchmen'], warband) || {};
+  const heroes = selectHeroes(warband);
+  const henchmen = selectHenchmen(warband);
 
   Object.values(heroes).forEach((hero) => {
 
@@ -33,8 +33,8 @@ export const getTotalExperience = (warband) => {
 export const getWarbandMemberCount = (warband) => {
 
   let total = 0;
-  const heroes = path(['heroes'], warband) || {};
-  const henchmen = path(['henchmen'], warband) || {};
+  const heroes = selectHeroes(warband);
+  const henchmen = selectHenchmen(warband);
 
   Object.values(heroes).forEach((hero) => {
 

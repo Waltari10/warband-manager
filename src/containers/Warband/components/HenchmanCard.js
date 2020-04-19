@@ -1,6 +1,8 @@
-import React from 'react';
-import { Grid, TextField, Paper } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Grid, TextField, Paper, IconButton } from '@material-ui/core';
 import { path } from 'ramda';
+import RemoveIcon from '@material-ui/icons/Delete';
+import Dialog from '../../../components/Dialog';
 
 import { attributesArr, MAX_HENCHMEN } from '../constants';
 
@@ -9,12 +11,39 @@ import { getHenchmanAdvancements } from '../helpers';
 
 const HenchmanCard = ({
   classes, index, henchman = {}, onHenchmanValueChange, onHenchmanAttributeChange,
+  deleteHenchman, henchmanId,
 }) => {
+
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Grid md={6} lg={4} xl={3} item>
       <Paper className={classes.paper}>
+
+        <Dialog
+          handleClose={() => setIsOpen(false)}
+          handleConfirm={() => {
+            setIsOpen(false);
+            deleteHenchman(henchmanId);
+          }}
+          open={isOpen}
+          title={`Are you sure you want to delete ${henchman.name || ''}` || '? '}
+          confirm="Delete"
+        />
+
         <h5 className={classes.h5}>Henchman {index + 1}/{MAX_HENCHMEN}</h5>
+        {/* Add are you sure */}
+        <IconButton
+          onClick={() => setIsOpen(true)}
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+          }}
+        >
+          <RemoveIcon />
+        </IconButton>
         <div
           style={{
             display: 'flex',

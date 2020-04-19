@@ -6,6 +6,10 @@ export default makeStyles((theme) => {
       margin: 0,
       ...theme.typography.h5,
     },
+    addHireButton: {
+      maxHeight: '40px',
+      marginLeft: '12px',
+    },
     menuPaper: {
       backgroundColor: 'white',
     },
@@ -53,6 +57,7 @@ export default makeStyles((theme) => {
       padding: theme.spacing(3),
       display: 'flex',
       flexDirection: 'column',
+      position: 'relative',
     },
     gridContainer: {
       margin: theme.spacing(3),

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Grid, TextField, Paper, FormControl, MenuItem,
-  InputLabel, Select,
+  InputLabel, Select, IconButton,
 } from '@material-ui/core';
 import { path } from 'ramda';
+import RemoveIcon from '@material-ui/icons/Delete';
+import Dialog from '../../../components/Dialog';
 
 import { attributesArr, skillCategories, MAX_HEROES } from '../constants';
 
@@ -13,11 +15,39 @@ import { getHeroAdvancements } from '../helpers';
 const HeroCard = ({
   onHeroAttributeChange, hero,
   classes, index, onHeroValueChange,
+  deleteHero, heroId,
 }) => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
 
     <Grid md={6} lg={4} xl={3} item>
       <Paper className={classes.paper}>
+
+        <Dialog
+          handleClose={() => setIsOpen(false)}
+          handleConfirm={() => {
+            setIsOpen(false);
+            deleteHero(heroId);
+          }}
+          open={isOpen}
+          title={`Are you sure you want to delete ${hero.name || ''}` || '? '}
+          confirm="Delete"
+        />
+
+        {/* Add are you sure */}
+        <IconButton
+          onClick={() => setIsOpen(true)}
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+          }}
+        >
+          <RemoveIcon />
+        </IconButton>
+
         <h5
           className={classes.h5}
           variant="h5"

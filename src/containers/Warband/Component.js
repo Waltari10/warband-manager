@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
+import AddIcon from '@material-ui/icons/Add';
+import {
+  Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography, Button,
+} from '@material-ui/core';
+import { path, isEmpty } from 'ramda';
+import { v4 as uuid } from 'uuid';
+
 import HenchmanCard from './components/HenchmanCard';
 import HeroCard from './components/HeroCard';
-
-import { henchmenIdArr } from './constants';
-
 import Dialog from '../../components/Dialog';
-
 import {
   getTotalExperience,
   getWarbandMemberCount,
@@ -14,20 +17,16 @@ import {
   getRating,
 } from './helpers';
 
-import {
-  Paper, Grid, MenuItem, Menu, IconButton, TextField, Typography,
-} from '@material-ui/core';
-import { path, isEmpty } from 'ramda';
-
 import useStyles from './styles';
 
+const emptyObj = {};
 
 let timeout;
 
 const WarbandPage = ({
   saveWarband, logout, warband = {},
   warbandId, removeWarband, isSuccessGetWarbands,
-  addWarbandReset,
+  addWarbandReset, isLoadingGetWarbands,
 }) => {
 
   const classes = useStyles();
@@ -74,6 +73,42 @@ const WarbandPage = ({
 
   };
 
+
+  const heroIndex = (() => {
+
+    if (localWarband.heroIndex) {
+      return localWarband.heroIndex;
+    }
+
+    if (localWarband.heroes){
+      return Object.keys(localWarband.heroes);
+    }
+
+    return [];
+
+  })();
+
+  const henchmenIndex = (() => {
+
+    if (localWarband.henchmenIndex) {
+      return localWarband.henchmenIndex;
+    }
+
+    if (localWarband.henchmen){
+      return Object.keys(localWarband.henchmen);
+    }
+
+    return [];
+
+  })();
+
+  const setAndSaveWarband = (myWarband) => {
+    setLocalWarband(myWarband);
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      saveWarband({ ...myWarband, warbandId });
+    }, 1000);
+  };
 
   return (
     <div
@@ -211,7 +246,7 @@ const WarbandPage = ({
           </Grid>
 
 
-          {['hero_0', 'hero_1', 'hero_2', 'hero_3', 'hero_4', 'hero_5'].map((heroId, index) => {
+          {heroIndex.map((heroId, index) => {
 
             const hero = path(['heroes', heroId], localWarband) || {};
 
@@ -230,11 +265,7 @@ const WarbandPage = ({
                 },
               };
 
-              setLocalWarband(newWarband);
-              clearTimeout(timeout);
-              timeout = setTimeout(() => {
-                saveWarband({ ...newWarband, warbandId });
-              }, 1000);
+              setAndSaveWarband(newWarband);
             };
 
             const onHeroAttributeChange = (e, key) => {
@@ -246,7 +277,7 @@ const WarbandPage = ({
               const heroMap = localWarband.heroes || {};
               const attribute = path([attributeName], hero) || {};
 
-              const newLocalWarband = {
+              const newWarband = {
                 ...localWarband,
                 heroes: {
                   ...heroMap,
@@ -260,16 +291,38 @@ const WarbandPage = ({
                 },
               };
 
-              setLocalWarband(newLocalWarband);
-              clearTimeout(timeout);
-              timeout = setTimeout(() => {
-                saveWarband({ ...newLocalWarband, warbandId });
-              }, 1000);
+              setAndSaveWarband(newWarband);
+            };
+
+
+            const deleteHero = (id) => {
+
+              const index = heroIndex.indexOf(id);
+
+              const newIndex = [...heroIndex];
+              if (index > -1) {
+                newIndex.splice(index, 1);
+              }
+
+              const heroesMap = localWarband.heroes || {};
+              const newWarband = {
+                ...localWarband,
+                heroIndex: newIndex,
+                heroes: {
+                  ...heroesMap,
+                },
+              };
+
+              delete newWarband.heroes[id];
+
+              setAndSaveWarband(newWarband);
             };
 
 
             return (
               <HeroCard
+                deleteHero={deleteHero}
+                heroId={heroId}
                 classes={classes}
                 index={index}
                 hero={hero}
@@ -281,7 +334,34 @@ const WarbandPage = ({
 
           })}
 
-          {henchmenIdArr.map((henchmanId, index) => {
+          <Button
+            size="large"
+            startIcon={<AddIcon />}
+            className={classes.addHireButton}
+            disabled={isLoadingGetWarbands}
+            variant="contained"
+            color="primary"
+            onClick={() => {
+
+              const newId = uuid();
+              const newHeroIndex = [...heroIndex];
+
+              newHeroIndex.push(newId);
+
+              const newWarband = {
+                ...localWarband,
+                heroIndex: newHeroIndex,
+                heroes: {
+                  ...localWarband.heroes,
+                  [newId]: {},
+                },
+              };
+
+              setAndSaveWarband(newWarband);
+            }}
+          >Add hero</Button>
+
+          {henchmenIndex.map((henchmanId, index) => {
 
 
             const henchman = path(['henchmen', henchmanId], localWarband) || {};
@@ -301,11 +381,7 @@ const WarbandPage = ({
                 },
               };
 
-              setLocalWarband(newWarband);
-              clearTimeout(timeout);
-              timeout = setTimeout(() => {
-                saveWarband({ ...newWarband, warbandId });
-              }, 1000);
+              setAndSaveWarband(newWarband);
             };
 
             const onHenchmanAttributeChange = (e, key) => {
@@ -331,16 +407,37 @@ const WarbandPage = ({
                 },
               };
 
-              setLocalWarband(newLocalWarband);
-              clearTimeout(timeout);
-              timeout = setTimeout(() => {
-                saveWarband({ ...newLocalWarband, warbandId });
-              }, 1000);
+              setAndSaveWarband(newLocalWarband);
+            };
+
+            const deleteHenchman = (id) => {
+
+              const index = henchmenIndex.indexOf(id);
+
+              const newIndex = [...henchmenIndex];
+              if (index > -1) {
+                newIndex.splice(index, 1);
+              }
+
+              const henchmenMap = localWarband.henchmen || {};
+              const newWarband = {
+                ...localWarband,
+                henchmenIndex: newIndex,
+                henchmen: {
+                  ...henchmenMap,
+                },
+              };
+
+              delete newWarband.henchmen[id];
+
+              setAndSaveWarband(newWarband);
             };
 
 
             return (
               <HenchmanCard
+                deleteHenchman={deleteHenchman}
+                henchmanId={henchmanId}
                 classes={classes}
                 index={index}
                 onHenchmanValueChange={onHenchmanValueChange}
@@ -351,6 +448,33 @@ const WarbandPage = ({
             );
 
           })}
+
+          <Button
+            size="large"
+            startIcon={<AddIcon />}
+            className={classes.addHireButton}
+            disabled={isLoadingGetWarbands}
+            variant="contained"
+            color="primary"
+            onClick={() => {
+
+              const newId = uuid();
+              const newIndex = [...henchmenIndex];
+
+              newIndex.push(newId);
+
+              const newWarband = {
+                ...localWarband,
+                henchmenIndex: newIndex,
+                henchmen: {
+                  ...localWarband.henchmen,
+                  [newId]: {},
+                },
+              };
+
+              setAndSaveWarband(newWarband);
+            }}
+          >Add henchman</Button>
 
         </Grid>
       </div>

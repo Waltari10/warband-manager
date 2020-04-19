@@ -18,6 +18,7 @@ function mapStateToProps(state, ownProps) {
     warbandId: ownProps.id,
     warband: path(['warbands', 'warbands', ownProps.id], state),
     isSuccessGetWarbands: state.warbands.isSuccessGetWarbands,
+    isLoadingGetWarbands: state.warbands.isLoadingGetWarbands,
   };
 }
 
