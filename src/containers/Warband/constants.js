@@ -9,3 +9,6 @@ export const henchmenIdArr = [
 export const skillCategories = [
   'Combat', 'Shooting', 'Academic', 'Strength', 'Speed', 'Special',
 ];
+
+export const MAX_HENCHMEN = 7;
+export const MAX_HEROES = 6;

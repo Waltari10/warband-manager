@@ -345,9 +345,7 @@ const WarbandPage = ({
                 index={index}
                 onHenchmanValueChange={onHenchmanValueChange}
                 onHenchmanAttributeChange={onHenchmanAttributeChange}
-                warband={localWarband}
-                henchmenIdArr={henchmenIdArr}
-                henchmanId={henchmanId}
+                henchman={path(['henchmen', henchmanId], localWarband)}
                 key={henchmanId}
               />
             );
