@@ -21,7 +21,6 @@ exports[`Modal Should render (smoke test) 1`] = `
             aria-hidden="true"
             class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
             focusable="false"
-            role="presentation"
             style="color: white;"
             viewBox="0 0 24 24"
           >

@@ -34,6 +34,7 @@ if (
 }
 
 firebase.initializeApp(config);
+firebase.analytics(); // Has to be after initializeApp
 
 firebase.analytics();
 

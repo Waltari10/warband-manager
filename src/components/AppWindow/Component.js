@@ -21,10 +21,10 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     width: '35%',
-    minHeight: '70%',
     overflow: 'hidden',
-    maxHeight: '70%',
     overflowY: 'auto',
+    paddingTop: theme.spacing(10),
+    paddingBottom: theme.spacing(10),
   },
 }));
 

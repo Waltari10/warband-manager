@@ -1,22 +1,29 @@
-import { path } from 'ramda';
+import { selectHeroes, selectHenchmen } from './selectors';
 
 export const getTotalExperience = (warband) => {
   let total = 0;
-  const heroes = path(['heroes'], warband) || {};
-  const henchmen = path(['henchmen'], warband) || {};
+  const heroes = selectHeroes(warband);
+  const henchmen = selectHenchmen(warband);
 
   Object.values(heroes).forEach((hero) => {
 
-    if (hero.name && hero.exp) {
+    if (parseInt(hero.exp)) {
       total += parseInt(hero.exp);
     }
+
+    if (parseInt(hero.startingExp)) {
+      total += parseInt(hero.startingExp);
+    }
+
+
   });
 
   Object.values(henchmen).forEach((henchman) => {
 
-    if (henchman.count && henchman.exp) {
+    if (henchman.count && parseInt(henchman.exp)) {
       total += parseInt(henchman.count) * parseInt(henchman.exp);
     }
+
   });
 
   return total;
@@ -26,8 +33,8 @@ export const getTotalExperience = (warband) => {
 export const getWarbandMemberCount = (warband) => {
 
   let total = 0;
-  const heroes = path(['heroes'], warband) || {};
-  const henchmen = path(['henchmen'], warband) || {};
+  const heroes = selectHeroes(warband);
+  const henchmen = selectHenchmen(warband);
 
   Object.values(heroes).forEach((hero) => {
 
@@ -91,7 +98,22 @@ const heroAdvancementArr = [
 
 // TODO: Exp to next level
 
+const advancementCache = new Map();
+
+advancementCache.set(henchmanAdvancementArr, {});
+advancementCache.set(heroAdvancementArr, {});
+
+
 const getAdvancementFactory = (arr) => (exp, startingExp) => {
+
+
+  const cacheByArr = advancementCache.get(arr);
+
+  const key = `${exp} ${startingExp}`;
+
+  if (cacheByArr[key]) {
+    return cacheByArr[key];
+  }
 
   const startingIndex = arr.findIndex((threshold) => threshold >= startingExp) || -1;
 
@@ -119,6 +141,8 @@ const getAdvancementFactory = (arr) => (exp, startingExp) => {
     }
 
   });
+
+  cacheByArr[key] = advancements;
 
   return advancements;
 };
