@@ -135,7 +135,9 @@ const WarbandPage = ({
           <Grid md={6} lg={4} xl={3} item>
             <Paper className={classes.paper}>
 
-              <Typography variant="h5">General</Typography>
+              <h5
+                className={classes.h5}
+                variant="h5">General</h5>
               <TextField
                 name="name"
                 value={localWarband.name || ''}
@@ -150,38 +152,36 @@ const WarbandPage = ({
                 className={classes.textField}
                 label={'Warband type'}
               />
-            </Paper>
-          </Grid>
-          <Grid md={6} lg={4} xl={3} item>
-            <Paper className={classes.paper}>
-              <Typography variant="h5">Rating</Typography>
-              <Typography variant="body1">Total experience: {getTotalExperience(localWarband)}</Typography>
-              <Typography variant="body1">
-                Members ({getWarbandMemberCount(localWarband)}) x 5: {getRatingFromMemberCount(localWarband)}
-              </Typography>
-              <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
-            </Paper>
-          </Grid>
+              <TextField
+                type="number"
+                name="gamesPlayed"
+                value={localWarband.gamesPlayed || 0}
+                onChange={handleChange}
+                className={classes.textField}
+                label={'Games played'}
+              />
 
-          <Grid md={6} lg={4} xl={3} item>
-            <Paper className={classes.paper}>
-              <Typography variant="h5">Wealth</Typography>
-              <TextField
-                name="shards"
-                value={localWarband.shards || 0}
-                onChange={handleChange}
-                className={classes.textField}
-                label={'Wyrdstone shards'}
-                type="number"
-              />
-              <TextField
-                name="goldCrowns"
-                value={localWarband.goldCrowns || 0}
-                onChange={handleChange}
-                className={classes.textField}
-                label={'Gold crowns'}
-                type="number"
-              />
+              <h5
+                className={`${classes.h5} ${classes.textField}`}
+                variant="h5"
+              >Wealth</h5>
+              <div className={classes.textField}>
+                <TextField
+                  name="shards"
+                  value={localWarband.shards || 0}
+                  onChange={handleChange}
+                  label={'Wyrdstone shards'}
+                  type="number"
+                />
+                <TextField
+                  name="goldCrowns"
+                  className={classes.goldCrowns}
+                  value={localWarband.goldCrowns || 0}
+                  onChange={handleChange}
+                  label={'Gold crowns'}
+                  type="number"
+                />
+              </div>
               <TextField
                 name="equipment"
                 value={localWarband.equipment || ''}
@@ -190,6 +190,23 @@ const WarbandPage = ({
                 className={classes.textField}
                 label={'Equipment'}
               />
+            </Paper>
+          </Grid>
+          <Grid md={6} lg={4} xl={3} item>
+            <Paper className={classes.paper}>
+
+              <h5
+                className={classes.h5}
+              >Rating</h5>
+
+              <Typography
+                className={classes.textField}
+                variant="body1"
+              >Total experience: {getTotalExperience(localWarband)}</Typography>
+              <Typography variant="body1">
+                Members ({getWarbandMemberCount(localWarband)}) x 5: {getRatingFromMemberCount(localWarband)}
+              </Typography>
+              <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
             </Paper>
           </Grid>
 

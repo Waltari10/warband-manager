@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Grid, Typography, TextField, Paper, FormControl, MenuItem,
+  Grid, TextField, Paper, FormControl, MenuItem,
   InputLabel, Select,
 } from '@material-ui/core';
 import { path } from 'ramda';
@@ -18,7 +18,10 @@ const HeroCard = ({
 
     <Grid key={heroId} md={6} lg={4} xl={3} item>
       <Paper className={classes.paper}>
-        <Typography variant="h5">Hero {index + 1}/6</Typography>
+        <h5
+          className={classes.h5}
+          variant="h5"
+        >Hero {index + 1}/6</h5>
         <TextField
           value={path(['heroes', heroId, 'name'], warband) || ''}
           onChange={onHeroValueChange}
@@ -93,14 +96,13 @@ const HeroCard = ({
                   className={classes.attributeColumn}
                   key={attribute}
                 >
-                  <Typography
+                  <p
                     className={classes.attributeHeader}
-                    variant="body2"
                   >
                     <b>
                       {attribute.toUpperCase()}
                     </b>
-                  </Typography>
+                  </p>
                   <input
                     name={attribute}
                     onChange={(e) => onHeroAttributeChange(e, 'value')}
@@ -145,7 +147,7 @@ const HeroCard = ({
         <div
           className={classes.advancementRow}
         >
-          <Typography
+          <p
             className={classes.advancement}
           >
             <b>Advancements:</b>&nbsp;{
@@ -154,7 +156,7 @@ const HeroCard = ({
                 path(['heroes', heroId, 'startingExp'], warband) || 0,
               )
             }
-          </Typography>
+          </p>
         </div>
       </Paper>
     </Grid>

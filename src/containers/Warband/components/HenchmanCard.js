@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, TextField, Paper } from '@material-ui/core';
+import { Grid, TextField, Paper } from '@material-ui/core';
 import { path } from 'ramda';
 
 import { attributesArr } from '../constants';
@@ -14,7 +14,7 @@ const HenchmanCard = ({
 
   return (<Grid key={henchmanId} md={6} lg={4} xl={3} item>
     <Paper className={classes.paper}>
-      <Typography variant="h5">Henchman {index + 1}/{henchmenIdArr.length}</Typography>
+      <h5 className={classes.h5}>Henchman {index + 1}/{henchmenIdArr.length}</h5>
       <div
         style={{
           display: 'flex',
@@ -76,14 +76,13 @@ const HenchmanCard = ({
                 className={classes.attributeColumn}
                 key={attribute}
               >
-                <Typography
+                <p
                   className={classes.attributeHeader}
-                  variant="body2"
                 >
                   <b>
                     {attribute.toUpperCase()}
                   </b>
-                </Typography>
+                </p>
                 <input
                   name={attribute}
                   onChange={(e) => onHenchmanAttributeChange(e, 'value')}
@@ -119,7 +118,7 @@ const HenchmanCard = ({
           name="exp"
           type="number"
         />
-        <Typography
+        <p
           style={{
             marginLeft: '24px',
           }}
@@ -130,7 +129,7 @@ const HenchmanCard = ({
               path(['henchmen', henchmanId, 'exp'], warband) || 0,
             )
           }
-        </Typography>
+        </p>
       </div>
     </Paper>
   </Grid>

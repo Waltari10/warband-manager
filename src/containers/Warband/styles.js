@@ -1,8 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => {
-
+  console.log(theme);
   return {
+    h5: {
+      margin: 0,
+      ...theme.typography.h5,
+    },
     menuPaper: {
       backgroundColor: 'white',
     },
@@ -58,10 +62,15 @@ export default makeStyles((theme) => {
     divider: {
       marginTop: theme.spacing(4),
     },
+    goldCrowns: {
+      marginLeft: '24px',
+    },
     startingExp: {
       marginLeft: '24px',
     },
     advancement: {
+      ...theme.typography.body1,
+      margin: 0,
       alignSelf: 'flex-end',
     },
     advancementRow: {
@@ -80,6 +89,8 @@ export default makeStyles((theme) => {
       flexDirection: 'column',
     },
     attributeHeader: {
+      ...theme.typography.body2,
+      margin: 0,
       textAlign: 'center',
       color: 'white',
       backgroundColor: 'black',
