@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import {
   TextField, FormControl, MenuItem,
   InputLabel, Select, IconButton,
@@ -13,7 +13,7 @@ import { attributesArr, skillCategories, MAX_HEROES } from '../constants';
 import { getHeroAdvancements } from '../helpers';
 
 
-const HeroCard = ({
+const HeroCard = memo(({
   onHeroAttributeChange, hero,
   classes, index, onHeroValueChange,
   deleteHero, heroId,
@@ -221,6 +221,6 @@ const HeroCard = ({
       </Grid>
     </div>
   );
-};
+});
 
 export default HeroCard;

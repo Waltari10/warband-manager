@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { TextField, IconButton, Grid } from '@material-ui/core';
 import { path } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
@@ -9,7 +9,7 @@ import { attributesArr, MAX_HENCHMEN } from '../constants';
 import { getHenchmanAdvancements } from '../helpers';
 
 
-const HenchmanCard = ({
+const HenchmanCard = memo(({
   classes, index, henchman = {}, onHenchmanValueChange, onHenchmanAttributeChange,
   deleteHenchman, henchmanId,
 }) => {
@@ -186,6 +186,6 @@ const HenchmanCard = ({
       </Grid>
     </div>
   );
-};
+});
 
 export default HenchmanCard;

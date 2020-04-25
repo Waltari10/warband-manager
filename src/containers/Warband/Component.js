@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import {
-  Link, Paper, Divider, Grid,
-  MenuItem, Menu, IconButton, TextField, Typography, Button,
+  Link, Paper, Divider,
+  MenuItem, Menu, IconButton, Typography, Button,
 } from '@material-ui/core';
 import { path, isEmpty } from 'ramda';
 import { v4 as uuid } from 'uuid';
@@ -11,6 +11,8 @@ import { v4 as uuid } from 'uuid';
 import HenchmanCard from './components/HenchmanCard';
 import HeroCard from './components/HeroCard';
 import Dialog from '../../components/Dialog';
+import GeneralCard from './components/GeneralCard';
+import WealthCard from './components/WealthCard';
 import {
   getTotalExperience,
   getWarbandMemberCount,
@@ -58,23 +60,6 @@ const WarbandPage = ({
     setAnchorEl(null);
   };
 
-  const handleChange = (e) => {
-
-    const newWarband = {
-      ...localWarband,
-      [e.target.getAttribute('name')]: e.target.value,
-    };
-
-    setLocalWarband(newWarband);
-
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      saveWarband({ ...newWarband, warbandId });
-    }, 1000);
-
-  };
-
-
   const heroIndex = (() => {
 
     if (localWarband.heroIndex) {
@@ -103,13 +88,50 @@ const WarbandPage = ({
 
   })();
 
+  const [general, setGeneral] = useState({});
+  const [wealth, setWealth] = useState({});
+
+
   const setAndSaveWarband = (myWarband) => {
     setLocalWarband(myWarband);
     clearTimeout(timeout);
     timeout = setTimeout(() => {
-      saveWarband({ ...myWarband, warbandId });
+      saveWarband({ ...myWarband, ...general, ...wealth, warbandId });
     }, 1000);
   };
+
+
+  const handleGeneralChange = useCallback((e) => {
+
+    const newGeneral = {
+      ...general,
+      [e.target.getAttribute('name')]: e.target.value,
+    };
+
+    setGeneral(newGeneral);
+
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      saveWarband({ ...localWarband, ...newGeneral, warbandId });
+    }, 1000);
+  }, [general]);
+
+
+  const handleWealthChange = useCallback((e) => {
+
+    const newWealth = {
+      ...wealth,
+      [e.target.getAttribute('name')]: e.target.value,
+    };
+
+    setWealth(newWealth);
+
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      saveWarband({ ...localWarband, ...newWealth, warbandId });
+    }, 1000);
+  }, [wealth]);
+
 
   return (
     <div
@@ -170,108 +192,27 @@ const WarbandPage = ({
 
 
           <div
-
             ref={formScroll}
           >
+            <GeneralCard
+              classes={classes}
+              name={general.name || ''}
+              type={general.type || ''}
+              gamesPlayed={general.gamesPlayed || ''}
+              handleChange={handleGeneralChange}
+            />
 
-            <h5
-              style={{
-                paddingTop: '24px',
-              }}
-              id="general_header"
-              className={classes.h5}
-              variant="h5">General</h5>
+            <Divider className={classes.divider}/>
 
+            <WealthCard
+              classes={classes}
+              handleChange={handleWealthChange}
+              shards={wealth.shards || 0}
+              goldCrowns={wealth.goldCrowns || 0}
+              equipment={wealth.equipment || ''}
+            />
 
-            <Grid
-              container
-              spacing={2}
-            >
-
-              <Grid item>
-                <TextField
-                  variant="outlined"
-                  name="name"
-                  value={localWarband.name || ''}
-                  onChange={handleChange}
-                  className={classes.textFieldLong}
-                  label={'Warband name'}
-                />
-              </Grid>
-              <Grid item>
-                <TextField
-                  variant="outlined"
-                  name="type"
-                  value={localWarband.type || ''}
-                  onChange={handleChange}
-                  className={classes.textFieldLong}
-                  label={'Warband type'}
-                />
-              </Grid>
-              <Grid item>
-                <TextField
-                  variant="outlined"
-                  type="number"
-                  name="gamesPlayed"
-                  value={localWarband.gamesPlayed || 0}
-                  onChange={handleChange}
-                  className={`${classes.numberField} ${classes.textFieldShort}`}
-                  label={'Games played'}
-                />
-              </Grid>
-            </Grid>
-
-            <Divider style={{ marginTop: '24px' }}/>
-
-            <h5
-              id="wealth_header"
-              style={{ paddingTop: '24px' }}
-              className={classes.h5}
-              variant="h5"
-            >Wealth</h5>
-
-            <Grid
-              container
-              spacing={3}
-            >
-
-              <Grid item>
-                <div className={classes.textFieldLong}>
-                  <TextField
-                    variant="outlined"
-                    name="shards"
-                    value={localWarband.shards || 0}
-                    onChange={handleChange}
-                    label={'Wyrdstone shards'}
-                    type="number"
-                    className={classes.numberField}
-                  />
-                  <TextField
-                    variant="outlined"
-                    name="goldCrowns"
-                    className={`${classes.goldCrowns} ${classes.numberField}`}
-                    value={localWarband.goldCrowns || 0}
-                    onChange={handleChange}
-                    label={'Gold crowns'}
-                    type="number"
-                  />
-                </div>
-              </Grid>
-              <Grid item>
-                <TextField
-                  variant="outlined"
-                  name="equipment"
-                  value={localWarband.equipment || ''}
-                  onChange={handleChange}
-                  multiline
-                  className={classes.textFieldArea}
-                  label={'Equipment'}
-                />
-              </Grid>
-
-            </Grid>
-
-            <Divider style={{ marginTop: '24px' }}/>
+            <Divider className={classes.divider}/>
 
             <h5
               id="rating_header"
@@ -289,7 +230,7 @@ const WarbandPage = ({
             <Typography variant="body1">Rating: {getRating(localWarband)}</Typography>
 
 
-            <Divider style={{ marginTop: '24px' }}/>
+            <Divider className={classes.divider}/>
 
 
             {heroIndex.map((heroId, index) => {
@@ -377,7 +318,7 @@ const WarbandPage = ({
                     onHeroAttributeChange={onHeroAttributeChange}
                     onHeroValueChange={onHeroValueChange}
                   />
-                  <Divider style={{ marginTop: '24px' }}/>
+                  <Divider className={classes.divider}/>
                 </>
               );
 
@@ -411,7 +352,7 @@ const WarbandPage = ({
             >Add hero</Button>
 
 
-            <Divider style={{ marginTop: '24px' }}/>
+            <Divider className={classes.divider}/>
 
             {henchmenIndex.map((henchmanId, index) => {
 
@@ -499,7 +440,7 @@ const WarbandPage = ({
                     key={henchmanId}
                   />
 
-                  <Divider style={{ marginTop: '24px' }}/>
+                  <Divider className={classes.divider}/>
                 </>
               );
 

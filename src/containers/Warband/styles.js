@@ -19,7 +19,7 @@ export default makeStyles((theme) => {
     },
     removeButton: {
       position: 'absolute',
-      top: '-9px',
+      top: '16px',
       right: '0',
     },
     navigation: {
@@ -137,7 +137,7 @@ export default makeStyles((theme) => {
       width: 'calc(100% - 48px)',
     },
     divider: {
-      marginTop: theme.spacing(4),
+      marginTop: theme.spacing(3),
     },
     goldCrowns: {
       marginLeft: '24px',
