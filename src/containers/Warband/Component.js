@@ -2,17 +2,18 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import {
-  Link, Paper, Divider,
+  Paper, Divider,
   MenuItem, Menu, IconButton, Typography, Button,
 } from '@material-ui/core';
 import { path, isEmpty } from 'ramda';
 import { v4 as uuid } from 'uuid';
 
 import HenchmanCard from './components/HenchmanCard';
-import HeroCard from './components/HeroCard';
 import Dialog from '../../components/Dialog';
 import GeneralCard from './components/GeneralCard';
 import WealthCard from './components/WealthCard';
+import Navigation from './components/Navigation';
+import HeroList from './components/HeroList';
 import {
   getTotalExperience,
   getWarbandMemberCount,
@@ -36,12 +37,26 @@ const WarbandPage = ({
 
   const [localWarband, setLocalWarband] = useState({});
 
+  const [general, setGeneral] = useState({});
+  const [wealth, setWealth] = useState({});
+
+
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   useEffect(() => {
 
     if (isEmpty(localWarband)) {
       setLocalWarband(warband);
+      setGeneral({
+        name: warband.name || '',
+        type: warband.type || '',
+        gamesPlayed: warband.gamesPlayed || 0,
+      });
+      setWealth({
+        goldCrowns: warband.goldCrowns || 0,
+        shards: warband.shards || 0,
+        equipment: warband.equipment || '',
+      });
     }
   }, [isSuccessGetWarbands]);
 
@@ -87,10 +102,6 @@ const WarbandPage = ({
     return [];
 
   })();
-
-  const [general, setGeneral] = useState({});
-  const [wealth, setWealth] = useState({});
-
 
   const setAndSaveWarband = (myWarband) => {
     setLocalWarband(myWarband);
@@ -233,123 +244,13 @@ const WarbandPage = ({
             <Divider className={classes.divider}/>
 
 
-            {heroIndex.map((heroId, index) => {
-
-              const hero = path(['heroes', heroId], localWarband) || {};
-
-              const onHeroValueChange = (e) => {
-
-                const heroes = localWarband.heroes || {};
-
-                const newWarband = {
-                  ...localWarband,
-                  heroes: {
-                    ...heroes,
-                    [heroId]: {
-                      ...hero,
-                      [e.target.name || e.target.getAttribute('name')]: e.target.value,
-                    },
-                  },
-                };
-
-                setAndSaveWarband(newWarband);
-              };
-
-              const onHeroAttributeChange = (e, key) => {
-
-                const attributeName = e.target.getAttribute('name');
-
-                const value = e.target.value;
-
-                const heroMap = localWarband.heroes || {};
-                const attribute = path([attributeName], hero) || {};
-
-                const newWarband = {
-                  ...localWarband,
-                  heroes: {
-                    ...heroMap,
-                    [heroId]: {
-                      ...hero,
-                      [attributeName]: {
-                        ...attribute,
-                        [key]: value,
-                      },
-                    },
-                  },
-                };
-
-                setAndSaveWarband(newWarband);
-              };
-
-
-              const deleteHero = (id) => {
-
-                const index = heroIndex.indexOf(id);
-
-                const newIndex = [...heroIndex];
-                if (index > -1) {
-                  newIndex.splice(index, 1);
-                }
-
-                const heroesMap = localWarband.heroes || {};
-                const newWarband = {
-                  ...localWarband,
-                  heroIndex: newIndex,
-                  heroes: {
-                    ...heroesMap,
-                  },
-                };
-
-                delete newWarband.heroes[id];
-
-                setAndSaveWarband(newWarband);
-              };
-
-
-              return (
-                <>
-                  <HeroCard
-                    deleteHero={deleteHero}
-                    heroId={heroId}
-                    classes={classes}
-                    index={index}
-                    hero={hero}
-                    key={heroId}
-                    onHeroAttributeChange={onHeroAttributeChange}
-                    onHeroValueChange={onHeroValueChange}
-                  />
-                  <Divider className={classes.divider}/>
-                </>
-              );
-
-            })}
-
-            <Button
-              size="large"
-              startIcon={<AddIcon />}
-              className={classes.addHireButton}
-              disabled={isLoadingGetWarbands}
-              variant="contained"
-              color="primary"
-              onClick={() => {
-
-                const newId = uuid();
-                const newHeroIndex = [...heroIndex];
-
-                newHeroIndex.push(newId);
-
-                const newWarband = {
-                  ...localWarband,
-                  heroIndex: newHeroIndex,
-                  heroes: {
-                    ...localWarband.heroes,
-                    [newId]: {},
-                  },
-                };
-
-                setAndSaveWarband(newWarband);
-              }}
-            >Add hero</Button>
+            <HeroList
+              heroIndex={heroIndex}
+              localWarband={localWarband}
+              setAndSaveWarband={setAndSaveWarband}
+              classes={classes}
+              isLoadingGetWarbands={isLoadingGetWarbands}
+            />
 
 
             <Divider className={classes.divider}/>
@@ -475,127 +376,15 @@ const WarbandPage = ({
           </div>
         </Paper>
       </div>
-      <div
-        className={classes.navigation}
-      >
-
-        <Typography
-          style={{
-            marginTop: '16px',
-            marginBottom: '8px',
-          }}
-          variant="body1"
-        ><b>Navigation:</b></Typography>
-
-        <div
-          className={classes.navigationLink}
-        >
-          <Link
-            onClick={() => {
-              const scrollTarget = document.getElementById('general_header');
-              if (formScroll && formScroll.current) {
-                scrollTarget.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }
-            }}
-          >&#8594; General</Link>
-        </div>
-        <div
-
-          className={classes.navigationLink}
-        >
-
-          <Link
-
-            onClick={() => {
-              const scrollTarget = document.getElementById('wealth_header');
-              if (formScroll && formScroll.current) {
-                scrollTarget.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }
-            }}
-
-          >&#8594; Wealth</Link>
-        </div>
-        <div
-
-          className={classes.navigationLink}
-        >
-          <Link
-            onClick={() => {
-              const scrollTarget = document.getElementById('rating_header');
-              if (formScroll && formScroll.current) {
-                scrollTarget.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }
-            }}
-          >&#8594; Rating</Link>
-        </div>
-
-
-        <Typography
-          style={{
-            marginTop: '16px',
-            marginBottom: '8px',
-          }}
-          variant="body1"><b>Heroes:</b></Typography>
-
-        {heroIndex.map((key) => {
-
-          const hero = localWarband.heroes[key];
-          return (
-            <div
-              className={classes.navigationLink}
-              key={key}
-            >
-              <Link
-                onClick={() => {
-                  const scrollTarget = document.getElementById(key);
-                  if (formScroll && formScroll.current) {
-                    scrollTarget.scrollIntoView({
-                      behavior: 'smooth',
-                    });
-                  }
-                }}
-              > &#8594; { `${hero.name || ''} ${hero.type || ''}`}</Link>
-            </div>
-          );
-        })}
-
-
-        <Typography
-          style={{
-            marginTop: '16px',
-            marginBottom: '8px',
-          }}
-          variant="body1"
-        ><b>Henchmen:</b></Typography>
-
-        {henchmenIndex.map((key) => {
-
-          const henchman = localWarband.henchmen[key];
-          return (
-            <div
-              className={classes.navigationLink}
-              key={key}
-            >
-              <Link
-                onClick={() => {
-                  const scrollTarget = document.getElementById(key);
-                  if (formScroll && formScroll.current) {
-                    scrollTarget.scrollIntoView({
-                      behavior: 'smooth',
-                    });
-                  }
-                }}
-              > &#8594; {`${henchman.name || ''} ${henchman.type || ''}`}</Link>
-            </div>)
-          ;
-        })}
-      </div>
+      <Navigation
+        classes={classes}
+        heroes={localWarband.heroes}
+        henchmen={localWarband.henchmen}
+        formScroll={formScroll}
+        heroIndex={heroIndex}
+        localWarband={localWarband}
+        henchmenIndex={henchmenIndex}
+      />
     </div>
   );
 };

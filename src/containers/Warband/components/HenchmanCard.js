@@ -13,6 +13,7 @@ const HenchmanCard = memo(({
   classes, index, henchman = {}, onHenchmanValueChange, onHenchmanAttributeChange,
   deleteHenchman, henchmanId,
 }) => {
+  console.log('render henchman');
 
 
   const [isOpen, setIsOpen] = useState(false);
