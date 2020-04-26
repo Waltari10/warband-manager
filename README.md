@@ -23,6 +23,21 @@ As Unofficial Warband Manager is an open-source projects, contributions are more
 
 TODO: Add how to setup Firestore locally with Firestore Emulator
 
+
+## Exporting and importing backups from Firestore
+
+Retrieving Google Cloud Account Credentials
+- Visit the Firebase Console
+- Select your project
+- Navigate to Project Settings (at the time of writing the gear icon button at the top left of the page).
+- Navigate to Service Accounts
+- Click Generate New Private Key
+- Move file to projet root and rename it credentials.json
+- run "npm run database:import" or "npm run database:export"
+
+This downloaded json file contains the proper credentials needed for node-firestore-import-export to authenticate.
+
+
 # React Create app documentation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

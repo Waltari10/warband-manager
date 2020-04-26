@@ -23,3 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
+mordheim-warbands-dev-firebase-adminsdk-nf8v6-2a77ccaa2b.json
+mordheim-warbands-dev-7b0c5b821785.json
+myDatabase.json
+backups
+credentials.json
