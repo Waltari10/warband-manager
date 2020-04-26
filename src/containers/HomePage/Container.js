@@ -15,7 +15,6 @@ function mapStateToProps(state) {
     warbands: state.warbands.warbands,
     warbandsIndex: state.warbands.warbandsIndex,
     uid: path(['user', 'user', 'uid'], state),
-    isSuccessSaveWarband: state.warbands.isSuccess,
     lastAddedWarbandId: state.warbands.lastAddedWarbandId,
     addWarbandRequestState: state.warbands.addWarbandRequestState,
   };
