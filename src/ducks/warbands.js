@@ -199,7 +199,7 @@ function* handleSaveWarband(action) {
     const result = yield call(callSetWarband, action.payload, uuid);
 
     yield put(saveWarbandSuccess({ result, warband: action.payload }));
-    yield put(getWarbands());
+    // yield put(getWarbands());
   } catch (e) {
     logger.error(e);
     yield put(saveWarbandError(e));

@@ -131,7 +131,7 @@ const HomePage = ({
           onClick={handleClick}
         >
           <MenuIcon
-            style={{ color: 'white' }}
+            className={classes.whiteMenuIcon}
           />
         </IconButton>
 
@@ -158,8 +158,8 @@ const HomePage = ({
 
       <div className={classes.container}>
         <PrivateRoute component={WarbandModal} path="/warband/:id" />
-        {isLoading && <Progress className={classes.progress} />}
-        {!isLoading && warbandsIndex.map(key => {
+        {<Progress className={classes.progress} />}
+        {warbandsIndex.map(key => {
           const warband = warbands[key];
 
           return (

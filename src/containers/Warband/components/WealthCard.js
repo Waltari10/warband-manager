@@ -3,7 +3,6 @@ import React, { memo } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 
 const WealthCard = memo(({ classes, handleChange, shards, goldCrowns, equipment }) => {
-  console.log('render wealth');
   return (
     <>
 
@@ -57,5 +56,6 @@ const WealthCard = memo(({ classes, handleChange, shards, goldCrowns, equipment 
     </>
   );
 });
+WealthCard.whyDidYouRender = true;
 
 export default WealthCard;

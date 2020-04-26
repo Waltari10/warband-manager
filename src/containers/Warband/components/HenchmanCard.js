@@ -10,13 +10,40 @@ import { getHenchmanAdvancements } from '../helpers';
 
 
 const HenchmanCard = memo(({
-  classes, index, henchman = {}, onHenchmanValueChange, onHenchmanAttributeChange,
-  deleteHenchman, henchmanId,
+  classes, index, henchman = {}, handleChange,
+  deleteHire, id,
 }) => {
-  console.log('render henchman');
-
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleValueChange = (e) => {
+
+    handleChange(
+      { ...henchman, [e.target.name || e.target.getAttribute('name')]: e.target.value },
+      id
+    );
+  };
+
+
+  const onAttributeChange = (e, key) => {
+
+    const attributeName = e.target.getAttribute('name');
+
+    const value = key === 'isModified' ? e.target.checked : e.target.value;
+
+    const attribute = path([attributeName], henchman) || {};
+
+    handleChange(
+      {
+        ...henchman,
+        [attributeName]: {
+          ...attribute,
+          [key]: value,
+        },
+      },
+      id
+    );
+  };
 
   return (
     <div
@@ -27,7 +54,7 @@ const HenchmanCard = memo(({
         handleClose={() => setIsOpen(false)}
         handleConfirm={() => {
           setIsOpen(false);
-          deleteHenchman(henchmanId);
+          deleteHire(id);
         }}
         open={isOpen}
         title={`Are you sure you want to delete ${henchman.name || ''}` || '? '}
@@ -35,7 +62,7 @@ const HenchmanCard = memo(({
       />
 
       <h5
-        id={henchmanId}
+        id={id}
         className={classes.h5Hire}
       >Henchman {index + 1}/{MAX_HENCHMEN}</h5>
       <IconButton
@@ -65,7 +92,7 @@ const HenchmanCard = memo(({
             <TextField
               variant="outlined"
               value={henchman.name || ''}
-              onChange={onHenchmanValueChange}
+              onChange={handleValueChange}
               // className={classes.textFieldLong}
               label="Name"
               name="name"
@@ -74,7 +101,7 @@ const HenchmanCard = memo(({
               className={classes.numberField}
               variant="outlined"
               value={henchman.count || ''}
-              onChange={onHenchmanValueChange}
+              onChange={handleValueChange}
               // className={classes.textFieldShort}
               style={{
                 marginLeft: '24px',
@@ -87,7 +114,7 @@ const HenchmanCard = memo(({
           <TextField
             variant="outlined"
             value={henchman.type || ''}
-            onChange={onHenchmanValueChange}
+            onChange={handleValueChange}
             className={classes.textFieldLong}
             label={'Type'}
             name="type"
@@ -112,7 +139,7 @@ const HenchmanCard = memo(({
                     </p>
                     <input
                       name={attribute}
-                      onChange={(e) => onHenchmanAttributeChange(e, 'value')}
+                      onChange={(e) => onAttributeChange(e, 'value')}
                       value={path([attribute, 'value'], henchman) || ''}
                       className={classes.attributeValue}
                       type="number"
@@ -121,7 +148,7 @@ const HenchmanCard = memo(({
                     <label className={classes.checkBoxContainer}>
                       <input
                         name={attribute}
-                        onChange={(e) => onHenchmanAttributeChange(e, 'isModified')}
+                        onChange={(e) => onAttributeChange(e, 'isModified')}
                         checked={path([attribute, 'isModified'], henchman) || ''}
                         type="checkbox"
                       />
@@ -141,7 +168,7 @@ const HenchmanCard = memo(({
             <TextField
               variant="outlined"
               value={henchman.exp || 0}
-              onChange={onHenchmanValueChange}
+              onChange={handleValueChange}
               label={'Total exp'}
               name="exp"
               type="number"
@@ -167,7 +194,7 @@ const HenchmanCard = memo(({
           <TextField
             variant="outlined"
             value={henchman.equipment || ''}
-            onChange={onHenchmanValueChange}
+            onChange={handleValueChange}
             multiline
             className={classes.textFieldArea}
             label={'Equipment'}
@@ -176,7 +203,7 @@ const HenchmanCard = memo(({
           <TextField
             variant="outlined"
             value={henchman.skills_injuries_etc || ''}
-            onChange={onHenchmanValueChange}
+            onChange={handleValueChange}
             multiline
             className={classes.textFieldArea}
             label={'Special rules & skills'}
@@ -189,4 +216,5 @@ const HenchmanCard = memo(({
   );
 });
 
+// HenchmanCard.whyDidYouRender = true;
 export default HenchmanCard;

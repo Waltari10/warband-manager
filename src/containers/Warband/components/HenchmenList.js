@@ -3,32 +3,32 @@ import { path } from 'ramda';
 import { Button, Divider } from '@material-ui/core';
 import { v4 as uuid } from 'uuid';
 import AddIcon from '@material-ui/icons/Add';
-import HeroCard from './HeroCard';
+import Card from './HenchmanCard';
+
 
 const emptyObj = {};
 
-const HeroList = memo(({
-  heroIndex, classes,
-  handleHeroChange, heroes, addHero, deleteHero,
+const HenchmenList = memo(({
+  index, classes, handleChange, items, add, deleteHire,
 }) => {
 
   return (
     <>
-      {heroIndex.map((heroId, index) => {
+      {index.map((id, index) => {
 
-        const hero = path([heroId], heroes) || emptyObj;
+        const henchman = path([id], items) || emptyObj;
 
         return (
           <React.Fragment
-            key={heroId}
+            key={id}
           >
-            <HeroCard
-              deleteHero={deleteHero}
-              heroId={heroId}
+            <Card
+              deleteHire={deleteHire}
+              id={id}
               classes={classes}
               index={index}
-              hero={hero}
-              onValueChange={handleHeroChange}
+              henchman={henchman}
+              handleChange={handleChange}
             />
             <Divider className={classes.divider}/>
           </React.Fragment>
@@ -44,12 +44,12 @@ const HeroList = memo(({
         color="primary"
         onClick={() => {
           const newId = uuid();
-          addHero(newId);
+          add(newId);
         }}
-      >Add hero</Button>
+      >Add henchman</Button>
     </>
   );
 });
-// HeroList.whyDidYouRender = true;
+// HenchmenList.whyDidYouRender = true;
 
-export default HeroList;
+export default HenchmenList;

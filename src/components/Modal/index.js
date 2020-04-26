@@ -45,6 +45,9 @@ const useStyles = makeStyles((theme) => {
       position: 'absolute',
       color: 'white',
     },
+    backIconIcon: {
+      color: 'white',
+    },
   };
 });
 
@@ -116,7 +119,7 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, cl
                 }}
               >
                 <BackIcon
-                  style={{ color: 'white' }}
+                  className={classes.backIconIcon}
                   fontSize="large"
                 />
               </IconButton>

@@ -14,16 +14,41 @@ import { getHeroAdvancements } from '../helpers';
 
 
 const HeroCard = memo(({
-  onAttributeChange, hero,
+  hero,
   classes, index, onValueChange,
   deleteHero, heroId,
 }) => {
-  console.log('render hero');
-
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const myOnValueChange = (e) => onValueChange(e, heroId);
+  const handleValueChange = (e) => {
+
+    onValueChange(
+      { ...hero, [e.target.name || e.target.getAttribute('name')]: e.target.value },
+      heroId
+    );
+  };
+
+
+  const onAttributeChange = (e, key, heroId) => {
+
+    const attributeName = e.target.getAttribute('name');
+
+    const value = e.target.value;
+
+    const attribute = path([attributeName], hero) || {};
+
+    onValueChange(
+      {
+        ...hero,
+        [attributeName]: {
+          ...attribute,
+          [key]: value,
+        },
+      },
+      heroId
+    );
+  };
 
   return (
 
@@ -68,7 +93,7 @@ const HeroCard = memo(({
           <TextField
             variant="outlined"
             value={hero.name || ''}
-            onChange={myOnValueChange}
+            onChange={handleValueChange}
             className={classes.textFieldLong}
             label="Name"
             name="name"
@@ -76,7 +101,7 @@ const HeroCard = memo(({
           <TextField
             variant="outlined"
             value={hero.type || ''}
-            onChange={myOnValueChange}
+            onChange={handleValueChange}
             className={classes.textFieldLong}
             label={'Type'}
             name="type"
@@ -106,7 +131,7 @@ const HeroCard = memo(({
                 name: 'skillCategories',
               }}
               name="skillCategories"
-              onChange={myOnValueChange}
+              onChange={handleValueChange}
             >
               {skillCategories.map((skill) => (
                 <MenuItem
@@ -165,7 +190,7 @@ const HeroCard = memo(({
             <TextField
               variant="outlined"
               value={hero.exp || 0}
-              onChange={myOnValueChange}
+              onChange={handleValueChange}
               label={'Total exp'}
               name="exp"
               type="number"
@@ -175,7 +200,7 @@ const HeroCard = memo(({
               variant="outlined"
               className={`${classes.startingExp} ${classes.numberField}`}
               value={hero.startingExp || 0}
-              onChange={myOnValueChange}
+              onChange={handleValueChange}
               label={'Starting exp'}
               name="startingExp"
               type="number"
@@ -205,7 +230,7 @@ const HeroCard = memo(({
           <TextField
             variant="outlined"
             value={hero.equipment || ''}
-            onChange={myOnValueChange}
+            onChange={handleValueChange}
             multiline
             className={classes.textFieldArea}
             label={'Equipment'}
@@ -214,7 +239,7 @@ const HeroCard = memo(({
           <TextField
             variant="outlined"
             value={hero.skills_injuries_etc || ''}
-            onChange={myOnValueChange}
+            onChange={handleValueChange}
             multiline
             className={classes.textFieldArea}
             label={'Skills, injuries, etc.'}

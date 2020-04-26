@@ -1,9 +1,5 @@
-import { selectHeroes, selectHenchmen } from './selectors';
-
-export const getTotalExperience = (warband) => {
+export const getTotalExperience = (heroes, henchmen) => {
   let total = 0;
-  const heroes = selectHeroes(warband);
-  const henchmen = selectHenchmen(warband);
 
   Object.values(heroes).forEach((hero) => {
 
@@ -30,11 +26,9 @@ export const getTotalExperience = (warband) => {
 
 };
 
-export const getWarbandMemberCount = (warband) => {
+export const getWarbandMemberCount = (heroes, henchmen) => {
 
   let total = 0;
-  const heroes = selectHeroes(warband);
-  const henchmen = selectHenchmen(warband);
 
   Object.values(heroes).forEach((hero) => {
 
@@ -54,13 +48,13 @@ export const getWarbandMemberCount = (warband) => {
 
 };
 
-export const getRatingFromMemberCount = (warband) => {
+export const getRatingFromMemberCount = (heroes, henchmen) => {
   // TODO: add large calculation and hired swords calculation
-  return getWarbandMemberCount(warband) * 5;
+  return getWarbandMemberCount(heroes, henchmen) * 5;
 };
 
-export const getRating = (warband) => {
-  return getRatingFromMemberCount(warband) + getTotalExperience(warband);
+export const getRating = (heroes, henchmen) => {
+  return getRatingFromMemberCount(heroes, henchmen) + getTotalExperience(heroes, henchmen);
 
 };
 

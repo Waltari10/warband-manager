@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { Typography, Link } from '@material-ui/core';
 
 const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, henchmenIndex }) => {
-  console.log('render navigation');
   return (
     <div
       className={classes.navigation}
@@ -74,7 +73,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
 
       {heroIndex.map((key) => {
 
-        const hero = heroes[key];
+        const hero = heroes[key] || {};
         return (
           <div
             className={classes.navigationLink}
@@ -105,7 +104,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
 
       {henchmenIndex.map((key) => {
 
-        const henchman = henchmen[key];
+        const henchman = henchmen[key] || {};
         return (
           <div
             className={classes.navigationLink}
@@ -128,4 +127,5 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
   );
 });
 
+// Navigation.whyDidYouRender = true;
 export default Navigation;

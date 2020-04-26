@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -14,10 +14,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function MyDialog({
+const MyDialog = memo(({
   handleClose, open, title, dialog, cancel, confirm,
   handleConfirm,
-}) {
+}) => {
 
   const classes = useStyles();
 
@@ -53,4 +53,6 @@ export default function MyDialog({
       </DialogActions>
     </Dialog>
   );
-}
+});
+
+export default MyDialog;

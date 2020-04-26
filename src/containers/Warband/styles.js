@@ -125,6 +125,9 @@ export default makeStyles((theme) => {
       top: 0,
       right: theme.spacing(2),
     },
+    whiteMenuIcon: {
+      color: 'white',
+    },
     paper: {
       backgroundColor: 'white',
       padding: theme.spacing(3),

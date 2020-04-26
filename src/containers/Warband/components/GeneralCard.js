@@ -3,7 +3,6 @@ import React, { memo } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 
 const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) => {
-  console.log('render general');
   return (
     <>
       <h5
@@ -56,4 +55,5 @@ const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) =>
   );
 });
 
+// GeneralCard.whyDidYouRender = true;
 export default GeneralCard;
