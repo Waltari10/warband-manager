@@ -1,14 +1,14 @@
-# Mordheim Warbands
+# Unofficial Warband Manager
 
 ## Why?
 
-I found that while the Mordheim roster sheet is handsome and compact, it is not the easiest to read, and it doesn't enforce any rules. Also having a digital warband roster was even less practical. This is why I decided to make Mordheim Warbands. 
+I found that while the Mordheim roster sheet is handsome and compact, it is not the easiest to read, and it doesn't enforce any rules. Also having a digital warband roster was even less practical. This is why I decided to make Unofficial Warband Manager. 
 
-Mordheim Warbands provides clear UI, saving warbands into cloud, and enforcing Mordheims rules so your warband is more likely to stay legal. It is also intended to work on mobile and desktop. Mordheim Warbands is a non-profit open-source project.
+Unofficial Warband Manager provides clear UI, saving warbands into cloud, and enforcing Mordheims rules so your warband is more likely to stay legal. It is also intended to work on mobile and desktop. Unofficial Warband Manager is a non-profit open-source project.
 
-## Contributing to Mordheim Warbands
+## Contributing to Unofficial Warband Manager
 
-As Mordheim Warbands is an open-source projects, contributions are more than welcome. Feel free to clone and/or fork this repository, and make a pull request. Also submitting issues, testing and a lot of other activities are highly welcomed and beneficial. This project is licensed under the highly permissive MIT license.
+As Unofficial Warband Manager is an open-source projects, contributions are more than welcome. Feel free to clone and/or fork this repository, and make a pull request. Also submitting issues, testing and a lot of other activities are highly welcomed and beneficial. This project is licensed under the highly permissive MIT license.
 
 ## Development environment setup 
 

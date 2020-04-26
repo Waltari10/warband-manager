@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
   header: {
     marginTop: theme.spacing(0),
     marginBottom: theme.spacing(12),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
   email: {
     background: 'white',
@@ -91,7 +93,7 @@ const Login = ({
 
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
-          <Typography variant="h4">Mordheim Warbands</Typography>
+          <Typography align="center" variant="h4">{constants.APP_NAME}</Typography>
         </Grid>
         <Grid item>
           <InputBase

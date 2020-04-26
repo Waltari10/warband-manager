@@ -15,11 +15,14 @@ import InputBase from '@material-ui/core/InputBase';
 
 
 import AppWindow from '../../components/AppWindow';
+import * as constants from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   header: {
     marginTop: theme.spacing(0),
     marginBottom: theme.spacing(12),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
   email: {
     background: 'white',
@@ -32,8 +35,6 @@ const useStyles = makeStyles((theme) => ({
     borderBottomStyle: 'dashed',
     borderStyle: 'solid',
     borderColor: '#C0C0C0',
-
-
   },
   password: {
     marginBottom: theme.spacing(3),
@@ -109,7 +110,7 @@ const Login = ({
 
       <Grid className={classes.content} alignItems="center" direction="column" container>
         <Grid className={classes.header} item>
-          <Typography variant="h4">Mordheim Warbands</Typography>
+          <Typography align="center" variant="h4">{constants.APP_NAME}</Typography>
         </Grid>
         <Grid item>
           <form acceptCharset="UTF-8">
@@ -200,7 +201,7 @@ const Login = ({
             component={RouterLink}
           >
             <Typography variant="body2">
-              New to Mordheim Warbands? Create an account.
+              New to {constants.APP_NAME}? Create an account.
             </Typography>
           </Link>
         </Grid>

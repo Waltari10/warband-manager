@@ -73,6 +73,9 @@ const useStyles = makeStyles((theme) => ({
     top: '0px',
     right: theme.spacing(2),
   },
+  whiteMenuIcon: {
+    color: 'white',
+  },
   addIcon: {
     color: 'white',
     marginTop: '7px',
@@ -122,7 +125,7 @@ const HomePage = ({
         className={classes.topNavigationContainer}
       >
         <Typography className={classes.title} align="center" variant="h5">
-            Mordheim Warbands
+          {constants.APP_NAME}
         </Typography>
 
 
@@ -158,7 +161,7 @@ const HomePage = ({
 
       <div className={classes.container}>
         <PrivateRoute component={WarbandModal} path="/warband/:id" />
-        {<Progress className={classes.progress} />}
+        {isLoading && <Progress className={classes.progress} />}
         {warbandsIndex.map(key => {
           const warband = warbands[key];
 
