@@ -1,4 +1,4 @@
-export const getTotalExperience = (heroes, henchmen) => {
+export const getTotalExperience = (heroes = {}, henchmen = {}) => {
   let total = 0;
 
   Object.values(heroes).forEach((hero) => {
@@ -26,7 +26,8 @@ export const getTotalExperience = (heroes, henchmen) => {
 
 };
 
-export const getWarbandMemberCount = (heroes, henchmen) => {
+export const getWarbandMemberCount = (heroes = {}, henchmen = {}) => {
+
 
   let total = 0;
 
@@ -48,12 +49,12 @@ export const getWarbandMemberCount = (heroes, henchmen) => {
 
 };
 
-export const getRatingFromMemberCount = (heroes, henchmen) => {
+export const getRatingFromMemberCount = (heroes = {}, henchmen = {}) => {
   // TODO: add large calculation and hired swords calculation
   return getWarbandMemberCount(heroes, henchmen) * 5;
 };
 
-export const getRating = (heroes, henchmen) => {
+export const getRating = (heroes = {}, henchmen = {}) => {
   return getRatingFromMemberCount(heroes, henchmen) + getTotalExperience(heroes, henchmen);
 
 };

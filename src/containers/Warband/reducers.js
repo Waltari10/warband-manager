@@ -21,7 +21,10 @@ export const wealthReducer = (state, action) => {
     ...state,
     [action.payload.name]: action.payload.value,
   };
-  default: throw new Error('Unexpected action');
+  default:
+    // eslint-disable-next-line no-console
+    console.error('Unexpected action: ', action);
+    break;
   }
 };
 
@@ -78,7 +81,10 @@ export const heroReducer = (state, action) => {
     };
 
   }
-  default: throw new Error('Unexpected action');
+  default:
+    // eslint-disable-next-line no-console
+    console.error('Unexpected action: ', action);
+    break;
   }
 };
 
@@ -136,6 +142,9 @@ export const henchmenReducer = (state, action) => {
     };
 
   }
-  default: throw new Error('Unexpected action');
+  default:
+    // eslint-disable-next-line no-console
+    console.error('Unexpected action: ', action);
+    break;
   }
 };

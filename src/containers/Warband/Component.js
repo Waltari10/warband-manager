@@ -119,7 +119,7 @@ const WarbandPage = ({
 
 
   const handleWealthChange = useCallback((e) => {
-    dispatchWealth({ type: 'update', payload: {
+    dispatchWealth({ type: actions.UPDATE, payload: {
       name: e.target.getAttribute('name'),
       value: e.target.value,
     } });
