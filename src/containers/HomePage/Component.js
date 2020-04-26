@@ -88,7 +88,6 @@ const HomePage = ({
   warbandsIndex = [], addWarband, lastAddedWarbandId,
   addWarbandRequestState,
 }) => {
-  console.log('render homepage');
 
   useEffect(() => {
     if (uid) {

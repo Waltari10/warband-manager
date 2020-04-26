@@ -20,6 +20,7 @@ describe('Warband', () => {
         <MuiThemeProvider theme={theme}>
           <Component
             addWarbandReset={() => {}}
+            getWarbands={() => {}}
           />
         </MuiThemeProvider>
       </Router>

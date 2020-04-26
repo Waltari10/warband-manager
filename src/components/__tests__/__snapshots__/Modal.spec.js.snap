@@ -19,9 +19,8 @@ exports[`Modal Should render (smoke test) 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+            class="MuiSvgIcon-root makeStyles-backIconIcon-7 MuiSvgIcon-fontSizeLarge"
             focusable="false"
-            style="color: white;"
             viewBox="0 0 24 24"
           >
             <path

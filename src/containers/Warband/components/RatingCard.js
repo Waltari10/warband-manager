@@ -8,7 +8,7 @@ import {
 } from '../helpers';
 
 
-const RatingCard = memo(({ classes, localWarband, heroes, henchmen }) => {
+const RatingCard = memo(({ classes, heroes, henchmen }) => {
   return (
     <>
       <h5

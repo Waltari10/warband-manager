@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useReducer, useState, useEffect, useRef, useCallback } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import {
   Paper, Divider,
@@ -13,9 +13,15 @@ import HeroList from './components/HeroList';
 import HenchmenList from './components/HenchmenList';
 import RatingCard from './components/RatingCard';
 
+import {
+  wealthReducer, heroReducer, initialHeroState, initialWealthState,
+  henchmenReducer, initialHenchmenState, actions,
+} from './reducers';
+
 import useStyles from './styles';
 
 let timeout;
+
 
 const WarbandPage = ({
   saveWarband, logout, warband = {},
@@ -30,32 +36,53 @@ const WarbandPage = ({
 
   const [localWarband, setLocalWarband] = useState({});
 
+  const [wealth, dispatchWealth] = useReducer(wealthReducer, initialWealthState);
+  const [heroesState, dispatchHero] = useReducer(heroReducer, initialHeroState);
+
+  const { heroes, index: heroIndex } = heroesState;
+
+  const [henchmenState, dispatchHenchmen] = useReducer(henchmenReducer, initialHenchmenState);
+
+  const { henchmen, index: henchmenIndex } = henchmenState;
+
   const [general, setGeneral] = useState({});
-  const [wealth, setWealth] = useState({});
-  const [heroes, setHeroes] = useState({});
-  const [heroIndex, setHeroIndex] = useState([]);
-  const [henchmen, setHenchmen] = useState({});
-  const [henchmenIndex, setHenchmenIndex] = useState([]);
 
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   useEffect(() => {
 
     if (isEmpty(localWarband) && isSuccessGetWarbands === true) {
-      setHeroes(warband.heroes || {});
-      setHenchmen(warband.henchmen || {});
-      setHeroIndex(warband.heroIndex || warband.heroes && Object.keys(localWarband.heroes) || []);
-      setHenchmenIndex(warband.henchmenIndex || warband.henchmen && Object.keys(localWarband.henchmen) || []);
+
+      dispatchHero({
+        type: actions.OVERWRITE,
+        payload: {
+          index: warband.heroIndex || warband.heroes && Object.keys(localWarband.heroes) || [],
+          heroes: warband.heroes,
+        },
+      });
+
+      dispatchHenchmen({
+        type: actions.OVERWRITE,
+        payload: {
+          index: warband.henchmenIndex || warband.henchmen && Object.keys(localWarband.henchmen) || [],
+          henchmen: warband.henchmen,
+        },
+      });
+
       setLocalWarband(warband);
       setGeneral({
         name: warband.name || '',
         type: warband.type || '',
         gamesPlayed: warband.gamesPlayed || 0,
       });
-      setWealth({
-        goldCrowns: warband.goldCrowns || 0,
-        shards: warband.shards || 0,
-        equipment: warband.equipment || '',
+
+      dispatchWealth({
+        type: actions.OVERWRITE,
+        payload: {
+          goldCrowns: warband.goldCrowns || 0,
+          shards: warband.shards || 0,
+          equipment: warband.equipment || '',
+        },
       });
     }
   }, [isSuccessGetWarbands]);
@@ -92,91 +119,66 @@ const WarbandPage = ({
 
 
   const handleWealthChange = useCallback((e) => {
+    dispatchWealth({ type: 'update', payload: {
+      name: e.target.getAttribute('name'),
+      value: e.target.value,
+    } });
+  }, [dispatchWealth]);
 
-    const newWealth = {
-      ...wealth,
-      [e.target.getAttribute('name')]: e.target.value,
-    };
-
-    setWealth(newWealth);
-  }, [wealth]);
-
-  const handleHeroesChange = useCallback((hero, heroId) => {
-    setHeroes({
-      ...heroes,
-      [heroId]: hero,
+  const handleHeroChange = useCallback((hero, heroId) => {
+    dispatchHero({
+      type: actions.UPDATE,
+      payload: {
+        id: heroId,
+        hero,
+      },
     });
-  }, [heroes]);
+  }, [dispatchHero]);
 
 
   const handleHenchmanChange = useCallback((henchman, id) => {
-    setHenchmen({
-      ...henchmen,
-      [id]: henchman,
+
+    dispatchHenchmen({
+      type: actions.UPDATE,
+      payload: {
+        id,
+        henchman,
+      },
     });
-  }, [henchmen]);
+  }, [dispatchHenchmen]);
 
 
   const addHenchman = useCallback(id => {
-    const newIndex = [...henchmenIndex];
-
-    newIndex.push(id);
-
-    setHenchmenIndex(newIndex);
-    setHenchmen({
-      ...henchmen,
-      [id]: {},
+    dispatchHenchmen({
+      type: actions.ADD,
+      payload: id,
     });
-  }, [henchmen, henchmenIndex]);
+
+  }, [dispatchHenchmen]);
 
   const deleteHenchman = useCallback(id => {
-    const index = henchmenIndex.indexOf(id);
-
-    const newIndex = [...henchmenIndex];
-    if (index > -1) {
-      newIndex.splice(index, 1);
-    }
-
-    const newHenchmen = {
-      ...henchmen,
-    };
-
-    delete newHenchmen[id];
-
-    setHenchmenIndex(newIndex);
-    setHenchmen(newHenchmen);
-  }, [henchmen, henchmenIndex]);
+    dispatchHenchmen({
+      type: actions.DELETE,
+      payload: id,
+    });
+  }, [dispatchHenchmen]);
 
 
   const addHero = useCallback(heroId => {
-    const newHeroIndex = [...heroIndex];
-
-    newHeroIndex.push(heroId);
-
-    setHeroIndex(newHeroIndex);
-    setHeroes({
-      ...heroes,
-      [heroId]: {},
+    dispatchHero({
+      type: actions.ADD,
+      payload: heroId,
     });
-  }, [heroes, heroIndex]);
+
+  }, [dispatchHero]);
 
   const deleteHero = useCallback(heroId => {
-    const index = heroIndex.indexOf(heroId);
 
-    const newIndex = [...heroIndex];
-    if (index > -1) {
-      newIndex.splice(index, 1);
-    }
-
-    const newHeroes = {
-      ...heroes,
-    };
-
-    delete newHeroes[heroId];
-
-    setHeroIndex(newIndex);
-    setHeroes(newHeroes);
-  }, [heroes, heroIndex]);
+    dispatchHero({
+      type: actions.DELETE,
+      payload: heroId,
+    });
+  }, [dispatchHero]);
 
 
   useEffect(() => {
@@ -274,7 +276,7 @@ const WarbandPage = ({
             <Divider className={classes.divider}/>
 
             <HeroList
-              handleHeroChange={handleHeroesChange}
+              handleHeroChange={handleHeroChange}
               heroIndex={heroIndex}
               heroes={heroes}
               classes={classes}
