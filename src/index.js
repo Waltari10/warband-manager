@@ -4,6 +4,11 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({ dsn: process.env.REACT_APP_SENTRY_DNS });
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

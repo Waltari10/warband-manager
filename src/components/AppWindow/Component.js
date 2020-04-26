@@ -1,10 +1,12 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
+import { Paper, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { appVersion } from '../../constants';
 
 
 const useStyles = makeStyles(theme => ({
   container: {
+    position: 'relative',
 
     background: '#F5F5F5',
     [theme.breakpoints.down('sm')]: {
@@ -55,6 +57,15 @@ const AppWindow = ({ className, children, size }) => {
       className={`${classes.container} ${className}`}
     >
       {children}
+
+      <Typography
+        style={{
+          position: 'absolute',
+          right: '8px',
+          bottom: 0,
+          textShadow: '0px 0px white',
+        }}
+      >{appVersion}</Typography>
     </Paper>
   );
 };
