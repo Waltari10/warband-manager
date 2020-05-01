@@ -14,9 +14,9 @@ exports[`Login Should render (smoke test) 1`] = `
         class="MuiGrid-root makeStyles-header-1 MuiGrid-item"
       >
         <h4
-          class="MuiTypography-root MuiTypography-h4"
+          class="MuiTypography-root MuiTypography-h4 MuiTypography-alignCenter"
         >
-          Mordheim Warbands
+          Unofficial Warband Manager Beta
         </h4>
       </div>
       <div
@@ -147,7 +147,7 @@ exports[`Login Should render (smoke test) 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body2"
           >
-            New to Mordheim Warbands? Create an account.
+            New to Unofficial Warband Manager Beta? Create an account.
           </p>
         </a>
       </div>
@@ -166,6 +166,12 @@ exports[`Login Should render (smoke test) 1`] = `
         </a>
       </div>
     </div>
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+      style="position: absolute; right: 8px; bottom: 0px; text-shadow: 0px 0px white;"
+    >
+      v0.4.0-beta
+    </p>
   </div>
 </DocumentFragment>
 `;

@@ -6,6 +6,13 @@ exports[`AppWindow Should render (smoke test) 1`] = `
     class="MuiPaper-root makeStyles-container-1 undefined MuiPaper-elevation1 MuiPaper-rounded"
     id="appwindow"
     style="max-width: 600px; width: 600px;"
-  />
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+      style="position: absolute; right: 8px; bottom: 0px; text-shadow: 0px 0px white;"
+    >
+      v0.4.0-beta
+    </p>
+  </div>
 </DocumentFragment>
 `;
