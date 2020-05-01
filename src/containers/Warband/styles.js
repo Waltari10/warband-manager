@@ -183,6 +183,7 @@ export default makeStyles((theme) => {
       textAlign: 'center',
       borderStyle: 'solid',
       borderWidth: '0.5px',
+      borderColor: theme.palette.primary.main,
       fontSize: '22px',
     },
     checkBoxContainer: {
