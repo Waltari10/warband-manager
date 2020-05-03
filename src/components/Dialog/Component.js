@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
 
 const MyDialog = memo(({
   handleClose, open, title, dialog, cancel, confirm,
-  handleConfirm,
+  handleConfirm, isConfirm = true, isCancel = true,
 }) => {
 
   const classes = useStyles();
@@ -31,25 +31,28 @@ const MyDialog = memo(({
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          {dialog}
+        <DialogContentText
+          id="alert-dialog-description"
+          dangerouslySetInnerHTML={{ __html: dialog }}
+        >
+          {/* {dialog} */}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button
+        {isCancel && <Button
           onClick={handleClose}
           color="primary"
         >
           {cancel || 'Cancel'}
-        </Button>
-        <Button
+        </Button>}
+        {isConfirm && <Button
           onClick={handleConfirm}
           color="primary"
           autoFocus
 
         >
           {confirm || 'Confirm'}
-        </Button>
+        </Button>}
       </DialogActions>
     </Dialog>
   );

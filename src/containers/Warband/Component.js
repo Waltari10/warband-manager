@@ -190,6 +190,8 @@ const WarbandPage = ({
     }
   }, [wealth, general, warbandId, heroes, heroIndex, localWarband, henchmen, henchmenIndex]);
 
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
+
   return (
     <div
       className={classes.viewContainer}
@@ -208,6 +210,18 @@ const WarbandPage = ({
             <MenuIcon className={classes.whiteMenuIcon} />
           </IconButton>
 
+          <Dialog
+            title={'Support'}
+            confirm="Close"
+            dialog={`If you are experiencing problems, or have any questions or comments please contact me at <a href="mailto:warband.manager@gmail.com">warband.manager@gmail.com</a>.<br><br>
+         You can also reach out to me on Twitter <a href="https://twitter.com/ValdeCode" target="_blank">@valdeCode<a/>`}
+            isConfirm={false}
+            open={isSupportOpen}
+            handleClose={() => {
+              setIsSupportOpen(false);
+            }}
+          />
+
           <Menu
             id="simple-menu"
             anchorEl={anchorEl}
@@ -223,12 +237,17 @@ const WarbandPage = ({
                 handleClose();
                 logout();
               }}>Logout</MenuItem>
-            {
-              <MenuItem onClick={() => {
-                handleClose();
-                setIsConfirmOpen(true);
-              }}>Delete  warband</MenuItem>
-            }
+
+            <MenuItem onClick={() => {
+              handleClose();
+              setIsConfirmOpen(true);
+            }}>Delete  warband</MenuItem>
+
+            <MenuItem
+              onClick={() => {
+                setIsSupportOpen(true);
+              }}>Support</MenuItem>
+
           </Menu>
 
           <Dialog

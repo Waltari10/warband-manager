@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Progress from '@material-ui/core/CircularProgress';
 import Fab from '@material-ui/core/Fab';
@@ -12,6 +12,7 @@ import { Typography } from '@material-ui/core';
 
 
 import * as constants from '../../constants';
+import Dialog from '../../components/Dialog';
 import PrivateRoute from '../PrivateRoute';
 import WarbandModal from '../WarbandModal';
 
@@ -117,6 +118,10 @@ const HomePage = ({
     setAnchorEl(null);
   };
 
+
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
+  // const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+
   return (
     <div className={classes.window}>
 
@@ -159,11 +164,30 @@ const HomePage = ({
               handleClose();
               logout();
             }}>Logout</MenuItem>
+          <MenuItem
+            onClick={() => {
+              setIsSupportOpen(true);
+            }}>Support</MenuItem>
+          {/* <MenuItem
+            onClick={() => {
+              setIsDisclaimerOpen(true);
+            }}>Disclaimer</MenuItem> */}
         </Menu>
 
 
       </div>
 
+      <Dialog
+        title={'Support'}
+        confirm="Close"
+        dialog={`If you are experiencing problems, or have any questions or comments please contact me at <a href="mailto:warband.manager@gmail.com">warband.manager@gmail.com</a>.<br><br>
+         You can also find me on Twitter <a href="https://twitter.com/ValdeCode" target="_blank">@valdeCode<a/>`}
+        isConfirm={false}
+        open={isSupportOpen}
+        handleClose={() => {
+          setIsSupportOpen(false);
+        }}
+      />
 
       <div className={classes.container}>
         <PrivateRoute component={WarbandModal} path="/warband/:id" />
