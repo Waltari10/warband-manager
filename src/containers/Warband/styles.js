@@ -170,6 +170,9 @@ export default makeStyles((theme) => {
       marginTop: '24px',
       maxWidth: '320px',
     },
+    groupUl: {
+      backgroundColor: 'white',
+    },
     attributeColumn: {
       display: 'flex',
       flex: 1,

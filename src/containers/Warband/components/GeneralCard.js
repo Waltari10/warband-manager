@@ -8,6 +8,18 @@ const warbandTypes = [
   'Witch Hunters',
   'The undead',
   'Skaven',
+  'Averlanders',
+  'Beastmen Raiders',
+  'Beastmen Raiders (old)',
+  'Carnival of Chaos',
+  'Dwarf Treasure Hunters',
+  'Kislevites',
+  'Marienburgers',
+  'Middenheimers',
+  'Orc Mob',
+  'Ostlanders',
+  'The Outlaws of Stirwood Forest',
+  'Reiklanders',
 ];
 
 const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) => {
@@ -43,10 +55,18 @@ const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) =>
             freeSolo
             clearOnBlur
             name="type"
+            classes={{
+              groupUl: classes.groupUl,
+            }}
             options={warbandTypes}
             style={{ width: 300 }}
             onChange={(event, newValue) => {
               handleChange({ target: { value: newValue, getAttribute: () => 'type' } });
+            }}
+            ListboxProps={{
+              style: {
+                backgroundColor: 'white',
+              },
             }}
             renderInput={(params) => (
               <TextField
