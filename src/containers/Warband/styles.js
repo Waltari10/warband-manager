@@ -20,6 +20,9 @@ export default makeStyles((theme) => {
       display: 'flex',
       flexDirection: 'column',
       minWidth: '300px',
+      [theme.breakpoints.down('xs')]: {
+        minWidth: '200px',
+      },
     },
     removeButton: {
       position: 'absolute',
@@ -31,7 +34,6 @@ export default makeStyles((theme) => {
       width: '20%',
       [theme.breakpoints.down('xs')]: {
         display: 'none',
-        backgroundColor: 'red',
       },
     },
     navigationLink: {
@@ -46,6 +48,7 @@ export default makeStyles((theme) => {
       margin: '0 auto',
       [theme.breakpoints.down('xs')]: {
         maxWidth: 'none',
+        borderRadius: 0,
       },
     },
     form: {
@@ -53,6 +56,9 @@ export default makeStyles((theme) => {
       overflowX: 'hidden',
       padding: theme.spacing(3),
       flex: 1,
+      [theme.breakpoints.down('xs')]: {
+        padding: 0,
+      },
     },
     viewContainer: {
       height: 'calc(100% - 48px)',

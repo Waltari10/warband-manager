@@ -59,7 +59,7 @@ const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) =>
               groupUl: classes.groupUl,
             }}
             options={warbandTypes}
-            style={{ width: 300 }}
+            style={{ width: 200 }}
             onChange={(event, newValue) => {
               handleChange({ target: { value: newValue, getAttribute: () => 'type' } });
             }}
