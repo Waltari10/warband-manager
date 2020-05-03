@@ -2,6 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => {
   return {
+    navigationTitle: {
+      marginTop: '16px',
+      marginBottom: '8px',
+    },
     h5: {
       margin: 0,
       ...theme.typography.h5,
@@ -15,7 +19,7 @@ export default makeStyles((theme) => {
       flex: 1,
       display: 'flex',
       flexDirection: 'column',
-      minWidth: '200px',
+      minWidth: '300px',
     },
     removeButton: {
       position: 'absolute',
@@ -159,7 +163,7 @@ export default makeStyles((theme) => {
       alignSelf: 'flex-end',
     },
     advancementRow: {
-      // width: theme.spacing(40),
+      maxWidth: theme.spacing(40),
       marginTop: '24px',
       display: 'flex',
       flexDirection: 'row',

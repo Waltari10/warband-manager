@@ -8,10 +8,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
     >
 
       <Typography
-        style={{
-          marginTop: '16px',
-          marginBottom: '8px',
-        }}
+        className={classes.navigationTitle}
         variant="body1"
       ><b>Navigation:</b></Typography>
 
@@ -88,7 +85,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
                   });
                 }
               }}
-            > &#8594; { `${hero.name || ''} ${hero.type || ''}`}</Link>
+            > &#8594; { `${hero.name || 'Nameless'} ${hero.type || ''}`}</Link>
           </div>
         );
       })}
@@ -119,7 +116,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
                   });
                 }
               }}
-            > &#8594; {`${henchman.name || ''} ${henchman.type || ''}`}</Link>
+            > &#8594; {`${henchman.name || 'Nameless'} ${henchman.type || ''}`}</Link>
           </div>)
         ;
       })}
