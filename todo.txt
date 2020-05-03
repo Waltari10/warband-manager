@@ -1,11 +1,7 @@
 TODO: 
 - Unit Tests
-- Better error handling
 - E2E tests
-- Use takamaki-group eslint-config
-- Add confirmation to delete warband (potential missclicks since right next to logout)
 - Add remaining exp to next level
-- Figure out which license to use
 - ADd dramatic personae, large creatures and hired swords to rating calculation
 - Add about page
 - GDPR?
@@ -13,5 +9,17 @@ TODO:
 - Add hero and henchman suggestions
 - Autofill hero/henchman stats
 - Add labels for racial maximums and which skill has already been raised (copy existing sheet)
-- Add versioning
-- Add version number to UI
+- Equipmentin siirtäminen äijältä toiselle
+
+BEFORE BETA:
+- Change Favicon
+- Sivu navigaation Gold crowns
+- Contact 
+- About
+- Disclaimer this is only fan made
+- Saved Indikaattori warbandi näkymään (similar to google sheets)
+- Remove attribte arrow add indicators or move them above and below the field
+- Attributes are rendered horribly on narrow desktop screen
+- Apin nimi on liian pitkä warband listauksessa
+- Warbandin nimi on pitäisi pätkäistä jos se on liian pitkä
+- Landscape moodi hajoaa mobiilissa täysin warbandia katsellessa
