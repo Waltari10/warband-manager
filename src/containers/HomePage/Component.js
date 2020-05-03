@@ -67,6 +67,12 @@ const useStyles = makeStyles((theme) => ({
   title: {
     lineHeight: '48px',
     color: 'white',
+    marginLeft: '48px',
+    marginRight: '48px',
+    width: 'calc(100% - 96px)',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
   },
   menuIcon: {
     position: 'absolute',
@@ -125,7 +131,7 @@ const HomePage = ({
         className={classes.topNavigationContainer}
       >
         <Typography className={classes.title} align="center" variant="h5">
-          {constants.APP_NAME}
+          Warbands
         </Typography>
 
 

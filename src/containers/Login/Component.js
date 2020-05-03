@@ -53,6 +53,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3),
   },
   loginLink: {
+    paddingLeft: '48px',
+    paddingRight: '48px',
     marginBottom: theme.spacing(3),
   },
   content: {
@@ -187,7 +189,7 @@ const Login = ({
           <Link
             onClick={googleSignIn}
           >
-            <Typography variant="body2">
+            <Typography align="center" variant="body2">
                 Continue with Google
             </Typography>
           </Link>
@@ -200,7 +202,9 @@ const Login = ({
             to={'/signup'}
             component={RouterLink}
           >
-            <Typography variant="body2">
+            <Typography
+              align="center"
+              variant="body2">
               New to {constants.APP_NAME}? Create an account.
             </Typography>
           </Link>
