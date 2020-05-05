@@ -58,6 +58,7 @@
     "babel-loader": "8.0.6",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "^9.1.1",
+    "btoa": "^1.2.1",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.2.0",
@@ -92,8 +93,8 @@
     "test:update-snapshots": "npm run test -- -u",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "database:export": "firestore-export --accountCredentials credentials.json --backupFile backups/myDatabase.json",
-    "database:import": "firestore-import --accountCredentials credentials.json --backupFile backups/myDatabase.json",
+    "database:export": "firestore-export --accountCredentials credentials.json --backupFile myDatabase.json",
+    "database:import": "firestore-import --accountCredentials credentials.json --backupFile myDatabase.json",
     "database:clear": "firestore-clear --accountCredentials credentials.json --yes"
   },
   "browserslist": {
