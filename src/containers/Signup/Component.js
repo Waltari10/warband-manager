@@ -89,7 +89,7 @@ const Login = ({
 
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   React.useEffect(() => resetUser, []);
 
@@ -116,6 +116,7 @@ const Login = ({
         <Grid item>
           <InputBase
             name="email"
+            autoComplete="username"
             style={{ display: 'flex' }}
             className={classes.email}
             onChange={(e) => setEmail(e.target.value)}
@@ -131,6 +132,7 @@ const Login = ({
             }
           />
           <InputBase
+            autoComplete="new-password"
             name="password"
             className={classes.password}
             onChange={(e) => setPassword(e.target.value)}

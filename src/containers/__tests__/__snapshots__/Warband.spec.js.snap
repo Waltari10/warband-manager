@@ -3,21 +3,21 @@
 exports[`Warband Should render (smoke test) 1`] = `
 <DocumentFragment>
   <div
-    class="makeStyles-viewContainer-9"
+    class="makeStyles-viewContainer-10"
   >
     <div
-      class="makeStyles-form-8"
+      class="makeStyles-form-9"
     >
       <div
-        class="MuiPaper-root makeStyles-innerForm-7 MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root makeStyles-innerForm-8 MuiPaper-elevation1 MuiPaper-rounded"
       >
         <h5
-          class="MuiTypography-root makeStyles-title-13 MuiTypography-h5 MuiTypography-alignCenter"
+          class="MuiTypography-root makeStyles-title-14 MuiTypography-h5 MuiTypography-alignCenter"
         >
           No name
         </h5>
         <button
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-menuIcon-21"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-menuIcon-22"
           tabindex="0"
           type="button"
         >
@@ -26,7 +26,7 @@ exports[`Warband Should render (smoke test) 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-whiteMenuIcon-22"
+              class="MuiSvgIcon-root makeStyles-whiteMenuIcon-23"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -41,7 +41,7 @@ exports[`Warband Should render (smoke test) 1`] = `
         </button>
         <div>
           <h5
-            class="makeStyles-h5-1"
+            class="makeStyles-h5-2"
             id="general_header"
             style="padding-top: 24px;"
             variant="h5"
@@ -55,7 +55,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               class="MuiGrid-root MuiGrid-item"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textFieldLong-17"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textFieldLong-18"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -75,10 +75,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-296 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-298"
+                      class="PrivateNotchedOutline-legendLabelled-300"
                     >
                       <span>
                         Warband name
@@ -91,45 +91,13 @@ exports[`Warband Should render (smoke test) 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textFieldLong-17"
-              >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-                  data-shrink="false"
-                >
-                  Warband type
-                </label>
-                <div
-                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiOutlinedInput-input"
-                    name="type"
-                    type="text"
-                    value=""
-                  />
-                  <fieldset
-                    aria-hidden="true"
-                    class="PrivateNotchedOutline-root-296 MuiOutlinedInput-notchedOutline"
-                  >
-                    <legend
-                      class="PrivateNotchedOutline-legendLabelled-298"
-                    >
-                      <span>
-                        Warband type
-                      </span>
-                    </legend>
-                  </fieldset>
-                </div>
-              </div>
+              autocomplete
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-numberField-15 makeStyles-textFieldShort-16"
+                class="MuiFormControl-root MuiTextField-root makeStyles-numberField-16 makeStyles-textFieldShort-17"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
@@ -149,10 +117,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-296 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-298 PrivateNotchedOutline-legendNotched-299"
+                      class="PrivateNotchedOutline-legendLabelled-300 PrivateNotchedOutline-legendNotched-301"
                     >
                       <span>
                         Games played
@@ -164,10 +132,10 @@ exports[`Warband Should render (smoke test) 1`] = `
             </div>
           </div>
           <hr
-            class="MuiDivider-root makeStyles-divider-25"
+            class="MuiDivider-root makeStyles-divider-26"
           />
           <h5
-            class="makeStyles-h5-1"
+            class="makeStyles-h5-2"
             id="wealth_header"
             style="padding-top: 24px;"
             variant="h5"
@@ -181,10 +149,10 @@ exports[`Warband Should render (smoke test) 1`] = `
               class="MuiGrid-root MuiGrid-item"
             >
               <div
-                class="makeStyles-textFieldLong-17"
+                class="makeStyles-textFieldLong-18"
               >
                 <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-numberField-15"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-numberField-16"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
@@ -204,10 +172,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-296 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-298 PrivateNotchedOutline-legendNotched-299"
+                        class="PrivateNotchedOutline-legendLabelled-300 PrivateNotchedOutline-legendNotched-301"
                       >
                         <span>
                           Wyrdstone shards
@@ -217,7 +185,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-goldCrowns-26 makeStyles-numberField-15"
+                  class="MuiFormControl-root MuiTextField-root makeStyles-goldCrowns-27 makeStyles-numberField-16"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
@@ -237,10 +205,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-296 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-298 PrivateNotchedOutline-legendNotched-299"
+                        class="PrivateNotchedOutline-legendLabelled-300 PrivateNotchedOutline-legendNotched-301"
                       >
                         <span>
                           Gold crowns
@@ -255,7 +223,7 @@ exports[`Warband Should render (smoke test) 1`] = `
               class="MuiGrid-root MuiGrid-item"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textFieldArea-18"
+                class="MuiFormControl-root MuiTextField-root makeStyles-textFieldArea-19"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -282,10 +250,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-296 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-298"
+                      class="PrivateNotchedOutline-legendLabelled-300"
                     >
                       <span>
                         Equipment
@@ -297,17 +265,17 @@ exports[`Warband Should render (smoke test) 1`] = `
             </div>
           </div>
           <hr
-            class="MuiDivider-root makeStyles-divider-25"
+            class="MuiDivider-root makeStyles-divider-26"
           />
           <h5
-            class="makeStyles-h5-1"
+            class="makeStyles-h5-2"
             id="rating_header"
             style="padding-top: 24px;"
           >
             Rating
           </h5>
           <p
-            class="MuiTypography-root makeStyles-textFieldShort-16 MuiTypography-body1"
+            class="MuiTypography-root makeStyles-textFieldShort-17 MuiTypography-body1"
           >
             Total experience: 0
           </p>
@@ -322,10 +290,10 @@ exports[`Warband Should render (smoke test) 1`] = `
             Rating: 0
           </p>
           <hr
-            class="MuiDivider-root makeStyles-divider-25"
+            class="MuiDivider-root makeStyles-divider-26"
           />
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-11 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-12 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
             tabindex="0"
             type="button"
           >
@@ -353,10 +321,10 @@ exports[`Warband Should render (smoke test) 1`] = `
             />
           </button>
           <hr
-            class="MuiDivider-root makeStyles-divider-25"
+            class="MuiDivider-root makeStyles-divider-26"
           />
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-11 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-12 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
             tabindex="0"
             type="button"
           >
@@ -387,18 +355,17 @@ exports[`Warband Should render (smoke test) 1`] = `
       </div>
     </div>
     <div
-      class="makeStyles-navigation-5"
+      class="makeStyles-navigation-6"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1"
-        style="margin-top: 16px; margin-bottom: 8px;"
+        class="MuiTypography-root makeStyles-navigationTitle-1 MuiTypography-body1"
       >
         <b>
           Navigation:
         </b>
       </p>
       <div
-        class="makeStyles-navigationLink-6"
+        class="makeStyles-navigationLink-7"
       >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -407,7 +374,7 @@ exports[`Warband Should render (smoke test) 1`] = `
         </a>
       </div>
       <div
-        class="makeStyles-navigationLink-6"
+        class="makeStyles-navigationLink-7"
       >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -416,7 +383,7 @@ exports[`Warband Should render (smoke test) 1`] = `
         </a>
       </div>
       <div
-        class="makeStyles-navigationLink-6"
+        class="makeStyles-navigationLink-7"
       >
         <a
           class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"

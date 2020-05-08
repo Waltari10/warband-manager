@@ -213,8 +213,11 @@ const WarbandPage = ({
           <Dialog
             title={'Support'}
             confirm="Close"
-            dialog={`If you are experiencing problems, or have any questions or comments please contact me at <a href="mailto:warband.manager@gmail.com">warband.manager@gmail.com</a>.<br><br>
-         You can also reach out to me on Twitter <a href="https://twitter.com/ValdeCode" target="_blank">@valdeCode<a/>`}
+            dialog={`If you are experiencing problems, or have any questions or 
+            comments please contact me at 
+            <a href="mailto:warband.manager@gmail.com">warband.manager@gmail.com</a>.<br><br>
+            You can also reach out to me on Twitter 
+            <a href="https://twitter.com/ValdeCode" target="_blank">@valdeCode<a/>`}
             isConfirm={false}
             open={isSupportOpen}
             handleClose={() => {

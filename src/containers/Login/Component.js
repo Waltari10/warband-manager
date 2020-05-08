@@ -118,6 +118,7 @@ const Login = ({
         <Grid item>
           <form acceptCharset="UTF-8">
             <InputBase
+              autoComplete="username"
               name="email"
               style={{ display: 'flex' }}
               className={classes.email}
@@ -133,6 +134,7 @@ const Login = ({
               }
             />
             <InputBase
+              autoComplete="current-password"
               name="password"
               variant="filled"
               className={classes.password}
