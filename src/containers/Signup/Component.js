@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
   loginLink: {
     marginBottom: theme.spacing(3),
+    cursor: 'pointer',
   },
   content: {
     width: '100%',

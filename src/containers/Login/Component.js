@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '48px',
     paddingRight: '48px',
     marginBottom: theme.spacing(3),
+    cursor: 'pointer',
   },
   content: {
     width: '100%',
