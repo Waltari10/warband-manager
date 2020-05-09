@@ -57,7 +57,7 @@ const WarbandPage = ({
         type: actions.OVERWRITE,
         payload: {
           index: warband.heroIndex || warband.heroes && Object.keys(warband.heroes) || [],
-          heroes: warband.heroes,
+          heroes: warband.heroes || {},
         },
       });
 
@@ -65,7 +65,7 @@ const WarbandPage = ({
         type: actions.OVERWRITE,
         payload: {
           index: warband.henchmenIndex || warband.henchmen && Object.keys(warband.henchmen) || [],
-          henchmen: warband.henchmen,
+          henchmen: warband.henchmen || {},
         },
       });
 

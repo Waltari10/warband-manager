@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MordheimListItem = ({ warband, match, id }) => {
+const WarbandListItem = ({ warband, match, id }) => {
   const classes = useStyles();
 
   return (
@@ -68,4 +68,4 @@ const MordheimListItem = ({ warband, match, id }) => {
   );
 };
 
-export default MordheimListItem;
+export default WarbandListItem;
