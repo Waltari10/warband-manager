@@ -23,10 +23,15 @@ const useStyles = makeStyles((theme) => ({
     borderBottomColor: '#C0C0C0',
     borderLeftWidth: '0.5px',
     borderRightWidth: '0.5px',
+    [theme.breakpoints.down('xs')]: {
+      borderLeftWidth: 0,
+    },
   },
   topic: {
     decoration: 'none',
     lineHeight: `${theme.spacing(6)}px`,
+    wordBreak: 'break-all',
+    paddingRight: '59px',
   },
   iconButton: {
     position: 'absolute',

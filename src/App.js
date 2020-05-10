@@ -2,10 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { HashRouter as Router } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
+
 
 import bg from './assets/dark_bg.jpg';
 import configureStore from './store/configureStore';
 import Routes from './containers/Routes';
+import Notifier from './containers/Notifier';
 import theme from './styles/theme';
 
 
@@ -50,9 +53,12 @@ function App() {
       </div>
       <Router>
         <Provider store={store}>
-          <MuiThemeProvider theme={theme}>
-            <Routes/>
-          </MuiThemeProvider>
+          <SnackbarProvider maxSnack={3}>
+            <MuiThemeProvider theme={theme}>
+              <Notifier />
+              <Routes/>
+            </MuiThemeProvider>
+          </SnackbarProvider>
         </Provider>
       </Router>
     </>

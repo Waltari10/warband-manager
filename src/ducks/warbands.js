@@ -1,11 +1,13 @@
 import { put, takeEvery, all, call, select } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 import { captureException } from '@sentry/browser';
+import React from 'react';
 
+import { Button } from '@material-ui/core';
 import firebase, { db } from '../utils/firebase';
 import logger from '../utils/logger';
 import * as constants from '../constants';
-
+import { enqueueSnackbar } from './notifier';
 
 // TODO: reduxjs/toolkit had an example on how to reduce redux boilerplate even further
 
@@ -180,6 +182,7 @@ const callGetWarbands = (uuid) => {
 
 };
 
+
 function* handleGetWarbands () {
   try {
     const uuid = yield select((state) => state.user.user.uid);
@@ -188,6 +191,14 @@ function* handleGetWarbands () {
   } catch (e) {
     logger.error(e);
     captureException(e);
+
+    yield put(enqueueSnackbar({
+      message: 'Failed to fetch warbands. Please try again later',
+      options: {
+        key: new Date().getTime() + Math.random(),
+        variant: 'warning',
+      },
+    }));
     yield put(getWarbandsError(e));
   }
 }
@@ -198,12 +209,18 @@ function* handleSaveWarband(action) {
   try {
     const uuid = yield select((state) => state.user.user.uid);
     const result = yield call(callSetWarband, action.payload, uuid);
-
     yield put(saveWarbandSuccess({ result, warband: action.payload }));
-    // yield put(getWarbands());
+    yield put(getWarbands());
   } catch (e) {
     logger.error(e);
     captureException(e);
+    yield put(enqueueSnackbar({
+      message: 'Failed to autosave warband. Your changes may be lost.',
+      options: {
+        key: new Date().getTime() + Math.random(),
+        variant: 'error',
+      },
+    }));
     yield put(saveWarbandError(e));
   }
 }
@@ -217,6 +234,13 @@ function* handleRemoveWarband(action) {
   } catch (e) {
     logger.error(e);
     captureException(e);
+    yield put(enqueueSnackbar({
+      message: 'Failed to remove warband.',
+      options: {
+        key: new Date().getTime() + Math.random(),
+        variant: 'error',
+      },
+    }));
     yield put(removeWarbandError(e));
   }
 }
@@ -230,6 +254,13 @@ function* handleAddWarband(action) {
   } catch (e) {
     logger.error(e);
     captureException(e);
+    yield put(enqueueSnackbar({
+      message: 'Failed to add warband.',
+      options: {
+        key: new Date().getTime() + Math.random(),
+        variant: 'error',
+      },
+    }));
     yield put(addWarbandError(e));
   }
 }
