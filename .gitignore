@@ -28,3 +28,4 @@ mordheim-warbands-dev-7b0c5b821785.json
 myDatabase.json
 backups
 credentials.json
+cypress.env.json

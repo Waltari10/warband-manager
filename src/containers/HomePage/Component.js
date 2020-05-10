@@ -138,7 +138,7 @@ const HomePage = ({
       <div
         className={classes.topNavigationContainer}
       >
-        <Typography className={classes.title} align="center" variant="h5">
+        <Typography id="homepage_header" className={classes.title} align="center" variant="h5">
           Warbands
         </Typography>
 
@@ -146,6 +146,7 @@ const HomePage = ({
         <IconButton
           className={classes.menuIcon}
           onClick={handleClick}
+          id="homepage_menu_button"
         >
           <MenuIcon
             className={classes.whiteMenuIcon}
@@ -163,6 +164,7 @@ const HomePage = ({
           }}
         >
           <MenuItem
+            id="homepage_logout_button"
             onClick={() => {
               handleClose();
               logout();
@@ -222,6 +224,7 @@ const HomePage = ({
 
         {!isLoading && (
           <Fab
+            id="add_warband_button"
             className={classes.hero}
             disabled={addWarbandRequestState === constants.LOADING}
             color="primary"

@@ -118,6 +118,7 @@ const Login = ({
         <Grid item>
           <form acceptCharset="UTF-8">
             <InputBase
+              id="email"
               autoComplete="username"
               name="email"
               style={{ display: 'flex' }}
@@ -134,6 +135,7 @@ const Login = ({
               }
             />
             <InputBase
+              id="password"
               autoComplete="current-password"
               name="password"
               variant="filled"
@@ -167,6 +169,7 @@ const Login = ({
         </Grid>
         <Grid item>
           <Button
+            id="signin_button"
             className={classes.continueButton}
             disabled={submitDisabled}
             onClick={() => loginWithEmail(email, password)}

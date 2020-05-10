@@ -37,6 +37,7 @@ const HenchmenList = memo(({
       })}
 
       <Button
+        id="add_henchman_button"
         size="large"
         startIcon={<AddIcon />}
         className={classes.addHireButton}

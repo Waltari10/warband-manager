@@ -204,6 +204,7 @@ const WarbandPage = ({
             { general.name || 'No name' }
           </Typography>
           <IconButton
+            id="warband-menu-button"
             className={classes.menuIcon}
             onClick={handleClick}
           >
@@ -226,7 +227,6 @@ const WarbandPage = ({
           />
 
           <Menu
-            id="simple-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
@@ -241,10 +241,12 @@ const WarbandPage = ({
                 logout();
               }}>Logout</MenuItem>
 
-            <MenuItem onClick={() => {
-              handleClose();
-              setIsConfirmOpen(true);
-            }}>Delete  warband</MenuItem>
+            <MenuItem
+              id="delete_warband_button"
+              onClick={() => {
+                handleClose();
+                setIsConfirmOpen(true);
+              }}>Delete  warband</MenuItem>
 
             <MenuItem
               onClick={() => {

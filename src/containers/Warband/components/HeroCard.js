@@ -67,6 +67,7 @@ const HeroCard = memo(({
       />
 
       <IconButton
+        data-cy="remove_hero"
         onClick={() => setIsOpen(true)}
         className={classes.removeButton}
       >
@@ -74,6 +75,7 @@ const HeroCard = memo(({
       </IconButton>
 
       <h5
+        data-cy="hero_header"
         id={heroId}
         className={classes.h5Hire}
         variant="h5"

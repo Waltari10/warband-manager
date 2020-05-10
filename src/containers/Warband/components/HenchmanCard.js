@@ -62,10 +62,12 @@ const HenchmanCard = memo(({
       />
 
       <h5
+        data-cy="henchman_header"
         id={id}
         className={classes.h5Hire}
       >Henchman {index + 1}/{MAX_HENCHMEN}</h5>
       <IconButton
+        data-cy="remove_henchman"
         onClick={() => setIsOpen(true)}
         className={classes.removeButton}
       >

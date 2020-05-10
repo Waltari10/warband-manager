@@ -53,6 +53,8 @@ const WarbandListItem = ({ warband, match, id }) => {
       className={classes.routerLink}
     >
       <div
+        id={id}
+        data-cy={id}
         className={classes.listItem}
       >
         <Grid container>

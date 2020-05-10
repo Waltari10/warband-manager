@@ -39,6 +39,7 @@ const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) =>
 
         <Grid item>
           <TextField
+            id="warband_name_textfield"
             variant="outlined"
             name="name"
             value={name || ''}

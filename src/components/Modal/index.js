@@ -110,6 +110,7 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, cl
               className={classes.topNavigationContainer}
             >
               <IconButton
+                id="back_button"
                 className={classes.backIcon}
                 onClick={() => {
                   setInProp(false);
