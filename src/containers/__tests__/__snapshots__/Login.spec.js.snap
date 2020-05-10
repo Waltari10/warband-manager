@@ -47,6 +47,7 @@ exports[`Login Should render (smoke test) 1`] = `
             <input
               autocomplete="username"
               class="MuiInputBase-input MuiInputBase-inputAdornedStart"
+              id="email"
               name="email"
               placeholder="email"
               type="text"
@@ -74,6 +75,7 @@ exports[`Login Should render (smoke test) 1`] = `
             <input
               autocomplete="current-password"
               class="MuiInputBase-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd"
+              id="password"
               name="password"
               placeholder="password"
               type="password"
@@ -116,6 +118,7 @@ exports[`Login Should render (smoke test) 1`] = `
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-continueButton-4 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled=""
+          id="signin_button"
           tabindex="-1"
           type="button"
         >

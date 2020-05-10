@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Typography, IconButton, Paper } from '@material-ui/core';
+import { Typography, IconButton } from '@material-ui/core';
 import HelpIcon from '@material-ui/icons/HelpOutline';
 import Dialog from '../../../components/Dialog';
 import {
@@ -24,7 +24,7 @@ const RatingCard = memo(({ classes, heroes, henchmen }) => {
         id="rating_header"
         style={{ paddingTop: '24px' }}
         className={classes.h5}
-      >Rating</h5>
+      ><b>Rating</b></h5>
 
       <Typography
         className={classes.textFieldShort}
@@ -69,21 +69,3 @@ const RatingCard = memo(({ classes, heroes, henchmen }) => {
 });
 
 export default RatingCard;
-
-
-//
-// {
-//   showHelp && (
-//     <Paper
-//       style={{
-//         zIndex: 1,
-//         backgroundColor: 'white',
-//         position: 'absolute',
-//       }}
-//     >
-//     Counts hired swords as regular henchman. This means that for each hired sword, you should add to your total rating score the hired swords rating cost minus 5 rating points.
-
-//     For example, if you have hired a warlock whose base rating cost is 16, add 11 to your warbands automatically calculated total rating.
-//     </Paper>
-//   )
-// }

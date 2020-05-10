@@ -18,6 +18,7 @@ exports[`Warband Should render (smoke test) 1`] = `
         </h5>
         <button
           class="MuiButtonBase-root MuiIconButton-root makeStyles-menuIcon-22"
+          id="warband-menu-button"
           tabindex="0"
           type="button"
         >
@@ -46,7 +47,9 @@ exports[`Warband Should render (smoke test) 1`] = `
             style="padding-top: 24px;"
             variant="h5"
           >
-            General
+            <b>
+              General
+            </b>
           </h5>
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
@@ -60,6 +63,8 @@ exports[`Warband Should render (smoke test) 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                   data-shrink="false"
+                  for="warband_name_textfield"
+                  id="warband_name_textfield-label"
                 >
                   Warband name
                 </label>
@@ -69,6 +74,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
+                    id="warband_name_textfield"
                     name="name"
                     type="text"
                     value=""
@@ -140,7 +146,9 @@ exports[`Warband Should render (smoke test) 1`] = `
             style="padding-top: 24px;"
             variant="h5"
           >
-            Wealth
+            <b>
+              Wealth
+            </b>
           </h5>
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
@@ -275,7 +283,9 @@ exports[`Warband Should render (smoke test) 1`] = `
               id="rating_header"
               style="padding-top: 24px;"
             >
-              Rating
+              <b>
+                Rating
+              </b>
             </h5>
             <p
               class="MuiTypography-root makeStyles-textFieldShort-17 MuiTypography-body1"
@@ -321,6 +331,7 @@ exports[`Warband Should render (smoke test) 1`] = `
           />
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-12 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            id="add_hero_button"
             tabindex="0"
             type="button"
           >
@@ -352,6 +363,7 @@ exports[`Warband Should render (smoke test) 1`] = `
           />
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-12 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            id="add_henchman_button"
             tabindex="0"
             type="button"
           >
@@ -388,7 +400,7 @@ exports[`Warband Should render (smoke test) 1`] = `
         class="MuiTypography-root makeStyles-navigationTitle-1 MuiTypography-body1"
       >
         <b>
-          Navigation:
+          Navigation
         </b>
       </p>
       <div
@@ -423,7 +435,7 @@ exports[`Warband Should render (smoke test) 1`] = `
         style="margin-top: 16px; margin-bottom: 8px;"
       >
         <b>
-          Heroes:
+          Heroes
         </b>
       </p>
       <p
@@ -431,7 +443,7 @@ exports[`Warband Should render (smoke test) 1`] = `
         style="margin-top: 16px; margin-bottom: 8px;"
       >
         <b>
-          Henchmen:
+          Henchmen
         </b>
       </p>
     </div>

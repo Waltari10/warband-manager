@@ -12,6 +12,7 @@ import Navigation from './components/Navigation';
 import HeroList from './components/HeroList';
 import HenchmenList from './components/HenchmenList';
 import RatingCard from './components/RatingCard';
+import SupportDialog from '../../components/SupportContact';
 
 import {
   wealthReducer, heroReducer, initialHeroState, initialWealthState,
@@ -211,15 +212,8 @@ const WarbandPage = ({
             <MenuIcon className={classes.whiteMenuIcon} />
           </IconButton>
 
-          <Dialog
-            title={'Support'}
-            confirm="Close"
-            dialog={`If you are experiencing problems, or have any questions or 
-            comments please contact me at 
-            <a href="mailto:warband.manager@gmail.com">warband.manager@gmail.com</a>.<br><br>
-            You can also reach out to me on Twitter 
-            <a href="https://twitter.com/ValdeCode" target="_blank">@valdeCode<a/>`}
-            isConfirm={false}
+
+          <SupportDialog
             open={isSupportOpen}
             handleClose={() => {
               setIsSupportOpen(false);

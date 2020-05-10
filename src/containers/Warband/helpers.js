@@ -31,11 +31,9 @@ export const getWarbandMemberCount = (heroes = {}, henchmen = {}) => {
 
   let total = 0;
 
-  Object.values(heroes).forEach((hero) => {
+  Object.values(heroes).forEach(() => {
 
-    if (hero.name) {
-      total++;
-    }
+    total++;
   });
 
   Object.values(henchmen).forEach((henchman) => {

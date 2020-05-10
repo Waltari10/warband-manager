@@ -11,6 +11,7 @@ exports[`Modal Should render (smoke test) 1`] = `
     >
       <button
         class="MuiButtonBase-root MuiIconButton-root makeStyles-backIcon-2"
+        id="back_button"
         tabindex="0"
         type="button"
       >

@@ -12,9 +12,9 @@ import { Typography } from '@material-ui/core';
 
 
 import * as constants from '../../constants';
-import Dialog from '../../components/Dialog';
 import PrivateRoute from '../PrivateRoute';
 import WarbandModal from '../WarbandModal';
+import SupportDialog from '../../components/SupportContact';
 
 import WarbandListItem from './WarbandListItem';
 
@@ -123,7 +123,7 @@ const HomePage = ({
 
 
   const [isSupportOpen, setIsSupportOpen] = useState(false);
-  // const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+  // const [is, setIsDisclaimerOpen] = useState(false);
 
   return (
     <div className={classes.window}>
@@ -172,7 +172,7 @@ const HomePage = ({
           <MenuItem
             onClick={() => {
               setIsSupportOpen(true);
-            }}>Support</MenuItem>
+            }}>Support/contact</MenuItem>
           {/* <MenuItem
             onClick={() => {
               setIsDisclaimerOpen(true);
@@ -182,15 +182,7 @@ const HomePage = ({
 
       </div>
 
-      <Dialog
-        title={'Support'}
-        confirm="Close"
-        dialog={`If you are experiencing problems, or have any questions or 
-            comments please contact me at 
-            <a href="mailto:warband.manager@gmail.com">warband.manager@gmail.com</a>.<br><br>
-            You can also reach out to me on Twitter 
-            <a href="https://twitter.com/ValdeCode" target="_blank">@valdeCode<a/>`}
-        isConfirm={false}
+      <SupportDialog
         open={isSupportOpen}
         handleClose={() => {
           setIsSupportOpen(false);

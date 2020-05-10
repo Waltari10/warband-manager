@@ -11,7 +11,7 @@ const WealthCard = memo(({ classes, handleChange, shards, goldCrowns, equipment 
         style={{ paddingTop: '24px' }}
         className={classes.h5}
         variant="h5"
-      >Wealth</h5>
+      ><b>Wealth</b></h5>
 
       <Grid
         container

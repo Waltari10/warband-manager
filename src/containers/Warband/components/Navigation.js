@@ -10,7 +10,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
       <Typography
         className={classes.navigationTitle}
         variant="body1"
-      ><b>Navigation:</b></Typography>
+      ><b>Navigation</b></Typography>
 
       <div
         className={classes.navigationLink}
@@ -66,7 +66,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
           marginTop: '16px',
           marginBottom: '8px',
         }}
-        variant="body1"><b>Heroes:</b></Typography>
+        variant="body1"><b>Heroes</b></Typography>
 
       {heroIndex.map((key) => {
 
@@ -85,7 +85,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
                   });
                 }
               }}
-            > &#8594; { `${hero.name || 'Nameless'} ${hero.type || ''}`}</Link>
+            > &#8594; { `${hero.name || 'Nameless'}${hero.type ? ',' : ''} ${hero.type || ''}`}</Link>
           </div>
         );
       })}
@@ -97,7 +97,7 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
           marginBottom: '8px',
         }}
         variant="body1"
-      ><b>Henchmen:</b></Typography>
+      ><b>Henchmen</b></Typography>
 
       {henchmenIndex.map((key) => {
 
@@ -116,7 +116,11 @@ const Navigation = memo(({ classes, formScroll, heroIndex, heroes, henchmen, hen
                   });
                 }
               }}
-            > &#8594; {`${henchman.name || 'Nameless'} ${henchman.type || ''}`}</Link>
+            >
+            &#8594; {
+                `${henchman.name || 'Nameless'}${henchman.type ? ',' : ''} ${henchman.type || ''} (${henchman.count})`
+              }
+            </Link>
           </div>)
         ;
       })}

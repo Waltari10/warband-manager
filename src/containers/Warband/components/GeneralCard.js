@@ -31,7 +31,7 @@ const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) =>
         }}
         id="general_header"
         className={classes.h5}
-        variant="h5">General</h5>
+        variant="h5"><b>General</b></h5>
       <Grid
         container
         spacing={2}

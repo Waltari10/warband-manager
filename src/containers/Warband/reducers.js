@@ -116,7 +116,9 @@ export const henchmenReducer = (state, action) => {
       index: newIndex,
       henchmen: {
         ...state.henchmen,
-        [action.payload]: {},
+        [action.payload]: {
+          count: 1,
+        },
       },
     };
   }

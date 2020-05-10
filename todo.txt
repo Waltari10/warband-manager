@@ -12,3 +12,10 @@ TODO:
 - Sivu navigaation Gold crowns
 - Remove attribte arrow add indicators or move them above and below the field
 - Landscape moodi hajoaa mobiilissa täysin warbandia katsellessa
+
+
+BEFORE BETA:
+ - Add general information
+    - IF you want to help contact me
+    - If you want to donate
+    - If you want to say hi

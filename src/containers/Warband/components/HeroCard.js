@@ -79,7 +79,7 @@ const HeroCard = memo(({
         id={heroId}
         className={classes.h5Hire}
         variant="h5"
-      >Hero {index + 1}/{MAX_HEROES}</h5>
+      ><b>{hero.name || 'Nameless'}</b> (Hero {index + 1}/{MAX_HEROES})</h5>
 
 
       <Grid

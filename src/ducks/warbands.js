@@ -1,9 +1,7 @@
 import { put, takeEvery, all, call, select } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 import { captureException } from '@sentry/browser';
-import React from 'react';
 
-import { Button } from '@material-ui/core';
 import firebase, { db } from '../utils/firebase';
 import logger from '../utils/logger';
 import * as constants from '../constants';
@@ -136,7 +134,7 @@ const callSetWarband = (warband, uuid) => {
     .doc(uuid)
     .collection('warbands')
     .doc(warband.warbandId)
-    .set({ createdAt: firebase.firestore.Timestamp.now(), ... warband }); // This doesn't return document reference
+    .set({ createdAt: firebase.firestore.Timestamp.now(), ...warband }); // This doesn't return document reference
 };
 
 const callAddWarband = (warband, uuid) => {
@@ -144,7 +142,7 @@ const callAddWarband = (warband, uuid) => {
     .collection('users')
     .doc(uuid)
     .collection('warbands')
-    .add({ createdAt: firebase.firestore.Timestamp.now(), ... warband });
+    .add({ createdAt: firebase.firestore.Timestamp.now(), ...warband });
 };
 
 
