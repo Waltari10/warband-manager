@@ -1,5 +1,8 @@
 import { put, takeEvery, all, call } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
+import { captureException } from '@sentry/browser';
+
+import logger from '../utils/logger';
 
 import * as constants from '../constants';
 
@@ -173,7 +176,10 @@ function* handleLoginWithEmail(action) {
 
     yield put(loginWithEmailSuccess(parsedResult));
   } catch (e) {
+    logger.error(e);
+    captureException(e);
     yield put(loginWithEmailError(e));
+
   }
 }
 
@@ -186,6 +192,8 @@ function* handleGoogleSignIn(action) {
     const user = result.user;
     yield put(googleSignInSuccess({ user: JSON.parse(JSON.stringify(user)), token }));
   } catch (e) {
+    logger.error(e);
+    captureException(e);
     yield put(googleSignInError(e));
   }
 }
@@ -223,6 +231,8 @@ function* handlSignupWithEmail(action) {
     const parsedResult = JSON.parse(JSON.stringify(result));
     yield put(signupWithEmailSuccess(parsedResult));
   } catch (e) {
+    logger.error(e);
+    captureException(e);
     yield put(signupWithEmailError(e));
   }
 }
@@ -232,6 +242,8 @@ function* handleSendResetPasswordEmail(action) {
     yield call(callSendResetPasswordEmail, action.payload);
     yield put(sendResetPasswordEmailSuccess());
   } catch (e) {
+    logger.error(e);
+    captureException(e);
     yield put(sendResetPasswordEmailError(e));
   }
 }

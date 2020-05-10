@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import * as Sentry from '@sentry/browser';
+import { init } from '@sentry/browser';
 
 if (process.env.REACT_APP_ENVIRONMENT === 'PRODUCTION') {
-  Sentry.init({ dsn: process.env.REACT_APP_SENTRY_DNS });
+  init({ dsn: process.env.REACT_APP_SENTRY_DNS });
 }
 
 

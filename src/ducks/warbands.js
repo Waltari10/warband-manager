@@ -1,6 +1,6 @@
 import { put, takeEvery, all, call, select } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
-
+import { captureException } from '@sentry/browser';
 
 import firebase, { db } from '../utils/firebase';
 import logger from '../utils/logger';
@@ -187,6 +187,7 @@ function* handleGetWarbands () {
     yield put(getWarbandsSuccess(result));
   } catch (e) {
     logger.error(e);
+    captureException(e);
     yield put(getWarbandsError(e));
   }
 }
@@ -202,6 +203,7 @@ function* handleSaveWarband(action) {
     // yield put(getWarbands());
   } catch (e) {
     logger.error(e);
+    captureException(e);
     yield put(saveWarbandError(e));
   }
 }
@@ -214,6 +216,7 @@ function* handleRemoveWarband(action) {
     yield put(getWarbands());
   } catch (e) {
     logger.error(e);
+    captureException(e);
     yield put(removeWarbandError(e));
   }
 }
@@ -226,6 +229,7 @@ function* handleAddWarband(action) {
     yield put(getWarbands());
   } catch (e) {
     logger.error(e);
+    captureException(e);
     yield put(addWarbandError(e));
   }
 }

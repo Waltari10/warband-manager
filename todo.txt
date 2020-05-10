@@ -1,8 +1,7 @@
 TODO: 
 - Unit Tests
-- E2E tests
 - Add remaining exp to next level
-- ADd dramatic personae, large creatures and hired swords to rating calculation
+- ADd dramatic personae, hired swords to rating calculation
 - Add about page
 - GDPR?
 - Add equipmnt suggestions
@@ -10,14 +9,13 @@ TODO:
 - Autofill hero/henchman stats
 - Add labels for racial maximums and which skill has already been raised (copy existing sheet)
 - Equipmentin siirtäminen äijältä toiselle
-
-BEFORE BETA:
 - Sivu navigaation Gold crowns
-- Saved Indikaattori warbandi näkymään (similar to google sheets)
 - Remove attribte arrow add indicators or move them above and below the field
 - Landscape moodi hajoaa mobiilissa täysin warbandia katsellessa
 
-
+BEFORE BETA:
+- Saved Indikaattori warbandi näkymään (similar to google sheets)
+- E2E tests
 
 
 E2E testing plan:
