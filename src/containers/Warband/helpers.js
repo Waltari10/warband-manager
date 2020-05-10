@@ -50,8 +50,36 @@ export const getWarbandMemberCount = (heroes = {}, henchmen = {}) => {
 };
 
 export const getRatingFromMemberCount = (heroes = {}, henchmen = {}) => {
-  // TODO: add large calculation and hired swords calculation
-  return getWarbandMemberCount(heroes, henchmen) * 5;
+
+  let total = 0;
+
+  Object.values(heroes).forEach((hero) => {
+
+    if (hero.isLarge === 'true') {
+      total += 20;
+    } else {
+      total += 5;
+    }
+
+
+  });
+
+  Object.values(henchmen).forEach((henchman) => {
+
+    if (henchman.count) {
+      if (henchman.isLarge === 'true') {
+        total += (parseInt(henchman.count) * 20);
+      } else {
+        total += (parseInt(henchman.count) * 5);
+      }
+    }
+
+  });
+
+  return total;
+
+
+  // TODO: add hired swords calculations
 };
 
 export const getRating = (heroes = {}, henchmen = {}) => {

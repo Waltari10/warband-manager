@@ -12,14 +12,20 @@ TODO:
 - Equipmentin siirtäminen äijältä toiselle
 
 BEFORE BETA:
-- Change Favicon
 - Sivu navigaation Gold crowns
-- Contact 
-- About
-- Disclaimer this is only fan made
 - Saved Indikaattori warbandi näkymään (similar to google sheets)
 - Remove attribte arrow add indicators or move them above and below the field
-- Attributes are rendered horribly on narrow desktop screen
-- Apin nimi on liian pitkä warband listauksessa
-- Warbandin nimi on pitäisi pätkäistä jos se on liian pitkä
 - Landscape moodi hajoaa mobiilissa täysin warbandia katsellessa
+
+
+
+
+E2E testing plan:
+ - Add new warband
+ - Modify new warband
+ - Modify existing warband
+ - Add hero
+ - Add henchman
+ - Delete warband
+ - Delete hero
+ - Delete henchman

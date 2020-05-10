@@ -3,6 +3,36 @@ import * as helpers from '../helpers';
 
 describe('Helpers', () => {
 
+  it('Should get total rating for warband', () => {
+
+    const res = helpers.getRating({
+      'id': { // 20 + 5 + 15 == 40
+        isLarge: 'true',
+        exp: 5,
+        startingExp: 15,
+      },
+      'id2': { // 5 + 5 = 10
+        isLarge: 'false',
+        exp: 5,
+        startingExp: 0,
+      },
+    }, {
+      'id': { // 5 * (5 + 20) = 125
+        count: 5,
+        isLarge: 'true',
+        exp: 5,
+      },
+      'id2': { // 5 * (5 + 5) = 50
+        count: 5,
+        isLarge: 'false',
+        exp: 5,
+      },
+    });
+
+    expect(res).toEqual(225); // 40 + 10 + 125 + 50
+
+  });
+
   it('Should test get henchman level', () => {
 
     const level = helpers.getHenchmanAdvancements(1);

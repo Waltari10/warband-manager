@@ -2,7 +2,7 @@ import React, { useState, memo } from 'react';
 import {
   TextField, FormControl, MenuItem,
   InputLabel, Select, IconButton,
-  Grid,
+  Grid, Checkbox, FormControlLabel,
 } from '@material-ui/core';
 import { path } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
@@ -35,7 +35,6 @@ const HeroCard = memo(({
     const attributeName = e.target.getAttribute('name');
 
     const value = e.target.value;
-
     const attribute = path([attributeName], hero) || {};
 
     onValueChange(
@@ -182,6 +181,26 @@ const HeroCard = memo(({
                 );
               })
             }
+          </div>
+
+          <div>
+            <FormControlLabel
+              style={{
+                marginTop: '8px',
+                marginLeft: 0,
+              }}
+              checked={hero.isLarge === 'true'}
+              value={hero.isLarge || 'false'}
+              control={<Checkbox color="primary" />}
+              label="Is large creature"
+              labelPlacement="start"
+              onChange={(e) => {
+                e.target.value = e.target.checked;
+                handleValueChange(e);
+              }}
+              name="isLarge"
+            />
+
           </div>
 
           <div

@@ -90,6 +90,9 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     backgroundColor: 'white',
   },
+  addFirstWarband: {
+    marginTop: theme.spacing(12),
+  },
 }));
 
 
@@ -208,6 +211,14 @@ const HomePage = ({
           );
         })}
 
+        {!isLoading && Object.keys(warbands).length === 0 && (
+          <Typography
+            variant="h6"
+            className={classes.addFirstWarband}
+            align="center"
+          >No Warbands yet. Add first warband.</Typography>
+        )}
+
 
         {!isLoading && (
           <Fab
@@ -226,9 +237,6 @@ const HomePage = ({
           </Fab>
         )}
 
-        {!isLoading && Object.keys(warbands).length === 0 && (
-          <Typography>No Warbands yet. Add first warband.</Typography>
-        )}
       </div>
     </div>
   );

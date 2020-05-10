@@ -1,5 +1,5 @@
 import React, { useState, memo } from 'react';
-import { TextField, IconButton, Grid } from '@material-ui/core';
+import { TextField, IconButton, Grid, Checkbox, FormControlLabel } from '@material-ui/core';
 import { path } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
 import Dialog from '../../../components/Dialog';
@@ -160,6 +160,26 @@ const HenchmanCard = memo(({
 
               })
             }
+          </div>
+
+          <div>
+            <FormControlLabel
+              style={{
+                marginTop: '8px',
+                marginLeft: 0,
+              }}
+              checked={henchman.isLarge === 'true'}
+              value={henchman.isLarge || 'false'}
+              control={<Checkbox color="primary" />}
+              label="Is large creature"
+              labelPlacement="start"
+              onChange={(e) => {
+                e.target.value = e.target.checked;
+                handleValueChange(e);
+              }}
+              name="isLarge"
+            />
+
           </div>
 
           <div
