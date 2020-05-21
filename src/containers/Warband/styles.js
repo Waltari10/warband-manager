@@ -212,6 +212,7 @@ export default makeStyles((theme) => {
       ['&::-webkit-inner-spin-button']: {
         '-webkitAppearance': 'none',
       },
+      '-moz-appearance': 'textfield',
     },
     checkBoxContainer: {
       display: 'block',
