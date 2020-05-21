@@ -104,13 +104,15 @@ const HenchmanCard = memo(({
               variant="outlined"
               value={henchman.count || ''}
               onChange={handleValueChange}
-              // className={classes.textFieldShort}
               style={{
                 marginLeft: '24px',
               }}
               type="number"
               label="Count"
               name="count"
+              inputProps={{
+                min: '0',
+              }}
             />
           </div>
           <TextField
@@ -140,6 +142,8 @@ const HenchmanCard = memo(({
                       </b>
                     </p>
                     <input
+                      min="0"
+                      max="10"
                       name={attribute}
                       onChange={(e) => onAttributeChange(e, 'value')}
                       value={path([attribute, 'value'], henchman) || ''}
@@ -195,6 +199,9 @@ const HenchmanCard = memo(({
               name="exp"
               type="number"
               className={`${classes.textfieldShort} ${classes.numberField}`}
+              inputProps={{
+                min: '0',
+              }}
             />
             <p
               style={{

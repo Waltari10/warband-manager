@@ -86,6 +86,7 @@ const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) =>
           <TextField
             variant="outlined"
             type="number"
+            min="0"
             name="gamesPlayed"
             value={gamesPlayed || 0}
             onChange={handleChange}

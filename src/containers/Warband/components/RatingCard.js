@@ -56,7 +56,7 @@ const RatingCard = memo(({ classes, heroes, henchmen }) => {
             Currently, rating calculation doens't recognize hired swords. 
               This means that for each hired sword, you should add
              to your total rating score the hired swords rating cost minus 
-             5 rating points. If the hired sword is large, subtract 20 rating points. 
+             5 rating points. 
              <br><br>
         
             For example, if you have hired a warlock whose base rating cost

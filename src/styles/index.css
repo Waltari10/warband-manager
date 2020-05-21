@@ -19,3 +19,12 @@ body {
   font-family: "Deutsch";
   src: url("fonts/Deutsch.ttf") format('ttf');
 }
+/* 
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+} */

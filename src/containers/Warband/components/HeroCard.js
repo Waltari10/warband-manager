@@ -3,9 +3,14 @@ import {
   TextField, FormControl, MenuItem,
   InputLabel, Select, IconButton,
   Grid, Checkbox, FormControlLabel,
+  ListItemText,
 } from '@material-ui/core';
 import { path } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
+import AddOutlined from '@material-ui/icons/AddOutlined';
+import RemoveOutlined from '@material-ui/icons/RemoveOutlined';
+
+
 import Dialog from '../../../components/Dialog';
 
 import { attributesArr, skillCategories, MAX_HEROES } from '../constants';
@@ -114,6 +119,7 @@ const HeroCard = memo(({
             <InputLabel
               style={{
                 marginLeft: '12px',
+                marginTop: '-5 px',
               }}
               id="skill-categories-label"
             >Available skills</InputLabel>
@@ -131,17 +137,31 @@ const HeroCard = memo(({
               inputProps={{
                 name: 'skillCategories',
               }}
+              label="Available skills"
               name="skillCategories"
               onChange={handleValueChange}
+              renderValue={(selected) => selected.join(', ')}
             >
-              {skillCategories.map((skill) => (
-                <MenuItem
-                  key={skill}
-                  value={skill}
-                >
-                  {skill}
-                </MenuItem>
-              ))}
+              {skillCategories.map((skill) => {
+
+                const isSelected = hero.skillCategories ? hero.skillCategories.find((skillTemp) => skillTemp === skill) : false;
+
+                return (
+                  <MenuItem
+                    key={skill}
+                    value={skill}
+                  >
+                    {
+                      isSelected ? (
+                        <RemoveOutlined style={{ marginRight: '8px' }} />
+                      ) : (
+                        <AddOutlined style={{ marginRight: '8px' }} />
+                      )
+                    }
+                    <ListItemText primary={skill} />
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
 
@@ -166,6 +186,8 @@ const HeroCard = memo(({
                       </b>
                     </p>
                     <input
+                      min="0"
+                      max="10"
                       name={attribute}
                       onChange={(e) => onAttributeChange(e, 'value', heroId)}
                       value={path([attribute, 'value'], hero) || ''}
@@ -173,6 +195,8 @@ const HeroCard = memo(({
                       type="number"
                     />
                     <input
+                      min="0"
+                      max="10"
                       name={attribute}
                       onChange={(e) => onAttributeChange(e, 'racialMax', heroId)}
                       value={path([attribute, 'racialMax'], hero) || ''}
@@ -216,6 +240,9 @@ const HeroCard = memo(({
               name="exp"
               type="number"
               className={classes.numberField}
+              inputProps={{
+                min: '0',
+              }}
             />
             <TextField
               variant="outlined"
@@ -225,6 +252,9 @@ const HeroCard = memo(({
               label={'Starting exp'}
               name="startingExp"
               type="number"
+              inputProps={{
+                min: '0',
+              }}
             />
           </div>
           <div

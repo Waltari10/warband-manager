@@ -1,6 +1,7 @@
 import { put, takeEvery, all, call, select } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 import { captureException } from '@sentry/browser';
+import { path } from 'ramda';
 
 import firebase, { db } from '../utils/firebase';
 import logger from '../utils/logger';
@@ -182,8 +183,13 @@ const callGetWarbands = (uuid) => {
 
 
 function* handleGetWarbands () {
+  const uuid = yield select((state) => path(['user', 'user', 'uid'], state));
+
+  if (!uuid) {
+    return;
+  }
+
   try {
-    const uuid = yield select((state) => state.user.user.uid);
     const result = yield call(callGetWarbands, uuid);
     yield put(getWarbandsSuccess(result));
   } catch (e) {

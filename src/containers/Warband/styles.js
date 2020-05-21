@@ -179,6 +179,9 @@ export default makeStyles((theme) => {
       flexDirection: 'row',
       marginTop: '24px',
       maxWidth: '320px',
+      borderTopLeftRadius: '4px',
+      borderTopRightRadius: '4px',
+      overflow: 'hidden',
     },
     groupUl: {
       backgroundColor: 'white',
@@ -203,6 +206,12 @@ export default makeStyles((theme) => {
       borderWidth: '0.5px',
       borderColor: theme.palette.primary.main,
       fontSize: '22px',
+      ['&::-webkit-outer-spin-button']: {
+        '-webkitAppearance': 'none',
+      },
+      ['&::-webkit-inner-spin-button']: {
+        '-webkitAppearance': 'none',
+      },
     },
     checkBoxContainer: {
       display: 'block',
