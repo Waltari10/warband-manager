@@ -144,7 +144,9 @@ const HeroCard = memo(({
             >
               {skillCategories.map((skill) => {
 
-                const isSelected = hero.skillCategories ? hero.skillCategories.find((skillTemp) => skillTemp === skill) : false;
+                const isSelected = hero.skillCategories ?
+                  hero.skillCategories.find((skillTemp) => skillTemp === skill) :
+                  false;
 
                 return (
                   <MenuItem

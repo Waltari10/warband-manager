@@ -175,7 +175,7 @@ exports[`Login Should render (smoke test) 1`] = `
       class="MuiTypography-root MuiTypography-body1"
       style="position: absolute; right: 8px; bottom: 0px; text-shadow: 0px 0px white;"
     >
-      v0.4.1-beta
+      v0.4.2-beta
     </p>
   </div>
 </DocumentFragment>

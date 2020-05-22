@@ -130,6 +130,7 @@ advancementCache.set(heroAdvancementArr, {});
 
 const getAdvancementFactory = (arr) => (exp) => {
 
+
   let advancements = 0;
 
   const expInt = parseInt(exp);
@@ -154,11 +155,17 @@ const _getHeroAdvancements = getAdvancementFactory(heroAdvancementArr);
 
 export const getHeroAdvancements = (exp, startingExp = 0) => {
 
-  const expAdvancements = _getHeroAdvancements(exp + startingExp);
+
+  const expInt = parseInt(exp);
+  const startingExpInt = parseInt(startingExp);
+
+  const expAdvancements = _getHeroAdvancements(expInt + startingExpInt);
   const startingExpAdvancements = _getHeroAdvancements(startingExp);
 
 
-  return expAdvancements - startingExpAdvancements;
+  const res = expAdvancements - startingExpAdvancements;
+
+  return res;
 };
 
 export const getHenchmanAdvancements = getAdvancementFactory(henchmanAdvancementArr);
