@@ -117,27 +117,18 @@ const heroAdvancementArr = [
   90,
 ];
 
-// TODO: Exp to next level
-
 const advancementCache = new Map();
 
 advancementCache.set(henchmanAdvancementArr, {});
 advancementCache.set(heroAdvancementArr, {});
 
 
-const getAdvancementFactory = (arr) => (exp, startingExp) => {
+// Calculate advancements without starting exp
+// Calculate advancements only for starting exp
+// Subtract advancements from starting exp, from regular advancements
 
 
-  const cacheByArr = advancementCache.get(arr);
-
-  const key = `${exp} ${startingExp}`;
-
-  if (cacheByArr[key]) {
-    return cacheByArr[key];
-  }
-
-  const startingIndex = arr.findIndex((threshold) => threshold >= startingExp) || -1;
-
+const getAdvancementFactory = (arr) => (exp) => {
 
   let advancements = 0;
 
@@ -147,15 +138,7 @@ const getAdvancementFactory = (arr) => (exp, startingExp) => {
     return advancements;
   }
 
-  arr.forEach((threshold, index) => {
-
-    if (startingExp) {
-      if (expInt >= (threshold - startingExp) && index > startingIndex) {
-        advancements += 1;
-      }
-      return;
-    }
-
+  arr.forEach((threshold) => {
 
     if (expInt >= threshold) {
       advancements += 1;
@@ -163,11 +146,19 @@ const getAdvancementFactory = (arr) => (exp, startingExp) => {
 
   });
 
-  cacheByArr[key] = advancements;
-
   return advancements;
 };
 
-export const getHeroAdvancements = getAdvancementFactory(heroAdvancementArr);
+
+const _getHeroAdvancements = getAdvancementFactory(heroAdvancementArr);
+
+export const getHeroAdvancements = (exp, startingExp = 0) => {
+
+  const expAdvancements = _getHeroAdvancements(exp + startingExp);
+  const startingExpAdvancements = _getHeroAdvancements(startingExp);
+
+
+  return expAdvancements - startingExpAdvancements;
+};
 
 export const getHenchmanAdvancements = getAdvancementFactory(henchmanAdvancementArr);

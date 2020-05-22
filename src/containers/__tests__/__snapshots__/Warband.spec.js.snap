@@ -104,6 +104,7 @@ exports[`Warband Should render (smoke test) 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiTextField-root makeStyles-numberField-16 makeStyles-textFieldShort-17"
+                min="0"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"

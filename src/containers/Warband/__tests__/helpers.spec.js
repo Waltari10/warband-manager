@@ -110,6 +110,7 @@ describe('Helpers', () => {
 
     expect(level8).toEqual(21);
 
+
   });
 
 
@@ -121,6 +122,25 @@ describe('Helpers', () => {
     expect(level).toEqual(1);
 
 
+    const res2_0 = helpers.getHeroAdvancements(0, 8);
+
+    expect(res2_0).toEqual(0);
+
+
+    const res2_1 = helpers.getHeroAdvancements(1, 8);
+
+    expect(res2_1).toEqual(0);
+
+
+    const res2_2 = helpers.getHeroAdvancements(2, 8);
+
+    expect(res2_2).toEqual(0);
+
+
+    const res2_3 = helpers.getHeroAdvancements(3, 8);
+
+    expect(res2_3).toEqual(1);
+
     const res2 = helpers.getHeroAdvancements(5, 8);
 
     expect(res2).toEqual(1);
@@ -129,6 +149,26 @@ describe('Helpers', () => {
     const res3 = helpers.getHeroAdvancements(30, 8);
 
     expect(res3).toEqual(8);
+
+
+    const res4 = helpers.getHeroAdvancements(1, 10);
+
+    expect(res4).toEqual(1);
+
+
+    const res5 = helpers.getHeroAdvancements(4, 10);
+
+    expect(res5).toEqual(2);
+
+
+    const res6 = helpers.getHeroAdvancements(0, 10);
+
+    expect(res6).toEqual(0);
+
+
+    const res7 = helpers.getHeroAdvancements(2, 10);
+
+    expect(res7).toEqual(1);
 
   });
 
