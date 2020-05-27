@@ -5,7 +5,7 @@ import { HashRouter as Router } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
 
 
-import bg from './assets/dark_bg.jpg';
+import bg from './assets/dark_bg.webp';
 import configureStore from './store/configureStore';
 import Routes from './containers/Routes';
 import Notifier from './containers/Notifier';
