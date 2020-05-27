@@ -10,6 +10,7 @@ const emptyObj = {};
 const HeroList = memo(({
   heroIndex, classes,
   handleHeroChange, heroes, addHero, deleteHero,
+  warbandType,
 }) => {
 
   return (
@@ -23,6 +24,7 @@ const HeroList = memo(({
             key={heroId}
           >
             <HeroCard
+              warbandType={warbandType}
               deleteHero={deleteHero}
               heroId={heroId}
               classes={classes}

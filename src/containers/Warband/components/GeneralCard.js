@@ -2,25 +2,7 @@ import React, { memo } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Grid, TextField } from '@material-ui/core';
 
-const warbandTypes = [
-  'Cult of the Possessed',
-  'The Sisters of Sigmar',
-  'Witch Hunters',
-  'The undead',
-  'Skaven',
-  'Averlanders',
-  'Beastmen Raiders',
-  'Beastmen Raiders (old)',
-  'Carnival of Chaos',
-  'Dwarf Treasure Hunters',
-  'Kislevites',
-  'Marienburgers',
-  'Middenheimers',
-  'Orc Mob',
-  'Ostlanders',
-  'The Outlaws of Stirwood Forest',
-  'Reiklanders',
-];
+import warbands from '../../../assets/warbands.json';
 
 const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) => {
   return (
@@ -59,7 +41,7 @@ const GeneralCard = memo(({ classes, name, type, gamesPlayed, handleChange }) =>
             classes={{
               groupUl: classes.groupUl,
             }}
-            options={warbandTypes}
+            options={warbands}
             style={{ width: 200 }}
             onChange={(event, newValue) => {
               handleChange({ target: { value: newValue, getAttribute: () => 'type' } });

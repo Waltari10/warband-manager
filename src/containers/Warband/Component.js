@@ -47,6 +47,7 @@ const WarbandPage = ({
   const { henchmen, index: henchmenIndex } = henchmenState;
 
   const [general, setGeneral] = useState({});
+  console.log(general);
 
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
@@ -301,6 +302,7 @@ const WarbandPage = ({
               isLoadingGetWarbands={isLoadingGetWarbands}
               addHero={addHero}
               deleteHero={deleteHero}
+              warbandType={general.type}
             />
 
             <Divider className={classes.divider}/>
