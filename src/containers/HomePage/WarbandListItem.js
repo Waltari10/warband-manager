@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     padding: theme.spacing(1),
     paddingLeft: theme.spacing(3),
-    width: '100%',
     borderRadius: 0,
     position: 'relative',
     borderStyle: 'solid',
@@ -25,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     borderRightWidth: '0.5px',
     [theme.breakpoints.down('xs')]: {
       borderLeftWidth: 0,
+      borderRightWidth: 0,
     },
   },
   topic: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iconButton: {
     position: 'absolute',
-    right: theme.spacing(3),
+    right: '10px',
     top: '4px',
   },
   routerLink: {

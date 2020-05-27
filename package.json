@@ -76,7 +76,6 @@
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
-    "node-firestore-import-export": "^0.14.1",
     "notistack": "^0.9.11",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "react-dev-utils": "10.1.0",
@@ -95,10 +94,7 @@
     "test:coverage": "node scripts/test.js --coverage",
     "test:update-snapshots": "npm run test -- -u",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "database:export": "firestore-export --accountCredentials credentials.json --backupFile myDatabase.json",
-    "database:import": "firestore-import --accountCredentials credentials.json --backupFile myDatabase.json",
-    "database:clear": "firestore-clear --accountCredentials credentials.json --yes"
+    "lint:fix": "eslint . --fix"
   },
   "browserslist": {
     "production": [

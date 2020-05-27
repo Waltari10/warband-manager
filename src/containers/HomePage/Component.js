@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '1024px',
     height: 'calc(100% - 48px)',
     placeSelf: 'flex-start',
-    overflowY: 'scroll',
+    overflowY: 'auto',
     overflowX: 'hidden',
     flex: 1,
   },
