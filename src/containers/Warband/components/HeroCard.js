@@ -5,7 +5,7 @@ import {
   Grid, Checkbox, FormControlLabel,
   ListItemText, Typography,
 } from '@material-ui/core';
-import { path } from 'ramda';
+import { path, uniq } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
 import AddOutlined from '@material-ui/icons/AddOutlined';
 import RemoveOutlined from '@material-ui/icons/RemoveOutlined';
@@ -72,6 +72,8 @@ const HeroCard = memo(({
 
 
   const warbandSkills = getWarbandSkills(warbandType);
+
+  const allSkills = uniq((hero.skillCategories || []).concat(warbandSkills));
 
   return (
 
@@ -243,7 +245,7 @@ const HeroCard = memo(({
               onChange={handleValueChange}
               renderValue={(selected) => selected.join(', ')}
             >
-              {warbandSkills.map((skill) => {
+              {allSkills.map((skill) => {
 
                 const isSelected = hero.skillCategories ?
                   hero.skillCategories.find((skillTemp) => skillTemp === skill) :

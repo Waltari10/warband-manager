@@ -148,14 +148,6 @@ const HenchmanCard = memo(({
               }}
             />
           </div>
-          {/* <TextField
-            variant="outlined"
-            value={henchman.type || ''}
-            onChange={handleValueChange}
-            className={classes.textFieldLong}
-            label={'Type'}
-            name="type"
-          /> */}
 
           <Autocomplete
             selectOnFocus
