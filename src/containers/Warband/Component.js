@@ -47,7 +47,6 @@ const WarbandPage = ({
   const { henchmen, index: henchmenIndex } = henchmenState;
 
   const [general, setGeneral] = useState({});
-  console.log(general);
 
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
@@ -314,6 +313,7 @@ const WarbandPage = ({
               items={henchmen}
               add={addHenchman}
               deleteHire={deleteHenchman}
+              warbandType={general.type}
             />
           </div>
         </Paper>

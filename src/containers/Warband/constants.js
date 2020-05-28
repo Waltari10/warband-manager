@@ -7,7 +7,7 @@ export const henchmenIdArr = [
   'henchman_6',
 ];
 
-export const skillCategories = [
+export const basicSkillCategories = [
   'Academic',
   'Special',
   'Speed',
@@ -15,6 +15,10 @@ export const skillCategories = [
   'Strength',
   'Shooting',
   'Lesser Magic',
+];
+
+export const skillCategories = [
+  ...basicSkillCategories,
   'Lizardman Magic',
   'Prayers of Taal',
   'Shadow Warrior Magic',
@@ -29,14 +33,6 @@ export const skillCategories = [
   'Dark Elf Magic',
   'Prayers of Ulric',
 ];
-
-// 'skill_lists': [
-//   'Combat',
-//   'Shooting',
-//   'Special',
-//   'Speed',
-//   'Strength',
-// ],
 
 export const MAX_HENCHMEN = 7;
 export const MAX_HEROES = 6;

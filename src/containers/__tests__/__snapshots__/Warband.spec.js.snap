@@ -81,10 +81,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-300"
+                      class="PrivateNotchedOutline-legendLabelled-41"
                     >
                       <span>
                         Warband name
@@ -124,10 +124,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-300 PrivateNotchedOutline-legendNotched-301"
+                      class="PrivateNotchedOutline-legendLabelled-41 PrivateNotchedOutline-legendNotched-42"
                     >
                       <span>
                         Games played
@@ -181,10 +181,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-300 PrivateNotchedOutline-legendNotched-301"
+                        class="PrivateNotchedOutline-legendLabelled-41 PrivateNotchedOutline-legendNotched-42"
                       >
                         <span>
                           Wyrdstone shards
@@ -214,10 +214,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-300 PrivateNotchedOutline-legendNotched-301"
+                        class="PrivateNotchedOutline-legendLabelled-41 PrivateNotchedOutline-legendNotched-42"
                       >
                         <span>
                           Gold crowns
@@ -259,10 +259,10 @@ exports[`Warband Should render (smoke test) 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-298 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-300"
+                      class="PrivateNotchedOutline-legendLabelled-41"
                     >
                       <span>
                         Equipment

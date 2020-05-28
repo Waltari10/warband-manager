@@ -1,17 +1,20 @@
 import React, { useState, memo } from 'react';
-import { TextField, IconButton, Grid, Checkbox, FormControlLabel } from '@material-ui/core';
+import {
+  TextField, IconButton, Grid, Checkbox, FormControlLabel, Typography,
+} from '@material-ui/core';
 import { path } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
 import Dialog from '../../../components/Dialog';
-
+import unitTemplates, { henchmenIndexes } from '../../../assets/unitTemplates';
 import { attributesArr, MAX_HENCHMEN } from '../constants';
-
 import { getHenchmanAdvancements } from '../helpers';
 
 
 const HenchmanCard = memo(({
   classes, index, henchman = {}, handleChange,
-  deleteHire, id,
+  deleteHire, id, warbandType,
 }) => {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +23,13 @@ const HenchmanCard = memo(({
 
     handleChange(
       { ...henchman, [e.target.name || e.target.getAttribute('name')]: e.target.value },
+      id
+    );
+  };
+
+  const autoFill = (newHenchman) => {
+    handleChange(
+      { ...henchman, ...newHenchman },
       id
     );
   };
@@ -45,6 +55,14 @@ const HenchmanCard = memo(({
     );
   };
 
+  const [autoFillHenchman, setAutoFillHenchman] = useState(null);
+
+  const henchmenTemplateIndex = henchmenIndexes[warbandType] || [];
+
+
+  const availableHenchmen = henchmenTemplateIndex.map((h, index) => unitTemplates[henchmenTemplateIndex[index]]);
+
+
   return (
     <div
       className={classes.hireContainer}
@@ -59,6 +77,21 @@ const HenchmanCard = memo(({
         open={isOpen}
         title={`Are you sure you want to delete ${henchman.name || ''}` || '? '}
         confirm="Delete"
+      />
+
+
+      <Dialog
+        handleClose={() => setAutoFillHenchman(null)}
+        handleConfirm={() => {
+          setAutoFillHenchman(null);
+          autoFill(autoFillHenchman);
+        }}
+        open={autoFillHenchman !== null}
+        title={
+          `Warning! This will overwrite ${henchman.name || ''} 
+          attributes. Are you sure you want to do it?`
+        }
+        confirm="Overwrite"
       />
 
       <h5
@@ -115,13 +148,83 @@ const HenchmanCard = memo(({
               }}
             />
           </div>
-          <TextField
+          {/* <TextField
             variant="outlined"
             value={henchman.type || ''}
             onChange={handleValueChange}
             className={classes.textFieldLong}
             label={'Type'}
             name="type"
+          /> */}
+
+          <Autocomplete
+            selectOnFocus
+            value={henchman.type || ''}
+            freeSolo
+            clearOnBlur
+            name="type"
+            classes={{
+              groupUl: classes.groupUl,
+            }}
+            renderOption={(option) => <Typography noWrap>{option}</Typography>}
+            options={availableHenchmen.map((hench) => hench.unit_type)}
+            style={{ width: 200 }}
+            onChange={(e, newValue = '') => {
+
+              let _henchman;
+
+              if (newValue) {
+                _henchman = availableHenchmen.find((hench) => hench.unit_type === newValue);
+              }
+
+              handleValueChange({ target: { value: newValue, getAttribute: () => 'type' } });
+
+              if (!_henchman) {
+                return;
+              }
+
+
+              const newHench = {
+                type: newValue,
+              };
+
+              // fill attributes
+              attributesArr.forEach((attributeKey) => {
+                newHench[attributeKey] = {
+                  value: _henchman[attributeKey],
+                };
+              });
+
+
+              // Should confirm autofill
+              // If any attribute has value require confirm
+              let isConfirm = (
+                attributesArr.some((attributeKey) => henchman[attributeKey])
+              );
+
+              if (isConfirm) {
+                setAutoFillHenchman(newHench);
+              } else {
+                autoFill(newHench);
+              }
+
+            }}
+            ListboxProps={{
+              style: {
+                backgroundColor: 'white',
+              },
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                name="type"
+                value={henchman.type || ''}
+                onChange={handleValueChange}
+                label="Type"
+                variant="outlined"
+                className={classes.textFieldLong}
+              />
+            )}
           />
 
           <div

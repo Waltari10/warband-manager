@@ -13,10 +13,11 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
 import Dialog from '../../../components/Dialog';
-import { attributesArr, skillCategories, MAX_HEROES } from '../constants';
+import { attributesArr, MAX_HEROES } from '../constants';
 import { getHeroAdvancements } from '../helpers';
 import unitTemplates, { heroIndexes } from '../../../assets/unitTemplates';
 import racialMaxes from '../../../assets/races.json';
+import { getWarbandSkills } from '../../../assets/skillParser';
 
 
 const HeroCard = memo(({
@@ -27,6 +28,7 @@ const HeroCard = memo(({
 }) => {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [autoFillHero, setAutoFillHero] = useState(null);
 
   const handleValueChange = (e) => {
 
@@ -68,6 +70,9 @@ const HeroCard = memo(({
 
   const availableHeroes = heroTemplateIndex.map((h, index) => unitTemplates[heroTemplateIndex[index]]);
 
+
+  const warbandSkills = getWarbandSkills(warbandType);
+
   return (
 
     <div
@@ -83,6 +88,21 @@ const HeroCard = memo(({
         open={isOpen}
         title={`Are you sure you want to delete ${hero.name || ''}` || '? '}
         confirm="Delete"
+      />
+
+
+      <Dialog
+        handleClose={() => setAutoFillHero(null)}
+        handleConfirm={() => {
+          setAutoFillHero(null);
+          autoFill(autoFillHero);
+        }}
+        open={autoFillHero !== null}
+        title={
+          `Warning! This will overwrite ${hero.name || ''} 
+          attributes, experience and skillcategories. Are you sure you want to do it?`
+        }
+        confirm="Overwrite"
       />
 
       <IconButton
@@ -144,24 +164,34 @@ const HeroCard = memo(({
                 return;
               }
 
-              const isAutofill = true;
 
-              if (isAutofill) {
+              const newHero = {
+                startingExp: _hero.exp,
+                skillCategories: _hero.skill_lists,
+                type: newValue,
+              };
 
-                const newHero = {
-                  startingExp: _hero.exp,
-                  skillCategories: _hero.skill_lists,
-                  type: newValue,
+              // fill attributes
+              attributesArr.forEach((attributeKey) => {
+                newHero[attributeKey] = {
+                  value: _hero[attributeKey],
+                  racialMax: racialMaxes[_hero.race][attributeKey],
                 };
+              });
 
-                // fill attributes
-                attributesArr.forEach((attributeKey) => {
-                  newHero[attributeKey] = {
-                    value: _hero[attributeKey],
-                    racialMax: racialMaxes[_hero.race][attributeKey],
-                  };
-                });
 
+              // Should confirm autofill
+              // If any attribute, experience or skillCategories has value require confirm
+              let isConfirm = (
+                !!hero.startingExp ||
+                !!hero.exp ||
+                (!!hero.skillCategories && !!hero.skillCategorieslength !== 0) ||
+                attributesArr.some((attributeKey) => hero[attributeKey])
+              );
+
+              if (isConfirm) {
+                setAutoFillHero(newHero);
+              } else {
                 autoFill(newHero);
               }
 
@@ -213,7 +243,7 @@ const HeroCard = memo(({
               onChange={handleValueChange}
               renderValue={(selected) => selected.join(', ')}
             >
-              {skillCategories.map((skill) => {
+              {warbandSkills.map((skill) => {
 
                 const isSelected = hero.skillCategories ?
                   hero.skillCategories.find((skillTemp) => skillTemp === skill) :

@@ -29,6 +29,9 @@ export const heroIndexes = {
   'Carnival of Chaos': [55, 143, 153],
   Amazons: [76, 91, 149],
   'Cult of the Possessed': [118, 135, 157],
+  Reiklanders: [56, 64, 104],
+  Marienburgers: [152, 172, 173],
+  Middenheimers: [10, 119, 124],
 };
 
 export const henchmenIndexes = {
@@ -56,6 +59,9 @@ export const henchmenIndexes = {
   Lizardmen: [87, 113, 147],
   'Shadow warriors': [99, 165],
   Averlanders: [101, 125, 166],
+  Reiklanders: [5, 81, 138],
+  Marienburgers: [174, 175, 176],
+  Middenheimers: [177, 178, 179],
 };
 
 export const hiredSwordIndex = [
@@ -249,7 +255,7 @@ export default [
 
     ],
   },
-  {
+  { // reiklander
     'name': '',
     'unit_type': 'Swordsmen',
     'suggestion': 'Swordsmen',
@@ -265,7 +271,7 @@ export default [
     'exp': 0,
     'cost': 35,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Reiklanders',
     'rating': 5,
     'warrior_type': 'Henchmen',
     'rout_test_contribution': 1,
@@ -433,7 +439,7 @@ export default [
   {
     'name': '',
     'unit_type': 'Youngblood',
-    'suggestion': 'Youngblood (Middenheimer)',
+    'suggestion': 'Youngblood',
     'm': 4,
     'ws': 2,
     'bs': 2,
@@ -446,7 +452,7 @@ export default [
     'exp': 0,
     'cost': 15,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Middenheimers',
     'rating': 5,
     'warrior_type': 'Hero',
     'rout_test_contribution': 1,
@@ -2066,7 +2072,7 @@ export default [
 
     ],
   },
-  {
+  { // reiklander
     'name': '',
     'unit_type': 'Youngblood',
     'suggestion': 'Youngblood',
@@ -2082,7 +2088,7 @@ export default [
     'exp': 0,
     'cost': 15,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Reiklanders',
     'rating': 5,
     'warrior_type': 'Hero',
     'rout_test_contribution': 1,
@@ -2341,7 +2347,7 @@ export default [
 
     ],
   },
-  {
+  { // reiklander
     'name': '',
     'unit_type': 'Champion',
     'suggestion': 'Champion (Reiklander)',
@@ -2357,7 +2363,7 @@ export default [
     'exp': 8,
     'cost': 35,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Reiklanders',
     'rating': 5,
     'warrior_type': 'Hero',
     'rout_test_contribution': 1,
@@ -2931,10 +2937,10 @@ export default [
 
     ],
   },
-  {
+  { // reiklander
     'name': '',
     'unit_type': 'Warriors',
-    'suggestion': 'Warriors (Mercenary)',
+    'suggestion': 'Warriors',
     'm': 4,
     'ws': 3,
     'bs': 3,
@@ -2947,7 +2953,7 @@ export default [
     'exp': 0,
     'cost': 25,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Reiklanders',
     'rating': 5,
     'warrior_type': 'Henchmen',
     'rout_test_contribution': 1,
@@ -3730,7 +3736,7 @@ export default [
 
     ],
   },
-  {
+  { // reiklander
     'name': '',
     'unit_type': 'Mercenary Captain',
     'suggestion': 'Mercenary Captain',
@@ -3746,7 +3752,7 @@ export default [
     'exp': 20,
     'cost': 60,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Reiklanders',
     'rating': 5,
     'warrior_type': 'Hero',
     'rout_test_contribution': 1,
@@ -4262,7 +4268,7 @@ export default [
   {
     'name': '',
     'unit_type': 'Champion',
-    'suggestion': 'Champion (Middenheimer)',
+    'suggestion': 'Champion',
     'm': 4,
     'ws': 4,
     'bs': 3,
@@ -4275,7 +4281,7 @@ export default [
     'exp': 8,
     'cost': 35,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Middenheimers',
     'rating': 5,
     'warrior_type': 'Hero',
     'rout_test_contribution': 1,
@@ -4438,7 +4444,7 @@ export default [
   {
     'name': '',
     'unit_type': 'Mercenary Captain',
-    'suggestion': 'Mercenary Captain (Middenheimer)',
+    'suggestion': 'Mercenary Captain',
     'm': 4,
     'ws': 4,
     'bs': 4,
@@ -4451,7 +4457,7 @@ export default [
     'exp': 20,
     'cost': 60,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Middenheimers',
     'rating': 5,
     'warrior_type': 'Hero',
     'rout_test_contribution': 1,
@@ -4936,10 +4942,10 @@ export default [
 
     ],
   },
-  {
+  { // Reiklander
     'name': '',
     'unit_type': 'Marksmen',
-    'suggestion': 'Marksmen (Mercenary)',
+    'suggestion': 'Marksmen',
     'm': 4,
     'ws': 3,
     'bs': 3,
@@ -4952,7 +4958,7 @@ export default [
     'exp': 0,
     'cost': 25,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Reiklanders',
     'rating': 5,
     'warrior_type': 'Henchmen',
     'rout_test_contribution': 1,
@@ -5422,7 +5428,7 @@ export default [
   {
     'name': '',
     'unit_type': 'Champion',
-    'suggestion': 'Champion (Marienburger)',
+    'suggestion': 'Champion',
     'm': 4,
     'ws': 4,
     'bs': 3,
@@ -5435,7 +5441,7 @@ export default [
     'exp': 8,
     'cost': 35,
     'race': 'Human',
-    'warband': 'Mercenaries',
+    'warband': 'Marienburgers',
     'rating': 5,
     'warrior_type': 'Hero',
     'rout_test_contribution': 1,
@@ -6150,6 +6156,276 @@ export default [
     'starting_equipment': [
       'Fighting claws',
       'Warplock pistols',
+    ],
+    'special_skills': [
+
+    ],
+  },
+  { // marienburgers
+    'name': '',
+    'unit_type': 'Mercenary Captain',
+    'suggestion': 'Mercenary Captain',
+    'm': 4,
+    'ws': 4,
+    'bs': 4,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 4,
+    'a': 1,
+    'ld': 8,
+    'exp': 20,
+    'cost': 60,
+    'race': 'Human',
+    'warband': 'Marienburgers',
+    'rating': 5,
+    'warrior_type': 'Hero',
+    'rout_test_contribution': 1,
+    'special_rules': [
+
+    ],
+    'skill_lists': [
+      'Academic',
+      'Combat',
+      'Shooting',
+      'Speed',
+      'Strength',
+    ],
+    'starting_equipment': [
+
+    ],
+    'special_skills': [
+
+    ],
+  },
+  {
+    'name': '',
+    'unit_type': 'Youngblood',
+    'suggestion': 'Youngblood',
+    'm': 4,
+    'ws': 2,
+    'bs': 2,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 3,
+    'a': 1,
+    'ld': 6,
+    'exp': 0,
+    'cost': 15,
+    'race': 'Human',
+    'warband': 'Marienburgers',
+    'rating': 5,
+    'warrior_type': 'Hero',
+    'rout_test_contribution': 1,
+    'special_rules': [
+
+    ],
+    'skill_lists': [
+      'Combat',
+      'Speed',
+      'Strength',
+    ],
+    'starting_equipment': [
+
+    ],
+    'special_skills': [
+
+    ],
+  },
+  {
+    'name': '',
+    'unit_type': 'Warriors',
+    'suggestion': 'Warriors',
+    'm': 4,
+    'ws': 3,
+    'bs': 3,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 3,
+    'a': 1,
+    'ld': 7,
+    'exp': 0,
+    'cost': 25,
+    'race': 'Human',
+    'warband': 'Marienburgers',
+    'rating': 5,
+    'warrior_type': 'Henchmen',
+    'rout_test_contribution': 1,
+    'special_rules': [
+
+    ],
+    'skill_lists': [
+
+    ],
+    'starting_equipment': [
+
+    ],
+    'special_skills': [
+
+    ],
+  },
+  { // Marienburgers
+    'name': '',
+    'unit_type': 'Marksmen',
+    'suggestion': 'Marksmen',
+    'm': 4,
+    'ws': 3,
+    'bs': 3,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 3,
+    'a': 1,
+    'ld': 7,
+    'exp': 0,
+    'cost': 25,
+    'race': 'Human',
+    'warband': 'Marienburgers',
+    'rating': 5,
+    'warrior_type': 'Henchmen',
+    'rout_test_contribution': 1,
+    'special_rules': [
+
+    ],
+    'skill_lists': [
+
+    ],
+    'starting_equipment': [
+
+    ],
+    'special_skills': [
+
+    ],
+  },
+  { // Marienburgers
+    'name': '',
+    'unit_type': 'Swordsmen',
+    'suggestion': 'Swordsmen',
+    'm': 4,
+    'ws': 4,
+    'bs': 3,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 3,
+    'a': 1,
+    'ld': 7,
+    'exp': 0,
+    'cost': 35,
+    'race': 'Human',
+    'warband': 'Marienburgers',
+    'rating': 5,
+    'warrior_type': 'Henchmen',
+    'rout_test_contribution': 1,
+    'special_rules': [
+      'Expert Swordsmen',
+    ],
+    'skill_lists': [
+
+    ],
+    'starting_equipment': [
+
+    ],
+    'special_skills': [
+
+    ],
+  },
+  { // Middenheimers
+    'name': '',
+    'unit_type': 'Warriors',
+    'suggestion': 'Warriors',
+    'm': 4,
+    'ws': 3,
+    'bs': 3,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 3,
+    'a': 1,
+    'ld': 7,
+    'exp': 0,
+    'cost': 25,
+    'race': 'Human',
+    'warband': 'Middenheimers',
+    'rating': 5,
+    'warrior_type': 'Henchmen',
+    'rout_test_contribution': 1,
+    'special_rules': [
+
+    ],
+    'skill_lists': [
+
+    ],
+    'starting_equipment': [
+
+    ],
+    'special_skills': [
+
+    ],
+  },
+  { // Middenheimers
+    'name': '',
+    'unit_type': 'Marksmen',
+    'suggestion': 'Marksmen',
+    'm': 4,
+    'ws': 3,
+    'bs': 3,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 3,
+    'a': 1,
+    'ld': 7,
+    'exp': 0,
+    'cost': 25,
+    'race': 'Human',
+    'warband': 'Middenheimers',
+    'rating': 5,
+    'warrior_type': 'Henchmen',
+    'rout_test_contribution': 1,
+    'special_rules': [
+
+    ],
+    'skill_lists': [
+
+    ],
+    'starting_equipment': [
+
+    ],
+    'special_skills': [
+
+    ],
+  },
+  { // Middenheimers
+    'name': '',
+    'unit_type': 'Swordsmen',
+    'suggestion': 'Swordsmen',
+    'm': 4,
+    'ws': 4,
+    'bs': 3,
+    's': 3,
+    't': 3,
+    'w': 1,
+    'i': 3,
+    'a': 1,
+    'ld': 7,
+    'exp': 0,
+    'cost': 35,
+    'race': 'Human',
+    'warband': 'Middenheimers',
+    'rating': 5,
+    'warrior_type': 'Henchmen',
+    'rout_test_contribution': 1,
+    'special_rules': [
+      'Expert Swordsmen',
+    ],
+    'skill_lists': [
+
+    ],
+    'starting_equipment': [
+
     ],
     'special_skills': [
 
