@@ -44,7 +44,7 @@ exports[`Warband Should render (smoke test) 1`] = `
           <h5
             class="makeStyles-h5-2"
             id="general_header"
-            style="padding-top: 24px;"
+            style="padding-top: 24px; padding-bottom: 24px;"
             variant="h5"
           >
             <b>
@@ -55,10 +55,11 @@ exports[`Warband Should render (smoke test) 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
           >
             <div
-              class="MuiGrid-root MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textFieldLong-18"
+                class="MuiFormControl-root MuiTextField-root"
+                style="width: 100%;"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -95,15 +96,15 @@ exports[`Warband Should render (smoke test) 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
             >
               autocomplete
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-numberField-16 makeStyles-textFieldShort-17"
+                class="MuiFormControl-root MuiTextField-root"
                 min="0"
               >
                 <label
@@ -144,7 +145,7 @@ exports[`Warband Should render (smoke test) 1`] = `
           <h5
             class="makeStyles-h5-2"
             id="wealth_header"
-            style="padding-top: 24px;"
+            style="padding-top: 24px; padding-bottom: 24px;"
             variant="h5"
           >
             <b>
@@ -152,16 +153,14 @@ exports[`Warband Should render (smoke test) 1`] = `
             </b>
           </h5>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
           >
             <div
-              class="MuiGrid-root MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4"
             >
-              <div
-                class="makeStyles-textFieldLong-18"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-numberField-16"
+                  class="MuiFormControl-root MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
@@ -193,8 +192,11 @@ exports[`Warband Should render (smoke test) 1`] = `
                     </fieldset>
                   </div>
                 </div>
+              </div>
+              <div>
                 <div
-                  class="MuiFormControl-root MuiTextField-root makeStyles-goldCrowns-27 makeStyles-numberField-16"
+                  class="MuiFormControl-root MuiTextField-root"
+                  style="margin-top: 24px;"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
@@ -227,12 +229,19 @@ exports[`Warband Should render (smoke test) 1`] = `
                   </div>
                 </div>
               </div>
+              <p
+                class="MuiTypography-root MuiTypography-body1"
+                style="margin-top: 24px;"
+              >
+                Value: 0
+              </p>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 MuiGrid-grid-md-8"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textFieldArea-19"
+                class="MuiFormControl-root MuiTextField-root"
+                style="width: 100%;"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"

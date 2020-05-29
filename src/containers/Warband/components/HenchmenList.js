@@ -10,6 +10,7 @@ const emptyObj = {};
 
 const HenchmenList = memo(({
   index, classes, handleChange, items, add, deleteHire,
+  warbandType,
 }) => {
 
   return (
@@ -23,6 +24,7 @@ const HenchmenList = memo(({
             key={id}
           >
             <Card
+              warbandType={warbandType}
               deleteHire={deleteHire}
               id={id}
               classes={classes}

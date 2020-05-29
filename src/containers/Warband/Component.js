@@ -13,6 +13,7 @@ import HeroList from './components/HeroList';
 import HenchmenList from './components/HenchmenList';
 import RatingCard from './components/RatingCard';
 import SupportDialog from '../../components/SupportContact';
+import { useTotalGoldValue } from './hooks';
 
 import {
   wealthReducer, heroReducer, initialHeroState, initialWealthState,
@@ -193,6 +194,8 @@ const WarbandPage = ({
 
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
+  const totalGoldValue = useTotalGoldValue(heroes, henchmen);
+
   return (
     <div
       className={classes.viewContainer}
@@ -281,6 +284,7 @@ const WarbandPage = ({
               shards={wealth.shards || 0}
               goldCrowns={wealth.goldCrowns || 0}
               equipment={wealth.equipment || ''}
+              totalGoldValue={totalGoldValue || 0}
             />
 
             <Divider className={classes.divider}/>
@@ -301,6 +305,7 @@ const WarbandPage = ({
               isLoadingGetWarbands={isLoadingGetWarbands}
               addHero={addHero}
               deleteHero={deleteHero}
+              warbandType={general.type}
             />
 
             <Divider className={classes.divider}/>
@@ -312,6 +317,7 @@ const WarbandPage = ({
               items={henchmen}
               add={addHenchman}
               deleteHire={deleteHenchman}
+              warbandType={general.type}
             />
           </div>
         </Paper>

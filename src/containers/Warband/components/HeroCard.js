@@ -3,33 +3,44 @@ import {
   TextField, FormControl, MenuItem,
   InputLabel, Select, IconButton,
   Grid, Checkbox, FormControlLabel,
-  ListItemText,
+  ListItemText, Typography,
 } from '@material-ui/core';
-import { path } from 'ramda';
+import { path, uniq } from 'ramda';
 import RemoveIcon from '@material-ui/icons/Delete';
 import AddOutlined from '@material-ui/icons/AddOutlined';
 import RemoveOutlined from '@material-ui/icons/RemoveOutlined';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
 import Dialog from '../../../components/Dialog';
-
-import { attributesArr, skillCategories, MAX_HEROES } from '../constants';
-
+import { attributesArr, MAX_HEROES } from '../constants';
 import { getHeroAdvancements } from '../helpers';
+import unitTemplates, { heroIndexes } from '../../../assets/unitTemplates';
+import racialMaxes from '../../../assets/races.json';
+import { getWarbandSkills } from '../../../assets/skillParser';
 
 
 const HeroCard = memo(({
   hero,
   classes, index, onValueChange,
   deleteHero, heroId,
+  warbandType,
 }) => {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [autoFillHero, setAutoFillHero] = useState(null);
 
   const handleValueChange = (e) => {
 
     onValueChange(
       { ...hero, [e.target.name || e.target.getAttribute('name')]: e.target.value },
+      heroId
+    );
+  };
+
+  const autoFill = (newHero) => {
+    onValueChange(
+      { ...hero, ...newHero },
       heroId
     );
   };
@@ -54,6 +65,16 @@ const HeroCard = memo(({
     );
   };
 
+  const heroTemplateIndex = heroIndexes[warbandType] || [];
+
+
+  const availableHeroes = heroTemplateIndex.map((h, index) => unitTemplates[heroTemplateIndex[index]]);
+
+
+  const warbandSkills = getWarbandSkills(warbandType);
+
+  const allSkills = uniq((hero.skillCategories || []).concat(warbandSkills));
+
   return (
 
     <div
@@ -69,6 +90,21 @@ const HeroCard = memo(({
         open={isOpen}
         title={`Are you sure you want to delete ${hero.name || ''}` || '? '}
         confirm="Delete"
+      />
+
+
+      <Dialog
+        handleClose={() => setAutoFillHero(null)}
+        handleConfirm={() => {
+          setAutoFillHero(null);
+          autoFill(autoFillHero);
+        }}
+        open={autoFillHero !== null}
+        title={
+          `Warning! This will overwrite ${hero.name || ''} 
+          attributes, experience and skillcategories. Are you sure you want to do it?`
+        }
+        confirm="Overwrite"
       />
 
       <IconButton
@@ -104,13 +140,80 @@ const HeroCard = memo(({
             label="Name"
             name="name"
           />
-          <TextField
-            variant="outlined"
+          <Autocomplete
+            selectOnFocus
             value={hero.type || ''}
-            onChange={handleValueChange}
-            className={classes.textFieldLong}
-            label={'Type'}
+            freeSolo
+            clearOnBlur
             name="type"
+            classes={{
+              groupUl: classes.groupUl,
+            }}
+            renderOption={(option) => <Typography noWrap>{option}</Typography>}
+            options={availableHeroes.map((hero) => hero.unit_type)}
+            style={{ width: 200 }}
+            onChange={(e, newValue = '') => {
+
+              let _hero;
+
+              if (newValue) {
+                _hero = availableHeroes.find((hero) => hero.unit_type === newValue);
+              }
+
+              handleValueChange({ target: { value: newValue, getAttribute: () => 'type' } });
+
+              if (!_hero) {
+                return;
+              }
+
+
+              const newHero = {
+                startingExp: _hero.exp,
+                skillCategories: _hero.skill_lists,
+                type: newValue,
+              };
+
+              // fill attributes
+              attributesArr.forEach((attributeKey) => {
+                newHero[attributeKey] = {
+                  value: _hero[attributeKey],
+                  racialMax: racialMaxes[_hero.race][attributeKey],
+                };
+              });
+
+
+              // Should confirm autofill
+              // If any attribute, experience or skillCategories has value require confirm
+              let isConfirm = (
+                !!hero.startingExp ||
+                !!hero.exp ||
+                (!!hero.skillCategories && !!hero.skillCategorieslength !== 0) ||
+                attributesArr.some((attributeKey) => hero[attributeKey])
+              );
+
+              if (isConfirm) {
+                setAutoFillHero(newHero);
+              } else {
+                autoFill(newHero);
+              }
+
+            }}
+            ListboxProps={{
+              style: {
+                backgroundColor: 'white',
+              },
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                name="type"
+                value={hero.type || ''}
+                onChange={handleValueChange}
+                label="Type"
+                variant="outlined"
+                className={classes.textFieldLong}
+              />
+            )}
           />
 
           <FormControl
@@ -142,7 +245,7 @@ const HeroCard = memo(({
               onChange={handleValueChange}
               renderValue={(selected) => selected.join(', ')}
             >
-              {skillCategories.map((skill) => {
+              {allSkills.map((skill) => {
 
                 const isSelected = hero.skillCategories ?
                   hero.skillCategories.find((skillTemp) => skillTemp === skill) :
@@ -280,6 +383,18 @@ const HeroCard = memo(({
           item
           className={classes.hireFieldsColumn}
         >
+          <TextField
+            type="number"
+            inputProps={{
+              min: '0',
+            }}
+            variant="outlined"
+            value={hero.totalGoldValue || 0}
+            onChange={handleValueChange}
+            className={classes.textFieldArea}
+            label={'Gold value'}
+            name="totalGoldValue"
+          />
           <TextField
             variant="outlined"
             value={hero.equipment || ''}
