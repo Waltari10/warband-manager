@@ -2,13 +2,18 @@
 const reduceSum = (total, unit = {}) => {
 
   const parsed = parseInt(unit.totalGoldValue);
+  const count = parseInt(unit.count);
 
-  if (isNaN(parsed)) {
+  if (
+    isNaN(parsed)
+  ) {
     return total;
+  } else if (
+    !isNaN(parsed) &&
+    !isNaN(count)) {
+    return total + (parsed * count);
   }
-
   return total + parsed;
-
 };
 
 export const useTotalGoldValue = (heroes = {}, henchmen = {}) => {
