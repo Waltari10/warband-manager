@@ -70,3 +70,16 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+
+# Related repositories
+
+## Firestore security rules and rule tests:
+https://github.com/Waltari10/warband-manager-firestore-rules
+
+
+
+# Collaborators
+- Joel Samuelsson
+- Johan Markström
+- Aleksi Laine

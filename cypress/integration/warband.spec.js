@@ -9,6 +9,8 @@ context('Warband', () => {
 
     cy.get('#add_warband_button').click();
 
+    cy.get('#create-warband-dialog-button').click();
+
     cy.get('#warband_name_textfield').click();
 
     cy.get('#warband_name_textfield').type('E2E test warband');
@@ -22,6 +24,8 @@ context('Warband', () => {
   it('Should add then remove hero and henchman', () => {
 
     cy.get('#add_warband_button').click();
+
+    cy.get('#create-warband-dialog-button').click();
 
     cy.get('#warband_name_textfield').click();
 
@@ -89,6 +93,8 @@ context('Warband', () => {
 
     cy.get('#add_warband_button').click();
 
+    cy.get('#create-warband-dialog-button').click();
+
     cy.get('#warband_name_textfield').click();
 
     cy.get('#warband_name_textfield').type('E2E test warband');
@@ -137,6 +143,7 @@ context('Warband', () => {
 
   it('Should add and remove warband', () => {
     cy.get('#add_warband_button').click();
+    cy.get('#create-warband-dialog-button').click();
 
     cy.wait(1000);
 

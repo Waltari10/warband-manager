@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import { Typography } from '@material-ui/core';
 
+import CreateWarbandDialog from './components/CreateWarbandDialog';
 
 import * as constants from '../../constants';
 import PrivateRoute from '../PrivateRoute';
@@ -123,10 +124,16 @@ const HomePage = ({
 
 
   const [isSupportOpen, setIsSupportOpen] = useState(false);
-  // const [is, setIsDisclaimerOpen] = useState(false);
+  const [isCreateWarbandOpen, setIsCreateWarbandOpen] = useState(false);
 
   return (
     <div className={classes.window}>
+
+      <CreateWarbandDialog
+        addWarband={addWarband}
+        open={isCreateWarbandOpen}
+        close={() => setIsCreateWarbandOpen(false)}
+      />
 
       {
         (addWarbandRequestState === constants.SUCCESS && lastAddedWarbandId) && (
@@ -221,7 +228,7 @@ const HomePage = ({
             disabled={addWarbandRequestState === constants.LOADING}
             color="primary"
             onClick={() => {
-              addWarband({});
+              setIsCreateWarbandOpen(true);
             }}
           >
             {
