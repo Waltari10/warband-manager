@@ -100,6 +100,7 @@ export interface Henchman {
 }
 
 export interface Warband extends WarbandGeneral, WarbandWealth {
+  id?: string;
   warbandId?: string;
   heroIndex?: string[]; // Array of hero UID
   henchmenIndex?: string[]; // Array of hench UID
@@ -266,7 +267,7 @@ const callGetWarbands = uuid => {
     .get()
     .then(querySnapshot => {
       const warbands = {};
-      querySnapshot.forEach(function(doc) {
+      querySnapshot.forEach(function (doc) {
         const warband = doc.data();
         warband.warbandId = doc.id;
 

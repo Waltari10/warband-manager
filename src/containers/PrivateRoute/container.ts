@@ -2,16 +2,19 @@ import { connect } from 'react-redux';
 
 import Component from './component';
 
+export interface StateProps {
+  isAuthorized?: boolean;
+  isLoading?: boolean;
+}
+
 function mapStateToProps(state) {
 
   const isAuthorized = !!state.user.user;
   const isLoading = !!state.user.isLoading;
-  const isSuccess = !!state.user.isSuccess;
 
   return {
     isAuthorized,
     isLoading,
-    isSuccess,
   };
 }
 

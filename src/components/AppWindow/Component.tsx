@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 interface Props {
   className?: string;
   size?: string;
-  children?: React.ReactChildren;
+  children?: React.ReactNode | React.ReactNode[];
 }
 
 const AppWindow = ({ className, children, size }: Props) => {

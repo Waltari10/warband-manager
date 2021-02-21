@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import ArrowRight from '@material-ui/icons/ArrowRight';
+import { Warband } from '../../ducks/warbands';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WarbandListItem = ({ warband, match, id }) => {
+interface Props {
+  id: string;
+  match: any;
+  warband: Warband;
+}
+
+const WarbandListItem = ({ warband, match, id }: Props) => {
   const classes = useStyles();
 
   return (
@@ -65,7 +72,7 @@ const WarbandListItem = ({ warband, match, id }) => {
             <IconButton
               className={classes.iconButton}
             >
-              <ArrowRight fontSize="large"/>
+              <ArrowRight fontSize="large" />
             </IconButton>
           </Grid>
         </Grid>

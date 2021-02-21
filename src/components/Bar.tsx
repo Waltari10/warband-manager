@@ -36,7 +36,13 @@ const useStyles = makeStyles(() => {
 });
 
 
-const Bar = ({ isVisible, bgColor, children }) => {
+interface Props {
+  isVisible?: boolean;
+  bgColor?: string;
+  children?: any;
+}
+
+const Bar = ({ isVisible, bgColor, children }: Props) => {
 
   const theme = useTheme();
   const classes = useStyles();
@@ -64,12 +70,4 @@ const Bar = ({ isVisible, bgColor, children }) => {
 };
 
 export default Bar;
-
-
-Bar.propTypes = {
-  isVisible: PropTypes.bool,
-  children: PropTypes.node,
-  bgColor: PropTypes.string,
-};
-
 

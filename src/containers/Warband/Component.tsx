@@ -43,13 +43,12 @@ let timeout;
 interface Props {
   saveWarband(warband: Warband): void;
   logout(): void;
-  warband: Warband;
-  warbandId: string;
+  warband?: Warband;
+  warbandId?: string;
   removeWarband(warbandId: string): void;
   isSuccessGetWarbands: boolean; // Should deprecate?
   addWarbandReset(): void;
   getWarbands();
-  void;
 }
 
 const WarbandPage = ({
@@ -259,15 +258,15 @@ const WarbandPage = ({
       }, 1000);
     }
   }, [
-    wealth,
-    general,
-    warbandId,
-    heroes,
-    heroIndex,
-    localWarband,
-    henchmen,
-    henchmenIndex
-  ]);
+      wealth,
+      general,
+      warbandId,
+      heroes,
+      heroIndex,
+      localWarband,
+      henchmen,
+      henchmenIndex
+    ]);
 
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
@@ -338,7 +337,9 @@ const WarbandPage = ({
             confirm="Remove"
             open={isConfirmOpen}
             handleConfirm={() => {
-              removeWarband(warbandId);
+              if (warbandId) {
+                removeWarband(warbandId);
+              }
               setIsConfirmOpen(false);
             }}
             handleClose={() => {

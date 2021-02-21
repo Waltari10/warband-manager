@@ -14,8 +14,9 @@ import PasswordIcon from '@material-ui/icons/VpnKeyOutlined';
 import InputBase from '@material-ui/core/InputBase';
 
 
-import AppWindow from '../../components/AppWindow/index.ts';
-import * as constants from '../../constants.ts';
+import AppWindow from '../../components/AppWindow/index';
+import * as constants from '../../constants';
+import { StateProps, DispatchProps } from './Container';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -87,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = ({
   isLoading, isError, isSuccess, loginWithEmail,
   googleSignIn, isAuthorized, error, resetUser,
-}) => {
+}: StateProps & DispatchProps) => {
 
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -127,7 +128,7 @@ const Login = ({
               disabled={isDisabled}
               placeholder="email"
               value={email}
-              variant="filled"
+              // variant="filled"
               startAdornment={
                 <InputAdornment position="start">
                   <EmailIcon className={classes.inputStartAdornment} />
@@ -138,7 +139,7 @@ const Login = ({
               id="password"
               autoComplete="current-password"
               name="password"
-              variant="filled"
+              // variant="filled"
               className={classes.password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={isDisabled}

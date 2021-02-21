@@ -4,9 +4,9 @@ import Login from '../../containers/Login';
 import Signup from '../../containers/Signup';
 import PrivateRoute from '../../containers/PrivateRoute';
 import HomePage from '../HomePage';
-import WarbandModal from '../WarbandModal/index.ts';
+import WarbandModal from '../WarbandModal';
 import ForgotPassword from '../ForgotPassword';
-import OfflineBar from '../../components/OfflineBar.tsx';
+import OfflineBar from '../../components/OfflineBar';
 
 const Routes = ({ readSession }) => {
 

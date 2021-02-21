@@ -5,13 +5,12 @@ import { HashRouter as Router } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-import Component from '../Signup/Component';
-
+import Component from '../ForgotPassword/Component';
 
 const theme = createMuiTheme({});
 
 
-describe('Signup', () => {
+describe('Forgot Password', () => {
   it('Should render (smoke test)', () => {
     const { asFragment } = render(
       // Requires to be wrapped in router because NotFoundPage uses react-router-doms Link element
@@ -19,7 +18,10 @@ describe('Signup', () => {
       <Router>
         <MuiThemeProvider theme={theme}>
           <Component
+            resetUser={() => { }}
             isAuthorized={false}
+            sendResetPasswordEmailRequestState=""
+            sendResetPasswordEmail={() => { }}
           />
         </MuiThemeProvider>
       </Router>

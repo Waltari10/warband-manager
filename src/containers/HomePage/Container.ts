@@ -3,10 +3,28 @@ import { bindActionCreators } from 'redux';
 import { path } from 'ramda';
 
 import Component from './Component';
-import * as actions from '../../ducks/warbands.ts';
-import { logout } from '../../ducks/user.ts';
+import * as warbandDuck from '../../ducks/warbands';
+import { logout } from '../../ducks/user';
 
-function mapStateToProps(state) {
+
+export interface StateProps {
+  isLoading: boolean;
+  isError: boolean;
+  isSuccess: boolean;
+  warbands: Record<string, warbandDuck.Warband>;
+  warbandsIndex: string[];
+  uid: string;
+  lastAddedWarbandId?: string;
+  addWarbandRequestState?: string;
+}
+
+export interface DispatchProps {
+  logout(): void;
+  getWarbands(): void;
+  addWarband(warband: warbandDuck.Warband): void;
+}
+
+function mapStateToProps(state): StateProps {
 
   return {
     isLoading: state.warbands.isLoadingGetWarbands,
@@ -22,7 +40,11 @@ function mapStateToProps(state) {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ ...actions, logout }, dispatch);
+  return bindActionCreators({
+    getWarbands: warbandDuck.getWarbands,
+    addWarband: warbandDuck.addWarband,
+    logout
+  }, dispatch);
 }
 
 export default connect(

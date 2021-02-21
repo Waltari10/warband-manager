@@ -11,16 +11,16 @@ import IconButton from '@material-ui/core/IconButton';
 import { Typography } from '@material-ui/core';
 
 import CreateWarbandDialog from './components/CreateWarbandDialog';
-
-import * as constants from '../../constants.ts';
+import * as constants from '../../constants';
 import PrivateRoute from '../PrivateRoute';
-import WarbandModal from '../WarbandModal/index.ts';
-import SupportDialog from '../../components/SupportContact/index.ts';
+import WarbandModal from '../WarbandModal/index';
+import SupportDialog from '../../components/SupportContact/index';
 
 import WarbandListItem from './WarbandListItem';
+import { DispatchProps, StateProps } from './Container';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   fabProgress: {
     marginTop: '7px',
   },
@@ -96,12 +96,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+interface Props {
+  match: any;
+}
+
 
 const HomePage = ({
   isLoading, warbands = {}, getWarbands, match, logout, uid,
   warbandsIndex = [], addWarband, lastAddedWarbandId,
   addWarbandRequestState,
-}) => {
+}: StateProps & DispatchProps & Props) => {
 
   useEffect(() => {
     if (uid) {
