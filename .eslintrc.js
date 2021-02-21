@@ -3,7 +3,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
   ],
   plugins: ["react"],
   settings: {
@@ -18,6 +18,7 @@ module.exports = {
     }
   },
   rules: {
+    // "import/no-unresolved": 0,
     "react/prop-types": 0,
     indent: ["error", 2],
     quotes: ["error", "single"],
@@ -27,6 +28,7 @@ module.exports = {
     "space-unary-ops": 2,
     "no-multiple-empty-lines": 2,
     "no-trailing-spaces": 2,
+    "comma-dangle": ["error", "always"],
     "max-len": [
       1,
       {
@@ -88,7 +90,7 @@ module.exports = {
     quotes: [2, "single"],
     semi: [2, "always"]
   },
-  parser: "babel-eslint",
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 6,
     sourceType: "module",
@@ -111,6 +113,28 @@ module.exports = {
     assert: true,
     process: true,
     module: true,
-    __dirname: true,
-  }
+    __dirname: true
+  },
+  overrides: [
+    {
+      files: ["**/*.ts", "**/*.tsx"],
+      extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+      ],
+      parser: "@typescript-eslint/parser",
+      plugins: ["react", "@typescript-eslint"],
+      parserOptions: {
+        "ecmaFeatures": { "jsx": true },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+      },
+      rules: {
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/no-var-requires": 0,
+      }
+    }
+  ]
 };

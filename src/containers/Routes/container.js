@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../../ducks/user';
+import * as actions from '../../ducks/user.ts';
 import Component from './component';
 
 

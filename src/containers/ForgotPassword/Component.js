@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink, Redirect } from 'react-router-dom';
 import EmailIcon from '@material-ui/icons/EmailOutlined';
 import InputBase from '@material-ui/core/InputBase';
-import * as constants from '../../constants';
+import * as constants from '../../constants.ts';
 
 import AppWindow from '../../components/AppWindow';
 
@@ -86,9 +86,9 @@ const Login = ({
 
       {
         isAuthorized &&
-          <Redirect
-            to='/'
-          />
+        <Redirect
+          to='/'
+        />
       }
 
       <Grid className={classes.content} alignItems="center" direction="column" container>

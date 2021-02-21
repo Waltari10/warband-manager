@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Component from './Component';
-import * as actions from '../../ducks/user';
+import * as actions from '../../ducks/user.ts';
 
 function mapStateToProps(state) {
 

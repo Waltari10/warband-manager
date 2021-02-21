@@ -45,7 +45,6 @@ exports[`Warband Should render (smoke test) 1`] = `
             class="makeStyles-h5-2"
             id="general_header"
             style="padding-top: 24px; padding-bottom: 24px;"
-            variant="h5"
           >
             <b>
               General
@@ -105,7 +104,6 @@ exports[`Warband Should render (smoke test) 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiTextField-root"
-                min="0"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
@@ -119,6 +117,7 @@ exports[`Warband Should render (smoke test) 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
+                    min="0"
                     name="gamesPlayed"
                     type="number"
                     value="0"
@@ -146,7 +145,6 @@ exports[`Warband Should render (smoke test) 1`] = `
             class="makeStyles-h5-2"
             id="wealth_header"
             style="padding-top: 24px; padding-bottom: 24px;"
-            variant="h5"
           >
             <b>
               Wealth

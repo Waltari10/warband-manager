@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { path } from 'ramda';
 
 import Component from './Component';
-import * as actions from '../../ducks/warbands';
-import { logout } from '../../ducks/user';
+import * as actions from '../../ducks/warbands.ts';
+import { logout } from '../../ducks/user.ts';
 
 function mapStateToProps(state) {
 

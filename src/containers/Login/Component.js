@@ -15,7 +15,7 @@ import InputBase from '@material-ui/core/InputBase';
 
 
 import AppWindow from '../../components/AppWindow';
-import * as constants from '../../constants';
+import * as constants from '../../constants.ts';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -106,9 +106,9 @@ const Login = ({
 
       {
         isAuthorized &&
-          <Redirect
-            to='/'
-          />
+        <Redirect
+          to='/'
+        />
       }
 
       <Grid className={classes.content} alignItems="center" direction="column" container>
@@ -147,7 +147,7 @@ const Login = ({
               placeholder="password"
               startAdornment={
                 <InputAdornment position="start">
-                  <PasswordIcon className={classes.inputStartAdornment}/>
+                  <PasswordIcon className={classes.inputStartAdornment} />
                 </InputAdornment>
               }
               endAdornment={
@@ -196,7 +196,7 @@ const Login = ({
             onClick={googleSignIn}
           >
             <Typography align="center" variant="body2">
-                Continue with Google
+              Continue with Google
             </Typography>
           </Link>
         </Grid>
@@ -224,7 +224,7 @@ const Login = ({
             component={RouterLink}
           >
             <Typography variant="body2">
-             Forgot your password?
+              Forgot your password?
             </Typography>
           </Link>
         </Grid>

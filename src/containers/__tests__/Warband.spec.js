@@ -5,7 +5,7 @@ import { HashRouter as Router } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-import Component from '../Warband/Component';
+import Component from '../Warband/Component.tsx';
 
 
 jest.mock('@material-ui/lab/Autocomplete', () => () => 'autocomplete');
@@ -19,8 +19,8 @@ describe('Warband', () => {
       <Router>
         <MuiThemeProvider theme={theme}>
           <Component
-            addWarbandReset={() => {}}
-            getWarbands={() => {}}
+            addWarbandReset={() => { }}
+            getWarbands={() => { }}
           />
         </MuiThemeProvider>
       </Router>

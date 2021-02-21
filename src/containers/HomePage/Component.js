@@ -12,9 +12,9 @@ import { Typography } from '@material-ui/core';
 
 import CreateWarbandDialog from './components/CreateWarbandDialog';
 
-import * as constants from '../../constants';
+import * as constants from '../../constants.ts';
 import PrivateRoute from '../PrivateRoute';
-import WarbandModal from '../WarbandModal';
+import WarbandModal from '../WarbandModal/index.ts';
 import SupportDialog from '../../components/SupportContact';
 
 import WarbandListItem from './WarbandListItem';
@@ -233,7 +233,7 @@ const HomePage = ({
           >
             {
               addWarbandRequestState === constants.LOADING ?
-                <Progress className={classes.fabProgress}/> :
+                <Progress className={classes.fabProgress} /> :
                 <AddIcon className={classes.addIcon} />
             }
           </Fab>

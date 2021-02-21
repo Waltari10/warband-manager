@@ -43,13 +43,90 @@ export const getWarbandsSuccess = createAction(
 );
 export const getWarbandsError = createAction("GET_WARBANDS_ERROR", addPayload);
 
+export interface FirestoreTimestamp {
+  seconds: number;
+  nanoseconds: number;
+}
+
+export interface HeroAttribute {
+  value?: number;
+  racialMax?: number;
+}
+
+export interface HenchmanAttribute {
+  isModified?: boolean;
+  value?: number;
+}
+
+export interface Hero {
+  type?: string | null;
+  totalGoldValue?: number;
+  skills_injuries_etc?: string;
+  skillCategories?: Array<string>;
+  equipment?: string;
+  startingExp?: number;
+  name?: string;
+  exp?: number;
+  isLarge?: boolean | string;
+  i?: HeroAttribute;
+  m?: HeroAttribute;
+  t?: HeroAttribute;
+  s?: HeroAttribute;
+  w?: HeroAttribute;
+  a?: HeroAttribute;
+  ws?: HeroAttribute;
+  bs?: HeroAttribute;
+  ld?: HeroAttribute;
+}
+
+export interface Henchman {
+  totalGoldValue?: number;
+  skills_injuries_etc?: string;
+  equipment?: string;
+  name?: string;
+  exp?: number;
+  isLarge?: boolean | string;
+  count?: number;
+  type?: string | null;
+  i?: HenchmanAttribute;
+  m?: HenchmanAttribute;
+  t?: HenchmanAttribute;
+  s?: HenchmanAttribute;
+  w?: HenchmanAttribute;
+  a?: HenchmanAttribute;
+  ws?: HenchmanAttribute;
+  bs?: HenchmanAttribute;
+  ld?: HenchmanAttribute;
+}
+
+export interface Warband extends WarbandGeneral, WarbandWealth {
+  warbandId?: string;
+  heroIndex?: string[]; // Array of hero UID
+  henchmenIndex?: string[]; // Array of hench UID
+  henchmen?: Record<string, Henchman>;
+  heroes?: Record<string, Hero>;
+  createdAt?: FirestoreTimestamp;
+}
+
+export interface WarbandWealth {
+  shards?: number;
+  goldCrowns?: number;
+  equipment?: string;
+}
+
+export interface WarbandGeneral {
+  name?: string;
+  type?: string;
+  gamesPlayed?: number | string;
+}
+
 export interface WarbandsState {
   isLoading: boolean;
   isError: boolean;
   isSuccess: boolean;
   warbandsIndex: string[];
   error: Object | null;
-  warbands: Record<string, any>;
+  warbands: Record<string, Warband>;
   removeWarbandRequestState: string;
   addWarbandRequestState: string;
   lastAddedWarbandId: string | null;

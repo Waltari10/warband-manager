@@ -8,6 +8,7 @@ interface Notification {
   options: OptionsObject;
   key?: number | string;
   message: string | React.ReactNode;
+  dismissed?: boolean;
 }
 
 export const enqueueSnackbar = (notification: Notification) => {

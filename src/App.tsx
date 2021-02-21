@@ -21,7 +21,7 @@ import theme from "./styles/theme";
 //   });
 // }
 
-const store = configureStore({});
+const store = configureStore();
 
 function App() {
   //   TODO: Remove inline styles

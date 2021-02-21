@@ -1,39 +1,48 @@
-import React, { memo, useState } from 'react';
-import { Typography, IconButton } from '@material-ui/core';
-import HelpIcon from '@material-ui/icons/HelpOutline';
-import Dialog from '../../../components/Dialog';
+import React, { memo, useState } from "react";
+import { Typography, IconButton } from "@material-ui/core";
+import HelpIcon from "@material-ui/icons/HelpOutline";
+import Dialog from "../../../components/Dialog";
 import {
   getTotalExperience,
   getWarbandMemberCount,
   getRatingFromMemberCount,
-  getRating,
-} from '../helpers';
+  getRating
+} from "../helpers";
+import { Hero, Henchman } from "../../../ducks/warbands";
 
+interface Props {
+  classes: any;
+  heroes?: Record<string, Hero>;
+  henchmen?: Record<string, Henchman>;
+}
 
-const RatingCard = memo(({ classes, heroes, henchmen }) => {
-
+const RatingCard = memo(({ classes, heroes, henchmen }: Props) => {
   const [showHelp, setShowHelp] = useState(false);
 
   return (
     <div
       style={{
-        position: 'relative',
+        position: "relative"
       }}
     >
       <h5
         id="rating_header"
-        style={{ paddingTop: '24px' }}
+        style={{ paddingTop: "24px" }}
         className={classes.h5}
-      ><b>Rating</b></h5>
+      >
+        <b>Rating</b>
+      </h5>
 
-      <Typography
-        className={classes.textFieldShort}
-        variant="body1"
-      >Total experience: {getTotalExperience(heroes, henchmen)}</Typography>
-      <Typography variant="body1">
-      Members ({getWarbandMemberCount(heroes, henchmen)}) x 5: {getRatingFromMemberCount(heroes, henchmen)}
+      <Typography className={classes.textFieldShort} variant="body1">
+        Total experience: {getTotalExperience(heroes, henchmen)}
       </Typography>
-      <Typography variant="body1">Rating: {getRating(heroes, henchmen)}</Typography>
+      <Typography variant="body1">
+        Members ({getWarbandMemberCount(heroes, henchmen)}) x 5:{" "}
+        {getRatingFromMemberCount(heroes, henchmen)}
+      </Typography>
+      <Typography variant="body1">
+        Rating: {getRating(heroes, henchmen)}
+      </Typography>
 
       <IconButton
         onClick={() => {
@@ -41,17 +50,17 @@ const RatingCard = memo(({ classes, heroes, henchmen }) => {
         }}
         className={classes.removeButton}
       >
-        <HelpIcon/>
+        <HelpIcon />
       </IconButton>
 
       <Dialog
         open={showHelp}
-        title={'Rating calculation'}
+        title={"Rating calculation"}
         isConfirm={true}
         isCancel={false}
         handleConfirm={() => setShowHelp(false)}
         handleClose={() => setShowHelp(false)}
-        confirm={'Close'}
+        confirm={"Close"}
         dialog={`
             Currently, rating calculation doens't recognize hired swords. 
               This means that for each hired sword, you should add
@@ -63,7 +72,6 @@ const RatingCard = memo(({ classes, heroes, henchmen }) => {
              is 16, add 11 to your warbands automatically calculated total rating.
         `}
       />
-
     </div>
   );
 });

@@ -104,7 +104,7 @@ interface User {
   multiFactor: MultiFactor;
 }
 
-interface UserState {
+export interface UserState {
   isLoading: boolean;
   isError: boolean;
   isSuccess: boolean;

@@ -5,15 +5,24 @@ import createRootReducer from "./rootReducer";
 
 // This causes ducks and firebase to be imported which causes the issues I think...
 import { sagas } from "../ducks";
+import { UserState } from "../ducks/user";
+import { WarbandsState } from "../ducks/warbands";
+import { NotifierState } from "../ducks/notifier";
 
 const sagaMiddleware = createSagaMiddleware();
 
-function configureStoreProd(initialState) {
+export interface RootState {
+  user: UserState;
+  warbands: WarbandsState;
+  notifier: NotifierState;
+}
+
+function configureStoreProd() {
   const middlewares = [sagaMiddleware];
 
   const store = createStore(
     createRootReducer(),
-    initialState,
+    {},
     compose(applyMiddleware(...middlewares))
   );
 
@@ -22,7 +31,7 @@ function configureStoreProd(initialState) {
   return store;
 }
 
-function configureStoreDev(initialState) {
+function configureStoreDev() {
   const middlewares = [reduxImmutableStateInvariant(), sagaMiddleware];
 
   const composeEnhancers =
@@ -30,7 +39,7 @@ function configureStoreDev(initialState) {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
   const store = createStore(
     createRootReducer(),
-    initialState,
+    {},
     composeEnhancers(applyMiddleware(...middlewares))
   );
   sagaMiddleware.run(sagas);
