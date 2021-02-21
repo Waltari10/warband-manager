@@ -10,7 +10,7 @@ import EmailIcon from '@material-ui/icons/EmailOutlined';
 import InputBase from '@material-ui/core/InputBase';
 import * as constants from '../../constants.ts';
 
-import AppWindow from '../../components/AppWindow';
+import AppWindow from '../../components/AppWindow/index.ts';
 
 const useStyles = makeStyles((theme) => ({
   header: {

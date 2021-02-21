@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { appVersion } from '../../constants.ts';
+import { appVersion } from '../../constants';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -29,7 +29,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const AppWindow = ({ className, children, size }) => {
+interface Props {
+  className?: string;
+  size?: string;
+  children?: React.ReactChildren;
+}
+
+const AppWindow = ({ className, children, size }: Props) => {
   const classes = useStyles();
 
   let width;

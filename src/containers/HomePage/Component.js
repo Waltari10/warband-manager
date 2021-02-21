@@ -15,7 +15,7 @@ import CreateWarbandDialog from './components/CreateWarbandDialog';
 import * as constants from '../../constants.ts';
 import PrivateRoute from '../PrivateRoute';
 import WarbandModal from '../WarbandModal/index.ts';
-import SupportDialog from '../../components/SupportContact';
+import SupportDialog from '../../components/SupportContact/index.ts';
 
 import WarbandListItem from './WarbandListItem';
 

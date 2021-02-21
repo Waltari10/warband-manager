@@ -6,7 +6,7 @@ import PrivateRoute from '../../containers/PrivateRoute';
 import HomePage from '../HomePage';
 import WarbandModal from '../WarbandModal/index.ts';
 import ForgotPassword from '../ForgotPassword';
-import OfflineBar from '../../components/OfflineBar';
+import OfflineBar from '../../components/OfflineBar.tsx';
 
 const Routes = ({ readSession }) => {
 

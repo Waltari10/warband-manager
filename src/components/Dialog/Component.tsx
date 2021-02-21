@@ -14,10 +14,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+interface Props {
+  handleClose(): void;
+  open?: boolean;
+  title?: string;
+  dialog?: any;
+  cancel?: String;
+  confirm?: string;
+  handleConfirm(): void;
+  isConfirm?: boolean;
+  isCancel?: boolean;
+}
+
 const MyDialog = memo(({
-  handleClose, open, title, dialog, cancel, confirm,
+  handleClose, open = false, title, dialog, cancel, confirm,
   handleConfirm, isConfirm = true, isCancel = true,
-}) => {
+}: Props) => {
 
   const classes = useStyles();
 
@@ -27,9 +39,10 @@ const MyDialog = memo(({
       onClose={handleClose}
       classes={{
         paper: classes.paper,
-      }}
+      }
+      }
     >
-      <DialogTitle>{title}</DialogTitle>
+      <DialogTitle>{title} </DialogTitle>
       <DialogContent>
         <DialogContentText
           id="alert-dialog-description"
@@ -38,21 +51,22 @@ const MyDialog = memo(({
           {/* {dialog} */}
         </DialogContentText>
       </DialogContent>
-      <DialogActions>
+      < DialogActions>
         {isCancel && <Button
           onClick={handleClose}
           color="primary"
         >
           {cancel || 'Cancel'}
         </Button>}
-        {isConfirm && <Button
-          onClick={handleConfirm}
-          color="primary"
-          autoFocus
+        {
+          isConfirm && <Button
+            onClick={handleConfirm}
+            color="primary"
+            autoFocus
 
-        >
-          {confirm || 'Confirm'}
-        </Button>}
+          >
+            {confirm || 'Confirm'}
+          </Button>}
       </DialogActions>
     </Dialog>
   );

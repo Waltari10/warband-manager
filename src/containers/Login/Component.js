@@ -14,7 +14,7 @@ import PasswordIcon from '@material-ui/icons/VpnKeyOutlined';
 import InputBase from '@material-ui/core/InputBase';
 
 
-import AppWindow from '../../components/AppWindow';
+import AppWindow from '../../components/AppWindow/index.ts';
 import * as constants from '../../constants.ts';
 
 const useStyles = makeStyles((theme) => ({

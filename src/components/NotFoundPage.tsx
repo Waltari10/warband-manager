@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
 
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles((theme: any) => {
 
   return {
     title: {

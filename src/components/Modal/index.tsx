@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => {
     mainContainer: {
       height: '100%',
       position: 'relative',
+      //@ts-ignore
       backgroundColor: theme.palette.appBackground,
       zIndex: 1,
       display: 'flex',
@@ -68,7 +69,17 @@ const transitionStyles = {
   exited: { left: '100%' },
 };
 
-const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, className }) => {
+interface Props {
+  children?: any;
+  title?: string;
+  subtitle?: string;
+  Icon?: any;
+  renderContent?(): React.ReactNode;
+  shouldClose?: boolean;
+  className?: string;
+}
+
+const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, className }: Props) => {
 
   const classes = useStyles();
 
@@ -93,7 +104,7 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, cl
 
   return (
     <>
-      {shouldGoBack && <Redirect to={'/'}/>}
+      {shouldGoBack && <Redirect to={'/'} />}
       <Transition
         in={inProp}
         timeout={duration}
@@ -125,7 +136,7 @@ const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, cl
                 />
               </IconButton>
               {typeof renderContent === 'function' ? renderContent() : null}
-              {Icon && <Icon className={classes.icon}/>}
+              {Icon && <Icon className={classes.icon} />}
               <Typography className={classes.title} align="center" variant="h6">
                 {title}
               </Typography>

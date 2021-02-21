@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Should render (smoke test) 1`] = `
+<DocumentFragment>
+  <div
+    class="makeStyles-mainContainer-1 undefined"
+    style="transition: left 300ms ease-in-out; left: 0%; width: 100%; position: absolute; top: 0px;"
+  >
+    <div
+      class="makeStyles-topNavigationContainer-3"
+    >
+      <button
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-backIcon-2"
+        id="back_button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root makeStyles-backIconIcon-7 MuiSvgIcon-fontSizeLarge"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 7l-5 5 5 5V7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <h6
+        class="MuiTypography-root makeStyles-title-5 MuiTypography-h6 MuiTypography-alignCenter"
+      />
+      <span
+        class="MuiTypography-root makeStyles-subtitle-4 MuiTypography-caption MuiTypography-alignCenter"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
