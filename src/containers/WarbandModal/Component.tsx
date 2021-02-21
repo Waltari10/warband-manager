@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
-import * as constants from "../../constants";
-import Modal from "../../components/Modal";
-import Warband from "../Warband";
+import * as constants from '../../constants';
+import Modal from '../../components/Modal';
+import Warband from '../Warband';
 
-import { DispatchProps, StateProps, NavProps } from "./Container";
+import { DispatchProps, StateProps, NavProps } from './Container';
 
 const useStyles = makeStyles(() => ({
   container: {
-    backgroundColor: "white"
-  }
+    backgroundColor: 'white',
+  },
 }));
 
 const WarbandModal = ({
   match,
   removeWarbandRequestState,
-  removeWarbandReset
+  removeWarbandReset,
 }: StateProps & DispatchProps & NavProps) => {
   const classes = useStyles();
 

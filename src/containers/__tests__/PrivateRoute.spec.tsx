@@ -14,7 +14,7 @@ describe('PrivateRoute', () => {
       // <Provider store={store}>
       <Router>
         <Component />
-      </Router>
+      </Router>,
       // </Provider>,
     );
     const firstRender = asFragment();

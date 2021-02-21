@@ -28,7 +28,7 @@ describe('Signup', () => {
             isAuthorized={false}
           />
         </MuiThemeProvider>
-      </Router>
+      </Router>,
     );
     const firstRender = asFragment();
     expect(firstRender).toMatchSnapshot();

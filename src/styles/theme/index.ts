@@ -1,11 +1,11 @@
-import { createMuiTheme, Theme } from "@material-ui/core";
-import palette from "./palette";
-import typography from "./typography";
+import { createMuiTheme, Theme } from '@material-ui/core';
+import palette from './palette';
+import typography from './typography';
 
 //@ts-ignore
 const baseTheme: Theme = {
   palette,
-  typography
+  typography,
 };
 
 export default createMuiTheme(baseTheme);

@@ -1,14 +1,14 @@
-import React, { memo, useState } from "react";
-import { Typography, IconButton } from "@material-ui/core";
-import HelpIcon from "@material-ui/icons/HelpOutline";
-import Dialog from "../../../components/Dialog";
+import React, { memo, useState } from 'react';
+import { Typography, IconButton } from '@material-ui/core';
+import HelpIcon from '@material-ui/icons/HelpOutline';
+import Dialog from '../../../components/Dialog';
 import {
   getTotalExperience,
   getWarbandMemberCount,
   getRatingFromMemberCount,
-  getRating
-} from "../helpers";
-import { Hero, Henchman } from "../../../ducks/warbands";
+  getRating,
+} from '../helpers';
+import { Hero, Henchman } from '../../../ducks/warbands';
 
 interface Props {
   classes: any;
@@ -22,12 +22,12 @@ const RatingCard = memo(({ classes, heroes, henchmen }: Props) => {
   return (
     <div
       style={{
-        position: "relative"
+        position: 'relative',
       }}
     >
       <h5
         id="rating_header"
-        style={{ paddingTop: "24px" }}
+        style={{ paddingTop: '24px' }}
         className={classes.h5}
       >
         <b>Rating</b>
@@ -37,7 +37,7 @@ const RatingCard = memo(({ classes, heroes, henchmen }: Props) => {
         Total experience: {getTotalExperience(heroes, henchmen)}
       </Typography>
       <Typography variant="body1">
-        Members ({getWarbandMemberCount(heroes, henchmen)}) x 5:{" "}
+        Members ({getWarbandMemberCount(heroes, henchmen)}) x 5:{' '}
         {getRatingFromMemberCount(heroes, henchmen)}
       </Typography>
       <Typography variant="body1">
@@ -55,12 +55,12 @@ const RatingCard = memo(({ classes, heroes, henchmen }: Props) => {
 
       <Dialog
         open={showHelp}
-        title={"Rating calculation"}
+        title={'Rating calculation'}
         isConfirm={true}
         isCancel={false}
         handleConfirm={() => setShowHelp(false)}
         handleClose={() => setShowHelp(false)}
-        confirm={"Close"}
+        confirm={'Close'}
         dialog={`
             Currently, rating calculation doens't recognize hired swords. 
               This means that for each hired sword, you should add

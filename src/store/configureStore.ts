@@ -1,13 +1,13 @@
-import { createStore, compose, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
-import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
-import createRootReducer from "./rootReducer";
+import { createStore, compose, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+import createRootReducer from './rootReducer';
 
 // This causes ducks and firebase to be imported which causes the issues I think...
-import { sagas } from "../ducks";
-import { UserState } from "../ducks/user";
-import { WarbandsState } from "../ducks/warbands";
-import { NotifierState } from "../ducks/notifier";
+import { sagas } from '../ducks';
+import { UserState } from '../ducks/user';
+import { WarbandsState } from '../ducks/warbands';
+import { NotifierState } from '../ducks/notifier';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -23,7 +23,7 @@ function configureStoreProd() {
   const store = createStore(
     createRootReducer(),
     {},
-    compose(applyMiddleware(...middlewares))
+    compose(applyMiddleware(...middlewares)),
   );
 
   sagaMiddleware.run(sagas);
@@ -40,7 +40,7 @@ function configureStoreDev() {
   const store = createStore(
     createRootReducer(),
     {},
-    composeEnhancers(applyMiddleware(...middlewares))
+    composeEnhancers(applyMiddleware(...middlewares)),
   );
   sagaMiddleware.run(sagas);
 
@@ -48,8 +48,8 @@ function configureStoreDev() {
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     //@ts-ignore
-    module.hot.accept("./rootReducer", () => {
-      const nextRootReducer = require("./rootReducer").default; // eslint-disable-line global-require
+    module.hot.accept('./rootReducer', () => {
+      const nextRootReducer = require('./rootReducer').default; // eslint-disable-line global-require
       store.replaceReducer(nextRootReducer);
     });
   }
@@ -58,7 +58,7 @@ function configureStoreDev() {
 }
 
 const configureStore =
-  process.env.NODE_ENV === "production"
+  process.env.NODE_ENV === 'production'
     ? configureStoreProd
     : configureStoreDev;
 

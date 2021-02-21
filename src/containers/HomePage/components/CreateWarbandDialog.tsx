@@ -8,7 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
-//@ts-ignore 
+//@ts-ignore
 import warbands from '../../../assets/warbands.json';
 import { Warband } from '../../../ducks/warbands.js';
 

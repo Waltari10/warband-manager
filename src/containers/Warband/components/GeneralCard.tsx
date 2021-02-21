@@ -1,9 +1,9 @@
-import React, { memo } from "react";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import { Grid, TextField } from "@material-ui/core";
+import React, { memo } from 'react';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { Grid, TextField } from '@material-ui/core';
 
 // @ts-ignore
-import warbands from "../../../assets/warbands.json";
+import warbands from '../../../assets/warbands.json';
 
 export interface WarbandGeneral {
   name?: string;
@@ -22,14 +22,14 @@ const GeneralCard = memo(
     name,
     type,
     gamesPlayed,
-    handleChange
+    handleChange,
   }: Props & WarbandGeneral) => {
     return (
       <>
         <h5
           style={{
-            paddingTop: "24px",
-            paddingBottom: "24px"
+            paddingTop: '24px',
+            paddingBottom: '24px',
           }}
           id="general_header"
           className={classes.h5}
@@ -43,11 +43,11 @@ const GeneralCard = memo(
               id="warband_name_textfield"
               variant="outlined"
               name="name"
-              value={name || ""}
+              value={name || ''}
               onChange={handleChange}
-              label={"Warband name"}
+              label={'Warband name'}
               style={{
-                width: "100%"
+                width: '100%',
               }}
             />
           </Grid>
@@ -55,29 +55,29 @@ const GeneralCard = memo(
             <Autocomplete
               full-width
               selectOnFocus
-              value={type || ""}
+              value={type || ''}
               freeSolo
               clearOnBlur
               classes={{
-                groupUl: classes.groupUl
+                groupUl: classes.groupUl,
               }}
               options={warbands}
               onChange={(event, newValue) => {
                 handleChange({
-                  target: { value: newValue, getAttribute: () => "type" }
+                  target: { value: newValue, getAttribute: () => 'type' },
                 });
               }}
               ListboxProps={{
                 style: {
-                  backgroundColor: "white"
-                }
+                  backgroundColor: 'white',
+                },
               }}
               renderInput={params => (
                 <TextField
                   {...params}
                   full-width
                   name="type"
-                  value={type || ""}
+                  value={type || ''}
                   onChange={handleChange}
                   label="Warband type"
                   variant="outlined"
@@ -96,13 +96,13 @@ const GeneralCard = memo(
               name="gamesPlayed"
               value={gamesPlayed || 0}
               onChange={handleChange}
-              label={"Games played"}
+              label={'Games played'}
             />
           </Grid>
         </Grid>
       </>
     );
-  }
+  },
 );
 
 // GeneralCard.whyDidYouRender = true;

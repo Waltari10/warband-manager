@@ -28,11 +28,11 @@ function mapStateToProps(state): StateProps {
 function mapDispatchToProps(dispatch): DispatchProps {
   return bindActionCreators({
     sendResetPasswordEmail: actions.sendResetPasswordEmail,
-    resetUser: actions.resetUser
+    resetUser: actions.resetUser,
   }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Component);

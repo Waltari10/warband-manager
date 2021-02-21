@@ -14,7 +14,6 @@ import AppWindow from '../../components/AppWindow';
 import { DispatchProps, StateProps } from './Container';
 
 
-
 const useStyles = makeStyles((theme) => ({
   header: {
     marginTop: theme.spacing(0),

@@ -43,11 +43,11 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     getWarbands: warbandDuck.getWarbands,
     addWarband: warbandDuck.addWarband,
-    logout
+    logout,
   }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Component);

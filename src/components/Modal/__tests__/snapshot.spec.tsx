@@ -1,4 +1,4 @@
-import Component from '../index'
+import Component from '../index';
 
 import React from 'react';
 import { render } from '@testing-library/react';
@@ -22,7 +22,7 @@ describe('Modal', () => {
             handleConfirm={() => { }}
           />
         </MuiThemeProvider>
-      </Router>
+      </Router>,
     );
     const firstRender = asFragment();
     expect(firstRender).toMatchSnapshot();

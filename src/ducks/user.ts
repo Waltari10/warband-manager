@@ -1,68 +1,68 @@
-import { put, takeEvery, all, call } from "redux-saga/effects";
-import { createReducer, createAction } from "@reduxjs/toolkit";
-import { captureException } from "@sentry/browser";
+import { put, takeEvery, all, call } from 'redux-saga/effects';
+import { createReducer, createAction } from '@reduxjs/toolkit';
+import { captureException } from '@sentry/browser';
 
-import logger from "../utils/logger";
+import logger from '../utils/logger';
 
-import * as constants from "../constants";
+import * as constants from '../constants';
 
-import firebase, { config as firebaseConfig } from "../utils/firebase";
-import { addPayload } from "./warbands";
+import firebase, { config as firebaseConfig } from '../utils/firebase';
+import { addPayload } from './warbands';
 
 export const signupWithEmail = createAction(
-  "SIGNUP_WITH_EMAIL",
-  (email, password) => ({ payload: { email, password } })
+  'SIGNUP_WITH_EMAIL',
+  (email, password) => ({ payload: { email, password } }),
 );
-export const resetUser = createAction("RESET_USER");
+export const resetUser = createAction('RESET_USER');
 
 export const sendResetPasswordEmail = createAction(
-  "SEND_RESET_PASSWORD_EMAIL_START"
+  'SEND_RESET_PASSWORD_EMAIL_START',
 );
 export const sendResetPasswordEmailSuccess = createAction(
-  "SEND_RESET_PASSWORD_EMAIL_SUCCESS"
+  'SEND_RESET_PASSWORD_EMAIL_SUCCESS',
 );
 export const sendResetPasswordEmailError = createAction(
-  "SEND_RESET_PASSWORD_EMAIL_ERROR",
-  addPayload
+  'SEND_RESET_PASSWORD_EMAIL_ERROR',
+  addPayload,
 );
 export const signupWithEmailSuccess = createAction(
-  "SIGNUP_WITH_EMAIL_SUCCESS",
-  addPayload
+  'SIGNUP_WITH_EMAIL_SUCCESS',
+  addPayload,
 );
 export const signupWithEmailError = createAction(
-  "SIGNUP_WITH_EMAIL_ERROR",
-  addPayload
+  'SIGNUP_WITH_EMAIL_ERROR',
+  addPayload,
 );
 
-export const addUserToState = createAction("ADD_USER_TO_STATE", user => ({
-  payload: user
+export const addUserToState = createAction('ADD_USER_TO_STATE', user => ({
+  payload: user,
 }));
 // Actions
-export const googleSignIn = createAction("GOOGLE_SIGN_IN_START");
+export const googleSignIn = createAction('GOOGLE_SIGN_IN_START');
 export const googleSignInSuccess = createAction(
-  "GOOGLE_SIGN_IN_SUCCESS",
-  addPayload
+  'GOOGLE_SIGN_IN_SUCCESS',
+  addPayload,
 );
 export const googleSignInError = createAction(
-  "GOOGLE_SIGN_IN_ERROR",
-  addPayload
+  'GOOGLE_SIGN_IN_ERROR',
+  addPayload,
 );
 
 export const loginWithEmail = createAction(
-  "LOGIN_WITH_EMAIL",
-  (email, password) => ({ payload: { email, password } })
+  'LOGIN_WITH_EMAIL',
+  (email, password) => ({ payload: { email, password } }),
 );
 export const loginWithEmailSuccess = createAction(
-  "LOGIN_WITH_EMAIL_SUCCESS",
-  addPayload
+  'LOGIN_WITH_EMAIL_SUCCESS',
+  addPayload,
 );
 export const loginWithEmailError = createAction(
-  "LOGIN_WITH_EMAIL_ERROR",
-  addPayload
+  'LOGIN_WITH_EMAIL_ERROR',
+  addPayload,
 );
-export const readSession = createAction("READ_SESSION");
+export const readSession = createAction('READ_SESSION');
 
-export const logout = createAction("LOGOUT");
+export const logout = createAction('LOGOUT');
 
 interface ProviderData {
   uid: string | null;
@@ -119,7 +119,7 @@ const initialState: UserState = {
   isSuccess: false,
   error: null,
   user: null,
-  sendResetPasswordEmailRequestState: ""
+  sendResetPasswordEmailRequestState: '',
 };
 
 const reducer = createReducer(initialState, {
@@ -128,7 +128,7 @@ const reducer = createReducer(initialState, {
     state.isError = false;
     state.isSuccess = false;
     state.error = null;
-    state.sendResetPasswordEmailRequestState = "";
+    state.sendResetPasswordEmailRequestState = '';
   },
   [sendResetPasswordEmailSuccess.toString()]: state => {
     state.sendResetPasswordEmailRequestState = constants.SUCCESS;
@@ -207,7 +207,7 @@ const reducer = createReducer(initialState, {
     state.isSuccess = false;
     state.isError = true;
     state.error = action.payload;
-  }
+  },
 });
 
 // Api
@@ -262,7 +262,7 @@ function* handleGoogleSignIn() {
     // The signed-in user info.
     const user = result.user;
     yield put(
-      googleSignInSuccess({ user: JSON.parse(JSON.stringify(user)), token })
+      googleSignInSuccess({ user: JSON.parse(JSON.stringify(user)), token }),
     );
   } catch (e) {
     logger.error(e);
@@ -273,7 +273,7 @@ function* handleGoogleSignIn() {
 
 function* handleReadSession() {
   const user = window.sessionStorage.getItem(
-    `firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`
+    `firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`,
   );
 
   if (user) {
@@ -341,7 +341,7 @@ function* saga() {
     watchLogout(),
     watchSignupWithEmail(),
     watchReadSession(),
-    watchResetPassword()
+    watchResetPassword(),
   ]);
 }
 
@@ -353,6 +353,6 @@ export default {
     callSendResetPasswordEmail,
     callGoogleSign,
     handleLogout,
-    callLoginWithEmail
-  }
+    callLoginWithEmail,
+  },
 };

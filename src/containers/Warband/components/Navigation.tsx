@@ -1,6 +1,6 @@
-import React, { memo } from "react";
-import { Typography, Link } from "@material-ui/core";
-import { Henchman, Hero } from "../../../ducks/warbands";
+import React, { memo } from 'react';
+import { Typography, Link } from '@material-ui/core';
+import { Henchman, Hero } from '../../../ducks/warbands';
 
 interface Props {
   classes: any;
@@ -18,7 +18,7 @@ const Navigation = memo(
     heroIndex,
     heroes,
     henchmen,
-    henchmenIndex
+    henchmenIndex,
   }: Props) => {
     return (
       <div className={classes.navigation}>
@@ -29,10 +29,10 @@ const Navigation = memo(
         <div className={classes.navigationLink}>
           <Link
             onClick={() => {
-              const scrollTarget = document.getElementById("general_header");
+              const scrollTarget = document.getElementById('general_header');
               if (scrollTarget && formScroll && formScroll.current) {
                 scrollTarget.scrollIntoView({
-                  behavior: "smooth"
+                  behavior: 'smooth',
                 });
               }
             }}
@@ -43,10 +43,10 @@ const Navigation = memo(
         <div className={classes.navigationLink}>
           <Link
             onClick={() => {
-              const scrollTarget = document.getElementById("wealth_header");
+              const scrollTarget = document.getElementById('wealth_header');
               if (scrollTarget && formScroll && formScroll.current) {
                 scrollTarget.scrollIntoView({
-                  behavior: "smooth"
+                  behavior: 'smooth',
                 });
               }
             }}
@@ -57,10 +57,10 @@ const Navigation = memo(
         <div className={classes.navigationLink}>
           <Link
             onClick={() => {
-              const scrollTarget = document.getElementById("rating_header");
+              const scrollTarget = document.getElementById('rating_header');
               if (scrollTarget && formScroll && formScroll.current) {
                 scrollTarget.scrollIntoView({
-                  behavior: "smooth"
+                  behavior: 'smooth',
                 });
               }
             }}
@@ -71,8 +71,8 @@ const Navigation = memo(
 
         <Typography
           style={{
-            marginTop: "16px",
-            marginBottom: "8px"
+            marginTop: '16px',
+            marginBottom: '8px',
           }}
           variant="body1"
         >
@@ -88,16 +88,16 @@ const Navigation = memo(
                   const scrollTarget = document.getElementById(key);
                   if (scrollTarget && formScroll && formScroll.current) {
                     scrollTarget.scrollIntoView({
-                      behavior: "smooth"
+                      behavior: 'smooth',
                     });
                   }
                 }}
               >
-                {" "}
-                &#8594;{" "}
-                {`${hero.name || "Nameless"}${
-                  hero.type ? "," : ""
-                } ${hero.type || ""}`}
+                {' '}
+                &#8594;{' '}
+                {`${hero.name || 'Nameless'}${
+                  hero.type ? ',' : ''
+                } ${hero.type || ''}`}
               </Link>
             </div>
           );
@@ -105,8 +105,8 @@ const Navigation = memo(
 
         <Typography
           style={{
-            marginTop: "16px",
-            marginBottom: "8px"
+            marginTop: '16px',
+            marginBottom: '8px',
           }}
           variant="body1"
         >
@@ -122,22 +122,22 @@ const Navigation = memo(
                   const scrollTarget = document.getElementById(key);
                   if (scrollTarget && formScroll && formScroll.current) {
                     scrollTarget.scrollIntoView({
-                      behavior: "smooth"
+                      behavior: 'smooth',
                     });
                   }
                 }}
               >
-                &#8594;{" "}
-                {`${henchman.name || "Nameless"}${
-                  henchman.type ? "," : ""
-                } ${henchman.type || ""} (${henchman.count})`}
+                &#8594;{' '}
+                {`${henchman.name || 'Nameless'}${
+                  henchman.type ? ',' : ''
+                } ${henchman.type || ''} (${henchman.count})`}
               </Link>
             </div>
           );
         })}
       </div>
     );
-  }
+  },
 );
 
 // Navigation.whyDidYouRender = true;

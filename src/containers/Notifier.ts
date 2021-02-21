@@ -1,8 +1,8 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useSnackbar, SnackbarKey } from "notistack";
-import { removeSnackbar } from "../ducks/notifier";
-import { RootState } from "../store/configureStore";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSnackbar, SnackbarKey } from 'notistack';
+import { removeSnackbar } from '../ducks/notifier';
+import { RootState } from '../store/configureStore';
 // src/store/configureStore.ts
 
 let displayed: SnackbarKey[] = [];
@@ -10,7 +10,7 @@ let displayed: SnackbarKey[] = [];
 const Notifier = () => {
   const dispatch = useDispatch();
   const notifications = useSelector(
-    (store: RootState) => store.notifier.notifications || []
+    (store: RootState) => store.notifier.notifications || [],
   );
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -47,12 +47,12 @@ const Notifier = () => {
             // removen this snackbar from redux store
             dispatch(removeSnackbar(myKey));
             removeDisplayed(myKey);
-          }
+          },
         });
 
         // keep track of snackbars that we've displayed
         storeDisplayed(key);
-      }
+      },
     );
   }, [notifications, closeSnackbar, enqueueSnackbar, dispatch]);
 

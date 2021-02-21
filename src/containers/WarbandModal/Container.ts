@@ -1,9 +1,9 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as actions from "../../ducks/warbands";
-import Component from "./Component";
-import { RootState } from "../../store/configureStore";
+import * as actions from '../../ducks/warbands';
+import Component from './Component';
+import { RootState } from '../../store/configureStore';
 
 export interface StateProps {
   removeWarbandRequestState: string;
@@ -19,14 +19,14 @@ export interface NavProps {
 
 function mapStateToProps(state: RootState): StateProps {
   return {
-    removeWarbandRequestState: state.warbands.removeWarbandRequestState
+    removeWarbandRequestState: state.warbands.removeWarbandRequestState,
   };
 }
 
 function mapDispatchToProps(dispatch): DispatchProps {
   return bindActionCreators(
     { removeWarbandReset: actions.removeWarbandReset },
-    dispatch
+    dispatch,
   );
 }
 

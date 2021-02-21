@@ -1,7 +1,7 @@
-import { colors } from "@material-ui/core";
-import { Palette } from "@material-ui/core/styles/createPalette";
+import { colors } from '@material-ui/core';
+import { Palette } from '@material-ui/core/styles/createPalette';
 
-const white = "#FFFFFF";
+const white = '#FFFFFF';
 
 //@ts-ignore
 const myPalette: Palette = {
@@ -10,19 +10,19 @@ const myPalette: Palette = {
   //@ts-ignore
   primary: {
     contrastText: white,
-    main: "#3F3F3F"
+    main: '#3F3F3F',
   },
-  divider: "rgba(0, 0, 0, 0.48)",
+  divider: 'rgba(0, 0, 0, 0.48)',
 
   //@ts-ignore
-  background: "#F5F5F5",
+  background: '#F5F5F5',
   text: {
-    primary: "#3F3F3F",
-    secondary: "#3F3F3F",
+    primary: '#3F3F3F',
+    secondary: '#3F3F3F',
 
     //@ts-ignore
-    link: colors.blue[600]
-  }
+    link: colors.blue[600],
+  },
 };
 
 export default myPalette;

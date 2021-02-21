@@ -3,27 +3,27 @@ import React, {
   useState,
   useEffect,
   useRef,
-  useCallback
-} from "react";
-import MenuIcon from "@material-ui/icons/Menu";
+  useCallback,
+} from 'react';
+import MenuIcon from '@material-ui/icons/Menu';
 import {
   Paper,
   Divider,
   MenuItem,
   Menu,
   IconButton,
-  Typography
-} from "@material-ui/core";
-import { isEmpty } from "ramda";
-import Dialog from "../../components/Dialog";
-import GeneralCard, { WarbandGeneral } from "./components/GeneralCard";
-import WealthCard from "./components/WealthCard";
-import Navigation from "./components/Navigation";
-import HeroList from "./components/HeroList";
-import HenchmenList from "./components/HenchmenList";
-import RatingCard from "./components/RatingCard";
-import SupportDialog from "../../components/SupportContact";
-import { useTotalGoldValue } from "./hooks";
+  Typography,
+} from '@material-ui/core';
+import { isEmpty } from 'ramda';
+import Dialog from '../../components/Dialog';
+import GeneralCard, { WarbandGeneral } from './components/GeneralCard';
+import WealthCard from './components/WealthCard';
+import Navigation from './components/Navigation';
+import HeroList from './components/HeroList';
+import HenchmenList from './components/HenchmenList';
+import RatingCard from './components/RatingCard';
+import SupportDialog from '../../components/SupportContact';
+import { useTotalGoldValue } from './hooks';
 
 import {
   wealthReducer,
@@ -32,11 +32,11 @@ import {
   initialWealthState,
   henchmenReducer,
   initialHenchmenState,
-  actions
-} from "./reducers";
+  actions,
+} from './reducers';
 
-import useStyles from "./styles";
-import { Warband, Hero } from "../../ducks/warbands";
+import useStyles from './styles';
+import { Warband, Hero } from '../../ducks/warbands';
 
 let timeout;
 
@@ -59,7 +59,7 @@ const WarbandPage = ({
   removeWarband,
   isSuccessGetWarbands,
   addWarbandReset,
-  getWarbands
+  getWarbands,
 }: Props) => {
   const formScroll = useRef(null);
 
@@ -69,7 +69,7 @@ const WarbandPage = ({
 
   const [wealth, dispatchWealth] = useReducer(
     wealthReducer,
-    initialWealthState
+    initialWealthState,
   );
   const [heroesState, dispatchHero] = useReducer(heroReducer, initialHeroState);
 
@@ -77,7 +77,7 @@ const WarbandPage = ({
 
   const [henchmenState, dispatchHenchmen] = useReducer(
     henchmenReducer,
-    initialHenchmenState
+    initialHenchmenState,
   );
 
   const { henchmen, index: henchmenIndex } = henchmenState;
@@ -95,8 +95,8 @@ const WarbandPage = ({
             warband.heroIndex ||
             (warband.heroes && Object.keys(warband.heroes)) ||
             [],
-          heroes: warband.heroes || {}
-        }
+          heroes: warband.heroes || {},
+        },
       });
 
       dispatchHenchmen({
@@ -106,15 +106,15 @@ const WarbandPage = ({
             warband.henchmenIndex ||
             (warband.henchmen && Object.keys(warband.henchmen)) ||
             [],
-          henchmen: warband.henchmen || {}
-        }
+          henchmen: warband.henchmen || {},
+        },
       });
 
       setLocalWarband(warband);
       setGeneral({
-        name: warband.name || "",
-        type: warband.type || "",
-        gamesPlayed: warband.gamesPlayed || 0
+        name: warband.name || '',
+        type: warband.type || '',
+        gamesPlayed: warband.gamesPlayed || 0,
       });
 
       dispatchWealth({
@@ -122,8 +122,8 @@ const WarbandPage = ({
         payload: {
           goldCrowns: warband.goldCrowns || 0,
           shards: warband.shards || 0,
-          equipment: warband.equipment || ""
-        }
+          equipment: warband.equipment || '',
+        },
       });
     }
   }, [isSuccessGetWarbands]);
@@ -150,12 +150,12 @@ const WarbandPage = ({
     e => {
       const newGeneral: WarbandGeneral = {
         ...general,
-        [e.target.getAttribute("name")]: e.target.value
+        [e.target.getAttribute('name')]: e.target.value,
       };
 
       setGeneral(newGeneral);
     },
-    [general]
+    [general],
   );
 
   const handleWealthChange = useCallback(
@@ -163,12 +163,12 @@ const WarbandPage = ({
       dispatchWealth({
         type: actions.UPDATE,
         payload: {
-          name: e.target.getAttribute("name"),
-          value: e.target.value
-        }
+          name: e.target.getAttribute('name'),
+          value: e.target.value,
+        },
       });
     },
-    [dispatchWealth]
+    [dispatchWealth],
   );
 
   const handleHeroChange = useCallback(
@@ -177,11 +177,11 @@ const WarbandPage = ({
         type: actions.UPDATE,
         payload: {
           id: heroId,
-          hero
-        }
+          hero,
+        },
       });
     },
-    [dispatchHero]
+    [dispatchHero],
   );
 
   const handleHenchmanChange = useCallback(
@@ -190,51 +190,51 @@ const WarbandPage = ({
         type: actions.UPDATE,
         payload: {
           id,
-          henchman
-        }
+          henchman,
+        },
       });
     },
-    [dispatchHenchmen]
+    [dispatchHenchmen],
   );
 
   const addHenchman = useCallback(
     id => {
       dispatchHenchmen({
         type: actions.ADD,
-        payload: id
+        payload: id,
       });
     },
-    [dispatchHenchmen]
+    [dispatchHenchmen],
   );
 
   const deleteHenchman = useCallback(
     id => {
       dispatchHenchmen({
         type: actions.DELETE,
-        payload: id
+        payload: id,
       });
     },
-    [dispatchHenchmen]
+    [dispatchHenchmen],
   );
 
   const addHero = useCallback(
     heroId => {
       dispatchHero({
         type: actions.ADD,
-        payload: heroId
+        payload: heroId,
       });
     },
-    [dispatchHero]
+    [dispatchHero],
   );
 
   const deleteHero = useCallback(
     heroId => {
       dispatchHero({
         type: actions.DELETE,
-        payload: heroId
+        payload: heroId,
       });
     },
-    [dispatchHero]
+    [dispatchHero],
   );
 
   useEffect(() => {
@@ -253,20 +253,20 @@ const WarbandPage = ({
           heroes,
           heroIndex,
           ...general,
-          warbandId
+          warbandId,
         });
       }, 1000);
     }
   }, [
-      wealth,
-      general,
-      warbandId,
-      heroes,
-      heroIndex,
-      localWarband,
-      henchmen,
-      henchmenIndex
-    ]);
+    wealth,
+    general,
+    warbandId,
+    heroes,
+    heroIndex,
+    localWarband,
+    henchmen,
+    henchmenIndex,
+  ]);
 
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
@@ -277,7 +277,7 @@ const WarbandPage = ({
       <div className={classes.form}>
         <Paper className={classes.innerForm}>
           <Typography className={classes.title} align="center" variant="h5">
-            {general.name || "No name"}
+            {general.name || 'No name'}
           </Typography>
           <IconButton
             id="warband-menu-button"
@@ -300,7 +300,7 @@ const WarbandPage = ({
             open={Boolean(anchorEl)}
             onClose={handleClose}
             classes={{
-              paper: classes.menu
+              paper: classes.menu,
             }}
           >
             <MenuItem
@@ -333,7 +333,7 @@ const WarbandPage = ({
 
           <Dialog
             title={`Are you sure you want to remove warband ${warband.name ||
-              "no name"}`}
+              'no name'}`}
             confirm="Remove"
             open={isConfirmOpen}
             handleConfirm={() => {
@@ -350,9 +350,9 @@ const WarbandPage = ({
           <div ref={formScroll}>
             <GeneralCard
               classes={classes}
-              name={general.name || ""}
-              type={general.type || ""}
-              gamesPlayed={general.gamesPlayed || ""}
+              name={general.name || ''}
+              type={general.type || ''}
+              gamesPlayed={general.gamesPlayed || ''}
               handleChange={handleGeneralChange}
             />
 
@@ -363,7 +363,7 @@ const WarbandPage = ({
               handleChange={handleWealthChange}
               shards={wealth.shards || 0}
               goldCrowns={wealth.goldCrowns || 0}
-              equipment={wealth.equipment || ""}
+              equipment={wealth.equipment || ''}
               totalGoldValue={totalGoldValue || 0}
             />
 

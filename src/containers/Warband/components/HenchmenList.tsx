@@ -1,10 +1,10 @@
-import React, { memo } from "react";
-import { path } from "ramda";
-import { Button, Divider } from "@material-ui/core";
-import { v4 as uuid } from "uuid";
-import AddIcon from "@material-ui/icons/Add";
-import Card from "./HenchmanCard";
-import { Henchman } from "../../../ducks/warbands";
+import React, { memo } from 'react';
+import { path } from 'ramda';
+import { Button, Divider } from '@material-ui/core';
+import { v4 as uuid } from 'uuid';
+import AddIcon from '@material-ui/icons/Add';
+import Card from './HenchmanCard';
+import { Henchman } from '../../../ducks/warbands';
 
 const emptyObj = {};
 
@@ -26,7 +26,7 @@ const HenchmenList = memo(
     items,
     add,
     deleteHire,
-    warbandType
+    warbandType,
   }: Props) => {
     return (
       <>
@@ -65,7 +65,7 @@ const HenchmenList = memo(
         </Button>
       </>
     );
-  }
+  },
 );
 // HenchmenList.whyDidYouRender = true;
 

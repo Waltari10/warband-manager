@@ -18,7 +18,7 @@ const PrivateRoute = memo(
       isLoading,
       isAuthorized,
       ...rest
-    }: StateProps & Props
+    }: StateProps & Props,
   ) => {
 
     const Component = component;

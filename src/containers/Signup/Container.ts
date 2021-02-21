@@ -34,11 +34,11 @@ function mapDispatchToProps(dispatch): DispatchProps {
   return bindActionCreators({
     resetUser: actions.resetUser,
     signupWithEmail: actions.signupWithEmail,
-    googleSignIn: actions.googleSignIn
+    googleSignIn: actions.googleSignIn,
   }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Component);

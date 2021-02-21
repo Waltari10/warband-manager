@@ -24,7 +24,7 @@ describe('Forgot Password', () => {
             sendResetPasswordEmail={() => { }}
           />
         </MuiThemeProvider>
-      </Router>
+      </Router>,
     );
     const firstRender = asFragment();
     expect(firstRender).toMatchSnapshot();

@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import React, { memo } from 'react';
 
-import { Grid, TextField, Typography } from "@material-ui/core";
-import { WarbandWealth } from "../../../ducks/warbands";
+import { Grid, TextField, Typography } from '@material-ui/core';
+import { WarbandWealth } from '../../../ducks/warbands';
 
 interface Props {
   classes?: any;
@@ -16,13 +16,13 @@ const WealthCard = memo(
     shards,
     goldCrowns,
     equipment,
-    totalGoldValue
+    totalGoldValue,
   }: Props & WarbandWealth) => {
     return (
       <>
         <h5
           id="wealth_header"
-          style={{ paddingTop: "24px", paddingBottom: "24px" }}
+          style={{ paddingTop: '24px', paddingBottom: '24px' }}
           className={classes.h5}
         >
           <b>Wealth</b>
@@ -37,7 +37,7 @@ const WealthCard = memo(
                 name="shards"
                 value={shards || 0}
                 onChange={handleChange}
-                label={"Wyrdstone shards"}
+                label={'Wyrdstone shards'}
                 type="number"
               />
             </div>
@@ -45,17 +45,17 @@ const WealthCard = memo(
               <TextField
                 full-width
                 style={{
-                  marginTop: "24px"
+                  marginTop: '24px',
                 }}
                 variant="outlined"
                 name="goldCrowns"
                 value={goldCrowns || 0}
                 onChange={handleChange}
-                label={"Gold crowns"}
+                label={'Gold crowns'}
                 type="number"
               />
             </div>
-            <Typography style={{ marginTop: "24px" }} variant="body1">
+            <Typography style={{ marginTop: '24px' }} variant="body1">
               Value: {totalGoldValue}
             </Typography>
           </Grid>
@@ -64,19 +64,19 @@ const WealthCard = memo(
               full-width
               variant="outlined"
               name="equipment"
-              value={equipment || ""}
+              value={equipment || ''}
               onChange={handleChange}
               multiline
-              label={"Equipment"}
+              label={'Equipment'}
               style={{
-                width: "100%"
+                width: '100%',
               }}
             />
           </Grid>
         </Grid>
       </>
     );
-  }
+  },
 );
 
 // TODO: if env

@@ -1,10 +1,10 @@
-import React, { memo } from "react";
-import { path } from "ramda";
-import { Button, Divider } from "@material-ui/core";
-import { v4 as uuid } from "uuid";
-import AddIcon from "@material-ui/icons/Add";
-import HeroCard from "./HeroCard";
-import { Hero } from "../../../ducks/warbands";
+import React, { memo } from 'react';
+import { path } from 'ramda';
+import { Button, Divider } from '@material-ui/core';
+import { v4 as uuid } from 'uuid';
+import AddIcon from '@material-ui/icons/Add';
+import HeroCard from './HeroCard';
+import { Hero } from '../../../ducks/warbands';
 
 const emptyObj = {};
 
@@ -26,7 +26,7 @@ const HeroList = memo(
     heroes,
     addHero,
     deleteHero,
-    warbandType
+    warbandType,
   }: Props) => {
     return (
       <>
@@ -65,7 +65,7 @@ const HeroList = memo(
         </Button>
       </>
     );
-  }
+  },
 );
 // HeroList.whyDidYouRender = true;
 

@@ -1,11 +1,11 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { path } from "ramda";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { path } from 'ramda';
 
-import * as actions from "../../ducks/warbands";
-import * as userActions from "../../ducks/user";
+import * as actions from '../../ducks/warbands';
+import * as userActions from '../../ducks/user';
 
-import Component from "./Component";
+import Component from './Component';
 
 function mapStateToProps(state, ownProps) {
   const isAuthorized = !!state.user.user;
@@ -15,9 +15,9 @@ function mapStateToProps(state, ownProps) {
     isError: state.warbands.isError,
     isLoading: state.warbands.isLoading,
     warbandId: ownProps.id,
-    warband: path(["warbands", "warbands", ownProps.id], state),
+    warband: path(['warbands', 'warbands', ownProps.id], state),
     isSuccessGetWarbands: state.warbands.isSuccessGetWarbands,
-    isLoadingGetWarbands: state.warbands.isLoadingGetWarbands
+    isLoadingGetWarbands: state.warbands.isLoadingGetWarbands,
   };
 }
 
@@ -28,9 +28,9 @@ function mapDispatchToProps(dispatch) {
       logout: userActions.logout,
       removeWarband: actions.removeWarband,
       addWarbandReset: actions.addWarbandReset,
-      getWarbands: actions.getWarbands
+      getWarbands: actions.getWarbands,
     },
-    dispatch
+    dispatch,
   );
 }
 

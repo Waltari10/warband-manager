@@ -36,5 +36,5 @@ function mapDispatchToProps(dispatch): DispatchProps {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Component);

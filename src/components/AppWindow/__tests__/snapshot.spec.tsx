@@ -1,4 +1,4 @@
-import Component from '../index'
+import Component from '../index';
 
 import React from 'react';
 import { render } from '@testing-library/react';
@@ -20,7 +20,7 @@ describe('Appwindow', () => {
           <Component
           />
         </MuiThemeProvider>
-      </Router>
+      </Router>,
     );
     const firstRender = asFragment();
     expect(firstRender).toMatchSnapshot();

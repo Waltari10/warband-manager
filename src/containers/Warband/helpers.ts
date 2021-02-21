@@ -1,15 +1,15 @@
-import { Hero, Henchman } from "../../ducks/warbands";
+import { Hero, Henchman } from '../../ducks/warbands';
 
 const numberify = (s: string | number | null | undefined): number => {
   if (s === null || s === undefined) {
     return 0;
-  } else if (typeof s === "string") {
+  } else if (typeof s === 'string') {
     if (!isNaN(parseInt(s))) {
       return parseInt(s);
     } else {
       return 0;
     }
-  } else if (typeof s === "number") {
+  } else if (typeof s === 'number') {
     if (isNaN(s)) {
       return 0;
     }
@@ -20,7 +20,7 @@ const numberify = (s: string | number | null | undefined): number => {
 
 export const getTotalExperience = (
   heroes: Record<string, Hero> = {},
-  henchmen: Record<string, Henchman> = {}
+  henchmen: Record<string, Henchman> = {},
 ) => {
   let total = 0;
 
@@ -40,7 +40,7 @@ export const getTotalExperience = (
 
 export const getWarbandMemberCount = (
   heroes: Record<string, Hero> = {},
-  henchmen: Record<string, Henchman> = {}
+  henchmen: Record<string, Henchman> = {},
 ): number => {
   let total = 0;
 
@@ -59,12 +59,12 @@ export const getWarbandMemberCount = (
 
 export const getRatingFromMemberCount = (
   heroes: Record<string, Hero> = {},
-  henchmen: Record<string, Henchman> = {}
+  henchmen: Record<string, Henchman> = {},
 ): number => {
   let total = 0;
 
   Object.values(heroes).forEach((hero: Hero) => {
-    if (hero.isLarge === "true") {
+    if (hero.isLarge === 'true') {
       total += 20;
     } else {
       total += 5;
@@ -73,7 +73,7 @@ export const getRatingFromMemberCount = (
 
   Object.values(henchmen).forEach(henchman => {
     if (henchman.count) {
-      if (henchman.isLarge === "true") {
+      if (henchman.isLarge === 'true') {
         total += numberify(henchman.count) * 20;
       } else {
         total += numberify(henchman.count) * 5;
@@ -116,7 +116,7 @@ const heroAdvancementArr = [
   69,
   76,
   83,
-  90
+  90,
 ];
 
 const advancementCache = new Map();
@@ -151,7 +151,7 @@ const _getHeroAdvancements = getAdvancementFactory(heroAdvancementArr);
 export const getHeroAdvancements = (exp, startingExp = 0) => {
   const expInt = parseInt(exp);
   const startingExpInt =
-    typeof startingExp === "string" ? parseInt(startingExp) : startingExp;
+    typeof startingExp === 'string' ? parseInt(startingExp) : startingExp;
 
   const expAdvancements = _getHeroAdvancements(expInt + startingExpInt);
   const startingExpAdvancements = _getHeroAdvancements(startingExp);
@@ -162,5 +162,5 @@ export const getHeroAdvancements = (exp, startingExp = 0) => {
 };
 
 export const getHenchmanAdvancements = getAdvancementFactory(
-  henchmanAdvancementArr
+  henchmanAdvancementArr,
 );

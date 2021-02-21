@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import reducers from "../ducks/index";
-import { LOGOUT } from "../constants";
+import { combineReducers } from 'redux';
+import reducers from '../ducks/index';
+import { LOGOUT } from '../constants';
 
 export default () => {
   const appReducer = combineReducers(reducers);

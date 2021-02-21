@@ -19,7 +19,7 @@ interface Props {
   open?: boolean;
   title?: string;
   dialog?: any;
-  cancel?: String;
+  cancel?: string;
   confirm?: string;
   handleConfirm(): void;
   isConfirm?: boolean;
