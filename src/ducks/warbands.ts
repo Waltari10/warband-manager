@@ -232,7 +232,7 @@ const reducer = createReducer(initialState, {
   },
 });
 
-const callSetWarband = (warband, uuid) => {
+const callSetWarband = (warband: Warband, uuid: string) => {
   return db
     .collection('users')
     .doc(uuid)
