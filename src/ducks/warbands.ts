@@ -1,115 +1,143 @@
-import { put, takeEvery, all, call, select } from 'redux-saga/effects';
-import { createReducer, createAction } from '@reduxjs/toolkit';
-import { captureException } from '@sentry/browser';
-import { path } from 'ramda';
+import { put, takeEvery, all, call, select } from "redux-saga/effects";
+import { createReducer, createAction } from "@reduxjs/toolkit";
+import { captureException } from "@sentry/browser";
+import { path } from "ramda";
 
-import firebase, { db } from '../utils/firebase';
-import logger from '../utils/logger';
-import * as constants from '../constants';
-import { enqueueSnackbar } from './notifier';
+import firebase, { db } from "../utils/firebase";
+import logger from "../utils/logger";
+import * as constants from "../constants";
+import { enqueueSnackbar } from "./notifier";
 
 // TODO: reduxjs/toolkit had an example on how to reduce redux boilerplate even further
 
-const addPayload = (payload) => ({ payload });
+export const addPayload = payload => ({ payload });
 
-export const saveWarband = createAction('SAVE_WARBAND_START', addPayload);
-export const saveWarbandSuccess = createAction('SAVE_WARBAND_SUCCESS', addPayload);
-export const saveWarbandError = createAction('SAVE_WARBAND_ERROR', addPayload);
-export const saveWarbandReset = createAction('SAVE_WARBAND_RESET');
-
-
-export const addWarband = createAction('ADD_WARBAND_START', addPayload);
-export const addWarbandSuccess = createAction('ADD_WARBAND_SUCCESS', addPayload);
-export const addWarbandError = createAction('ADD_WARBAND_ERROR', addPayload);
-export const addWarbandReset = createAction('ADD_WARBAND_RESET');
-
-export const removeWarbandSuccess = createAction('REMOVE_WARBAND_SUCCESS');
-export const removeWarbandError = createAction('REMOVE_WARBAND_ERROR', addPayload);
-export const removeWarband = createAction('REMOVE_WARBAND_START', addPayload);
-export const removeWarbandReset = createAction('REMOVE_WARBAND_RESET');
-
-export const getWarbands = createAction(
-  'GET_WARBANDS_START'
+export const saveWarband = createAction("SAVE_WARBAND_START", addPayload);
+export const saveWarbandSuccess = createAction(
+  "SAVE_WARBAND_SUCCESS",
+  addPayload
 );
-export const getWarbandsSuccess = createAction('GET_WARBANDS_SUCCESS');
-export const getWarbandsError = createAction('GET_WARBANDS_ERROR', addPayload);
+export const saveWarbandError = createAction("SAVE_WARBAND_ERROR", addPayload);
+export const saveWarbandReset = createAction("SAVE_WARBAND_RESET");
 
-const initialState = {
+export const addWarband = createAction("ADD_WARBAND_START", addPayload);
+export const addWarbandSuccess = createAction(
+  "ADD_WARBAND_SUCCESS",
+  addPayload
+);
+export const addWarbandError = createAction("ADD_WARBAND_ERROR", addPayload);
+export const addWarbandReset = createAction("ADD_WARBAND_RESET");
+
+export const removeWarbandSuccess = createAction("REMOVE_WARBAND_SUCCESS");
+export const removeWarbandError = createAction(
+  "REMOVE_WARBAND_ERROR",
+  addPayload
+);
+export const removeWarband = createAction("REMOVE_WARBAND_START", addPayload);
+export const removeWarbandReset = createAction("REMOVE_WARBAND_RESET");
+
+export const getWarbands = createAction("GET_WARBANDS_START");
+export const getWarbandsSuccess = createAction(
+  "GET_WARBANDS_SUCCESS",
+  addPayload
+);
+export const getWarbandsError = createAction("GET_WARBANDS_ERROR", addPayload);
+
+export interface WarbandsState {
+  isLoading: boolean;
+  isError: boolean;
+  isSuccess: boolean;
+  warbandsIndex: string[];
+  error: Object | null;
+  warbands: Record<string, any>;
+  removeWarbandRequestState: string;
+  addWarbandRequestState: string;
+  lastAddedWarbandId: string | null;
+  isLoadingGetWarbands: boolean;
+  isSuccessGetWarbands: boolean;
+  isErrorGetWarbands: boolean;
+  errorGetWarbands: boolean | null;
+}
+
+const initialState: WarbandsState = {
   isLoading: false,
   isError: false,
   isSuccess: false,
   error: null,
   warbandsIndex: [],
   warbands: {},
-  removeWarbandRequestState: '',
-  addWarbandRequestState: '',
+  removeWarbandRequestState: "",
+  addWarbandRequestState: "",
   lastAddedWarbandId: null,
+  isLoadingGetWarbands: false,
+  isSuccessGetWarbands: false,
+  isErrorGetWarbands: false,
+  errorGetWarbands: null
 };
 
 const reducer = createReducer(initialState, {
-  [addWarband]: (state) => {
+  [addWarband.toString()]: state => {
     state.addWarbandRequestState = constants.LOADING;
   },
-  [addWarbandSuccess]: (state, action) => {
+  [addWarbandSuccess.toString()]: (state, action) => {
     state.addWarbandRequestState = constants.SUCCESS;
     state.lastAddedWarbandId = action.payload.id;
   },
-  [addWarbandError]: (state) => {
+  [addWarbandError.toString()]: state => {
     state.addWarbandRequestState = constants.ERROR;
   },
-  [addWarbandReset]: (state) => {
-    state.addWarbandRequestState = '';
+  [addWarbandReset.toString()]: state => {
+    state.addWarbandRequestState = "";
     state.lastAddedWarbandId = null;
   },
-  [removeWarbandReset]: (state) => {
-    state.removeWarbandRequestState = '';
+  [removeWarbandReset.toString()]: state => {
+    state.removeWarbandRequestState = "";
   },
-  [removeWarbandSuccess]: (state) => {
+  [removeWarbandSuccess.toString()]: state => {
     state.removeWarbandRequestState = constants.SUCCESS;
   },
-  [removeWarbandError]: (state) => {
+  [removeWarbandError.toString()]: state => {
     state.removeWarbandRequestState = constants.ERROR;
   },
-  [removeWarband]: (state) => {
+  [removeWarband.toString()]: state => {
     state.removeWarbandRequestState = constants.LOADING;
   },
-  [saveWarband]: (state) => {
+  [saveWarband.toString()]: state => {
     state.isLoading = true;
     state.isSuccess = false;
     state.isError = false;
     state.error = null;
   },
-  [saveWarbandReset]: (state) => {
+  [saveWarbandReset.toString()]: state => {
     state.isLoading = false;
     state.isSuccess = false;
     state.isError = false;
     state.error = null;
   },
-  [saveWarbandSuccess]: (state) => {
+  [saveWarbandSuccess.toString()]: state => {
     state.isLoading = false;
     state.isSuccess = true;
     state.isError = false;
     state.error = null;
   },
-  [saveWarbandError]: (state, action) => {
+  [saveWarbandError.toString()]: (state, action) => {
     state.isLoading = false;
     state.isSuccess = false;
     state.isError = true;
     state.error = action.payload;
   },
-  [getWarbands]: (state) => {
+  [getWarbands.toString()]: state => {
     state.isLoadingGetWarbands = true;
     state.isSuccessGetWarbands = false;
     state.isErrorGetWarbands = false;
     state.errorGetWarbands = null;
   },
-  [getWarbandsSuccess]: (state, action) => {
+  [getWarbandsSuccess.toString()]: (state, action) => {
     const warbandsIndex = Object.keys(action.payload).sort((keyA, keyB) => {
       const valA = action.payload[keyA];
       const valB = action.payload[keyB];
 
       return valB.createdAt.seconds - valA.createdAt.seconds;
-
     });
     state.warbandsIndex = warbandsIndex;
     state.warbands = action.payload;
@@ -118,72 +146,61 @@ const reducer = createReducer(initialState, {
     state.isErrorGetWarbands = false;
     state.errorGetWarbands = null;
   },
-  [getWarbandsError]: (state) => {
+  [getWarbandsError.toString()]: state => {
     state.isLoadingGetWarbands = false;
     state.isSuccessGetWarbands = false;
     state.isErrorGetWarbands = true;
     state.errorGetWarbands = null; // TODO: add error here
-  },
-
-
+  }
 });
-
 
 const callSetWarband = (warband, uuid) => {
   return db
-    .collection('users')
+    .collection("users")
     .doc(uuid)
-    .collection('warbands')
+    .collection("warbands")
     .doc(warband.warbandId)
     .set({ createdAt: firebase.firestore.Timestamp.now(), ...warband }); // This doesn't return document reference
 };
 
 const callAddWarband = (warband, uuid) => {
   return db
-    .collection('users')
+    .collection("users")
     .doc(uuid)
-    .collection('warbands')
+    .collection("warbands")
     .add({ createdAt: firebase.firestore.Timestamp.now(), ...warband });
 };
-
 
 // Api
 const callRemoveWarband = (warbandId, uuid) => {
   return db
-    .collection('users')
+    .collection("users")
     .doc(uuid)
-    .collection('warbands')
+    .collection("warbands")
     .doc(warbandId)
     .delete();
 };
 
-
-const callGetWarbands = (uuid) => {
-
+const callGetWarbands = uuid => {
   return db
-    .collection('users')
+    .collection("users")
     .doc(uuid)
-    .collection('warbands')
+    .collection("warbands")
     .get()
     .then(querySnapshot => {
-
       const warbands = {};
       querySnapshot.forEach(function(doc) {
-
         const warband = doc.data();
         warband.warbandId = doc.id;
 
         warbands[doc.id] = warband;
       });
       return warbands;
-
     });
-
 };
 
-
-function* handleGetWarbands () {
-  const uuid = yield select((state) => path(['user', 'user', 'uid'], state));
+function* handleGetWarbands() {
+  const uuid = yield select(state => path(["user", "user", "uid"], state));
 
   if (!uuid) {
     return;
@@ -196,75 +213,82 @@ function* handleGetWarbands () {
     logger.error(e);
     captureException(e);
 
-    yield put(enqueueSnackbar({
-      message: 'Failed to fetch warbands. Please try again later',
-      options: {
-        key: new Date().getTime() + Math.random(),
-        variant: 'warning',
-      },
-    }));
+    yield put(
+      enqueueSnackbar({
+        message: "Failed to fetch warbands. Please try again later",
+        options: {
+          key: new Date().getTime() + Math.random(),
+          variant: "warning"
+        }
+      })
+    );
     yield put(getWarbandsError(e));
   }
 }
 
-
 // Sagas for side-effects
 function* handleSaveWarband(action) {
   try {
-    const uuid = yield select((state) => state.user.user.uid);
+    const uuid = yield select(state => state.user.user.uid);
     const result = yield call(callSetWarband, action.payload, uuid);
     yield put(saveWarbandSuccess({ result, warband: action.payload }));
     yield put(getWarbands());
   } catch (e) {
     logger.error(e);
     captureException(e);
-    yield put(enqueueSnackbar({
-      message: 'Failed to autosave warband. Your changes may be lost.',
-      options: {
-        key: new Date().getTime() + Math.random(),
-        variant: 'error',
-      },
-    }));
+    yield put(
+      enqueueSnackbar({
+        message: "Failed to autosave warband. Your changes may be lost.",
+        options: {
+          key: new Date().getTime() + Math.random(),
+          variant: "error"
+        }
+      })
+    );
     yield put(saveWarbandError(e));
   }
 }
 
 function* handleRemoveWarband(action) {
   try {
-    const uuid = yield select((state) => state.user.user.uid);
+    const uuid = yield select(state => state.user.user.uid);
     yield call(callRemoveWarband, action.payload, uuid);
     yield put(removeWarbandSuccess());
     yield put(getWarbands());
   } catch (e) {
     logger.error(e);
     captureException(e);
-    yield put(enqueueSnackbar({
-      message: 'Failed to remove warband.',
-      options: {
-        key: new Date().getTime() + Math.random(),
-        variant: 'error',
-      },
-    }));
+    yield put(
+      enqueueSnackbar({
+        message: "Failed to remove warband.",
+        options: {
+          key: new Date().getTime() + Math.random(),
+          variant: "error"
+        }
+      })
+    );
     yield put(removeWarbandError(e));
   }
 }
 
 function* handleAddWarband(action) {
   try {
-    const uuid = yield select((state) => state.user.user.uid);
+    const uuid = yield select(state => state.user.user.uid);
     const res = yield call(callAddWarband, action.payload, uuid);
     yield put(addWarbandSuccess(res));
     yield put(getWarbands());
   } catch (e) {
     logger.error(e);
     captureException(e);
-    yield put(enqueueSnackbar({
-      message: 'Failed to add warband.',
-      options: {
-        key: new Date().getTime() + Math.random(),
-        variant: 'error',
-      },
-    }));
+    yield put(
+      enqueueSnackbar({
+        message: "Failed to add warband.",
+        options: {
+          key: new Date().getTime() + Math.random(),
+          variant: "error"
+        }
+      })
+    );
     yield put(addWarbandError(e));
   }
 }
@@ -272,7 +296,6 @@ function* handleAddWarband(action) {
 function* watchSaveWarband() {
   yield takeEvery(saveWarband, handleSaveWarband);
 }
-
 
 function* watchGetWarbands() {
   yield takeEvery(getWarbands, handleGetWarbands);
@@ -284,9 +307,7 @@ function* watchRemoveWarband() {
 
 function* watchAddWarband() {
   yield takeEvery(addWarband, handleAddWarband);
-
 }
-
 
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
@@ -295,10 +316,9 @@ function* saga() {
     watchSaveWarband(),
     watchAddWarband(),
     watchRemoveWarband(),
-    watchGetWarbands(),
+    watchGetWarbands()
   ]);
 }
-
 
 export default {
   reducer,
@@ -307,6 +327,6 @@ export default {
     callGetWarbands,
     callRemoveWarband,
     callAddWarband,
-    callSetWarband,
-  },
+    callSetWarband
+  }
 };

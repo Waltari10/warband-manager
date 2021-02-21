@@ -39,7 +39,7 @@ const imageInlineSizeLimit = parseInt(
 );
 
 // Check if TypeScript is setup
-const useTypeScript = false;
+const useTypeScript = true;
 
 // style files regexes
 const cssRegex = /\.css$/;
