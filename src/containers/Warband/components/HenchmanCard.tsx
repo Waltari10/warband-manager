@@ -17,17 +17,21 @@ import { attributesArr, MAX_HENCHMEN } from '../constants';
 import { getHenchmanAdvancements } from '../helpers';
 import { Henchman } from '../../../ducks/warbands';
 
+import useStyles from '../styles';
+
+type Classes = ReturnType<typeof useStyles>
+
 interface Props {
-  classes: any;
+  classes: Classes;
   index: number;
   henchman: Henchman;
-  handleChange(e: any, henchmanId: string): void;
+  handleChange(henchman: Henchman, henchmanId: string): void;
   deleteHire(henchmanId: string): void;
   id: string;
   warbandType?: string;
 }
 
-const HenchmanCard = memo(
+const HenchmanCard: React.FunctionComponent<Props> = memo(
   ({
     classes,
     index,
@@ -36,7 +40,7 @@ const HenchmanCard = memo(
     deleteHire,
     id,
     warbandType,
-  }: Props) => {
+  }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleValueChange = e => {
@@ -265,6 +269,7 @@ const HenchmanCard = memo(
                 control={<Checkbox color="primary" />}
                 label="Is large creature"
                 labelPlacement="start"
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onChange={(e: any) => {
                   e.target.value = e.target.checked;
                   handleValueChange(e);
@@ -280,7 +285,7 @@ const HenchmanCard = memo(
                 label={'Gained exp'}
                 name="exp"
                 type="number"
-                className={`${classes.textfieldShort} ${classes.numberField}`}
+                className={classes.numberField}
                 inputProps={{
                   min: '0',
                 }}

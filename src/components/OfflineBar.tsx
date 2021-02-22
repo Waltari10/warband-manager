@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import Bar from './Bar';
 
-const OfflineBar = () => {
+const OfflineBar: React.FunctionComponent = () => {
 
   const [isOnline, setIsOnline] = useState(true);
   const theme = useTheme();

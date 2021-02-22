@@ -2,14 +2,20 @@ import React, { memo } from 'react';
 
 import { Grid, TextField, Typography } from '@material-ui/core';
 import { WarbandWealth } from '../../../ducks/warbands';
+import useStyles from '../styles';
+
+
+type Classes = ReturnType<typeof useStyles>
+
 
 interface Props {
-  classes?: any;
+  classes: Classes;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleChange(e: any): void;
   totalGoldValue?: number;
 }
 
-const WealthCard = memo(
+const WealthCard: React.FunctionComponent<Props & WarbandWealth> = memo(
   ({
     classes,
     handleChange,
@@ -17,7 +23,7 @@ const WealthCard = memo(
     goldCrowns,
     equipment,
     totalGoldValue,
-  }: Props & WarbandWealth) => {
+  }) => {
     return (
       <>
         <h5

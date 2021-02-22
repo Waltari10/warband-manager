@@ -1,24 +1,29 @@
 import React, { memo } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { StateProps } from './container';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Compoenent = React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Render = (props: RouteComponentProps<any>) => React.ReactNode;
 interface Props {
-  component?: any;
+  component?: Compoenent;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   location?: any;
-  render?: any;
-  path?: any;
+  render?: Render;
+  path?: string | string[];
 }
 
 
-const PrivateRoute = memo(
+const PrivateRoute: React.FunctionComponent<StateProps & Props> = memo(
   (
     {
       component,
       isLoading,
       isAuthorized,
       ...rest
-    }: StateProps & Props,
+    },
   ) => {
 
     const Component = component;

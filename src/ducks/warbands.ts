@@ -1,4 +1,4 @@
-import { put, takeEvery, all, call, select } from 'redux-saga/effects';
+import { put, takeEvery, all, call, select, AllEffect, ForkEffect } from 'redux-saga/effects';
 import { createReducer, createAction } from '@reduxjs/toolkit';
 import { captureException } from '@sentry/browser';
 import { path } from 'ramda';
@@ -10,7 +10,7 @@ import { enqueueSnackbar } from './notifier';
 
 // TODO: reduxjs/toolkit had an example on how to reduce redux boilerplate even further
 
-export const addPayload = payload => ({ payload });
+export const addPayload = (payload) => ({ payload });
 
 export const saveWarband = createAction('SAVE_WARBAND_START', addPayload);
 export const saveWarbandSuccess = createAction(
@@ -126,7 +126,7 @@ export interface WarbandsState {
   isError: boolean;
   isSuccess: boolean;
   warbandsIndex: string[];
-  error: Object | null;
+  error: Error | null;
   warbands: Record<string, Warband>;
   removeWarbandRequestState: string;
   addWarbandRequestState: string;
@@ -232,7 +232,7 @@ const reducer = createReducer(initialState, {
   },
 });
 
-const callSetWarband = (warband: Warband, uuid: string) => {
+const callSetWarband = (warband: Warband, uuid: string): Promise<void> => {
   return db
     .collection('users')
     .doc(uuid)
@@ -241,7 +241,7 @@ const callSetWarband = (warband: Warband, uuid: string) => {
     .set({ createdAt: firebase.firestore.Timestamp.now(), ...warband }); // This doesn't return document reference
 };
 
-const callAddWarband = (warband, uuid) => {
+const callAddWarband = (warband: Warband, uuid: string): Promise<Warband> => {
   return db
     .collection('users')
     .doc(uuid)
@@ -250,7 +250,7 @@ const callAddWarband = (warband, uuid) => {
 };
 
 // Api
-const callRemoveWarband = (warbandId, uuid) => {
+const callRemoveWarband = (warbandId: string, uuid: string): Promise<void> => {
   return db
     .collection('users')
     .doc(uuid)
@@ -259,7 +259,7 @@ const callRemoveWarband = (warbandId, uuid) => {
     .delete();
 };
 
-const callGetWarbands = uuid => {
+const callGetWarbands = (uuid: string): Promise<Record<string, Warband>> => {
   return db
     .collection('users')
     .doc(uuid)
@@ -389,7 +389,7 @@ function* watchAddWarband() {
 
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
-function* saga() {
+function* saga(): Generator<AllEffect<Generator<ForkEffect<never>, void, unknown>>, void, unknown> {
   yield all([
     watchSaveWarband(),
     watchAddWarband(),

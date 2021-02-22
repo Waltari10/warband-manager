@@ -1,6 +1,6 @@
 import { Hero, Henchman } from '../../ducks/warbands';
 
-const numberify = (s: string | number | null | undefined): number => {
+export const numberify = (s: string | number | null | undefined): number => {
   if (s === null || s === undefined) {
     return 0;
   } else if (typeof s === 'string') {
@@ -21,7 +21,7 @@ const numberify = (s: string | number | null | undefined): number => {
 export const getTotalExperience = (
   heroes: Record<string, Hero> = {},
   henchmen: Record<string, Henchman> = {},
-) => {
+): number => {
   let total = 0;
 
   Object.values(heroes).forEach(hero => {
@@ -86,7 +86,10 @@ export const getRatingFromMemberCount = (
   // TODO: add hired swords calculations
 };
 
-export const getRating = (heroes = {}, henchmen = {}) => {
+export const getRating = (
+  heroes: Record<string, Hero> = {},
+  henchmen: Record<string, Henchman> = {},
+): number => {
   return (
     getRatingFromMemberCount(heroes, henchmen) +
     getTotalExperience(heroes, henchmen)
@@ -128,10 +131,10 @@ advancementCache.set(heroAdvancementArr, {});
 // Calculate advancements only for starting exp
 // Subtract advancements from starting exp, from regular advancements
 
-const getAdvancementFactory = arr => exp => {
+const getAdvancementFactory = arr => (exp: undefined | number | string) => {
   let advancements = 0;
 
-  const expInt = parseInt(exp);
+  const expInt = numberify(exp);
 
   if (!expInt || isNaN(expInt)) {
     return advancements;
@@ -148,8 +151,8 @@ const getAdvancementFactory = arr => exp => {
 
 const _getHeroAdvancements = getAdvancementFactory(heroAdvancementArr);
 
-export const getHeroAdvancements = (exp, startingExp = 0) => {
-  const expInt = parseInt(exp);
+export const getHeroAdvancements = (exp: undefined | number | string, startingExp = 0): number => {
+  const expInt = numberify(exp);
   const startingExpInt =
     typeof startingExp === 'string' ? parseInt(startingExp) : startingExp;
 

@@ -22,22 +22,25 @@ import Dialog from '../../../components/Dialog';
 import { attributesArr, MAX_HEROES } from '../constants';
 import { getHeroAdvancements } from '../helpers';
 import unitTemplates, { heroIndexes } from '../../../assets/unitTemplates';
-// @ts-ignore
 import racialMaxes from '../../../assets/races.json';
 import { getWarbandSkills } from '../../../assets/skillParser';
 import { Hero } from '../../../ducks/warbands';
+import useStyles from '../styles';
+
+type Classes = ReturnType<typeof useStyles>
+
 
 interface Props {
   hero: Hero;
-  classes: any;
+  classes: Classes;
   index: number;
-  onValueChange(e: any, heroId: string): void;
+  onValueChange(hero: Hero, heroId: string): void;
   deleteHero(heroId: string): void;
   heroId: string;
   warbandType?: string;
 }
 
-const HeroCard = memo(
+const HeroCard: React.FunctionComponent<Props> = memo(
   ({
     hero,
     classes,
@@ -46,7 +49,7 @@ const HeroCard = memo(
     deleteHero,
     heroId,
     warbandType,
-  }: Props) => {
+  }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [autoFillHero, setAutoFillHero] = useState<Hero | null | undefined>(
       null,
@@ -243,9 +246,9 @@ const HeroCard = memo(
                 label="Available skills"
                 name="skillCategories"
                 onChange={handleValueChange}
-                // Update material-ui
-                // @ts-ignore
-                renderValue={selected => selected.join(', ')}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+                renderValue={(selected) => selected.join(', ')}
               >
                 {allSkills.map(skill => {
                   const isSelected = hero.skillCategories
@@ -307,6 +310,7 @@ const HeroCard = memo(
                 control={<Checkbox color="primary" />}
                 label="Is large creature"
                 labelPlacement="start"
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onChange={(e: any) => {
                   e.target.value = e.target.checked;
                   handleValueChange(e);

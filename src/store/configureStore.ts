@@ -22,7 +22,7 @@ function configureStoreProd() {
 
   const store = createStore(
     createRootReducer(),
-    {},
+    undefined,
     compose(applyMiddleware(...middlewares)),
   );
 
@@ -35,19 +35,16 @@ function configureStoreDev() {
   const middlewares = [reduxImmutableStateInvariant(), sagaMiddleware];
 
   const composeEnhancers =
-    //@ts-ignore
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
+    window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose || compose; // add support for Redux dev tools
   const store = createStore(
     createRootReducer(),
-    {},
+    undefined,
     composeEnhancers(applyMiddleware(...middlewares)),
   );
   sagaMiddleware.run(sagas);
 
-  //@ts-ignore
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    //@ts-ignore
     module.hot.accept('./rootReducer', () => {
       const nextRootReducer = require('./rootReducer').default; // eslint-disable-line global-require
       store.replaceReducer(nextRootReducer);

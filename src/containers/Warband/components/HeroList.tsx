@@ -5,12 +5,16 @@ import { v4 as uuid } from 'uuid';
 import AddIcon from '@material-ui/icons/Add';
 import HeroCard from './HeroCard';
 import { Hero } from '../../../ducks/warbands';
+import useStyles from '../styles';
+
+type Classes = ReturnType<typeof useStyles>
 
 const emptyObj = {};
 
+
 interface Props {
   heroIndex: string[];
-  classes: any;
+  classes: Classes;
   handleHeroChange(hero: Hero, heroId: string): void;
   heroes: Hero[];
   addHero(heroId: string): void;
@@ -18,7 +22,7 @@ interface Props {
   warbandType?: string;
 }
 
-const HeroList = memo(
+const HeroList: React.FunctionComponent<Props> = memo(
   ({
     heroIndex,
     classes,
@@ -27,7 +31,7 @@ const HeroList = memo(
     addHero,
     deleteHero,
     warbandType,
-  }: Props) => {
+  }) => {
     return (
       <>
         {heroIndex.map((heroId, index) => {

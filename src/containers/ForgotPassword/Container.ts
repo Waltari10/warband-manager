@@ -7,7 +7,7 @@ import * as actions from '../../ducks/user';
 export interface StateProps {
   sendResetPasswordEmailRequestState?: string;
   isAuthorized?: boolean;
-  error?: any;
+  error?: Error;
 }
 
 export interface DispatchProps {

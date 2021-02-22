@@ -18,18 +18,18 @@ interface Props {
   handleClose(): void;
   open?: boolean;
   title?: string;
-  dialog?: any;
+  dialog?: string;
   cancel?: string;
   confirm?: string;
-  handleConfirm(): void;
+  handleConfirm?(): void;
   isConfirm?: boolean;
   isCancel?: boolean;
 }
 
-const MyDialog = memo(({
+const MyDialog: React.FunctionComponent<Props> = memo(({
   handleClose, open = false, title, dialog, cancel, confirm,
   handleConfirm, isConfirm = true, isCancel = true,
-}: Props) => {
+}) => {
 
   const classes = useStyles();
 
@@ -44,12 +44,12 @@ const MyDialog = memo(({
     >
       <DialogTitle>{title} </DialogTitle>
       <DialogContent>
-        <DialogContentText
+        {!!dialog && <DialogContentText
           id="alert-dialog-description"
           dangerouslySetInnerHTML={{ __html: dialog }}
         >
           {/* {dialog} */}
-        </DialogContentText>
+        </DialogContentText>}
       </DialogContent>
       < DialogActions>
         {isCancel && <Button

@@ -35,7 +35,8 @@ interface Props {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-const AppWindow = ({ className, children, size }: Props) => {
+
+const AppWindow: React.FunctionComponent<Props> = ({ className, children, size }) => {
   const classes = useStyles();
 
   let width;

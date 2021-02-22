@@ -23,7 +23,7 @@ import theme from './styles/theme';
 
 const store = configureStore();
 
-function App() {
+function App(): React.FunctionComponentElement<void> {
   //   TODO: Remove inline styles
   return (
     <>

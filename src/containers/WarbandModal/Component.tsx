@@ -5,7 +5,7 @@ import * as constants from '../../constants';
 import Modal from '../../components/Modal';
 import Warband from '../Warband';
 
-import { DispatchProps, StateProps, NavProps } from './Container';
+import { DispatchProps, StateProps } from './Container';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -13,11 +13,17 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const WarbandModal = ({
+
+interface NavProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  match: any;
+}
+
+const WarbandModal: React.FunctionComponent<StateProps & DispatchProps & NavProps> = ({
   match,
   removeWarbandRequestState,
   removeWarbandReset,
-}: StateProps & DispatchProps & NavProps) => {
+}) => {
   const classes = useStyles();
 
   useEffect(() => {

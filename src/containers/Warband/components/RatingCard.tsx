@@ -9,14 +9,19 @@ import {
   getRating,
 } from '../helpers';
 import { Hero, Henchman } from '../../../ducks/warbands';
+import useStyles from '../styles';
+
+
+type Classes = ReturnType<typeof useStyles>
+
 
 interface Props {
-  classes: any;
+  classes: Classes;
   heroes?: Record<string, Hero>;
   henchmen?: Record<string, Henchman>;
 }
 
-const RatingCard = memo(({ classes, heroes, henchmen }: Props) => {
+const RatingCard: React.FunctionComponent<Props> = memo(({ classes, heroes, henchmen }) => {
   const [showHelp, setShowHelp] = useState(false);
 
   return (

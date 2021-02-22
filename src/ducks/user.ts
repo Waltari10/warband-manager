@@ -211,20 +211,27 @@ const reducer = createReducer(initialState, {
 });
 
 // Api
-const callSignupWithEmail = ({ email, password }) => {
+const callSignupWithEmail = ({
+  email, password }: {
+    email: string, password: string
+  }): Promise<firebase.auth.UserCredential> => {
   return firebase.auth().createUserWithEmailAndPassword(email, password);
 };
 
-const callSendResetPasswordEmail = email => {
+const callSendResetPasswordEmail = (email: string): Promise<void> => {
   const auth = firebase.auth();
   return auth.sendPasswordResetEmail(email);
 };
 
-const handleLogout = () => {
+const handleLogout = (): void => {
   firebase.auth().signOut();
 };
 
-const callLoginWithEmail = ({ email, password }) => {
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const callLoginWithEmail = ({ email, password }: {
+  email: string, password: string
+}) => {
   return firebase.auth().signInWithEmailAndPassword(email, password);
 };
 

@@ -10,7 +10,7 @@ export interface StateProps {
   isError?: boolean;
   isSuccess?: boolean;
   isAuthorized: boolean;
-  error?: any;
+  error?: Error;
 }
 
 function mapStateToProps(state): StateProps {

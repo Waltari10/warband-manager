@@ -3,23 +3,26 @@ import { Palette } from '@material-ui/core/styles/createPalette';
 
 const white = '#FFFFFF';
 
-//@ts-ignore
-const myPalette: Palette = {
-  // type: 'light',
 
-  //@ts-ignore
+const myPalette: Palette = {
+
   primary: {
     contrastText: white,
     main: '#3F3F3F',
+    light: 'red', // not used
+    dark: 'red', // not used
   },
   divider: 'rgba(0, 0, 0, 0.48)',
 
-  //@ts-ignore
-  background: '#F5F5F5',
+  background: {
+    default: '#F5F5F5',
+    paper: '#F5F5F5',
+  },
   text: {
     primary: '#3F3F3F',
     secondary: '#3F3F3F',
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     link: colors.blue[600],
   },

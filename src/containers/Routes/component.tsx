@@ -8,7 +8,11 @@ import WarbandModal from '../WarbandModal';
 import ForgotPassword from '../ForgotPassword';
 import OfflineBar from '../../components/OfflineBar';
 
-const Routes = ({ readSession }) => {
+interface Props {
+  readSession(): void;
+}
+
+const Routes: React.FunctionComponent<Props> = ({ readSession }) => {
 
   useEffect(() => {
     readSession();

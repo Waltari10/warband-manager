@@ -1,17 +1,21 @@
 import React, { memo } from 'react';
 import { Typography, Link } from '@material-ui/core';
 import { Henchman, Hero } from '../../../ducks/warbands';
+import useStyles from '../styles';
+
+
+type Classes = ReturnType<typeof useStyles>
 
 interface Props {
-  classes: any;
-  formScroll: any;
+  classes: Classes;
+  formScroll: React.MutableRefObject<null>;
   heroIndex: string[];
   heroes: Hero[];
   henchmen: Henchman[];
   henchmenIndex: string[];
 }
 
-const Navigation = memo(
+const Navigation: React.FunctionComponent<Props> = memo(
   ({
     classes,
     formScroll,
@@ -19,7 +23,7 @@ const Navigation = memo(
     heroes,
     henchmen,
     henchmenIndex,
-  }: Props) => {
+  }) => {
     return (
       <div className={classes.navigation}>
         <Typography className={classes.navigationTitle} variant="body1">
@@ -95,8 +99,7 @@ const Navigation = memo(
               >
                 {' '}
                 &#8594;{' '}
-                {`${hero.name || 'Nameless'}${
-                  hero.type ? ',' : ''
+                {`${hero.name || 'Nameless'}${hero.type ? ',' : ''
                 } ${hero.type || ''}`}
               </Link>
             </div>
@@ -128,8 +131,7 @@ const Navigation = memo(
                 }}
               >
                 &#8594;{' '}
-                {`${henchman.name || 'Nameless'}${
-                  henchman.type ? ',' : ''
+                {`${henchman.name || 'Nameless'}${henchman.type ? ',' : ''
                 } ${henchman.type || ''} (${henchman.count})`}
               </Link>
             </div>

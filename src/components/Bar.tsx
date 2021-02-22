@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Transition } from 'react-transition-group';
-import PropTypes from 'prop-types';
 
 
 const duration = 300;
@@ -39,10 +38,10 @@ const useStyles = makeStyles(() => {
 interface Props {
   isVisible?: boolean;
   bgColor?: string;
-  children?: any;
+  children?: unknown;
 }
 
-const Bar = ({ isVisible, bgColor, children }: Props) => {
+const Bar: React.FunctionComponent<Props> = ({ isVisible, bgColor, children }) => {
 
   const theme = useTheme();
   const classes = useStyles();

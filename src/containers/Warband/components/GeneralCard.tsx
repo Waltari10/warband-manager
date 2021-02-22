@@ -2,8 +2,11 @@ import React, { memo } from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Grid, TextField } from '@material-ui/core';
 
-// @ts-ignore
 import warbands from '../../../assets/warbands.json';
+import useStyles from '../styles';
+
+type Classes = ReturnType<typeof useStyles>
+
 
 export interface WarbandGeneral {
   name?: string;
@@ -12,18 +15,18 @@ export interface WarbandGeneral {
 }
 
 interface Props {
-  handleChange(e: any): void;
-  classes: any;
+  handleChange(e: unknown): void;
+  classes: Classes;
 }
 
-const GeneralCard = memo(
+const GeneralCard: React.FunctionComponent<Props & WarbandGeneral> = memo(
   ({
     classes,
     name,
     type,
     gamesPlayed,
     handleChange,
-  }: Props & WarbandGeneral) => {
+  }) => {
     return (
       <>
         <h5

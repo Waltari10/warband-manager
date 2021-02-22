@@ -11,8 +11,7 @@ const useStyles = makeStyles((theme) => {
     mainContainer: {
       height: '100%',
       position: 'relative',
-      //@ts-ignore
-      backgroundColor: theme.palette.appBackground,
+      // backgroundColor: theme.palette.appBackground, // TODO: does this even exist?
       zIndex: 1,
       display: 'flex',
       flexDirection: 'column',
@@ -70,16 +69,19 @@ const transitionStyles = {
 };
 
 interface Props {
-  children?: any;
+  children?: React.ReactNode | React.ReactNode[];
   title?: string;
   subtitle?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Icon?: any;
   renderContent?(): React.ReactNode;
   shouldClose?: boolean;
   className?: string;
 }
 
-const Modal = ({ children, title, subtitle, Icon, renderContent, shouldClose, className }: Props) => {
+const Modal: React.FunctionComponent<Props> = ({
+  children, title, subtitle, Icon, renderContent, shouldClose, className,
+}) => {
 
   const classes = useStyles();
 

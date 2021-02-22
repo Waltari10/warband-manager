@@ -13,9 +13,6 @@ export interface DispatchProps {
   removeWarbandReset(): void;
 }
 
-export interface NavProps {
-  match: any;
-}
 
 function mapStateToProps(state: RootState): StateProps {
   return {

@@ -1,7 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-export default makeStyles((theme: any) => {
+export default makeStyles((theme: Theme) => {
   return {
     navigationTitle: {
       marginTop: '16px',
@@ -63,7 +65,7 @@ export default makeStyles((theme: any) => {
     },
     viewContainer: {
       height: 'calc(100% - 48px)',
-      backgroundColor: theme.palette.background,
+      backgroundColor: theme.palette.background.default,
       display: 'flex',
       flexDirection: 'row',
     },

@@ -1,3 +1,6 @@
+
+declare module '*.json';
+
 // Fix image types
 declare module '*.png';
 declare module '*.png?include';

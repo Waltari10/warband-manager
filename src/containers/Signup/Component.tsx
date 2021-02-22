@@ -83,10 +83,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Login = ({
+const Login: React.FunctionComponent<StateProps & DispatchProps> = ({
   isLoading, isError, isSuccess, signupWithEmail,
   googleSignIn, isAuthorized, error, resetUser,
-}: StateProps & DispatchProps) => {
+}) => {
 
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');

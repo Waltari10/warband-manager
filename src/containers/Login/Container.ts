@@ -9,7 +9,7 @@ export interface StateProps {
   isError: boolean;
   isSuccess: boolean;
   isAuthorized: boolean;
-  error?: any;
+  error?: Error;
 }
 
 function mapStateToProps(state) {
@@ -31,7 +31,9 @@ export interface DispatchProps {
 
 
 function mapDispatchToProps(dispatch): DispatchProps {
-  return bindActionCreators({ googleSignIn: actions.googleSignIn, resetUser: actions.resetUser, loginWithEmail: actions.loginWithEmail }, dispatch);
+  return bindActionCreators({
+    googleSignIn: actions.googleSignIn, resetUser: actions.resetUser, loginWithEmail: actions.loginWithEmail,
+  }, dispatch);
 }
 
 export default connect(

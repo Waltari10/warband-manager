@@ -1,8 +1,13 @@
 import React from 'react';
 import Dialog from '../Dialog';
 
+interface Props {
+  handleClose(): void;
+  handleConfirm?(): void;
+  open: boolean;
+}
 
-const SupportContact = (props) => {
+const SupportContact: React.FunctionComponent<Props> = (props) => {
 
   return (
     <Dialog

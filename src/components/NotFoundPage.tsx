@@ -2,9 +2,10 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
+import { Theme } from '@material-ui/core';
 
 
-const useStyles = makeStyles((theme: any) => {
+const useStyles = makeStyles((theme: Theme) => {
 
   return {
     title: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme: any) => {
   };
 });
 
-const FlightPathNotFound = () => {
+const FlightPathNotFound: React.FunctionComponent = () => {
 
   const classes = useStyles();
 

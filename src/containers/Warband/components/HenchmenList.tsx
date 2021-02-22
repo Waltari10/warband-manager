@@ -6,19 +6,23 @@ import AddIcon from '@material-ui/icons/Add';
 import Card from './HenchmanCard';
 import { Henchman } from '../../../ducks/warbands';
 
+import useStyles from '../styles';
+
+type Classes = ReturnType<typeof useStyles>
+
 const emptyObj = {};
 
 interface Props {
   index: string[];
-  classes: any;
-  handleChange(e: any, henchmanId: string): void;
+  classes: Classes;
+  handleChange(henchman: Henchman, henchmanId: string): void;
   items: Henchman[];
   add(henchmanId: string): void;
   deleteHire(henchmanId: string): void;
   warbandType?: string;
 }
 
-const HenchmenList = memo(
+const HenchmenList: React.FunctionComponent<Props> = memo(
   ({
     index,
     classes,
@@ -27,7 +31,7 @@ const HenchmenList = memo(
     add,
     deleteHire,
     warbandType,
-  }: Props) => {
+  }) => {
     return (
       <>
         {index.map((id, index) => {

@@ -4,11 +4,11 @@ import Progress from '@material-ui/core/CircularProgress';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Menu from '@material-ui/core/Menu';
-import { Redirect } from 'react-router-dom';
+import { match as Match, Redirect } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import { Typography } from '@material-ui/core';
+import { Theme, Typography } from '@material-ui/core';
 
 import CreateWarbandDialog from './components/CreateWarbandDialog';
 import * as constants from '../../constants';
@@ -20,7 +20,7 @@ import WarbandListItem from './WarbandListItem';
 import { DispatchProps, StateProps } from './Container';
 
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   fabProgress: {
     marginTop: '7px',
   },
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: any) => ({
     flexDirection: 'column',
     height: '100%',
     width: '100%',
-    backgroundColor: theme.palette.background,
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     margin: '0 auto',
@@ -97,15 +97,15 @@ const useStyles = makeStyles((theme: any) => ({
 }));
 
 interface Props {
-  match: any;
+  match: Match;
 }
 
 
-const HomePage = ({
+const HomePage: React.FunctionComponent<StateProps & DispatchProps & Props> = ({
   isLoading, warbands = {}, getWarbands, match, logout, uid,
   warbandsIndex = [], addWarband, lastAddedWarbandId,
   addWarbandRequestState,
-}: StateProps & DispatchProps & Props) => {
+}) => {
 
   useEffect(() => {
     if (uid) {

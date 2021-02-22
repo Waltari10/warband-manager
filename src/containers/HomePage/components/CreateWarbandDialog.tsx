@@ -8,9 +8,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
-//@ts-ignore
 import warbands from '../../../assets/warbands.json';
-import { Warband } from '../../../ducks/warbands.js';
+import { Warband } from '../../../ducks/warbands';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,12 +36,12 @@ interface Props {
   addWarband(warband: Warband): void;
 }
 
-const CreateWarbandDialog = ({
+const CreateWarbandDialog: React.FunctionComponent<Props> = ({
   close, open, addWarband,
-}: Props) => {
+}) => {
 
 
-  const classes: any = useStyles();
+  const classes = useStyles();
 
   const [name, setName] = useState<string>('');
   const [type, setType] = useState<string>('');
@@ -85,9 +84,6 @@ const CreateWarbandDialog = ({
             freeSolo
             clearOnBlur
             className={classes.faction}
-            classes={{
-              groupUl: classes.groupUl,
-            }}
             options={warbands}
             onChange={(event, newValue) => {
               if (newValue) {

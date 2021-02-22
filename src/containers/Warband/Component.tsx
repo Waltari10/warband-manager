@@ -51,7 +51,7 @@ interface Props {
   getWarbands();
 }
 
-const WarbandPage = ({
+const WarbandPage: React.FunctionComponent<Props> = ({
   saveWarband,
   logout,
   warband = {},
@@ -60,10 +60,10 @@ const WarbandPage = ({
   isSuccessGetWarbands,
   addWarbandReset,
   getWarbands,
-}: Props) => {
+}) => {
   const formScroll = useRef(null);
 
-  const classes: any = useStyles();
+  const classes = useStyles();
 
   const [localWarband, setLocalWarband] = useState<Warband>({});
 

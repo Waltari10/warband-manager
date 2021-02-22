@@ -1,20 +1,22 @@
-const reduceSum = (total: number, unit: any = {}): number => {
-  const parsed = parseInt(unit.totalGoldValue);
-  const count = parseInt(unit.count);
+import { Henchman, Hero } from '../../ducks/warbands';
+import { numberify } from './helpers';
 
-  if (isNaN(parsed)) {
-    return total;
-  } else if (!isNaN(parsed) && !isNaN(count)) {
-    return total + parsed * count;
-  }
-  return total + parsed;
+const reduceHeroSum = (total: number, unit: Hero = {}): number => total + numberify(unit.totalGoldValue);
+
+
+const reduceHenchmanSum = (total: number, unit: Henchman = {}): number => {
+  const totalGoldValue = numberify(unit.totalGoldValue);
+  const count = numberify(unit.count);
+
+  return total + (totalGoldValue * count);
 };
 
-export const useTotalGoldValue = (heroes = {}, henchmen = {}) => {
-  // @ts-ignore
-  let sum = Object.values(heroes).reduce(reduceSum, 0);
-  // @ts-ignore
-  sum += Object.values(henchmen).reduce(reduceSum, 0);
+export const useTotalGoldValue = (
+  heroes: Record<string, Hero> = {},
+  henchmen: Record<string, Henchman> = {},
+): number => {
+  let sum = Object.values(heroes).reduce(reduceHeroSum, 0);
+  sum += Object.values(henchmen).reduce(reduceHenchmanSum, 0);
 
   return sum;
 };

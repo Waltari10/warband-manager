@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, match as Match } from 'react-router-dom';
 import ArrowRight from '@material-ui/icons/ArrowRight';
 import { Warband } from '../../ducks/warbands';
 
@@ -46,11 +46,11 @@ const useStyles = makeStyles((theme) => ({
 
 interface Props {
   id: string;
-  match: any;
+  match: Match;
   warband: Warband;
 }
 
-const WarbandListItem = ({ warband, match, id }: Props) => {
+const WarbandListItem: React.FunctionComponent<Props> = ({ warband, match, id }) => {
   const classes = useStyles();
 
   return (
