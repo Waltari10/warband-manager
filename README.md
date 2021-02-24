@@ -10,6 +10,10 @@ Unofficial Warband Manager provides clear UI, saving warbands into cloud, and en
 
 As Unofficial Warband Manager is an open-source projects, contributions are more than welcome. Feel free to clone and/or fork this repository, and make a pull request. Also submitting issues, testing and a lot of other activities are highly welcomed and beneficial. This project is licensed under the highly permissive MIT license.
 
+## Branches
+
+## How to release
+
 ## Trello board (features/tasks)
 
 https://trello.com/b/dScJQVUE/warband-manager
