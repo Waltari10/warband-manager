@@ -62,7 +62,7 @@ export interface Hero {
   type?: string | null;
   totalGoldValue?: number;
   skills_injuries_etc?: string;
-  skillCategories?: Array<string>;
+  skillCategories?: string[];
   equipment?: string;
   startingExp?: number;
   name?: string;

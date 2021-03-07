@@ -243,7 +243,7 @@ const callGoogleSign = async () => {
       .auth()
       .setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
-    return await firebase.auth().signInWithPopup(provider);
+    return firebase.auth().signInWithPopup(provider);
   }
 };
 
