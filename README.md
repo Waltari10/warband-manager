@@ -48,6 +48,25 @@ https://trello.com/b/dScJQVUE/warband-manager
 15. Copy paste config and paste it into src/utils/firebase.js in your cloned warbandmanager project in the DEVELOPMENT || TEST if clause
 16. You should be good to go! See if you can sign up with Google now.
 
+## Test deployments
+
+Test deployments can be mode from AWS Amplify console. Just request the current AWS admin Valtteri Laine, for a test version of your branch.
+
+## URL
+
+warbandmanager.com
+
+## AWS
+
+Hosted on Amplify in region US West (Oregon) us-west-2
+
+## Deployment to production
+
+Push to master.
+
+## Branches
+
+Master is for production.
 
 # React Create app documentation
 

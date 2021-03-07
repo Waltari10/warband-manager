@@ -1,0 +1,460 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Warband Should render (smoke test) 1`] = `
+<DocumentFragment>
+  <div
+    class="makeStyles-viewContainer-10"
+  >
+    <div
+      class="makeStyles-form-9"
+    >
+      <div
+        class="MuiPaper-root makeStyles-innerForm-8 MuiPaper-elevation1 MuiPaper-rounded"
+      >
+        <h5
+          class="MuiTypography-root makeStyles-title-14 MuiTypography-h5 MuiTypography-alignCenter"
+        >
+          No name
+        </h5>
+        <button
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-menuIcon-22"
+          id="warband-menu-button"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root makeStyles-whiteMenuIcon-23"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <div>
+          <h5
+            class="makeStyles-h5-2"
+            id="general_header"
+            style="padding-top: 24px; padding-bottom: 24px;"
+          >
+            <b>
+              General
+            </b>
+          </h5>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+            >
+              <div
+                class="MuiFormControl-root MuiTextField-root"
+                style="width: 100%;"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                  data-shrink="false"
+                  for="warband_name_textfield"
+                  id="warband_name_textfield-label"
+                >
+                  Warband name
+                </label>
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiOutlinedInput-input"
+                    id="warband_name_textfield"
+                    name="name"
+                    type="text"
+                    value=""
+                  />
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legendLabelled-41"
+                    >
+                      <span>
+                        Warband name
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+            >
+              autocomplete
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+            >
+              <div
+                class="MuiFormControl-root MuiTextField-root"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
+                  data-shrink="true"
+                >
+                  Games played
+                </label>
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiOutlinedInput-input"
+                    min="0"
+                    name="gamesPlayed"
+                    type="number"
+                    value="0"
+                  />
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legendLabelled-41 PrivateNotchedOutline-legendNotched-42"
+                    >
+                      <span>
+                        Games played
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr
+            class="MuiDivider-root makeStyles-divider-26"
+          />
+          <h5
+            class="makeStyles-h5-2"
+            id="wealth_header"
+            style="padding-top: 24px; padding-bottom: 24px;"
+          >
+            <b>
+              Wealth
+            </b>
+          </h5>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4"
+            >
+              <div>
+                <div
+                  class="MuiFormControl-root MuiTextField-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
+                    data-shrink="true"
+                  >
+                    Wyrdstone shards
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input"
+                      name="shards"
+                      type="number"
+                      value="0"
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-41 PrivateNotchedOutline-legendNotched-42"
+                      >
+                        <span>
+                          Wyrdstone shards
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="MuiFormControl-root MuiTextField-root"
+                  style="margin-top: 24px;"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
+                    data-shrink="true"
+                  >
+                    Gold crowns
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input"
+                      name="goldCrowns"
+                      type="number"
+                      value="0"
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-41 PrivateNotchedOutline-legendNotched-42"
+                      >
+                        <span>
+                          Gold crowns
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="MuiTypography-root MuiTypography-body1"
+                style="margin-top: 24px;"
+              >
+                Value: 0
+              </p>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 MuiGrid-grid-md-8"
+            >
+              <div
+                class="MuiFormControl-root MuiTextField-root"
+                style="width: 100%;"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                  data-shrink="false"
+                >
+                  Equipment
+                </label>
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+                >
+                  <textarea
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                    name="equipment"
+                    rows="1"
+                    style="height: 0px; overflow: hidden;"
+                  />
+                  <textarea
+                    aria-hidden="true"
+                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                    readonly=""
+                    style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
+                    tabindex="-1"
+                  />
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-39 MuiOutlinedInput-notchedOutline"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legendLabelled-41"
+                    >
+                      <span>
+                        Equipment
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr
+            class="MuiDivider-root makeStyles-divider-26"
+          />
+          <div
+            style="position: relative;"
+          >
+            <h5
+              class="makeStyles-h5-2"
+              id="rating_header"
+              style="padding-top: 24px;"
+            >
+              <b>
+                Rating
+              </b>
+            </h5>
+            <p
+              class="MuiTypography-root makeStyles-textFieldShort-17 MuiTypography-body1"
+            >
+              Total experience: 0
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              Members (0) x 5: 0
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              Rating: 0
+            </p>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-removeButton-5"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <hr
+            class="MuiDivider-root makeStyles-divider-26"
+          />
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-12 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            id="add_hero_button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              <span
+                class="MuiButton-startIcon MuiButton-iconSizeLarge"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                  />
+                </svg>
+              </span>
+              Add hero
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <hr
+            class="MuiDivider-root makeStyles-divider-26"
+          />
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-addHireButton-12 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            id="add_henchman_button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              <span
+                class="MuiButton-startIcon MuiButton-iconSizeLarge"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                  />
+                </svg>
+              </span>
+              Add henchman
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="makeStyles-navigation-6"
+    >
+      <p
+        class="MuiTypography-root makeStyles-navigationTitle-1 MuiTypography-body1"
+      >
+        <b>
+          Navigation
+        </b>
+      </p>
+      <div
+        class="makeStyles-navigationLink-7"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        >
+          → General
+        </a>
+      </div>
+      <div
+        class="makeStyles-navigationLink-7"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        >
+          → Wealth
+        </a>
+      </div>
+      <div
+        class="makeStyles-navigationLink-7"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        >
+          → Rating
+        </a>
+      </div>
+      <p
+        class="MuiTypography-root MuiTypography-body1"
+        style="margin-top: 16px; margin-bottom: 8px;"
+      >
+        <b>
+          Heroes
+        </b>
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-body1"
+        style="margin-top: 16px; margin-bottom: 8px;"
+      >
+        <b>
+          Henchmen
+        </b>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
