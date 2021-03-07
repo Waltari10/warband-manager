@@ -1,6 +1,6 @@
 {
   "name": "warband-manager",
-  "version": "v0.4.2",
+  "version": "v0.4.3",
   "private": true,
   "author": "Valtteri Laine",
   "dependencies": {
