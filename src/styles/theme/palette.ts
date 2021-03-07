@@ -6,11 +6,11 @@ const white = '#FFFFFF';
 
 const myPalette: Palette = {
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   primary: {
     contrastText: white,
     main: '#3F3F3F',
-    light: 'red', // not used
-    dark: 'red', // not used
   },
   divider: 'rgba(0, 0, 0, 0.48)',
 
