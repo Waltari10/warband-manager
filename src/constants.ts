@@ -4,4 +4,4 @@ export const SUCCESS = 'SUCCESS';
 export const APP_NAME = 'Unofficial Warband Manager Beta';
 export const LOGOUT = 'LOGOUT';
 
-export const appVersion = 'v0.4.2-beta';
+export const appVersion = 'v0.4.3-beta';

@@ -21,7 +21,7 @@ import { StateProps, DispatchProps } from './Container';
 const useStyles = makeStyles((theme) => ({
   header: {
     marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(12),
+    marginBottom: theme.spacing(8),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
   },
